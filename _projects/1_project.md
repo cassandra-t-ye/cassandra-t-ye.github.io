@@ -4,9 +4,38 @@ title: Learned Uncertainty Quantification
 description: 
 img: assets/img/proj_1/cover_img.png
 importance: 1
-category: work
+category: 
 related_publications: ye2023learned
 ---
+
+
+* [Cassandra Tong Ye](https://kristinamonakhova.com/)  
+    MIT
+* Jiashu Han  
+    Columbia University
+* Kunzan Liu  
+    MIT
+* [Anastasios Angelopoulos](https://people.eecs.berkeley.edu/~angelopoulos/)  
+    UC Berkeley
+* [Linda Griffith](https://lgglab.mit.edu/)  
+    MIT
+* [Kristina Monakhova](http://kristinamonakhova.com/)  
+    MIT
+* [Sixian You](https://sixianyou.mit.edu/)  
+    MIT
+
+* [![](https://github.com/cassandra-t-ye/Learned_Uncertainty_Quantification/blob/gh-pages/hosted_imgs/paper_front_page.png)<br>#### **Paper**](https://arxiv.org/abs/2310.16102)
+* [![](https://github.com/cassandra-t-ye/Learned_Uncertainty_Quantification/blob/gh-pages/hosted_imgs/github.png)<br>#### **Code**](https://github.com/cassandra-t-ye/Learned_Uncertainty_Quantification/)
+
+### Abstract
+
+Multiphoton microscopy (MPM) is a powerful imaging tool that has been a critical enabler for live tissue imaging. However, since most multiphoton microscopy platforms rely on point scanning, there is an inherent trade-off between acquisition time, field of view (FOV), phototoxicity, and image quality, often resulting in noisy measurements when fast, large FOV, and/or gentle imaging is needed. Deep learning could be used to denoise multiphoton microscopy measurements, but these algorithms can be prone to hallucination, which can be disastrous for medical and scientific applications. We propose a method to simultaneously denoise and predict pixel-wise uncertainty for multiphoton imaging measurements, improving algorithm trustworthiness and providing statistical guarantees for the deep learning predictions. Furthermore, we propose to leverage this learned, pixel-wise uncertainty to drive an adaptive acquisition technique that rescans only the most uncertain regions of a sample. We demonstrate our method on experimental noisy MPM measurements of human endometrium tissues, showing that we can maintain fine features and outperform other denoising methods while predicting uncertainty at each pixel. Finally, with our adaptive acquisition technique, we demonstrate a 120X reduction in acquisition time and total light dose while successfully recovering fine features in the sample. We are the first to demonstrate distribution-free uncertainty quantification for a denoising task with real experimental data and the first to propose adaptive acquisition based on reconstruction uncertainty.
+
+### Multiphoton Microscopy
+
+![](https://github.com/cassandra-t-ye/Learned_Uncertainty_Quantification/blob/gh-pages/hosted_imgs/multiphoton.png)
+
+Here we show our denoised 5-10fps videos taken at submillilux light levels with no external illumination.
 
 
 Multiphoton microscopy (MPM) is a form of laser-scanning microscopy based on nonlinear

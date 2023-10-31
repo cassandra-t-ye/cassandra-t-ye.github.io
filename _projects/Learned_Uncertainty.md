@@ -6,7 +6,7 @@ img: assets/img/proj_1/cover_img.png
 importance: 1
 related_publications: ye2023learned
 ---
-[Cassandra Tong Ye](https://kristinamonakhova.com/) (MIT), Jiashu Han (Columbia University), Kunzan Liu (MIT), [Anastasios Angelopoulos](https://people.eecs.berkeley.edu/~angelopoulos/) ( UC Berkeley), [Linda Griffith](https://lgglab.mit.edu/) (MIT), [Kristina Monakhova](http://kristinamonakhova.com/) (MIT), [Sixian You](https://sixianyou.mit.edu/) (MIT)
+[Cassandra Tong Ye](https://kristinamonakhova.com/), Jiashu Han, Kunzan Liu, [Anastasios Angelopoulos](https://people.eecs.berkeley.edu/~angelopoulos/), [Linda Griffith](https://lgglab.mit.edu/), [Kristina Monakhova](http://kristinamonakhova.com/), [Sixian You](https://sixianyou.mit.edu/)
 
 <div style="text-align: center;">
   <a href="https://github.com/cassandra-t-ye/Learned_Uncertainty_Quantification">

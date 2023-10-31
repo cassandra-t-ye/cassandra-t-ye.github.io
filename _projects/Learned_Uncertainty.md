@@ -31,55 +31,26 @@ related_publications: ye2023learned
 
 1. Massachusetts Institute of Technology -->
 
-<div class="row">
-            <div class="col-md-12 text-center">
-                <ul class="list-inline">
-                    <li>
-                        <a href="https://kristinamonakhova.com/">
-                          Cassandra Tong Ye
-                        </a>
-                        </br>MIT
-                    </li>
-                    <li>
-                        <a href=""></a>
-                          Jiashu Han
-                        </a>
-											</br>Columbia University
-                    </li>
-                    <li>
-                        <a href=""></a>
-                            Kunzan Liu
-                        </a>
-                        </br>MIT
-                    </li>
-                    <li>
-                        <a href="https://people.eecs.berkeley.edu/~angelopoulos/">
-                          Anastasios Angelopoulos
-                        </a>
-											</br>UC Berkeley
-                    </li>
-                    <li>
-                        <a href="https://lgglab.mit.edu/">
-                          Linda Griffith
-                        </a>
-											</br>MIT
-                    </li>
-                    <li>
-                        <a href="http://kristinamonakhova.com/">
-                          Kristina Monakhova
-                        </a>
-											</br>MIT
-                    </li>
-                    <li>
-                        <a href="https://sixianyou.mit.edu/">
-                          Sixian You
-                        </a>
-											</br>MIT
-                    </li>
+- [Cassandra Tong Ye](https://kristinamonakhova.com/)
+  MIT
 
-                </ul>
-            </div>
-        </div>
+- Jiashu Han
+  Columbia University
+
+- Kunzan Liu
+  MIT
+
+- [Anastasios Angelopoulos](https://people.eecs.berkeley.edu/~angelopoulos/)
+  UC Berkeley
+
+- [Linda Griffith](https://lgglab.mit.edu/)
+  MIT
+
+- [Kristina Monakhova](http://kristinamonakhova.com/)
+  MIT
+
+- [Sixian You](https://sixianyou.mit.edu/)
+  MIT
 
 <b>Abstract</b>
 

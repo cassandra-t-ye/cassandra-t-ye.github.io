@@ -20,16 +20,66 @@ related_publications: ye2023learned
 
 <div style="text-align: center;">
   <a href="https://github.com/cassandra-t-ye/Learned_Uncertainty_Quantification">
-    <img src="/assets/img/proj_1/github.png" alt="Github Repo" style="width: 70px; height: auto;">
-  </a>
+    <img src="/assets/img/proj_1/github.png" alt="Github Repo" style="width: 70px; height: auto; margin-right: 20px;">
+  </a>  
   <a href="https://arxiv.org/abs/2310.16102">
-    <img src="/assets/img/proj_1/paper_front_page.png" alt="Arxiv Paper" style="width: 70px; height: auto;">
+    <img src="/assets/img/proj_1/paper_front_page.png" alt="Arxiv Paper" style="width: 70px; height: auto; margin-left: 20px;">
   </a>
 </div>
 
-**Authors:** [Cassandra Tong Ye <sup>1</sup>](https://cassandra-t-ye.gtihub.io), Jiashu Han, Kunzan Liu, [Anastasios Angelopoulos](https://people.eecs.berkeley.edu/~angelopoulos/), [Linda Griffith](https://lgglab.mit.edu/), [Kristina Monakhova](http://kristinamonakhova.com/), [Sixian You](https://sixianyou.mit.edu/) 
+<!-- **Authors:** [Cassandra Tong Ye <sup>1</sup>](https://cassandra-t-ye.gtihub.io), Jiashu Han, Kunzan Liu, [Anastasios Angelopoulos](https://people.eecs.berkeley.edu/~angelopoulos/), [Linda Griffith](https://lgglab.mit.edu/), [Kristina Monakhova](http://kristinamonakhova.com/), [Sixian You](https://sixianyou.mit.edu/) 
 
-1. Massachusetts Institute of Technology
+1. Massachusetts Institute of Technology -->
+
+<div class="row">
+            <div class="col-md-12 text-center">
+                <ul class="list-inline">
+                    <li>
+                        <a href="https://kristinamonakhova.com/">
+                          Cassandra Tong Ye
+                        </a>
+                        </br>MIT
+                    </li>
+                    <li>
+                        <a href=""></a>
+                          Jiashu Han
+                        </a>
+											</br>Columbia University
+                    </li>
+                    <li>
+                        <a href=""></a>
+                            Kunzan Liu
+                        </a>
+                        </br>MIT
+                    </li>
+                    <li>
+                        <a href="https://people.eecs.berkeley.edu/~angelopoulos/">
+                          Anastasios Angelopoulos
+                        </a>
+											</br>UC Berkeley
+                    </li>
+                    <li>
+                        <a href="https://lgglab.mit.edu/">
+                          Linda Griffith
+                        </a>
+											</br>MIT
+                    </li>
+                    <li>
+                        <a href="http://kristinamonakhova.com/">
+                          Kristina Monakhova
+                        </a>
+											</br>MIT
+                    </li>
+                    <li>
+                        <a href="https://sixianyou.mit.edu/">
+                          Sixian You
+                        </a>
+											</br>MIT
+                    </li>
+
+                </ul>
+            </div>
+        </div>
 
 <b>Abstract</b>
 

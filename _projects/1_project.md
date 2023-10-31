@@ -2,20 +2,20 @@
 layout: page
 title: Learned, Uncertainty-driven Adaptive Acquisition
 for Photon-Efficient Multiphoton Microscopy
-author: 
-- [Cassandra Tong Ye](https://cassandra-t-ye.github.io) 
-- Jiashu Han
-- Kunzan Liu 
-- [Anastasios Angelopoulos](https://people.eecs.berkeley.edu/~angelopoulos/) 
-- [Linda Griffith](https://lgglab.mit.edu/) 
-- [Kristina Monakhova](http://kristinamonakhova.com/)
-- [Sixian You](https://sixianyou.mit.edu/)  
+# author: 
+# - [Cassandra Tong Ye](https://cassandra-t-ye.github.io) 
+# - Jiashu Han
+# - Kunzan Liu 
+# - [Anastasios Angelopoulos](https://people.eecs.berkeley.edu/~angelopoulos/) 
+# - [Linda Griffith](https://lgglab.mit.edu/) 
+# - [Kristina Monakhova](http://kristinamonakhova.com/)
+# - [Sixian You](https://sixianyou.mit.edu/)  
 img: assets/img/proj_1/cover_img.png
 importance: 1
 category: 
 related_publications: ye2023learned
 ---
-[![Paper](https://github.com/cassandra-t-ye/Learned_Uncertainty_Quantification/blob/gh-pages/hosted_imgs/paper_front_page.png)](https://arxiv.org/abs/2310.16102) [![Code](https://github.com/cassandra-t-ye/Learned_Uncertainty_Quantification/blob/gh-pages/hosted_imgs/github.png)](https://github.com/cassandra-t-ye/Learned_Uncertainty_Quantification/)
+[![Paper](assets/img/paper_front_page.png)](https://arxiv.org/abs/2310.16102) [![Code](https://github.com/cassandra-t-ye/Learned_Uncertainty_Quantification/blob/gh-pages/hosted_imgs/github.png)](https://github.com/cassandra-t-ye/Learned_Uncertainty_Quantification/)
 
 ### Abstract
 
@@ -23,15 +23,13 @@ Multiphoton microscopy (MPM) is a powerful imaging tool that has been a critical
 
 ### Multiphoton Microscopy
 
+
+Multiphoton microscopy (MPM) is a form of laser-scanning microscopy based on nonlinear
+interactions between ultrafast laser pulses and biological tissues. Since its first demonstration
+decades ago, MPM has become the imaging technique of choice for non-invasive imaging of
+thick or living samples.
+
 <div class="row">
-    <div class="col-sm mt-1 mt-md-0">
-        <p>
-            Multiphoton microscopy (MPM) is a form of laser-scanning microscopy based on nonlinear
-            interactions between ultrafast laser pulses and biological tissues. Since its first demonstration
-            decades ago, MPM has become the imaging technique of choice for non-invasive imaging of
-            thick or living samples.
-        </p>
-    </div>
     <div class="col-sm mt-1 mt-md-0">
         {% include figure.html path="assets/img/proj_1/img1.png" title="Multiphoton Microscopy" class="img-fluid rounded z-depth-1"%}
     </div>
@@ -42,6 +40,8 @@ Multiphoton microscopy (MPM) is a powerful imaging tool that has been a critical
 </div>
 
 ### Uncertainty Quantification
+
+
 
 
 <!-- You can also put regular text between your rows of images.

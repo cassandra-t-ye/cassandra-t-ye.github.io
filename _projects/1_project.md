@@ -27,25 +27,22 @@ Multiphoton microscopy (MPM) is a powerful imaging tool that has been a critical
 
 ### Multiphoton Microscopy
 
-![](https://github.com/cassandra-t-ye/Learned_Uncertainty_Quantification/blob/gh-pages/hosted_imgs/multiphoton.png)
-
-Here we show our denoised 5-10fps videos taken at submillilux light levels with no external illumination.
-
-
-Multiphoton microscopy (MPM) is a form of laser-scanning microscopy based on nonlinear
-interactions between ultrafast laser pulses and biological tissues. Since its first demonstration
-decades ago, MPM has become the imaging technique of choice for non-invasive imaging of
-thick or living samples.
-
 <div class="row">
     <div class="col-sm mt-1 mt-md-0">
-        {% include figure.html path="assets/img/proj_1/img1.png" title="Multiphoton Microscopy" class="img-fluid rounded z-depth-1" %}
+        <p>
+            Multiphoton microscopy (MPM) is a form of laser-scanning microscopy based on nonlinear
+            interactions between ultrafast laser pulses and biological tissues. Since its first demonstration
+            decades ago, MPM has become the imaging technique of choice for non-invasive imaging of
+            thick or living samples.
+        </p>
     </div>
-
+    <div class="col-sm mt-1 mt-md-0">
+        <img src="assets/img/proj_1/img1.png" alt="Multiphoton Microscopy" class="img-fluid rounded z-depth-1">
+    </div>
 </div>
 <div class="caption">
     Multiphoton microscopy (MPM) is a powerful imaging tool that has been a critical enabler for live
-tissue imaging.
+    tissue imaging.
 </div>
 
 You can also put regular text between your rows of images.

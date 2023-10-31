@@ -1,8 +1,8 @@
 ---
 layout: post
-date: 2016-01-15 07:59:00-0400
+date: 2023-10-12 07:59:00-0400
 inline: true
 related_posts: false
 ---
 
-A simple inline announcement with Markdown emoji! :sparkles: :smile:
+My project was accepted for a talk at [SPIE 2024](https://spie.org/PW24B/conferencedetails/computational-optical-imaging-and-artificial-intelligence-biomedical?enableBackToBrowse=true&SSO=1)

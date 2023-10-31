@@ -1,11 +1,11 @@
 ---
 layout: page
-title: project 1
-description: a project with a background image
-img: assets/img/12.jpg
+title: Learned Uncertainty Quantification
+description: 
+img: assets/img/proj_1/cover_img.png
 importance: 1
-category: work
-related_publications: einstein1956investigations, einstein1950meaning
+# category: work
+related_publications: ye2023learned
 ---
 
 Every project has a beautiful feature showcase page.

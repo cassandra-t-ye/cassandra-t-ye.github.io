@@ -1,7 +1,7 @@
 ---
 layout: page
-title: project 1
-description: Learned, Uncertainty-driven Adaptive Acquisition for Photon-Efficient Multiphoton Microscopy
+title: Learned, Uncertainty-driven Adaptive Acquisition for Photon-Efficient Multiphoton Microscopy
+description: 
 img: assets/img/proj_1/cover_img.png
 importance: 1
 related_publications: ye2023learned
@@ -15,7 +15,8 @@ related_publications: ye2023learned
 # - [Kristina Monakhova](http://kristinamonakhova.com/)
 # - [Sixian You](https://sixianyou.mit.edu/)   -->
 
-The repository for this project can be found [here](https://github.com/cassandra-t-ye/Learned_Uncertainty_Quantification).
+<!-- The repository for this project can be found [here]. -->
+[![A mushroom-head robot](/assets/proj_1/github.png 'Codey the Codecademy mascot')](https://github.com/cassandra-t-ye/Learned_Uncertainty_Quantification)
 
 <b>Abstract</b>
 

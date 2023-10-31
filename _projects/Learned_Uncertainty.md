@@ -16,7 +16,9 @@ related_publications: ye2023learned
 # - [Sixian You](https://sixianyou.mit.edu/)   -->
 
 <!-- The repository for this project can be found [here]. -->
-[![A mushroom-head robot](/assets/proj_1/github.png 'Codey the Codecademy mascot')](https://github.com/cassandra-t-ye/Learned_Uncertainty_Quantification)
+[![Github Repo](/assets/img/proj_1/github.png 'Codey the Codecademy mascot')](https://github.com/cassandra-t-ye/Learned_Uncertainty_Quantification)
+
+[Cassandra Tong Ye](https://cassandra-t-ye.gtihub.io), Jiashu Han, Kunzan Liu, [Anastasios Angelopoulos](https://people.eecs.berkeley.edu/~angelopoulos/), [Linda Griffith](https://lgglab.mit.edu/), [Kristina Monakhova](http://kristinamonakhova.com/), [Sixian You](https://sixianyou.mit.edu/) 
 
 <b>Abstract</b>
 

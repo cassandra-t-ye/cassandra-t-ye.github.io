@@ -1,7 +1,6 @@
 ---
 layout: page
-title: Learned, Uncertainty-driven Adaptive Acquisition
-for Photon-Efficient Multiphoton Microscopy
+title: Learned, Uncertainty-driven Adaptive Acquisition for Photon-Efficient Multiphoton Microscopy
 img: assets/img/proj_1/cover_img.png
 importance: 1
 related_publications: ye2023learned

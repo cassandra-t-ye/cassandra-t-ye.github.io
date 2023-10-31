@@ -1,11 +1,11 @@
 ---
 layout: page
-title: Learned, Uncertainty-driven Adaptive Acquisition for Photon-Efficient Multiphoton Microscopy
+title: project 1
+description: Learned, Uncertainty-driven Adaptive Acquisition for Photon-Efficient Multiphoton Microscopy
 img: assets/img/proj_1/cover_img.png
 importance: 1
 related_publications: ye2023learned
 ---
-
 <!-- # author: 
 # - [Cassandra Tong Ye](https://cassandra-t-ye.github.io) 
 # - Jiashu Han

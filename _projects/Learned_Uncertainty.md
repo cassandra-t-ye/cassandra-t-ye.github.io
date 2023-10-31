@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Learned, Uncertainty-driven Adaptive Acquisition for Photon-Efficient Multiphoton Microscopy
-description: 
+title: Uncertainty-driven Adaptive Acquisition 
+description: Learned, Uncertainty-driven Adaptive Acquisition for Photon-Efficient Multiphoton Microscopy
 img: assets/img/proj_1/cover_img.png
 importance: 1
 related_publications: ye2023learned
@@ -16,9 +16,18 @@ related_publications: ye2023learned
 # - [Sixian You](https://sixianyou.mit.edu/)   -->
 
 <!-- The repository for this project can be found [here]. -->
-[![Github Repo](/assets/img/proj_1/github.png 'Codey the Codecademy mascot')](https://github.com/cassandra-t-ye/Learned_Uncertainty_Quantification)
+<!-- [![Github Repo](/assets/img/proj_1/github.png')](https://github.com/cassandra-t-ye/Learned_Uncertainty_Quantification) -->
 
-[Cassandra Tong Ye](https://cassandra-t-ye.gtihub.io), Jiashu Han, Kunzan Liu, [Anastasios Angelopoulos](https://people.eecs.berkeley.edu/~angelopoulos/), [Linda Griffith](https://lgglab.mit.edu/), [Kristina Monakhova](http://kristinamonakhova.com/), [Sixian You](https://sixianyou.mit.edu/) 
+<a href="https://github.com/cassandra-t-ye/Learned_Uncertainty_Quantification">
+  <img src="/assets/img/proj_1/github.png" alt="Github Repo" style="width: 100px; height: auto;">
+</a>
+<a href="https://arxiv.org/abs/2310.16102">
+  <img src="/assets/img/proj_1/paper_front_page.png" alt="Arxiv Paper" style="width: 100px; height: auto;">
+</a>
+
+**Authors:** [Cassandra Tong Ye <sup>1<sup>](https://cassandra-t-ye.gtihub.io), Jiashu Han, Kunzan Liu, [Anastasios Angelopoulos](https://people.eecs.berkeley.edu/~angelopoulos/), [Linda Griffith](https://lgglab.mit.edu/), [Kristina Monakhova](http://kristinamonakhova.com/), [Sixian You](https://sixianyou.mit.edu/) 
+
+1. Massachusetts Institute of Technology
 
 <b>Abstract</b>
 

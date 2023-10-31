@@ -15,14 +15,13 @@ importance: 1
 category: 
 related_publications: ye2023learned
 ---
-[![Paper](assets/img/paper_front_page.png)](https://arxiv.org/abs/2310.16102) [![Code](https://github.com/cassandra-t-ye/Learned_Uncertainty_Quantification/blob/gh-pages/hosted_imgs/github.png)](https://github.com/cassandra-t-ye/Learned_Uncertainty_Quantification/)
 
-### Abstract
+**Abstract**
 
 Multiphoton microscopy (MPM) is a powerful imaging tool that has been a critical enabler for live tissue imaging. However, since most multiphoton microscopy platforms rely on point scanning, there is an inherent trade-off between acquisition time, field of view (FOV), phototoxicity, and image quality, often resulting in noisy measurements when fast, large FOV, and/or gentle imaging is needed. Deep learning could be used to denoise multiphoton microscopy measurements, but these algorithms can be prone to hallucination, which can be disastrous for medical and scientific applications. We propose a method to simultaneously denoise and predict pixel-wise uncertainty for multiphoton imaging measurements, improving algorithm trustworthiness and providing statistical guarantees for the deep learning predictions. Furthermore, we propose to leverage this learned, pixel-wise uncertainty to drive an adaptive acquisition technique that rescans only the most uncertain regions of a sample. We demonstrate our method on experimental noisy MPM measurements of human endometrium tissues, showing that we can maintain fine features and outperform other denoising methods while predicting uncertainty at each pixel. Finally, with our adaptive acquisition technique, we demonstrate a 120X reduction in acquisition time and total light dose while successfully recovering fine features in the sample. We are the first to demonstrate distribution-free uncertainty quantification for a denoising task with real experimental data and the first to propose adaptive acquisition based on reconstruction uncertainty.
 
-### Multiphoton Microscopy
 
+**Multiphoton Microscopy**
 
 Multiphoton microscopy (MPM) is a form of laser-scanning microscopy based on nonlinear
 interactions between ultrafast laser pulses and biological tissues. Since its first demonstration

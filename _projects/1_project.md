@@ -1,31 +1,25 @@
 ---
 layout: page
-title: Learned Uncertainty Quantification
-description: 
+title: Learned, Uncertainty-driven Adaptive Acquisition
+for Photon-Efficient Multiphoton Microscopy
+author: 
+- [Cassandra Tong Ye](https://cassandra-t-ye.github.io) 
+- Jiashu Han
+- Kunzan Liu 
+- [Anastasios Angelopoulos](https://people.eecs.berkeley.edu/~angelopoulos/) 
+- [Linda Griffith](https://lgglab.mit.edu/) 
+- [Kristina Monakhova](http://kristinamonakhova.com/)
+- [Sixian You](https://sixianyou.mit.edu/)  
 img: assets/img/proj_1/cover_img.png
 importance: 1
 category: 
 related_publications: ye2023learned
 ---
+Learned, Uncertainty-Driven Adaptive Acquisition  
+for Photon-Efficient Multiphoton Microscopy  
 
-
-* [Cassandra Tong Ye](https://kristinamonakhova.com/)  
-    MIT
-* Jiashu Han  
-    Columbia University
-* Kunzan Liu  
-    MIT
-* [Anastasios Angelopoulos](https://people.eecs.berkeley.edu/~angelopoulos/)  
-    UC Berkeley
-* [Linda Griffith](https://lgglab.mit.edu/)  
-    MIT
-* [Kristina Monakhova](http://kristinamonakhova.com/)  
-    MIT
-* [Sixian You](https://sixianyou.mit.edu/)  
-    MIT
-
-* [![](https://github.com/cassandra-t-ye/Learned_Uncertainty_Quantification/blob/gh-pages/hosted_imgs/paper_front_page.png)<br>#### **Paper**](https://arxiv.org/abs/2310.16102)
-* [![](https://github.com/cassandra-t-ye/Learned_Uncertainty_Quantification/blob/gh-pages/hosted_imgs/github.png)<br>#### **Code**](https://github.com/cassandra-t-ye/Learned_Uncertainty_Quantification/)
+-------------------------------------------------------------------------------------------------
+[![Paper](https://github.com/cassandra-t-ye/Learned_Uncertainty_Quantification/blob/gh-pages/hosted_imgs/paper_front_page.png)](https://arxiv.org/abs/2310.16102) [![Code](https://github.com/cassandra-t-ye/Learned_Uncertainty_Quantification/blob/gh-pages/hosted_imgs/github.png)](https://github.com/cassandra-t-ye/Learned_Uncertainty_Quantification/)
 
 ### Abstract
 

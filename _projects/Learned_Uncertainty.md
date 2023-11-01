@@ -19,7 +19,7 @@ related_publications: ye2023learned
 
 <!-- **Authors:** [Cassandra Tong Ye <sup>1</sup>](https://cassandra-t-ye.gtihub.io), Jiashu Han, Kunzan Liu, [Anastasios Angelopoulos](https://people.eecs.berkeley.edu/~angelopoulos/), [Linda Griffith](https://lgglab.mit.edu/), [Kristina Monakhova](http://kristinamonakhova.com/), [Sixian You](https://sixianyou.mit.edu/) 
 -->
-
+<p>
 <b>Abstract</b>
 <div class="row">
     <div class="col-md-12" style="text-align: center;"> 
@@ -30,7 +30,8 @@ related_publications: ye2023learned
 
     </div>
 </div>
-
+</p>
+<p>
 <b>Intro to Multiphoton Microscopy</b>
 <div class="row">
     <div class="col-md-6">
@@ -45,29 +46,31 @@ related_publications: ye2023learned
         </div>
     </div>
 </div>
-
+</p>
+<p>
 <b>Uncertainty Quantification and Our Proposed Method</b>
 <div class="row">
-    <div class="col-md-6">
-        {% include figure.html path="assets/img/proj_1/fig_1_summary.png" title="Fig. 1 Summary" class="img-fluid rounded z-depth-1" style="width: 180px; height: auto;"%}
+    <div class="col-md-12">
+        {% include figure.html path="assets/img/proj_1/fig_1_summary.png" title="Fig. 1 Summary" class="img-fluid rounded z-depth-1" style="width: 400px; height: auto;"%}
         <div class="caption" style="text-align: left;">
-           **(a) Uncertainty-based Adaptive Imaging**: A noisy measurement is acquired with a scanning multiphoton microscope (MPM) and passed into a deep learning model that predicts a denoised image and its associated pixel-wise uncertainty. Subsequently, the top N uncertain pixels are selected for a rescan, obtaining more measurements at only the uncertain regions. As more adaptive measurements are taken, the deep learning model predicts a denoised image with lower uncertainty. Scan duration andpower are minimized, limiting sample damage while maintaining high confidence in the model prediction.**(b) Rescanning Process**: Given a pixel-wise uncertainty prediction, regions with high uncertainty can be selected for rescanning. Only this patch of pixels will be rescanned in the sample, and this patch, superimposed with the original, becomes an additional channel that is fed into the model.
+           <b>(a) Uncertainty-based Adaptive Imaging</b>: A noisy measurement is acquired with a scanning multiphoton microscope (MPM) and passed into a deep learning model that predicts a denoised image and its associated pixel-wise uncertainty. Subsequently, the top N uncertain pixels are selected for a rescan, obtaining more measurements at only the uncertain regions. As more adaptive measurements are taken, the deep learning model predicts a denoised image with lower uncertainty. Scan duration andpower are minimized, limiting sample damage while maintaining high confidence in the model prediction.<b>(b) Rescanning Process</b>: Given a pixel-wise uncertainty prediction, regions with high uncertainty can be selected for rescanning. Only this patch of pixels will be rescanned in the sample, and this patch, superimposed with the original, becomes an additional channel that is fed into the model.
         </div>
     </div>
 
-    <div class="col-md-6">
+    <div class="col-md-12">
         Deep learning (DL) based methods have shown exciting results for denoising extremely noisy
         images in microscopy, however, they still produce hallucinations. To counter this uncertainty quantification techniques can help catch model hallucinations and improve the
         robustness of deep learning methods.
 
         We demonstrate distribution-free uncertainty quantification for MPM denoising
-        and **propose an adaptive microscopy imaging pipeline** informed by uncertainty quantification.   
+        and <b>propose an adaptive microscopy imaging pipeline</b> informed by uncertainty quantification.   
 
         This pipeline leverages the learned uncertainty to drive adaptive
         acquisition: we capture more measurements of our sample only at the most uncertain regions
         rather than rescanning the whole sample.     
     </div>
 </div>
+</p>
 
 
 

@@ -98,11 +98,11 @@ related_publications: ye2023learned
 </div>
 
 
-<div class="row" style="margin-top: 20px;">
+<div class="row">
     <div class="col-md-12">
         <b style="font-size: 24px;">Bibtex Citation</b>
         <div class="form-group col-md-10 col-md-offset-1">
-            <textarea id="bibtex" class="form-control" readonly style="overflow: auto;">
+            <textarea id="bibtex" class="form-control" readonly style="overflow: hidden;">
                 @article{ye2023learned,
                 title = {Learned, Uncertainty-driven Adaptive Acquisition for Photon-Efficient Multiphoton Microscopy},
                 author = {Ye, Cassandra Tong and Han, Jiashu and Liu, Kunzan and Angelopoulos, Anastasios and Griffith, Linda and Monakhova, Kristina and You, Sixian},

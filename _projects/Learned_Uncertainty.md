@@ -49,7 +49,7 @@ related_publications: ye2023learned
 <b>Uncertainty Quantification and Our Proposed Method</b>
 <div class="row">
     <div class="col-md-6">
-        {% include figure.html path="assets/img/proj_1/fig_1_summar.png" title="Fig. 1 Summary" class="img-fluid rounded z-depth-1" style="width: 180px; height: auto;%}
+        {% include figure.html path="assets/img/proj_1/fig_1_summary.png" title="Fig. 1 Summary" class="img-fluid rounded z-depth-1" style="width: 180px; height: auto;%}
         <div class="caption" style="text-align: left;">
            **(a) Uncertainty-based Adaptive Imaging**: A noisy measurement is acquired with a scanning multiphoton microscope (MPM) and passed into a deep learning model that predicts a denoised image and its associated pixel-wise uncertainty. Subsequently, the top N uncertain pixels are selected for a rescan, obtaining more measurements at only the uncertain regions. As more adaptive measurements are taken, the deep learning model predicts a denoised image with lower uncertainty. Scan duration andpower are minimized, limiting sample damage while maintaining high confidence in the model prediction.**(b) Rescanning Process**: Given a pixel-wise uncertainty prediction, regions with high uncertainty can be selected for rescanning. Only this patch of pixels will be rescanned in the sample, and this patch, superimposed with the original, becomes an additional channel that is fed into the model.
         </div>

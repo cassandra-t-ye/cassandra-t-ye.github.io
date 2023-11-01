@@ -40,7 +40,7 @@ horizontal: false
   {%- assign sorted_projects = site.projects | sort: "importance" -%}
   <!-- Generate cards for each project -->
   {% if page.horizontal -%}
-  <div class="container">
+  <div class="container-fluid">
     <div class="row row-cols-2">
     {%- for project in sorted_projects -%}
       {% include projects_horizontal.html %}
@@ -48,7 +48,8 @@ horizontal: false
     </div>
   </div>
   {%- else -%}
-  <div class="grid">
+  <!-- <div class="grid"> -->
+  <div class = "container-fluid">
     {%- for project in sorted_projects -%}
       {% include projects.html %}
     {%- endfor %}

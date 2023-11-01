@@ -41,7 +41,7 @@ horizontal: false
   <!-- Generate cards for each project -->
   {% if page.horizontal -%}
   <div class="container-fluid">
-    <div class="row row-cols-5">
+    <div class="row row-cols-12">
     {%- for project in sorted_projects -%}
       {% include projects_horizontal.html %}
     {%- endfor %}
@@ -49,7 +49,7 @@ horizontal: false
   </div>
   {%- else -%}
   <!-- <div class="grid"> -->
-  <div class = "container-fluid">
+  <div class = "row row-cols-12">
     {%- for project in sorted_projects -%}
       {% include projects.html %}
     {%- endfor %}

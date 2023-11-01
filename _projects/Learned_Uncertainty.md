@@ -22,8 +22,8 @@ related_publications: ye2023learned
 
 <b>Abstract</b>
 <div class="row">
-    <div class="col-md-12"> 
-        {% include figure.html path="assets/img/proj_1/teaser.gif" title="Multiphoton Microscopy" class="img-fluid rounded z-depth-1"%}
+    <div class="col-md-12" style="text-align: center;"> 
+        {% include figure.html path="assets/img/proj_1/teaser.gif" title="Multiphoton Microscopy" class="img-fluid rounded z-depth-1" style="height: 300px;"%}
     </div>
     <div class="col-md-12"> <!-- This will make the text take up 6 columns (half the width) on medium-sized screens -->
         Multiphoton microscopy (MPM) is a powerful imaging tool that has been a critical enabler for live tissue imaging. However, since most multiphoton microscopy platforms rely on point scanning, there is an inherent trade-off between acquisition time, field of view (FOV), phototoxicity, and image quality, often resulting in noisy measurements when fast, large FOV, and/or gentle imaging is needed. Deep learning could be used to denoise multiphoton microscopy measurements, but these algorithms can be prone to hallucination, which can be disastrous for medical and scientific applications. We propose a method to simultaneously denoise and predict pixel-wise uncertainty for multiphoton imaging measurements, improving algorithm trustworthiness and providing statistical guarantees for the deep learning predictions. Furthermore, we propose to leverage this learned, pixel-wise uncertainty to drive an adaptive acquisition technique that rescans only the most uncertain regions of a sample. We demonstrate our method on experimental noisy MPM measurements of human endometrium tissues, showing that we can maintain fine features and outperform other denoising methods while predicting uncertainty at each pixel. Finally, with our adaptive acquisition technique, we demonstrate a 120X reduction in acquisition time and total light dose while successfully recovering fine features in the sample. We are the first to demonstrate distribution-free uncertainty quantification for a denoising task with real experimental data and the first to propose adaptive acquisition based on reconstruction uncertainty.     
@@ -32,8 +32,8 @@ related_publications: ye2023learned
 
 
 
-<b>Intro to Multiphoton Microscopy</b>
 
+<b>Intro to Multiphoton Microscopy</b>
 <div class="row">
     <div class="col-md-6">
         Multiphoton microscopy (MPM) is a form of laser-scanning microscopy based on nonlinear interactions between ultrafast laser pulses and biological tissues. Since its first demonstration decades ago, MPM has become the imaging technique of choice for non-invasive imaging of thick or living samples. Owing to its unique advantage of imaging depth and subcellular resolution, MPM has been used extensively to measure calcium dynamics in deep scattering mouse brains in neuroscience and characterizing multicellular dynamics in immunology and cancer studies. Because of these unique advantages of MPM, it has made tremendous progress and become an increasingly popular tool for tissue and cell microscopy in neuroscience, immunology, and cancer research.

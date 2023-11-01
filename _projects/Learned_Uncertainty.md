@@ -27,7 +27,8 @@ related_publications: ye2023learned
 <!-- **Authors:** [Cassandra Tong Ye <sup>1</sup>](https://cassandra-t-ye.gtihub.io), Jiashu Han, Kunzan Liu, [Anastasios Angelopoulos](https://people.eecs.berkeley.edu/~angelopoulos/), [Linda Griffith](https://lgglab.mit.edu/), [Kristina Monakhova](http://kristinamonakhova.com/), [Sixian You](https://sixianyou.mit.edu/) 
 -->
 <div class="section">
-    <b>Abstract</b>
+    <b style="font-size: 24px;">Abstract</b>
+    
     <div class="row">
         <div class="col-md-12" style="text-align: center;"> 
             {% include figure.html path="assets/img/proj_1/teaser.gif" title="Multiphoton Microscopy" class="img-fluid rounded z-depth-1" style="height: 230px;"%}
@@ -40,7 +41,7 @@ related_publications: ye2023learned
 </div>
 
 <div class="section" style="margin-top: 20px;">
-    <b>Intro to Multiphoton Microscopy</b>
+    <b style="font-size: 24px;">Intro to Multiphoton Microscopy</b>
     <div class="row">
         <div class="col-md-6">
             Multiphoton microscopy (MPM) is a form of laser-scanning microscopy based on nonlinear interactions between ultrafast laser pulses and biological tissues. Since its first demonstration decades ago, MPM has become the imaging technique of choice for non-invasive imaging of thick or living samples. Owing to its unique advantage of imaging depth and subcellular resolution, MPM has been used extensively to measure calcium dynamics in deep scattering mouse brains in neuroscience and characterizing multicellular dynamics in immunology and cancer studies. Because of these unique advantages of MPM, it has made tremendous progress and become an increasingly popular tool for tissue and cell microscopy in neuroscience, immunology, and cancer research.
@@ -56,30 +57,34 @@ related_publications: ye2023learned
     </div>
 </div>
 
-<b>Uncertainty Quantification and Our Proposed Method</b>
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-    <embed src="assets/img/proj_1/fig_1_summary.pdf" type="application/pdf" width="500" height="600">
-    <div class="caption" style="text-align: left;">
-        <b>(a) Uncertainty-based Adaptive Imaging</b>: A noisy measurement is acquired with a scanning multiphoton microscope (MPM) and passed into a deep learning model that predicts a denoised image and its associated pixel-wise uncertainty. Subsequently, the top N uncertain pixels are selected for a rescan, obtaining more measurements at only the uncertain regions. As more adaptive measurements are taken, the deep learning model predicts a denoised image with lower uncertainty. Scan duration and power are minimized, limiting sample damage while maintaining high confidence in the model prediction.
-        <b>(b) Rescanning Process</b>: Given a pixel-wise uncertainty prediction, regions with high uncertainty can be selected for rescanning. Only this patch of pixels will be rescanned in the sample, and this patch, superimposed with the original, becomes an additional channel that is fed into the model.
+<div class="section" style="margin-top: 20px;">
+    <b style="font-size: 24px;">Uncertainty Quantification and Our Proposed Method</b>
+    <div class="row">
+        <div class="col-sm mt-3 mt-md-0">
+        <embed src="assets/img/proj_1/fig_1_summary.pdf" type="application/pdf" width="500" height="600">
+        <div class="caption" style="text-align: left;">
+            <b>(a) Uncertainty-based Adaptive Imaging</b>: A noisy measurement is acquired with a scanning multiphoton microscope (MPM) and passed into a deep learning model that predicts a denoised image and its associated pixel-wise uncertainty. Subsequently, the top N uncertain pixels are selected for a rescan, obtaining more measurements at only the uncertain regions. As more adaptive measurements are taken, the deep learning model predicts a denoised image with lower uncertainty. Scan duration and power are minimized, limiting sample damage while maintaining high confidence in the model prediction.
+            <b>(b) Rescanning Process</b>: Given a pixel-wise uncertainty prediction, regions with high uncertainty can be selected for rescanning. Only this patch of pixels will be rescanned in the sample, and this patch, superimposed with the original, becomes an additional channel that is fed into the model.
+        </div>
+    </div>
+
+        <div class="col-md-12">
+            Deep learning (DL) based methods have shown exciting results for denoising extremely noisy
+            images in microscopy, however, they still produce hallucinations. To counter this uncertainty quantification techniques can help catch model hallucinations and improve the
+            robustness of deep learning methods.
+
+            We demonstrate distribution-free uncertainty quantification for MPM denoising
+            and <b>propose an adaptive microscopy imaging pipeline</b> informed by uncertainty quantification.   
+
+            This pipeline leverages the learned uncertainty to drive adaptive
+            acquisition: we capture more measurements of our sample only at the most uncertain regions
+            rather than rescanning the whole sample.     
+        </div>
     </div>
 </div>
 
 
-    <div class="col-md-12">
-        Deep learning (DL) based methods have shown exciting results for denoising extremely noisy
-        images in microscopy, however, they still produce hallucinations. To counter this uncertainty quantification techniques can help catch model hallucinations and improve the
-        robustness of deep learning methods.
 
-        We demonstrate distribution-free uncertainty quantification for MPM denoising
-        and <b>propose an adaptive microscopy imaging pipeline</b> informed by uncertainty quantification.   
-
-        This pipeline leverages the learned uncertainty to drive adaptive
-        acquisition: we capture more measurements of our sample only at the most uncertain regions
-        rather than rescanning the whole sample.     
-    </div>
-</div>
 
 
 

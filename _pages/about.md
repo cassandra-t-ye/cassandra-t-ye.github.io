@@ -20,10 +20,10 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
 
-Hi, I'm Cassandra, and I'm currently a senior undergraduate at **MIT** studying **Computer Science and Engineering**. I've spent the past few semesters at the [Computational Biophotonics Lab](https://yougroup.mit.edu/), which is headed by [Sixian You](https://sixianyou.mit.edu/), working on optimizing computational algorithms for microscopy image reconstruction :test_tube::dna::microscope:
+Hi, I'm Cassandra, and I'm currently a senior undergraduate at MIT studying Computer Science and Engineering. I've spent the past few semesters at the [Computational Biophotonics Lab](https://yougroup.mit.edu/), which is headed by [Sixian You](https://sixianyou.mit.edu/), working on optimizing computational algorithms for microscopy image reconstruction :test_tube::dna::microscope:
 
 
-My current research interests are **computational imaging**, **optics**, and **computational photography**. If you're interested in collaborating or have any questions about my work at all, please don't hesitate to reach out!
+My current research interests are in **computational imaging**, **optics**, and **computational photography**. If you're interested in collaborating or have any questions about my work at all, please don't hesitate to reach out!
 
 
 <!-- Put your address / P.O. box / other info right below your picture. You can also disable any of these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.

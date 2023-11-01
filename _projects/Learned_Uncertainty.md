@@ -50,9 +50,9 @@ related_publications: ye2023learned
 </div>
 
 <b>Uncertainty Quantification and Our Proposed Method</b>
-<div class="row">
-    <div class="row">
-        {% include figure.html path="assets/img/proj_1/fig_1_summary.png" title="Fig. 1 Summary" class="img-fluid rounded z-depth-1"%}
+<div class="col-md-12">
+    <div class="col-md-12">
+        {% include figure.html path="assets/img/proj_1/fig_1_summary.png" title="Fig. 1 Summary" class="img-fluid rounded z-depth-1 style="width: 500px; height: auto;"%}
         <div class="caption" style="text-align: left;">
            <b>(a) Uncertainty-based Adaptive Imaging</b>: A noisy measurement is acquired with a scanning multiphoton microscope (MPM) and passed into a deep learning model that predicts a denoised image and its associated pixel-wise uncertainty. Subsequently, the top N uncertain pixels are selected for a rescan, obtaining more measurements at only the uncertain regions. As more adaptive measurements are taken, the deep learning model predicts a denoised image with lower uncertainty. Scan duration andpower are minimized, limiting sample damage while maintaining high confidence in the model prediction.<b>(b) Rescanning Process</b>: Given a pixel-wise uncertainty prediction, regions with high uncertainty can be selected for rescanning. Only this patch of pixels will be rescanned in the sample, and this patch, superimposed with the original, becomes an additional channel that is fed into the model.
         </div>
@@ -72,43 +72,3 @@ related_publications: ye2023learned
     </div>
 </div>
 
-
-
-
-
-
-<!-- You can also put regular text between your rows of images.
-Say you wanted to write a little bit about your project before you posted the rest of the images.
-You describe how you toiled, sweated, *bled* for your project, and then... you reveal its glory in the next row of images.
-
-
-<div class="row justify-content-sm-center">
-    <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.html path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm-4 mt-3 mt-md-0">
-        {% include figure.html path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    You can also have artistically styled 2/3 + 1/3 images, like these.
-</div>
-
-
-The code is simple.
-Just wrap your images with `<div class="col-sm">` and place them inside `<div class="row">` (read more about the <a href="https://getbootstrap.com/docs/4.4/layout/grid/">Bootstrap Grid</a> system).
-To make images responsive, add `img-fluid` class to each; for rounded corners and shadows use `rounded` and `z-depth-1` classes.
-Here's the code for the last row of images above:
-
-{% raw %}
-```html
-<div class="row justify-content-sm-center">
-    <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.html path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm-4 mt-3 mt-md-0">
-        {% include figure.html path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-```
-{% endraw %} -->

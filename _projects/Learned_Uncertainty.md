@@ -29,13 +29,17 @@ Multiphoton microscopy (MPM) is a powerful imaging tool that has been a critical
 <b>Intro to Multiphoton Microscopy</b>
 
 <div class="row">
-    <div class="col-md-6">
-        Multiphoton microscopy (MPM) is a form of laser-scanning microscopy based on nonlinear interactions between ultrafast laser pulses and biological tissues. Since its first demonstration decades ago, MPM has become the imaging technique of choice for non-invasive imaging of thick or living samples. Owing to its unique advantage of imaging depth and subcellular resolution, MPM has been used extensively to measure calcium dynamics in deep scattering mouse brains in neuroscience and characterizing multicellular dynamics in immunology and cancer studies. Because of these unique advantages of MPM, it has made tremendous progress and become an increasingly popular tool for tissue and cell microscopy in neuroscience, immunology, and cancer research.
+    <div class="col-md-6"> <!-- This will make the text take up 6 columns (half the width) on medium-sized screens -->
+        Multiphoton microscopy (MPM) is a form of laser-scanning microscopy based on nonlinear interactions between ultrafast laser pulses and biological tissues. Since its first demonstration decades ago, MPM has become the imaging technique of choice for non-invasive imaging of thick or living samples.  Owing to its unique advantage of imaging depth and subcellular resolution, MPM has been used extensively to measure calcium dynamics in deep scattering mouse brains in neuroscience and characterizing multicellular dynamics in immunology andcancer studies. Because of these unique advantages of MPM, it has made tremendous progress and become an increasingly popular tool for tissue and cell microscopy in neuroscience, immunology, and cancer research.
+
+        
     </div>
 
-    <div class="col-md-6">
-        ![Multiphoton Microscopy](assets/img/proj_1/mpm.png)
-        *Multiphoton microscopy (MPM) is a powerful imaging tool that has been a critical enabler for live tissue imaging.*
+    <div class="col-md-6"> 
+        {% include figure.html path="assets/img/proj_1/mpm.png" title="Multiphoton Microscopy" class="img-fluid rounded z-depth-1"%}
+    </div>
+    <div class="caption">
+            Multiphoton microscopy (MPM) is a powerful imaging tool that has been a critical enabler for live tissue imaging.
     </div>
 </div>
 

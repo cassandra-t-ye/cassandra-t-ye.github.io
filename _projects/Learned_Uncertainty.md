@@ -26,21 +26,21 @@ Multiphoton microscopy (MPM) is a powerful imaging tool that has been a critical
 
 
 
-<b>Multiphoton Microscopy</b>
-
-Multiphoton microscopy (MPM) is a form of laser-scanning microscopy based on nonlinear
-interactions between ultrafast laser pulses and biological tissues. Since its first demonstration
-decades ago, MPM has become the imaging technique of choice for non-invasive imaging of
-thick or living samples.
+<b>Intro to Multiphoton Microscopy</b>
 
 <div class="row">
-    <div class="col-sm mt-1 mt-md-0">
+    <div class="col-md-6"> <!-- This will make the image take up 6 columns (half the width) on medium-sized screens -->
         {% include figure.html path="assets/img/proj_1/img1.png" title="Multiphoton Microscopy" class="img-fluid rounded z-depth-1"%}
     </div>
-</div>
-<div class="caption">
-    Multiphoton microscopy (MPM) is a powerful imaging tool that has been a critical enabler for live
-    tissue imaging.
+    <div class="col-md-6"> <!-- This will make the text take up 6 columns (half the width) on medium-sized screens -->
+        <b>Intro to Multiphoton Microscopy</b>
+
+        Multiphoton microscopy (MPM) is a form of laser-scanning microscopy based on nonlinear interactions between ultrafast laser pulses and biological tissues. Since its first demonstration decades ago, MPM has become the imaging technique of choice for non-invasive imaging of thick or living samples.
+
+        <div class="caption">
+            Multiphoton microscopy (MPM) is a powerful imaging tool that has been a critical enabler for live tissue imaging.
+        </div>
+    </div>
 </div>
 
 

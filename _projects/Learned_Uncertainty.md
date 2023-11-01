@@ -9,12 +9,18 @@ related_publications: ye2023learned
 [Cassandra Tong Ye](https://kristinamonakhova.com/), Jiashu Han, Kunzan Liu, [Anastasios Angelopoulos](https://people.eecs.berkeley.edu/~angelopoulos/), [Linda Griffith](https://lgglab.mit.edu/), [Kristina Monakhova](http://kristinamonakhova.com/), [Sixian You](https://sixianyou.mit.edu/)
 
 <div style="text-align: center;">
-  <a href="https://github.com/cassandra-t-ye/Learned_Uncertainty_Quantification">
-    <img src="/assets/img/proj_1/github.png" alt="Github Repo" style="width: 70px; height: auto; margin-right: 20px;">
-  </a>  
-  <a href="https://arxiv.org/abs/2310.16102">
-    <img src="/assets/img/proj_1/paper_front_page.png" alt="Arxiv Paper" style="width: 70px; height: auto; margin-left: 20px;">
-  </a>
+  <div>
+    <a href="https://github.com/cassandra-t-ye/Learned_Uncertainty_Quantification">
+      <img src="/assets/img/proj_1/github.png" alt="Github Repo" style="width: 70px; height: auto; margin-right: 20px;">
+    </a>
+    <div class="caption">Github Repo</div>
+  </div>
+  <div>
+    <a href="https://arxiv.org/abs/2310.16102">
+      <img src="/assets/img/proj_1/paper_front_page.png" alt="Arxiv Paper" style="width: 70px; height: auto; margin-left: 20px;">
+    </a>
+    <div class="caption">Arxiv Paper</div>
+  </div>
 </div>
 
 <!-- **Authors:** [Cassandra Tong Ye <sup>1</sup>](https://cassandra-t-ye.gtihub.io), Jiashu Han, Kunzan Liu, [Anastasios Angelopoulos](https://people.eecs.berkeley.edu/~angelopoulos/), [Linda Griffith](https://lgglab.mit.edu/), [Kristina Monakhova](http://kristinamonakhova.com/), [Sixian You](https://sixianyou.mit.edu/) 

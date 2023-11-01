@@ -13,13 +13,13 @@ related_publications: ye2023learned
     <a href="https://github.com/cassandra-t-ye/Learned_Uncertainty_Quantification">
       <img src="/assets/img/proj_1/github.png" alt="Github Repo" style="width: 70px; height: auto; margin-right: 20px;">
     </a>
-    <div class="caption">Github Repo</div>
+    <div class="caption" style="text-align: center;">Github Repo</div>
   </div>
   <div style="display: inline-block;">
     <a href="https://arxiv.org/abs/2310.16102">
       <img src="/assets/img/proj_1/paper_front_page.png" alt="Arxiv Paper" style="width: 70px; height: auto; margin-left: 20px;">
     </a>
-    <div class="caption">Arxiv Paper</div>
+    <div class="caption" style="text-align: center;">Arxiv Paper</div>
   </div>
 </div>
 
@@ -59,12 +59,13 @@ related_publications: ye2023learned
 <b>Uncertainty Quantification and Our Proposed Method</b>
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/proj_1/fig_1_summary.png" title="Fig. 1 Summary" class="img-fluid rounded z-depth-1" width="500px" height="auto" %}
-
-        <div class="caption" style="text-align: left;">
-           <b>(a) Uncertainty-based Adaptive Imaging</b>: A noisy measurement is acquired with a scanning multiphoton microscope (MPM) and passed into a deep learning model that predicts a denoised image and its associated pixel-wise uncertainty. Subsequently, the top N uncertain pixels are selected for a rescan, obtaining more measurements at only the uncertain regions. As more adaptive measurements are taken, the deep learning model predicts a denoised image with lower uncertainty. Scan duration andpower are minimized, limiting sample damage while maintaining high confidence in the model prediction.<b>(b) Rescanning Process</b>: Given a pixel-wise uncertainty prediction, regions with high uncertainty can be selected for rescanning. Only this patch of pixels will be rescanned in the sample, and this patch, superimposed with the original, becomes an additional channel that is fed into the model.
-        </div>
+    <embed src="assets/img/proj_1/fig_1_summary.pdf" type="application/pdf" width="500" height="600">
+    <div class="caption" style="text-align: left;">
+        <b>(a) Uncertainty-based Adaptive Imaging</b>: A noisy measurement is acquired with a scanning multiphoton microscope (MPM) and passed into a deep learning model that predicts a denoised image and its associated pixel-wise uncertainty. Subsequently, the top N uncertain pixels are selected for a rescan, obtaining more measurements at only the uncertain regions. As more adaptive measurements are taken, the deep learning model predicts a denoised image with lower uncertainty. Scan duration and power are minimized, limiting sample damage while maintaining high confidence in the model prediction.
+        <b>(b) Rescanning Process</b>: Given a pixel-wise uncertainty prediction, regions with high uncertainty can be selected for rescanning. Only this patch of pixels will be rescanned in the sample, and this patch, superimposed with the original, becomes an additional channel that is fed into the model.
     </div>
+</div>
+
 
     <div class="col-md-12">
         Deep learning (DL) based methods have shown exciting results for denoising extremely noisy

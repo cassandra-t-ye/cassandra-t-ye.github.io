@@ -6,7 +6,7 @@ img: assets/img/proj_1/cover_img.png
 importance: 1
 related_publications: ye2023learned
 ---
-[Cassandra Tong Ye](https://kristinamonakhova.com/), Jiashu Han, Kunzan Liu, [Anastasios Angelopoulos](https://people.eecs.berkeley.edu/~angelopoulos/), [Linda Griffith](https://lgglab.mit.edu/), [Kristina Monakhova](http://kristinamonakhova.com/), [Sixian You](https://sixianyou.mit.edu/)
+[Cassandra Tong Ye](https://kristinamonakhova.com/), Jiashu Han, Kunzan Liu, [Anastasios Angelopoulos](https://people.eecs.berkeley.edu/~angelopoulos/), [Linda Griffith](https://lgglab.mit.edu/), [Kristina Monakhova](http://kristinamonakhova.com/) (MIT), [Sixian You](https://sixianyou.mit.edu/) (MIT)
 
 <div style="text-align: center;">
   <a href="https://github.com/cassandra-t-ye/Learned_Uncertainty_Quantification">
@@ -29,20 +29,19 @@ Multiphoton microscopy (MPM) is a powerful imaging tool that has been a critical
 <b>Intro to Multiphoton Microscopy</b>
 
 <div class="row">
-    <div class="col-md-6"> <!-- This will make the image take up 6 columns (half the width) on medium-sized screens -->
-        {% include figure.html path="assets/img/proj_1/img1.png" title="Multiphoton Microscopy" class="img-fluid rounded z-depth-1"%}
-    </div>
     <div class="col-md-6"> <!-- This will make the text take up 6 columns (half the width) on medium-sized screens -->
-        <b>Intro to Multiphoton Microscopy</b>
-
-        Multiphoton microscopy (MPM) is a form of laser-scanning microscopy based on nonlinear interactions between ultrafast laser pulses and biological tissues. Since its first demonstration decades ago, MPM has become the imaging technique of choice for non-invasive imaging of thick or living samples.
+        Multiphoton microscopy (MPM) is a form of laser-scanning microscopy based on nonlinear interactions between ultrafast laser pulses and biological tissues. Since its first demonstration decades ago, MPM has become the imaging technique of choice for non-invasive imaging of thick or living samples.  Owing to its unique advantage of imaging depth and subcellular resolution, MPM has been used extensively to measure calcium dynamics in deep scattering mouse brains in neuroscience and characterizing multicellular dynamics in immunology andcancer studies. Because of these unique advantages of MPM, it has made tremendous progress and become an increasingly popular tool for tissue and cell microscopy in neuroscience, immunology, and cancer research.
 
         <div class="caption">
             Multiphoton microscopy (MPM) is a powerful imaging tool that has been a critical enabler for live tissue imaging.
         </div>
     </div>
-</div>
 
+    <div class="col-md-6"> <!-- This will make the image take up 6 columns (half the width) on medium-sized screens -->
+        {% include figure.html path="assets/img/proj_1/img1.png" title="Multiphoton Microscopy" class="img-fluid rounded z-depth-1"%}
+    </div>
+    
+</div>
 
 
 **Uncertainty Quantification**

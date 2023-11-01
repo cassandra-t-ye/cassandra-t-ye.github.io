@@ -39,7 +39,7 @@ related_publications: ye2023learned
     </div>
 
     <div class="col-md-6">
-        {% include figure.html path="assets/img/proj_1/mpm.png" title="Multiphoton Microscopy" class="img-fluid rounded z-depth-1" style="width: 180px; height: auto;%}
+        {% include figure.html path="assets/img/proj_1/mpm.png" title="Multiphoton Microscopy" class="img-fluid rounded z-depth-1" style="width: 180px; height: auto;"%}
         <div class="caption" style="text-align: left;">
             Multiphoton microscopy (MPM) is a powerful imaging tool that has been a critical enabler for live tissue imaging.
         </div>

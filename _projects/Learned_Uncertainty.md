@@ -84,17 +84,23 @@ related_publications: ye2023learned
 </div>
 
 <div class="section" style="margin-top: 20px;">
-    <b style="font-size: 24px;">Results</b>
+    <b style="font-size: 24px;">Denoising Results</b>
+
+
+
+</div>
+
+<div class="section" style="margin-top: 20px;">
+    <b style="font-size: 24px;">Uncertainty and Adaptive Acquisition</b>
+
 
 
 </div>
 
 
 <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <h3>
-                    Bibtex Citation
-                </h3>
+            <div class="col-md-12">
+                <b style="font-size: 24px;">Bibtex Citation</b>
                 <div class="form-group col-md-10 col-md-offset-1">
                     <textarea id="bibtex" class="form-control" readonly>
                         @article{ye2023learned,

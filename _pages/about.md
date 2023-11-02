@@ -20,7 +20,7 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
 
-Hi, I'm Cassandra, and I'm currently a senior undergraduate at MIT studying Computer Science and Engineering. I've spent the past few semesters at the [Computational Biophotonics Lab](https://yougroup.mit.edu/), which is headed by [Sixian You](https://sixianyou.mit.edu/), working on optimizing computational algorithms for microscopy image reconstruction :test_tube::dna::microscope:
+Hi, I'm Cassandra, and I'm currently a senior undergraduate at MIT studying Computer Science and Engineering. I've spent the past few semesters at the [Computational Biophotonics Lab](https://yougroup.mit.edu/) headed by [Sixian You](https://sixianyou.mit.edu/), working on optimizing computational algorithms for microscopy image reconstruction :test_tube::dna::microscope:
 
 
 My current research interests are in **computational imaging**, **optics**, and **computational photography**. If you're interested in collaborating or have any questions about my work at all, please don't hesitate to reach out!

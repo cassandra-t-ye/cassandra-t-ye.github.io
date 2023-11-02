@@ -84,6 +84,11 @@ related_publications: ye2023learned
 
 <div class="section" style="margin-top: 20px;">
     <b style="font-size: 24px;">Denoising Results</b>
+    <div class="row">
+        <div class="col-sm mt-3 mt-md-0" style="text-align: center;">
+            {% include figure.html path="assets/img/proj_1/results_2.png" title="Fig. 1 Summary" class="img-fluid " width="180px" height="auto" %}        
+        </div>
+
         <div class="col-md-12">
             We evaluated our fine-tuned NAFNet model with learned uncertainty against BM3D (classical method), Noise2Self (self-supervised DL method), and pre-trained NAFNet (supervised DL method) for single-image denoising. Our method, which is fine-tuned with our SHG dataset, outperforms the other methods in terms of MSE and SSIM. Our fine-tuned model can reconstruct features that BM3D and its pre-trained version cannot. In the region highlighted by the <span class="green-text">green box</span>, our model recovers fine structures present in the ground truth that the other methods cannot.
 
@@ -92,10 +97,6 @@ related_publications: ye2023learned
             performance, we chose VBM4D (classic method) and FastDVDNet (deep method) as reference
             benchmarks for denoising sequences of frames. When comparing denoised results, it is evident
             that all the multi-image techniques outperform their single-image counterparts as expected.     
-        </div>
-        <div class="row">
-            <div class="col-sm mt-3 mt-md-0" style="text-align: center;">
-                {% include figure.html path="assets/img/proj_1/results_2.png" title="Denoising Results" class="img-fluid" style="width: 180px; height: auto;"%}     
         </div>
     </div>
 </div>

@@ -63,8 +63,7 @@ related_publications: ye2023learned
         <div class="col-sm mt-3 mt-md-0" style="text-align: center;">
             {% include figure.html path="assets/img/proj_1/fig_1_gif.gif" title="Fig. 1 Summary" class="img-fluid rounded z-depth-1" width="700px" height="auto" %}        
         <div class="caption" style="text-align: left;">
-            <b>(a) Uncertainty-based Adaptive Imaging</b>: A noisy measurement is acquired with a scanning multiphoton microscope (MPM) and passed into a deep learning model that predicts a denoised image and its associated pixel-wise uncertainty. Subsequently, the top N uncertain pixels are selected for a rescan, obtaining more measurements at only the uncertain regions. As more adaptive measurements are taken, the deep learning model predicts a denoised image with lower uncertainty. Scan duration and power are minimized, limiting sample damage while maintaining high confidence in the model prediction.
-            <b>(b) Rescanning Process</b>: Given a pixel-wise uncertainty prediction, regions with high uncertainty can be selected for rescanning. Only this patch of pixels will be rescanned in the sample, and this patch, superimposed with the original, becomes an additional channel that is fed into the model.
+            <b>Uncertainty-based Adaptive Imaging</b>: A noisy measurement is acquired with a scanning multiphoton microscope (MPM) and passed into a deep learning model that predicts a denoised image and its associated pixel-wise uncertainty. Subsequently, the top N uncertain pixels are selected for a rescan, obtaining more measurements at only the uncertain regions. As more adaptive measurements are taken, the deep learning model predicts a denoised image with lower uncertainty. Scan duration and power are minimized, limiting sample damage while maintaining high confidence in the model prediction.
         </div>
     </div>
 
@@ -85,8 +84,22 @@ related_publications: ye2023learned
 
 <div class="section" style="margin-top: 20px;">
     <b style="font-size: 24px;">Denoising Results</b>
+            <div class="col-md-6">
+                We evaluated our fine-tuned NAFNet model with learned uncertainty against BM3D (classical method), Noise2Self (self-supervised DL method), and pre-trained NAFNet (supervised DL method) for single-image denoising. Our method, which is fine-tuned with our SHG dataset, outperforms the other methods in terms of MSE and SSIM. Our fine-tuned model can reconstruct features that BM3D and its pre-trained version cannot. In the region highlighted by the <span class="green-text">green box</span>, our model recovers fine structures present in the ground truth that the other methods cannot.
 
+                Since leveraging multiple image measurements could enhance a model’s overall performance,
+                next we compare denoising performance against several multi-frame denoisers. To measure
+                performance, we chose VBM4D (classic method) and FastDVDNet (deep method) as reference
+                benchmarks for denoising sequences of frames. When comparing denoised results, it is evident
+                that all the multi-image techniques outperform their single-image counterparts as expected. 
+            </div>
+            <div class="col-md-6">
+                {% include figure.html path="assets/img/proj_1/results_3.png" title="Denoising Table" class="img-fluid rounded z-depth-1" style="width: 180px; height: auto;"%}
+            </div>
 
+            <div class="col-md-12">
+                {% include figure.html path="assets/img/proj_1/results_2.png" title="Denoising Results" class="img-fluid rounded z-depth-1" style="width: 180px; height: auto;"%}
+            </div>
 
 </div>
 

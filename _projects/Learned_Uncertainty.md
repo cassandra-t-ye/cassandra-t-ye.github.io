@@ -61,7 +61,7 @@ related_publications: ye2023learned
     <b style="font-size: 24px;">Uncertainty Quantification and Our Proposed Method</b>
     <div class="row">
         <div class="col-sm mt-3 mt-md-0" style="text-align: center;">
-            {% include figure.html path="assets/img/proj_1/fig_1_test.png" title="Fig. 1 Summary" class="img-fluid rounded z-depth-1" width="700px" height="auto" %}        
+            {% include figure.html path="assets/img/proj_1/fig_1_gif.gif" title="Fig. 1 Summary" class="img-fluid rounded z-depth-1" width="700px" height="auto" %}        
         <div class="caption" style="text-align: left;">
             <b>(a) Uncertainty-based Adaptive Imaging</b>: A noisy measurement is acquired with a scanning multiphoton microscope (MPM) and passed into a deep learning model that predicts a denoised image and its associated pixel-wise uncertainty. Subsequently, the top N uncertain pixels are selected for a rescan, obtaining more measurements at only the uncertain regions. As more adaptive measurements are taken, the deep learning model predicts a denoised image with lower uncertainty. Scan duration and power are minimized, limiting sample damage while maintaining high confidence in the model prediction.
             <b>(b) Rescanning Process</b>: Given a pixel-wise uncertainty prediction, regions with high uncertainty can be selected for rescanning. Only this patch of pixels will be rescanned in the sample, and this patch, superimposed with the original, becomes an additional channel that is fed into the model.
@@ -102,7 +102,7 @@ related_publications: ye2023learned
     <div class="col-md-12">
         <b style="font-size: 24px;">Bibtex Citation</b>
         <div class="form-group col-md-10 col-md-offset-1">
-            <textarea id="bibtex" class="form-control" readonly style="overflow: hidden;">
+            <textarea id="bibtex" class="form-control" readonly style="overflow: auto;">
                 @article{ye2023learned,
                 title = {Learned, Uncertainty-driven Adaptive Acquisition for Photon-Efficient Multiphoton Microscopy},
                 author = {Ye, Cassandra Tong and Han, Jiashu and Liu, Kunzan and Angelopoulos, Anastasios and Griffith, Linda and Monakhova, Kristina and You, Sixian},

@@ -86,7 +86,7 @@ related_publications: ye2023learned
     <b style="font-size: 24px;">Denoising Results</b>
     <div class="row">
         <div class="col-sm mt-3 mt-md-0" style="text-align: center;">
-            {% include figure.html path="assets/img/proj_1/results_2.png" title="Fig. 1 Summary" class="img-fluid " width="180px" height="auto" %}        
+            {% include figure.html path="assets/img/proj_1/results_2.png" title="Fig. 1 Summary" class="img-fluid "  %}        
         </div>
 
         <div class="col-md-12">

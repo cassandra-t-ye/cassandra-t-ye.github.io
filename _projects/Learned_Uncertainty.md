@@ -122,6 +122,30 @@ related_publications: ye2023learned
 
 <div class="section" style="margin-top: 20px;">
     <b style="font-size: 24px;">Learned Adaptive Acquisition</b>
+    <div class="row">
+        <div class="col-sm mt-3 mt-md-0" style="text-align: center;">
+            {% include figure.html path="assets/img/proj_1/results_4.png" title="Fig. 4 Rescan Percentages" class="img-fluid "  %}        
+        </div>
+
+        <div class="col-md-12">
+            To evaluate our uncertainty-informed adaptive acquisition, we compared the denoising and
+            uncertainty performance for several different uncertainty thresholds. After a measurement is
+            denoised, a new acquisition pattern is chosen based on a user-defined uncertainty threshold. This
+            is repeated for four subsequent acquisitions, each time acquiring new measurements only in the
+            areas of the sample that are too uncertain (i.e higher than the uncertainty threshold). Figure 5
+            shows the results of this sweep for a representative sample from our test set. Here, we see that
+            when the uncertainty threshold is lower (more pixels are rescanned), performance (based on
+            MSE, SSIM, and average uncertainty) is better, but the total scanning duration is higher. When
+            the threshold is higher and fewer than 40% of the pixels are rescanned, the performance drops
+            and fewer features are successfully recovered. For this sample, we found that an uncertainty
+            threshold corresponding to rescanning 57% of the sample minimizes total time and light dose
+            while maintaining denoising performance and successfully recovering fine features within the
+            sample.    
+        </div>
+        <div class="col-sm mt-3 mt-md-0" style="text-align: center;">
+            {% include figure.html path="assets/img/proj_1/results_5.png" title="Fig. 5 Visual UQ Rescan" class="img-fluid "  %}        
+        </div>
+    </div>
     
 </div>
 

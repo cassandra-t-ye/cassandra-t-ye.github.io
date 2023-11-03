@@ -104,16 +104,27 @@ related_publications: ye2023learned
 
 <div class="section" style="margin-top: 20px;">
     <b style="font-size: 24px;">Uncertainty Quantification</b>
+    <div class="row">
+        <div class="col-sm mt-3 mt-md-0" style="text-align: center;">
+            {% include figure.html path="assets/img/proj_1/results_3.png" title="Fig. 3 UQ" class="img-fluid"  %}        
+        <div class="caption" style="text-align: left;">
+            <b>Increasing measurements reduces uncertainty</b>: Results of single-image, three-image, and fiveimage denoising, showing the image prediction and predicted uncertainty. As the number of measurements increases, the predicted image more closely matches the ground truth, and the pixel-wise uncertainty
+            decreases.
+        </div>
+    </div>
 
-
-
+         <div class="col-md-12">
+            With more measurements, the predicted uncertainty of the network decreases, demonstrating
+            an increase in the confidence of the predicted image. We determined the display threshold
+            for all three uncertainty predictions by choosing the uncertainty interval linked to the top 5%
+            most uncertain pixels. <span class="red-text"> Red pixel regions </span>, indicate areas with larger uncertainty, whereas <span class="blue-text"> pixels appearing blue </span> represent lower uncertainty intervals. More importantly, as more fine structures are present, the uncertainty decreases.  This finding affirms that increasing measurements to our model not only improves denoising performance but also decreases the denoised prediction’s uncertainty. 
+        </div>
+    </div>
 </div>
 
 <div class="section" style="margin-top: 20px;">
     <b style="font-size: 24px;">Learned Adaptive Acquisition</b>
-
-
-
+    
 </div>
 
 

@@ -10,14 +10,14 @@ related_publications: ye2023learned
 
 <div style="text-align: center;">
   <div style="display: inline-block;">
-    <a href="https://github.com/cassandra-t-ye/Learned_Uncertainty_Quantification">
-      <img src="/assets/img/proj_1/github.png" alt="Github Repo" style="width: 70px; height: auto; margin-right: 20px; text-align: center;">
+    <a href="https://github.com/cassandra-t-ye/Learned_Uncertainty_Quantification" style="display: block; text-align: center;">
+        <img src="/assets/img/proj_1/github.png" alt="Github Repo" style="width: 70px; height: auto; margin-right: 20px; margin: 0 auto;">
     </a>
     <div class="caption" style="text-align: center;">Github Repo</div>
   </div>
   <div style="display: inline-block;">
-    <a href="https://arxiv.org/abs/2310.16102">
-      <img src="/assets/img/proj_1/paper_front_page.png" alt="Arxiv Paper" style="width: 70px; height: auto; margin-left: 20px; text-align: center;">
+    <a href="https://arxiv.org/abs/2310.16102" style="display: block; text-align: center;">
+        <img src="/assets/img/proj_1/paper_front_page.png" alt="Arxiv Paper" style="width: 70px; height: auto; margin-left: 20px; margin: 0 auto;">
     </a>
     <div class="caption" style="text-align: center;">Arxiv Paper</div>
   </div>

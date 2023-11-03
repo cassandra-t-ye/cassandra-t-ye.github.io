@@ -110,17 +110,17 @@ related_publications: ye2023learned
 </div>
 
 <div class="section" style="margin-top: 20px;">
-    <b style="font-size: 24px;">Adaptive Acquisition based on Uncertainty Quantification</b>
+    <b style="font-size: 24px;">Learned Adaptive Acquisition</b>
 
 
 
 </div>
 
 
-<div class="row">
+<div class="row" style="margin-top: 20px;">
     <div class="col-md-12">
-        <b style="margin-top font-size: 24px;">Bibtex Citation</b>
-        <div class="form-group col-md-12" style="text-align: left;">
+        <b style="font-size: 24px;">Bibtex Citation</b>
+        <div class="form-group col-md-12">
             <textarea id="bibtex" class="form-control" readonly>
             @article{ye2023learned,
                 title       = {Learned, Uncertainty-driven Adaptive Acquisition for Photon-Efficient Multiphoton Microscopy},

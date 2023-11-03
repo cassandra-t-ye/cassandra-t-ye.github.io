@@ -115,12 +115,12 @@ related_publications: ye2023learned
         <b style="font-size: 24px;">Bibtex Citation</b>
         <div class="form-group col-md-12" style="text-align: left;">
             <textarea id="bibtex" class="form-control" readonly>
-                    @article{ye2023learned,
-                        title       = {Learned, Uncertainty-driven Adaptive Acquisition for Photon-Efficient Multiphoton Microscopy},
-                        author      = {Ye, Cassandra Tong and Han, Jiashu and Liu, Kunzan and Angelopoulos, Anastasios and Griffith, Linda and  Monakhova, Kristina and You, Sixian},
-                        journal     = {arXiv preprint arXiv:2310.16102},
-                        year        = {2023}
-                }
+            @article{ye2023learned,
+                title       = {Learned, Uncertainty-driven Adaptive Acquisition for Photon-Efficient Multiphoton Microscopy},
+                author      = {Ye, Cassandra Tong and Han, Jiashu and Liu, Kunzan and Angelopoulos, Anastasios and Griffith, Linda and Monakhova, Kristina and You, Sixian},
+                journal     = {arXiv preprint arXiv:2310.16102},
+                year        = {2023}
+            }
             </textarea>
         </div>
     </div>

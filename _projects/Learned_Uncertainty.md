@@ -58,7 +58,7 @@ related_publications: ye2023learned
 </div>
 
 <div class="section" style="margin-top: 20px;">
-    <b style="font-size: 24px;">Uncertainty Quantification and Our Proposed Method</b>
+    <b style="font-size: 24px;">Proposed Method</b>
     <div class="row">
         <div class="col-sm mt-3 mt-md-0" style="text-align: center;">
             {% include figure.html path="assets/img/proj_1/fig_1_gif.gif" title="Fig. 1 Summary" class="img-fluid " width="700px" height="auto" %}        
@@ -103,7 +103,14 @@ related_publications: ye2023learned
 
 
 <div class="section" style="margin-top: 20px;">
-    <b style="font-size: 24px;">Uncertainty and Adaptive Acquisition</b>
+    <b style="font-size: 24px;">Uncertainty Quantification</b>
+
+
+
+</div>
+
+<div class="section" style="margin-top: 20px;">
+    <b style="font-size: 24px;">Adaptive Acquisition based on Uncertainty Quantification</b>
 
 
 
@@ -112,7 +119,7 @@ related_publications: ye2023learned
 
 <div class="row">
     <div class="col-md-12">
-        <b style="font-size: 24px;">Bibtex Citation</b>
+        <b style="margin-top font-size: 24px;">Bibtex Citation</b>
         <div class="form-group col-md-12" style="text-align: left;">
             <textarea id="bibtex" class="form-control" readonly>
             @article{ye2023learned,

@@ -127,23 +127,24 @@ related_publications: ye2023learned
 
 <div class="section" style="margin-top: 20px;">
     <b style="font-size: 24px;">Conclusion</b>
+    <div class="col-md-12">
+        We presented a method to utilize learned, distribution-free uncertainty quantification for multiimage denoising and proposed an adaptive acquisition technique based on the learned uncertainty.
+        We demonstrated both methods on experimental MPM SHG measurements, showing a 120×
+        decrease in total scanning time and a 120× decrease in total light dose while successfully
+        recovering fine structures and outperforming existing denoising benchmarks. These speed and
+        total light dose improvements are significant and demonstrate an important step towards faster
+        and gentler MPM, which will enable the imaging of a new class of interesting samples and lead
+        to new scientific insights and advances.
 
-    We presented a method to utilize learned, distribution-free uncertainty quantification for multiimage denoising and proposed an adaptive acquisition technique based on the learned uncertainty.
-    We demonstrated both methods on experimental MPM SHG measurements, showing a 120×
-    decrease in total scanning time and a 120× decrease in total light dose while successfully
-    recovering fine structures and outperforming existing denoising benchmarks. These speed and
-    total light dose improvements are significant and demonstrate an important step towards faster
-    and gentler MPM, which will enable the imaging of a new class of interesting samples and lead
-    to new scientific insights and advances.
-
-    Furthermore, we demonstrate how deep learning methods for microscopy can be designed to
-    be trustworthy by building in uncertainty quantification to provide error bars for each prediction.
-    To the best of our knowledge, we are the first to utilize distribution-free uncertainty quantification
-    for a denoising task. Uncertainty quantification should become standard practice when using
-    deep-learning techniques for scientific and medical imaging to reduce hallucinations and build
-    confidence in image predictions. <b> We believe that the distribution-free learned uncertainty
-    quantification presented here is an attractive path toward this due to its ease of use, fast
-    computational time, and statistical guarantees.</b>
+        Furthermore, we demonstrate how deep learning methods for microscopy can be designed to
+        be trustworthy by building in uncertainty quantification to provide error bars for each prediction.
+        To the best of our knowledge, we are the first to utilize distribution-free uncertainty quantification
+        for a denoising task. Uncertainty quantification should become standard practice when using
+        deep-learning techniques for scientific and medical imaging to reduce hallucinations and build
+        confidence in image predictions. <b> We believe that the distribution-free learned uncertainty
+        quantification presented here is an attractive path toward this due to its ease of use, fast
+        computational time, and statistical guarantees.</b>
+    </div>
 </div>
 
 

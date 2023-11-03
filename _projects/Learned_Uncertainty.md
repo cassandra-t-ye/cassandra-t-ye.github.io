@@ -96,7 +96,7 @@ related_publications: ye2023learned
         </div>
 
         <div class="col-sm mt-3 mt-md-0" style="text-align: center;">
-            {% include figure.html path="assets/img/proj_1/results_2.png" title="Fig. 1 Summary" class="img-fluid "  %}        
+            {% include figure.html path="assets/img/proj_1/results_2.png" title="Fig. 2 Denoising Results" class="img-fluid "  %}        
         </div>
     </div>
 </div>
@@ -113,13 +113,13 @@ related_publications: ye2023learned
 <div class="row">
     <div class="col-md-12">
         <b style="font-size: 24px;">Bibtex Citation</b>
-        <div class="form-group col-md-10 col-md-offset-1">
-            <textarea id="bibtex" class="form-control" readonly style="overflow: auto; max-height: 500px;">
+        <div class="form-group col-md-12">
+            <textarea id="bibtex" class="form-control" readonly>
                 @article{ye2023learned,
-                    title = {Learned, Uncertainty-driven Adaptive Acquisition for Photon-Efficient Multiphoton Microscopy},
-                    author = {Ye, Cassandra Tong and Han, Jiashu and Liu, Kunzan and Angelopoulos, Anastasios and Griffith, Linda and Monakhova, Kristina and You, Sixian},
-                    journal = {arXiv preprint arXiv:2310.16102},
-                    year = {2023}
+                        title       = {Learned, Uncertainty-driven Adaptive Acquisition for Photon-Efficient Multiphoton Microscopy},
+                        author      = {Ye, Cassandra Tong and Han, Jiashu and Liu, Kunzan and Angelopoulos, Anastasios and Griffith, Linda and  Monakhova, Kristina and You, Sixian},
+                        journal     = {arXiv preprint arXiv:2310.16102},
+                        year        = {2023}
                 }
             </textarea>
         </div>

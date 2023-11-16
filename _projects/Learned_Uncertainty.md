@@ -6,7 +6,7 @@ img: assets/img/proj_1/cover_img.png
 importance: 1
 related_publications: ye2023learned
 ---
-[Cassandra Tong Ye](https://kristinamonakhova.com/), Jiashu Han, Kunzan Liu, [Anastasios Angelopoulos](https://people.eecs.berkeley.edu/~angelopoulos/), [Linda Griffith](https://lgglab.mit.edu/), [Kristina Monakhova](http://kristinamonakhova.com/), [Sixian You](https://sixianyou.mit.edu/)
+[Cassandra Tong Ye](https://kristinamonakhova.com/), Jiashu Han, [Kunzan Liu](https://liukunzan.github.io/), [Anastasios Angelopoulos](https://people.eecs.berkeley.edu/~angelopoulos/), [Linda Griffith](https://lgglab.mit.edu/), [Kristina Monakhova](http://kristinamonakhova.com/), [Sixian You](https://sixianyou.mit.edu/)
 
 <div style="text-align: center;">
   <div style="display: inline-block;">

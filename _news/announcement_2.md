@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-We got the best paper award for “Leveraging uncertainty quantification in adaptive multiphoton microscopy acquisition” at Photonics West !!
+We recieved the best paper award at Photonics West :star2: :partying_face:

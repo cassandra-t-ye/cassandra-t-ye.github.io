@@ -69,7 +69,7 @@ og_image: # The site-wide (default for all links) Open Graph preview image
 
 github_username: cassandra-t-ye
 gitlab_username: # your GitLab user name
-twitter_username: # your Twitter handle
+twitter_username: cassandra_t_ye
 mastodon_username: # your mastodon instance+username in the format instance.tld/@username
 linkedin_username: tong-ye2024
 telegram_username: # your Telegram user name
@@ -120,10 +120,10 @@ bing_site_verification:  # out your bing-site-verification ID (Bing Webmaster)
 # Blog
 # -----------------------------------------------------------------------------
 
-# blog_name: Cassandra Ye # blog_name will be displayed in your blog page
-# blog_nav_title: blog # your blog must have a title for it to be displayed in the nav bar
-# blog_description: a simple whitespace theme for academics
-# permalink: /blog/:year/:title/
+blog_name: Cassandra Ye # blog_name will be displayed in your blog page
+blog_nav_title: blog # your blog must have a title for it to be displayed in the nav bar
+blog_description: a simple whitespace theme for academics
+permalink: /blog/:year/:title/
 
 # Pagination
 # pagination:

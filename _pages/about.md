@@ -7,12 +7,12 @@ subtitle: "Not all those who wander are lost - J.R.R Tolkien"
 
 profile:
   align: right
-  image: prof_pic.jpg
+  image: new_prof_pic.jpg
   image_circular: false # crops the image to make it circular
   more_info: >
-    <p>77 Massachusetts Ave</p>
-    <p>Cambridge, MA, 02129</p>
-    <p>cassye at mit dot edu</p>
+    <p>Bill and Melinda Gates Hall</p>
+    <p>Cornell University</p>
+    <p>cassye at cs dot cornell dot edu</p>
 
 news: true  # includes a list of news items
 latest_posts: true  # includes a list of the newest posts

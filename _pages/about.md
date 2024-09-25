@@ -12,7 +12,7 @@ profile:
   more_info: >
     <p>Gates Hall</p>
     <p>Cornell University</p>
-    <p>cassye@cs dot cornell dot edu</p>
+    <p>cassye@cs.cornell dot edu</p>
 
 news: true  # includes a list of news items
 latest_posts: true  # includes a list of the newest posts

@@ -10,9 +10,14 @@ profile:
   image: new_prof_pic.jpg
   image_circular: false # crops the image to make it circular
   more_info: >
-    <p>Gates Hall</p>
-    <p>Cornell University</p>
-    <p>cassye@cs.cornell dot edu</p>
+      <div style="display: flex; align-items: center;">
+      <img src="new_prof_pic.jpg" alt="Profile Picture" style="margin-right: 10px;">
+      <div>
+        <p style="margin: 0;">Gates Hall</p>
+        <p style="margin: 0;">Cornell University</p>
+        <p style="margin: 0;">cassye@cs.cornell dot edu</p>
+      </div>
+    </div>
 
 news: true  # includes a list of news items
 latest_posts: true  # includes a list of the newest posts

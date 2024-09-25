@@ -125,7 +125,7 @@ blog_nav_title: blog # your blog must have a title for it to be displayed in the
 blog_description: #a simple whitespace theme for academics
 permalink: /blog/:year/:title/
 
-Pagination
+#Pagination
 pagination:
   enabled: false
 

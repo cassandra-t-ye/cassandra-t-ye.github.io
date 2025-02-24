@@ -99,7 +99,7 @@ related_publications: ye2023learned
 </div>
 
 <div class="section" style="margin-top: 20px;">
-    <b style="font-size: 24px;">Denoising Results</b>
+    <b style="font-size: 24px;">Multi-Image Denoising and Uncertainty Quantification Results</b>
     <div class="row">
         <div class="col-md-12">
             We evaluated our denoising and uncertainty prediction on an experimental dataset of confocal and two-photon
@@ -114,45 +114,45 @@ related_publications: ye2023learned
 
 
 <div class="section" style="margin-top: 20px;">
-    <b style="font-size: 24px;">Uncertainty Quantification</b>
+    <b style="font-size: 24px;">Uncertainty informed Adaptive Acquisition</b>
     <div class="row">
         <div class="col-sm mt-3 mt-md-0" style="text-align: center;">
             {% include figure.html path="assets/img/proj_1/results_3.png" title="Fig. 3 UQ" class="img-fluid"  %}        
         <div class="caption" style="text-align: left;">
-            <b>Increasing measurements reduces uncertainty</b>: Results of single-image, three-image, and fiveimage denoising, showing the image prediction and predicted uncertainty. As the number of measurements increases, the predicted image more closely matches the ground truth, and the pixel-wise uncertainty
-            decreases.
+            <b>Adaptive Acquisition of two-photon images:</b>: e compare three different color channels from a two-photon sample
+            from the FMD dataset. After single-image denoising, we threshold the uncertainty to obtain an adaptive mask (center).
+            Each channel has a different percentage of rescanned pixels (red text), which leads to a total light dosage savings of x2.6,
+            x2.7, x5.6, respectively. .
         </div>
     </div>
          <div class="col-md-12">
-            With more measurements, the predicted uncertainty of the network decreases, demonstrating
-            an increase in the confidence of the predicted image. We determined the display threshold
-            for all three uncertainty predictions by choosing the uncertainty interval linked to the top 5%
-            most uncertain pixels. <span class="red-text"> Red pixel regions </span>, indicate areas with larger uncertainty, whereas <span class="blue-text"> pixels appearing blue </span> represent lower uncertainty intervals. More importantly, as more fine structures are present, the uncertainty decreases.  This finding affirms that increasing measurements to our model not only improves denoising performance but also decreases the denoised prediction’s uncertainty. 
+            Does uncertainty-guided adaptive acquisition retain image quality, while decreasing the total number of pixels
+            needed and increasing the light-dosage savings? We investigated the effects of different adaptive percentages on
+            different two-photon samples. In this experiment, we show the adaptive mask slowly changing through
+            iterations- with earlier iterations needing more pixels and later iterations exclusively segmenting areas of high
+            signal to adaptively acquire. After the 20th iteration, zoomed-in samples of the adaptively acquired and denoised
+            image demonstrate that it maintains the same level of details for sample features, while providing a significant
+            improvement in acquisition parameters. In the figure presented, we show an improvement between 2.6 and 5.6 times in light
+            dosage while retaining image quality.
         </div>
     </div>
 </div>
 
 <div class="section" style="margin-top: 20px;">
-    <b style="font-size: 24px;">Learned Adaptive Acquisition</b>
+    <b style="font-size: 24px;">Adaptive Acquisition of samples can catch hallucinations</b>
     <div class="row">
         <div class="col-sm mt-3 mt-md-0" style="text-align: center;">
             {% include figure.html path="assets/img/proj_1/results_4.png" title="Fig. 4 Rescan Percentages" class="img-fluid " %}        
         </div>
 
         <div class="col-md-12">
-            To evaluate our uncertainty-informed adaptive acquisition, we compared the denoising and
-            uncertainty performance for various different uncertainty thresholds. After a measurement is
-            denoised, a new acquisition pattern is chosen based on a user-defined uncertainty threshold. This
-            is repeated for four subsequent acquisitions, each time acquiring new measurements only in the
-            areas of the sample that are too uncertain (i.e higher than the uncertainty threshold). Figure 5
-            shows the results of this sweep for a representative sample from our test set. Here, we see that
-            when the uncertainty threshold is lower (more pixels are rescanned), performance (based on
-            MSE, SSIM, and average uncertainty) is better, but the total scanning duration is higher. When
-            the threshold is higher and fewer than 40% of the pixels are rescanned, the performance drops
-            and fewer features are successfully recovered. For this sample, we found that an uncertainty
-            threshold corresponding to rescanning 57% of the sample minimizes total time and light dose
-            while maintaining denoising performance and successfully recovering fine features within the
-            sample.    
+            We also show that our adaptive method is still capable of locating and resolving model hallucination in
+            scanning microscopy images. In the figure presented, we demonstrate that adaptively rescanning can resolve hallucinations
+            in both confocal and experimental MPM samples at different rescanning percentages. In the MPM sample,
+            rescanning at 80% allows for a 1.25 times savings in light-dose, while in the confocal sample, rescanning at 6%
+            allows for a 16.7 savings in light-dose. It is important to note that optimal rescanning percentages are highly
+            dependent on the sample itself. As shown, a sparse sample will need a lower percentage of pixels
+            rescanned, while a dense sample will need a much higher rescanning percentage.    
         </div>
         <div class="col-sm mt-3 mt-md-0" style="text-align: center;">
             {% include figure.html path="assets/img/proj_1/results_5.png" title="Fig. 5 Visual UQ Rescan" class="img-fluid "  %}        
@@ -164,23 +164,13 @@ related_publications: ye2023learned
 <div class="section" style="margin-top: 20px;">
     <b style="font-size: 24px;">Conclusion</b>
     <p>
-        We presented a method to utilize learned, distribution-free uncertainty quantification for multiimage denoising and proposed an adaptive acquisition technique based on the learned uncertainty.
-        We demonstrated both methods on experimental MPM SHG measurements, showing a 120×
-        decrease in total scanning time and a 120× decrease in total light dose while successfully
-        recovering fine structures and outperforming existing denoising benchmarks. These speed and
-        total light dose improvements are significant and demonstrate an important step towards faster
-        and gentler MPM, which will enable the imaging of a new class of interesting samples and lead
-        to new scientific insights and advances.
+        We presented a method to utilize learned, distribution-free uncertainty quantification for multi-image denoising and proposed an adaptive acquisition technique based on the learned uncertainty. In this paper, we demonstrate that our method of uncertainty-driven adaptive acquisition works on experimental confocal, two-photon, and multiphoton microscopy systems, showing a potential 1-16 times decrease in total scanning time and light dose while successfully recovering fine structures. Our method can be adapted for different forms of scanning microscopy without explicit retraining or fine-tuning. Our network trained on FMD data can be used on different data after performing the conformal calibration step using a small calibration dataset. This is one of the advantages of conformal calibration - uncertainty predictions will still hold after calibrating for a different dataset without explicit retraining. All of the statistical guarantees will still hold; however, the size of the uncertainty bounds may increase since the network is not optimized for the data or imaging modality. We discuss this further in Suppl. Section 7. 
+
+        These speed and total light dose improvements are significant and demonstrate an important step towards faster and gentler scanning microscopy, which will enable the imaging of a new class of interesting samples and lead to new scientific insights and advances.  
+
     </p>
     <p>
-        Furthermore, we demonstrate how deep learning methods for microscopy can be designed to
-        be trustworthy by building in uncertainty quantification to provide error bars for each prediction.
-        To the best of our knowledge, we are the first to utilize distribution-free uncertainty quantification
-        for a denoising task. Uncertainty quantification should become standard practice when using
-        deep-learning techniques for scientific and medical imaging to reduce hallucinations and build
-        confidence in image predictions. <b>We believe that the distribution-free learned uncertainty
-        quantification presented here is an attractive path toward this due to its ease of use, fast
-        computational time, and statistical guarantees.</b>
+       Furthermore, we demonstrate how deep learning methods for microscopy can be designed to be trustworthy by building in uncertainty quantification to provide error bars for each prediction. Our method successfully identified model hallucinations, which were reduced by taking more measurements or adaptively rescanning the most uncertain regions of the sample. Our method of quantifying uncertainty provides guarantees for the reliability of the prediction. Uncertainty quantification should become standard practice when using deep-learning techniques for scientific and medical imaging to reduce hallucinations and build confidence in image predictions. We believe that the distribution-free learned uncertainty quantification presented here is an attractive path toward this due to its ease of use, fast computational time, and statistical guarantees. 
     </p>
 </div>
 

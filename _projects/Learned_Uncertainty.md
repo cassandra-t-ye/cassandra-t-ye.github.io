@@ -40,17 +40,34 @@ related_publications: ye2023learned
 </div>
 
 <div class="section" style="margin-top: 20px;">
-    <b style="font-size: 24px;">Intro to Multiphoton Microscopy</b>
+    <b style="font-size: 24px;">Intro to Scanning</b>
     <div class="row">
         <div class="col-md-6">
-            Multiphoton microscopy (MPM) is a form of laser-scanning microscopy based on nonlinear interactions between ultrafast laser pulses and biological tissues. Since its first demonstration decades ago, MPM has become the imaging technique of choice for non-invasive imaging of thick or living samples. Owing to its unique advantage of imaging depth and subcellular resolution, MPM has been used extensively to measure calcium dynamics in deep scattering mouse brains in neuroscience and characterizing multicellular dynamics in immunology and cancer studies. Because of these unique advantages of MPM, it has made tremendous progress and become an increasingly popular tool for tissue and cell microscopy in neuroscience, immunology, and cancer research.
+            Many popular microscopy modalities leverage scanning to probe deep into biological tissues; they focus light
+            to a small region of a sample and collect light only from that region. By scanning light to different regions
+            of the sample, they build up three-dimensional images of the sample often one point at a time. Scanning
+            confocal microscopes have been widely adopted for medical and scientific applications due to their ability
+            to recover three-dimensional structures by optical sectioning. Two-photon and multiphoton microscopy
+            leverage non-linear excitation to probe even deeper into thick, scattering tissue. These systems are often used
+            by neuroscientists to measure calcium dynamics in deep scattering mouse brains, as well as to characterize
+            multicellular dynamics in immunology and cancer studies. In addition, label-free multiphoton microscopy
+            enables minimally invasive imaging of biological structures in living and unlabeled biosystems, such as collagen
+            fibers, immune cells, endothelial cells, and extracellular vesicles, through second harmonic generation
+            (SHG), third harmonic generation (THG), and two-photon and three-photon autofluorescence (2PAF,
+            3PAF). This has become an increasingly popular tool for tissue and cell microscopy in neuroscience,
+            immunology, and cancer research.
+            To provide a minimally perturbative window into the tissue architecture and cell dynamics of intact biosystems,
+            the next advances in scanning microscopy require deeper, faster, and gentler imaging of thick and living
+            samples. For scanning microscopy systems, there is an inherent trade-off between acquisition time, field of
+            view, phototoxicity, and image quality, often resulting in noisy measurements when fast, large field of view, deep,
+            and/or gentle imaging is needed. Noisy images can be challenging to interpret, and fine structures within the images can be obscured by noise. 
 
         </div>
 
         <div class="col-md-6">
             {% include figure.html path="assets/img/proj_1/mpm.png" title="Multiphoton Microscopy" class="img-fluid " style="width: 180px; height: auto;"%}
             <div class="caption" style="text-align: left;">
-                Multiphoton microscopy (MPM) is a powerful imaging tool that has been a critical enabler for live tissue imaging.
+                Multiphoton microscopy (MPM), a type of scanning microscopy, is a powerful imaging tool that has been a critical enabler for live tissue imaging.
             </div>
         </div>
     </div>
@@ -62,7 +79,7 @@ related_publications: ye2023learned
         <div class="col-sm mt-3 mt-md-0" style="text-align: center;">
             {% include figure.html path="assets/img/proj_1/fig_1_gif.gif" title="Fig. 1 Summary" class="img-fluid " width="700px" height="auto" %}        
         <div class="caption" style="text-align: left;">
-            <b>Uncertainty-based Adaptive Imaging</b>: A noisy measurement is acquired with a scanning multiphoton microscope (MPM) and passed into a deep learning model that predicts a denoised image and its associated pixel-wise uncertainty. Subsequently, the top N uncertain pixels are selected for a rescan, obtaining more measurements at only the uncertain regions. As more adaptive measurements are taken, the deep learning model predicts a denoised image with lower uncertainty. Scan duration and power are minimized, limiting sample damage while maintaining high confidence in the model prediction.
+            <b>Uncertainty-based Adaptive Imaging</b>: A noisy measurement is acquired with a scanning microscopye and passed into a deep learning model that predicts a denoised image and its associated pixel-wise uncertainty. Subsequently, the top N uncertain pixels are selected for a rescan, obtaining more measurements at only the uncertain regions. As more adaptive measurements are taken, the deep learning model predicts a denoised image with lower uncertainty. Scan duration and power are minimized, limiting sample damage while maintaining high confidence in the model prediction.
         </div>
     </div>
 
@@ -71,7 +88,7 @@ related_publications: ye2023learned
             images in microscopy, however, they still produce hallucinations. To counter this uncertainty quantification techniques can help catch model hallucinations and improve the
             robustness of deep learning methods.
 
-            We demonstrate distribution-free uncertainty quantification for MPM denoising
+            We demonstrate distribution-free uncertainty quantification for denoising
             and <b>propose an adaptive microscopy imaging pipeline</b> informed by uncertainty quantification.   
 
             This pipeline leverages the learned uncertainty to drive adaptive
@@ -85,16 +102,12 @@ related_publications: ye2023learned
     <b style="font-size: 24px;">Denoising Results</b>
     <div class="row">
         <div class="col-md-12">
-            We evaluated our fine-tuned NAFNet model with learned uncertainty against BM3D (classical method), Noise2Self (self-supervised DL method), and pre-trained NAFNet (supervised DL method) for single-image denoising. Our method, which is fine-tuned with our SHG dataset, outperforms the other methods in terms of MSE and SSIM. Our fine-tuned model can reconstruct features that BM3D and its pre-trained version cannot. In the region highlighted by the <span class="green-text">green box</span>, our model recovers fine structures present in the ground truth that the other methods cannot.
-
-            Since leveraging multiple image measurements could enhance a model’s overall performance,
-            next we compare denoising performance against several multi-frame denoisers. To measure
-            performance, we chose VBM4D (classic method) and FastDVDNet (deep method) as reference
-            benchmarks for denoising sequences of frames. When comparing denoised results, it is evident
-            that all the multi-image techniques outperform their single-image counterparts as expected.     
+            We evaluated our denoising and uncertainty prediction on an experimental dataset of confocal and two-photon
+            measurements (FMD dataset) as well as a custom multiphoton dataset (MPM dataset). First, we test our denoiser’s performance as a function of the number of noisy measurements. To do this, we vary the input to the network, feeding in 1-20 unique, non-moving, noisy measurements. Each measurement has a different instance of noise, so intuitively, with more measurements, the denoising prediction should improve. In the image below, we show the predicted denoised images and uncertainty maps for samples from the FMD dataset. Here, we can see that as the number of measurements increases, the network’s predicted uncertainty
+            decreases, and concurrently, the denoised predictions become sharper and closer to the ground truth. In the zoomed in portion of the image, we demonstrate a hallucination that was observed in the first denoised iteration (indicated by high uncertainty), which is resolved by the tenth denoised iteration. 
         </div>
         <div class="col-sm mt-3 mt-md-0" style="text-align: center;">
-            {% include figure.html path="assets/img/proj_1/results_2.png" title="Fig. 2 Denoising Results" class="img-fluid "  %}        
+            {% include figure.html path="assets/img/proj_1/results_2.png" title="Fig. 2 Denoising Results for FMD Samples" class="img-fluid "  %}        
         </div>
     </div>
 </div>

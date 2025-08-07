@@ -7,10 +7,10 @@
     <div class="card hoverable">
       <div class="row g-0">
         {%- if project.img -%}
-        <div class="card-img col-md-6">
+        <div class="card-img col-md-3"> ;changes the thumbnail size in project page
           {% include figure.html path=project.img alt="project thumbnail" %}
         </div>
-        <div class="col-md-6">
+        <div class="col-md-9"> ;changes the width of the project box
         {%- else -%}
         <div class="col-md-12">
         {%- endif -%}

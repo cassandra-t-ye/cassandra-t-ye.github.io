@@ -9,7 +9,6 @@ display_categories: false
 horizontal: true
 ---
 
-</style>
 <!-- pages/projects.md -->
 <div class="projects">
 {%- if site.enable_project_categories and page.display_categories %}
@@ -41,19 +40,24 @@ horizontal: true
   {%- assign sorted_projects = site.projects | sort: "importance" -%}
   <!-- Generate cards for each project -->
   {% if page.horizontal -%}
-  <div class="container-fluid">
-    <div class="col-md-12">
-    {%- for project in sorted_projects -%}
-      {% include projects_horizontal.html %}
-    {%- endfor %}
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+      {%- for project in sorted_projects -%}
+        {% include projects_horizontal.html %}
+      {%- endfor %}
+      </div>
     </div>
   </div>
   {%- else -%}
-  <!-- <div class="grid"> -->
-  <div class = "col-md-12">
-    {%- for project in sorted_projects -%}
-      {% include projects.html %}
-    {%- endfor %}
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+      {%- for project in sorted_projects -%}
+        {% include projects.html %}
+      {%- endfor %}
+      </div>
+    </div>
   </div>
   {%- endif -%}
 {%- endif -%}

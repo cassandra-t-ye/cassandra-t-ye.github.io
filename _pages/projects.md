@@ -1,6 +1,6 @@
 ---
 layout: page
-title: projects
+title: Projects
 permalink: /projects/
 description: 
 nav: true
@@ -8,10 +8,7 @@ nav_order: 2
 display_categories: false
 horizontal: true
 ---
-<style>
-.page-heading, h1 {
-    text-transform: uppercase;
-}
+
 </style>
 <!-- pages/projects.md -->
 <div class="projects">

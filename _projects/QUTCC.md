@@ -1,22 +1,22 @@
 ---
 layout: page
-title: Learned, Uncertainty-driven Adaptive Acquisition for Photon-Efficient Multiphoton Microscopy
+title: "QUTCC: Quantile Uncertainty Training and Conformal Calibration for Imaging Inverse Problems"
 description: 
-img: assets/img/proj_1_learned/cover_img.png
+img: 
 importance: 1
-related_publications: ye2023learned
+related_publications: ye2025qutcc
 ---
-[Cassandra Tong Ye](https://https://cassandra-t-ye.github.io/), Jiashu Han, [Kunzan Liu](https://liukunzan.github.io/), [Anastasios Angelopoulos](https://people.eecs.berkeley.edu/~angelopoulos/), [Linda Griffith](https://lgglab.mit.edu/), [Kristina Monakhova](http://kristinamonakhova.com/), [Sixian You](https://sixianyou.mit.edu/)
+[Cassandra Tong Ye](https://https://cassandra-t-ye.github.io/), [Shamus Li](https://shamus.li/), [Tyler King](https://tylertking.com/), [Kristina Monakhova](http://kristinamonakhova.com/)
 
 <div style="text-align: center;">
   <div style="display: inline-block;">
-    <a href="https://github.com/cassandra-t-ye/Learned_Uncertainty_Quantification" style="display: block; text-align: center;">
+    <a href="https://github.com/cassandra-t-ye/qutcc" style="display: block; text-align: center;">
         <img src="/assets/img/proj_1_learned/github.png" alt="Github Repo" style="width: 70px; height: auto; margin-right: 20px; margin: 0 auto;">
     </a>
     <div class="caption" style="text-align: center;">Github Repo</div>
   </div>
   <div style="display: inline-block;">
-    <a href="https://arxiv.org/abs/2310.16102" style="display: block; text-align: center;">
+    <a href="https://arxiv.org/abs/2507.14760" style="display: block; text-align: center;">
         <img src="/assets/img/proj_1_learned/paper_front_page.png" alt="Arxiv Paper" style="width: 70px; height: auto; margin-left: 20px; margin: 0 auto;">
     </a>
     <div class="caption" style="text-align: center;">Arxiv Paper</div>
@@ -24,14 +24,14 @@ related_publications: ye2023learned
 </div>
 
 
-<!-- **Authors:** [Cassandra Tong Ye <sup>1</sup>](https://cassandra-t-ye.gtihub.io), Jiashu Han, Kunzan Liu, [Anastasios Angelopoulos](https://people.eecs.berkeley.edu/~angelopoulos/), [Linda Griffith](https://lgglab.mit.edu/), [Kristina Monakhova](http://kristinamonakhova.com/), [Sixian You](https://sixianyou.mit.edu/) 
+<!-- <!-- **Authors:** [Cassandra Tong Ye <sup>1</sup>](https://cassandra-t-ye.gtihub.io), Jiashu Han, Kunzan Liu, [Anastasios Angelopoulos](https://people.eecs.berkeley.edu/~angelopoulos/), [Linda Griffith](https://lgglab.mit.edu/), [Kristina Monakhova](http://kristinamonakhova.com/), [Sixian You](https://sixianyou.mit.edu/) 
 -->
 <div class="section">
     <b style="font-size: 24px;">Abstract</b>
     
     <div class="row">
         <div class="col-md-12" style="text-align: center;"> 
-            {% include figure.html path="assets/img/proj_1_learned/teaser.gif" title="Multiphoton Microscopy" class="img-fluid " style="height: 230px;"%}
+            {% include figure.html path="assets/img/proj_2_qutcc/teaser.gif" title="Multiphoton Microscopy" class="img-fluid " style="height: 230px;"%}
         </div>
         <div class="col-md-12"> <!-- This will make the text take up 6 columns (half the width) on medium-sized screens -->
             Scanning microscopy systems, such as confocal and multiphoton microscopy, are powerful imaging tools for probing deep into biological tissue. However, scanning systems have an inherent trade-off between acquisition time, field of view, phototoxicity, and image quality, often resulting in noisy measurements when fast, large field of view, and/or gentle imaging is needed. Deep learning could be used to denoise noisy microscopy measurements, but these algorithms can be prone to hallucination, which can be disastrous for medical and scientific applications. We propose a method to simultaneously denoise and predict pixel-wise uncertainty for scanning microscopy systems, improving algorithm trustworthiness and providing statistical guarantees for deep learning predictions. Furthermore, we propose to leverage this learned, pixel-wise uncertainty to drive an adaptive acquisition technique that rescans only the most uncertain regions of a sample, saving time and reducing the total light dose to the sample. We demonstrate our method on experimental confocal and multiphoton microscopy systems, showing that our uncertainty maps can pinpoint hallucinations in the deep learned predictions. Finally, with our adaptive acquisition technique, we demonstrate up to 16 times reduction in acquisition time and total light dose while successfully recovering fine features in the sample and reducing hallucinations. We are the first to demonstrate distribution-free uncertainty quantification for a denoising task with real experimental data and the first to propose adaptive acquisition based on reconstruction uncertainty. 
@@ -65,7 +65,7 @@ related_publications: ye2023learned
         </div>
 
         <div class="col-md-6">
-            {% include figure.html path="assets/img/proj_1_learned/mpm.png" title="Multiphoton Microscopy" class="img-fluid " style="width: 180px; height: auto;"%}
+            {% include figure.html path="assets/img/proj_2_qutcc/mpm.png" title="Multiphoton Microscopy" class="img-fluid " style="width: 180px; height: auto;"%}
             <div class="caption" style="text-align: left;">
                 Multiphoton microscopy (MPM), a type of scanning microscopy, is a powerful imaging tool that has been a critical enabler for live tissue imaging.
             </div>
@@ -77,7 +77,7 @@ related_publications: ye2023learned
     <b style="font-size: 24px;">Proposed Method</b>
     <div class="row">
         <div class="col-sm mt-3 mt-md-0" style="text-align: center;">
-            {% include figure.html path="assets/img/proj_1_learned/fig_1_gif.gif" title="Fig. 1 Summary" class="img-fluid " width="700px" height="auto" %}        
+            {% include figure.html path="assets/img/proj_2_qutcc/fig_1_gif.gif" title="Fig. 1 Summary" class="img-fluid " width="700px" height="auto" %}        
         <div class="caption" style="text-align: left;">
             <b>Uncertainty-based Adaptive Imaging</b>: A noisy measurement is acquired with a scanning microscopye and passed into a deep learning model that predicts a denoised image and its associated pixel-wise uncertainty. Subsequently, the top N uncertain pixels are selected for a rescan, obtaining more measurements at only the uncertain regions. As more adaptive measurements are taken, the deep learning model predicts a denoised image with lower uncertainty. Scan duration and power are minimized, limiting sample damage while maintaining high confidence in the model prediction.
         </div>
@@ -107,7 +107,7 @@ related_publications: ye2023learned
             decreases, and concurrently, the denoised predictions become sharper and closer to the ground truth. In the zoomed in portion of the image, we demonstrate a hallucination that was observed in the first denoised iteration (indicated by high uncertainty), which is resolved by the tenth denoised iteration. 
         </div>
         <div class="col-sm mt-3 mt-md-0" style="text-align: center;">
-            {% include figure.html path="assets/img/proj_1_learned/results_2.png" title="Fig. 2 Denoising Results for FMD Samples" class="img-fluid "  %}        
+            {% include figure.html path="assets/img/proj_2_qutcc/results_2.png" title="Fig. 2 Denoising Results for FMD Samples" class="img-fluid "  %}        
         </div>
     </div>
 </div>
@@ -117,7 +117,7 @@ related_publications: ye2023learned
     <b style="font-size: 24px;">Uncertainty informed Adaptive Acquisition</b>
     <div class="row">
         <div class="col-sm mt-3 mt-md-0" style="text-align: center;">
-            {% include figure.html path="assets/img/proj_1_learned/results_3.png" title="Fig. 3 UQ" class="img-fluid"  %}        
+            {% include figure.html path="assets/img/proj_2_qutcc/results_3.png" title="Fig. 3 UQ" class="img-fluid"  %}        
         <div class="caption" style="text-align: left;">
             <b>Adaptive Acquisition of two-photon images:</b> We compare three different color channels from a two-photon sample
             from the FMD dataset. After single-image denoising, we threshold the uncertainty to obtain an adaptive mask (center).
@@ -142,7 +142,7 @@ related_publications: ye2023learned
     <b style="font-size: 24px;">Adaptive Acquisition of samples can catch hallucinations</b>
     <div class="row">
         <div class="col-sm mt-3 mt-md-0" style="text-align: center;">
-            {% include figure.html path="assets/img/proj_1_learned/results_4.png" title="Fig. 4 Rescan Percentages" class="img-fluid " %}        
+            {% include figure.html path="assets/img/proj_2_qutcc/results_4.png" title="Fig. 4 Rescan Percentages" class="img-fluid " %}        
         </div>
 
         <div class="col-md-12">
@@ -155,7 +155,7 @@ related_publications: ye2023learned
             rescanned, while a dense sample will need a much higher rescanning percentage.    
         </div>
         <div class="col-sm mt-3 mt-md-0" style="text-align: center;">
-            {% include figure.html path="assets/img/proj_1_learned/results_5.png" title="Fig. 5 Visual UQ Rescan" class="img-fluid "  %}        
+            {% include figure.html path="assets/img/proj_2_qutcc/results_5.png" title="Fig. 5 Visual UQ Rescan" class="img-fluid "  %}        
         </div>
     </div>
     
@@ -172,7 +172,7 @@ related_publications: ye2023learned
     <p>
        Furthermore, we demonstrate how deep learning methods for microscopy can be designed to be trustworthy by building in uncertainty quantification to provide error bars for each prediction. Our method successfully identified model hallucinations, which were reduced by taking more measurements or adaptively rescanning the most uncertain regions of the sample. Our method of quantifying uncertainty provides guarantees for the reliability of the prediction. Uncertainty quantification should become standard practice when using deep-learning techniques for scientific and medical imaging to reduce hallucinations and build confidence in image predictions. We believe that the distribution-free learned uncertainty quantification presented here is an attractive path toward this due to its ease of use, fast computational time, and statistical guarantees. 
     </p>
-</div>
+</div> -->
 
 
 <div class="row" style="margin-top: 20px;">
@@ -180,11 +180,11 @@ related_publications: ye2023learned
         <b style="font-size: 24px;">Bibtex Citation</b>
         <div class="form-group col-md-12">
             <textarea id="bibtex" class="form-control" readonly>
-            @article{ye2023learned,
-                title       = {Learned, Uncertainty-driven Adaptive Acquisition for Photon-Efficient Multiphoton Microscopy},
-                author      = {Ye, Cassandra Tong and Han, Jiashu and Liu, Kunzan and Angelopoulos, Anastasios and Griffith, Linda and Monakhova, Kristina and You, Sixian},
-                journal     = {arXiv preprint arXiv:2310.16102},
-                year        = {2023}
+            @article{ye2025qutcc,
+            title={QUTCC: Quantile Uncertainty Training and Conformal Calibration for Imaging Inverse Problems},
+            author={Ye, Cassandra Tong and Li, Shamus and King, Tyler and Monakhova, Kristina},
+            journal={arXiv preprint arXiv:2507.14760},
+            year={2025}
             }
             </textarea>
         </div>

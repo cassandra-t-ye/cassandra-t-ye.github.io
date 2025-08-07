@@ -4,7 +4,7 @@ title: Learned, Uncertainty-driven Adaptive Acquisition for Photon-Efficient Mul
 description: 
 img: assets/img/proj_1_learned/cover_img.png
 importance: 1
-related_publications: ye2023learned
+related_publications: ye2025learned
 ---
 [Cassandra Tong Ye](https://https://cassandra-t-ye.github.io/), Jiashu Han, [Kunzan Liu](https://liukunzan.github.io/), [Anastasios Angelopoulos](https://people.eecs.berkeley.edu/~angelopoulos/), [Linda Griffith](https://lgglab.mit.edu/), [Kristina Monakhova](http://kristinamonakhova.com/), [Sixian You](https://sixianyou.mit.edu/)
 
@@ -180,11 +180,15 @@ related_publications: ye2023learned
         <b style="font-size: 24px;">Bibtex Citation</b>
         <div class="form-group col-md-12">
             <textarea id="bibtex" class="form-control" readonly>
-            @article{ye2023learned,
-                title       = {Learned, Uncertainty-driven Adaptive Acquisition for Photon-Efficient Multiphoton Microscopy},
-                author      = {Ye, Cassandra Tong and Han, Jiashu and Liu, Kunzan and Angelopoulos, Anastasios and Griffith, Linda and Monakhova, Kristina and You, Sixian},
-                journal     = {arXiv preprint arXiv:2310.16102},
-                year        = {2023}
+            @article{ye2025learned,
+            title={Learned, uncertainty-driven adaptive acquisition for photon-efficient scanning microscopy},
+            author={Ye, Cassandra Tong and Han, Jiashu and Liu, Kunzan and Angelopoulos, Anastasios and Griffith, Linda and Monakhova, Kristina and You, Sixian},
+            journal={Optics Express},
+            volume={33},
+            number={6},
+            pages={12269--12287},
+            year={2025},
+            publisher={Optica Publishing Group}
             }
             </textarea>
         </div>

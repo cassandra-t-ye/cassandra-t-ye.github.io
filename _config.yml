@@ -177,10 +177,10 @@ announcements:
   scrollable: true # adds a vertical scroll bar if there are more than 3 news items
   limit:  # leave blank to include all the news in the `_news` folder
 
-publications:
-  enabled: true
-  scrollable: true # adds a vertical scroll bar if there are more than 3 new posts items
-  limit:  # leave blank to include all the blog posts
+# publications:
+#   enabled: true
+#   scrollable: true # adds a vertical scroll bar if there are more than 3 new posts items
+#   limit:  # leave blank to include all the blog posts
 
 # -----------------------------------------------------------------------------
 # Jekyll settings

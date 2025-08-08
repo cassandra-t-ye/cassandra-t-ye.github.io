@@ -16,7 +16,7 @@ profile:
 
 news: true  # includes a list of news items
 publications: true  # includes a list of the newest posts
-selected_papers: true # includes a list of papers marked as "selected={true}"
+selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
 Hi, I'm Cassandra, and I'm currently a 2nd year Computer Science Ph.D student at Cornell University where I'm advised by [Kristina Monakhova](https://kristinamonakhova.com/). I'm broadly interested in **quantifying uncertainty** in **computational imaging methods** for **scientific applications**. 

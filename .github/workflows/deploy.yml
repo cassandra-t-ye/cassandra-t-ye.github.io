@@ -26,6 +26,8 @@ jobs:
       with:
         ruby-version: '3.2.2'
         bundler-cache: true
+    - name: Install ImageMagick 🎨
+      run: sudo apt-get update && sudo apt-get install -y imagemagick
     - name: Update _config.yml ⚙️
       uses: fjogeleit/yaml-update-action@v0.13.1
       with:
@@ -46,4 +48,3 @@ jobs:
       uses: JamesIves/github-pages-deploy-action@v4
       with:
         folder: _site
-

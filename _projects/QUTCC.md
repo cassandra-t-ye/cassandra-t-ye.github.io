@@ -24,9 +24,6 @@ related_publications: ye2025qutcc
     <b style="font-size: 24px;">Abstract</b>
     
     <div class="row">
-        <div class="col-md-12" style="text-align: center;"> 
-            {% include figure.html path="assets/img/proj_2_qutcc/teaser.gif" title="Multiphoton Microscopy" class="img-fluid " style="height: 230px;"%}
-        </div>
         <div class="col-md-12"> <!-- This will make the text take up 6 columns (half the width) on medium-sized screens -->
             Deep learning models often hallucinate, producing realistic artifacts that are not truly present in the sample. This can have dire consequences for scientific and medical inverse problems, such as MRI and microscopy denoising, where accuracy is more important than perceptual quality. Uncertainty quantification techniques, such as conformal prediction, can pinpoint outliers and provide guarantees for image regression tasks, improving reliability. However, existing methods utilize a linear constant scaling factor to calibrate uncertainty bounds, resulting in larger, less informative bounds. We propose QUTCC, a quantile uncertainty training and calibration technique that enables nonlinear, non-uniform scaling of quantile predictions to enable tighter uncertainty estimates. Using a U-Net architecture with a quantile embedding, QUTCC enables the prediction of the full conditional distribution of quantiles for the imaging task. During calibration, QUTCC generates uncertainty bounds by iteratively querying the network for upper and lower quantiles, progressively refining the bounds to obtain a tighter interval that captures the desired coverage. We evaluate our method on several denoising tasks as well as compressive MRI reconstruction. Our method successfully pinpoints hallucinations in image estimates and consistently achieves tighter uncertainty intervals than prior methods while maintaining the same statistical coverage. 
         </div>

@@ -47,6 +47,14 @@ layout: default
             {%- include news.html limit=true %}
           {%- endif %}
 
+          <!-- Publications -->
+          {% if page.publications -%}
+            <h2>publications</h2>
+            <div class="publications">
+              {% bibliography -f {{ site.scholar.bibliography }} --group_by none --query @*[selected=true]* %}
+            </div>
+          {%- endif %}
+
           <!-- Latest posts
           {% if page.latest_posts -%}
             <h2><a href="{{ '/blog/' | relative_url }}" style="color: inherit;">latest posts</a></h2>

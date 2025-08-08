@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "QUTCC🤗: Quantile Uncertainty Training and Conformal Calibration for Imaging Inverse Problems"
+title: "QUTCC: Quantile Uncertainty Training and Conformal Calibration for Imaging Inverse Problems"
 description: 
 img: 
 importance: 1

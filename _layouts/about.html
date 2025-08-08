@@ -51,7 +51,7 @@ layout: default
           {% if page.publications -%}
             <h2>publications</h2>
             <div class="publications">
-              {% bibliography -f {{ site.scholar.bibliography }} --group_by none --query @*[selected=true]* %}
+              {% bibliography -f {{ site.scholar.bibliography }} --group_by none%}
             </div>
           {%- endif %}
 

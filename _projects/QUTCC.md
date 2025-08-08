@@ -8,19 +8,13 @@ related_publications: ye2025qutcc
 ---
 [Cassandra Tong Ye](https://https://cassandra-t-ye.github.io/), [Shamus Li](https://shamus.li/), [Tyler King](https://tylertking.com/), [Kristina Monakhova](http://kristinamonakhova.com/)
 
-<div style="text-align: center;">
-  <div style="display: inline-block;">
-    <a href="https://github.com/cassandra-t-ye/qutcc" style="display: block; text-align: center;">
-        <img src="/assets/img/proj_1_learned/github.png" alt="Github Repo" style="width: 70px; height: auto; margin-right: 20px; margin: 0 auto;">
-    </a>
-    <div class="caption" style="text-align: center;">Github Repo</div>
-  </div>
-  <div style="display: inline-block;">
-    <a href="https://arxiv.org/abs/2507.14760" style="display: block; text-align: center;">
-        <img src="/assets/img/proj_1_learned/paper_front_page.png" alt="Arxiv Paper" style="width: 70px; height: auto; margin-left: 20px; margin: 0 auto;">
-    </a>
-    <div class="caption" style="text-align: center;">Arxiv Paper</div>
-  </div>
+<div style="text-align: center; margin: 20px 0;">
+  <a href="https://github.com/cassandra-t-ye/qutcc">
+    <img src="https://img.shields.io/badge/Code-GitHub-black?style=for-the-badge&logo=github" alt="GitHub">
+  </a>
+  <a href="https://arxiv.org/abs/2507.14760" style="margin-left: 10px;">
+    <img src="https://img.shields.io/badge/Paper-arXiv-red?style=for-the-badge&logo=arxiv" alt="arXiv">
+  </a>
 </div>
 
 

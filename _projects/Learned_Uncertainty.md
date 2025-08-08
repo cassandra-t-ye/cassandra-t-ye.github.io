@@ -32,8 +32,15 @@ related_publications: ye2025learned
 
 <div class="section" style="margin-top: 20px;">
     <b style="font-size: 24px;">Intro to Scanning</b>
-    <div class="row">
-        <div class="col-md-6">
+    <div style="margin-top: 15px;">
+        <div style="float: right; margin: 0 0 20px 20px; max-width: 300px;">
+            {% include figure.html path="assets/img/proj_1_learned/mpm.png" title="Multiphoton Microscopy" class="img-fluid" style="width: 100%; height: auto;"%}
+            <div class="caption" style="text-align: left; font-size: 14px; margin-top: 8px;">
+                Multiphoton microscopy (MPM), a type of scanning microscopy, is a powerful imaging tool that has been a critical enabler for live tissue imaging.
+            </div>
+        </div>
+        
+        <div style="text-align: justify;">
             Many popular microscopy modalities leverage scanning to probe deep into biological tissues; they focus light
             to a small region of a sample and collect light only from that region. By scanning light to different regions
             of the sample, they build up three-dimensional images of the sample often one point at a time. Scanning
@@ -47,20 +54,15 @@ related_publications: ye2025learned
             (SHG), third harmonic generation (THG), and two-photon and three-photon autofluorescence (2PAF,
             3PAF). This has become an increasingly popular tool for tissue and cell microscopy in neuroscience,
             immunology, and cancer research.
+            
             To provide a minimally perturbative window into the tissue architecture and cell dynamics of intact biosystems,
             the next advances in scanning microscopy require deeper, faster, and gentler imaging of thick and living
             samples. For scanning microscopy systems, there is an inherent trade-off between acquisition time, field of
             view, phototoxicity, and image quality, often resulting in noisy measurements when fast, large field of view, deep,
-            and/or gentle imaging is needed. Noisy images can be challenging to interpret, and fine structures within the images can be obscured by noise. 
-
+            and/or gentle imaging is needed. Noisy images can be challenging to interpret, and fine structures within the images can be obscured by noise.
         </div>
-
-        <div class="col-md-6">
-            {% include figure.html path="assets/img/proj_1_learned/mpm.png" title="Multiphoton Microscopy" class="img-fluid " style="width: 180px; height: auto;"%}
-            <div class="caption" style="text-align: left;">
-                Multiphoton microscopy (MPM), a type of scanning microscopy, is a powerful imaging tool that has been a critical enabler for live tissue imaging.
-            </div>
-        </div>
+        
+        <div style="clear: both;"></div> <!-- Clear the float -->
     </div>
 </div>
 

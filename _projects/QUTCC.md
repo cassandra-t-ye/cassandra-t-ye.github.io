@@ -34,41 +34,22 @@ related_publications: ye2025qutcc
 </div>
 
 <div class="section" style="margin-top: 20px;">
-    <b style="font-size: 24px;">Intro to Scanning</b>
+    <b style="font-size: 24px;">Quantile Regression: Pinball Loss</b>
     <div class="row">
         <div class="col-md-6">
-            Many popular microscopy modalities leverage scanning to probe deep into biological tissues; they focus light
-            to a small region of a sample and collect light only from that region. By scanning light to different regions
-            of the sample, they build up three-dimensional images of the sample often one point at a time. Scanning
-            confocal microscopes have been widely adopted for medical and scientific applications due to their ability
-            to recover three-dimensional structures by optical sectioning. Two-photon and multiphoton microscopy
-            leverage non-linear excitation to probe even deeper into thick, scattering tissue. These systems are often used
-            by neuroscientists to measure calcium dynamics in deep scattering mouse brains, as well as to characterize
-            multicellular dynamics in immunology and cancer studies. In addition, label-free multiphoton microscopy
-            enables minimally invasive imaging of biological structures in living and unlabeled biosystems, such as collagen
-            fibers, immune cells, endothelial cells, and extracellular vesicles, through second harmonic generation
-            (SHG), third harmonic generation (THG), and two-photon and three-photon autofluorescence (2PAF,
-            3PAF). This has become an increasingly popular tool for tissue and cell microscopy in neuroscience,
-            immunology, and cancer research.
-            To provide a minimally perturbative window into the tissue architecture and cell dynamics of intact biosystems,
-            the next advances in scanning microscopy require deeper, faster, and gentler imaging of thick and living
-            samples. For scanning microscopy systems, there is an inherent trade-off between acquisition time, field of
-            view, phototoxicity, and image quality, often resulting in noisy measurements when fast, large field of view, deep,
-            and/or gentle imaging is needed. Noisy images can be challenging to interpret, and fine structures within the images can be obscured by noise. 
-
+            Quantile regression is a statistical technique that estimates conditional quantiles of a response variable distribution. Unlike traditional regression which estimates the mean, quantile regression provides a more complete picture of the relationship between variables by estimating different quantiles (e.g., 10th, 50th, 90th percentiles).
         </div>
-
         <div class="col-md-6">
-            {% include figure.html path="assets/img/proj_2_qutcc/mpm.png" title="Multiphoton Microscopy" class="img-fluid " style="width: 180px; height: auto;"%}
+            {% include figure.html path="assets/img/proj_2_qutcc/pinball_loss_animation.gif" title="Pinball Loss" class="img-fluid" style="width: 250px; height: auto;"%}
             <div class="caption" style="text-align: left;">
-                Multiphoton microscopy (MPM), a type of scanning microscopy, is a powerful imaging tool that has been a critical enabler for live tissue imaging.
+                Pinball loss is an asymmetric loss function used to estimate conditional quantiles of distribution in data. 
             </div>
         </div>
     </div>
 </div>
 
 <div class="section" style="margin-top: 20px;">
-    <b style="font-size: 24px;">Proposed Method</b>
+    <b style="font-size: 24px;">Our Method: QUTCC</b>
     <div class="row">
         <div class="col-sm mt-3 mt-md-0" style="text-align: center;">
             {% include figure.html path="assets/img/proj_2_qutcc/fig_1_gif.gif" title="Fig. 1 Summary" class="img-fluid " width="700px" height="auto" %}        

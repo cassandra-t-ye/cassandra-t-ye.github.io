@@ -49,9 +49,11 @@ layout: default
 
           <!-- Publications -->
           {% if page.publications -%}
-            <h2>publications</h2>
-            <div class="publications">
-              {% bibliography -f {{ site.scholar.bibliography }} --group_by none%}
+            <div style="margin-top: 4rem;">
+              <h2>publications</h2>
+              <div class="publications">
+                {% bibliography -f {{ site.scholar.bibliography }} --group_by none %}
+              </div>
             </div>
           {%- endif %}
 

@@ -215,8 +215,8 @@ related_publications: ye2025qutcc
 
         <p>
             Pinball loss has been used in the past 
-            <a href="https://arxiv.org/abs/2202.05265" target="_blank" style="color: #0066cc; text-decoration: none;">to predict a fixed set of upper and lower confidence bounds</a>. 
-            In contrast, our work investigates learning the full spectrum of quantiles, commonly referred to as <strong>Simultaneous Quantile Regression (SQR)</strong>, for inverse image tasks.
+            <a href="https://arxiv.org/abs/2202.05265" target="_blank" style="color: #0066cc; text-decoration: none;">to predict a fixed set of upper and lower confidence bounds</a> (Im2Im-UQ). 
+            In contrast, our work investigates learning the full spectrum of quantiles, commonly referred to as <a href='https://library.seg.org/doi/10.1190/tle44020133.1#:~:text=The%20simultaneous%20quantile%20regression%20method,method%20on%20synthetic%20Kimberlina%20data.', target="_blank", style ="color: #0066cc; text-decoration: none;"><strong>Simultaneous Quantile Regression (SQR)</strong></a>, for inverse image tasks.
         </p>
     </div>
 </div>

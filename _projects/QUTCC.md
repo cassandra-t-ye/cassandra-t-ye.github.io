@@ -30,33 +30,50 @@ related_publications: ye2025qutcc
     </div>
 </div>
 
-<div class="section" style="margin-top: 20px;">
-    <b style="font-size: 24px;">Quantile Regression: Pinball Loss</b>
-    <div class="row">
-        <div class="col-md-6">
-            Quantile regression is a general approach to estimate the conditional quantiles of a target distribution
-            rather than the mean of a response variable. This is often accomplished by leveraging an asymmetric loss function, called pinball loss (Fig. 1), tailored to the specified quantile level.
-            
-            <br><br>
-            
-            The pinball loss function is defined as a piecewise linear function:
-            <br><br>
-            <div style="text-align: center; font-family: 'Times New Roman', serif; font-size: 16px;">
-                L<sub>q</sub>(y, ŷ) = {
-                <div style="margin-left: 40px; text-align: left;">
-                    q(y - ŷ)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if y ≥ ŷ<br>
-                    (q - 1)(y - ŷ)&nbsp;&nbsp;&nbsp;if y < ŷ
-                </div>
-                }
-            </div>
-            <br>
-            where q ∈ (0,1) is the desired quantile level, y is the true value, and ŷ is the predicted value. This asymmetric penalty ensures that overestimation and underestimation are weighted differently according to the target quantile. For example, if q = 0.1, then overestimates will be penalized heavier than underestimates. 
+<div class="section">
+            <h2 style="font-weight: bold; font-size: 24px; margin-bottom: 20px;">Quantile Regression: Pinball Loss</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <p>
+                        Quantile regression is a general approach to estimate the conditional quantiles of a target distribution
+                        rather than the mean of a response variable. This is often accomplished by leveraging an asymmetric loss function, called pinball loss (Fig. 1), tailored to the specified quantile level.
+                    </p>
+                    
+                    <p>The pinball loss function is defined as a piecewise linear function:</p>
+                    
+                    <div class="pinball-function">
+                        <div class="function-definition">
+                            L<sub>q</sub>(y, ŷ) = 
+                            <span style="font-size: 24px;">{</span>
+                            <div class="piecewise-cases">
+                                <div class="case-line">q(y - ŷ)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if y ≥ ŷ</div>
+                                <div class="case-line">(q - 1)(y - ŷ)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if y < ŷ</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <p>
+                        where q ∈ (0,1) is the desired quantile level, y is the true value, and ŷ is the predicted value. This asymmetric penalty ensures that overestimation and underestimation are weighted differently according to the target quantile. For example, if q = 0.1, then overestimates will be penalized heavier than underestimates.
+                    </p>
 
-            Pinball loss has been used in the past [to predict a fixed set of upper and lower confidence bounds](https://arxiv.org/abs/2202.05265). In contrast, our work investigates learning the full spectrum of quantiles, commonly referred to as **Simultaneous Quantile Regression (SQR)**, for inverse image tasks.
-        <div class="col-md-6">
-            {% include figure.html path="assets/img/proj_2_qutcc/pinball_loss_animation.gif" title="Pinball Loss" class="img-fluid" style="width: 250px; height: auto;"%}
-            <div class="caption" style="text-align: left;">
-                Fig. 1: Pinball loss is an asymmetric loss function used to estimate conditional quantiles of distribution in data. 
+                    <p>
+                        Pinball loss has been used in the past 
+                        <a href="https://arxiv.org/abs/2202.05265" target="_blank" style="color: #0066cc; text-decoration: none;">to predict a fixed set of upper and lower confidence bounds</a>. 
+                        In contrast, our work investigates learning the full spectrum of quantiles, commonly referred to as <strong>Simultaneous Quantile Regression (SQR)</strong>, for inverse image tasks.
+                    </p>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="gif-container">
+                        <img src="assets/img/proj_2_qutcc/pinball_loss_animation.gif" 
+                             alt="Pinball Loss Animation" 
+                             class="img-fluid" 
+                             style="width: 400px; height: auto; border-radius: 8px;">
+                        <div class="caption" style="text-align: left; margin-top: 15px; font-size: 14px; color: #666;">
+                            <strong>Fig. 1:</strong> Pinball loss is an asymmetric loss function used to estimate conditional quantiles of distribution in data.
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

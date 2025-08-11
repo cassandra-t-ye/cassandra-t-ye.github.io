@@ -42,16 +42,17 @@ related_publications: ye2025qutcc
             The pinball loss function is defined as a piecewise linear function:
             <br><br>
             <div style="text-align: center; font-family: 'Times New Roman', serif; font-size: 16px;">
-                L<sub>τ</sub>(y, ŷ) = {
+                L<sub>q</sub>(y, ŷ) = {
                 <div style="margin-left: 40px; text-align: left;">
-                    τ(y - ŷ)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if y ≥ ŷ<br>
-                    (τ - 1)(y - ŷ)&nbsp;&nbsp;&nbsp;if y < ŷ
+                    q(y - ŷ)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if y ≥ ŷ<br>
+                    (q - 1)(y - ŷ)&nbsp;&nbsp;&nbsp;if y < ŷ
                 </div>
                 }
             </div>
             <br>
-            where τ ∈ (0,1) is the desired quantile level, y is the true value, and ŷ is the predicted value. This asymmetric penalty ensures that overestimation and underestimation are weighted differently according to the target quantile.
-        </div>
+            where q ∈ (0,1) is the desired quantile level, y is the true value, and ŷ is the predicted value. This asymmetric penalty ensures that overestimation and underestimation are weighted differently according to the target quantile. For example, if q = 0.1, then overestimates will be penalized heavier than underestimates. 
+
+            Pinball loss has been used in the past [to predict a fixed set of upper and lower confidence bounds](https://arxiv.org/abs/2202.05265). In contrast, our work investigates learning the full spectrum of quantiles, commonly referred to as **Simultaneous Quantile Regression (SQR)**, for inverse image tasks.
         <div class="col-md-6">
             {% include figure.html path="assets/img/proj_2_qutcc/pinball_loss_animation.gif" title="Pinball Loss" class="img-fluid" style="width: 250px; height: auto;"%}
             <div class="caption" style="text-align: left;">

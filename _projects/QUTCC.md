@@ -19,6 +19,39 @@ related_publications: ye2025qutcc
 </div>
 
 <style>
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    background-color: #fff;
+}
+
+.main-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Clear section separation */
+.section {
+    margin-bottom: 80px;
+    padding: 40px 0;
+    border-bottom: 2px solid #e9ecef;
+    clear: both;
+}
+
+.section:last-child {
+    border-bottom: none;
+    margin-bottom: 40px;
+}
+
+.section-title {
+    font-weight: bold;
+    font-size: 28px;
+    margin-bottom: 30px;
+    color: #333;
+    text-align: center;
+}
 .pinball-container {
     background-color: #f8f9fa;
     padding: 30px;
@@ -141,7 +174,7 @@ related_publications: ye2025qutcc
 /* Method section styles */
 .method-container {
     background-color: #f8f9fa;
-    max-height: 200px;
+    max-height: 300px;
     padding: 30px;
     border-radius: 12px;
     margin: 20px 0;
@@ -395,44 +428,43 @@ related_publications: ye2025qutcc
 </div>
 
 
-<div class="container-fluid mt-5">
-    <div class="section results-section">
-        <b class="results-title">Results (Alternative Flexbox Layout)</b>
+<div class="section results-section">
+    <b class="results-title">Results (Alternative Flexbox Layout)</b>
+    
+    <div style="display: flex; gap: 30px; align-items: flex-start; flex-wrap: wrap;">
+        <div style="flex: 1; min-width: 300px;">
+            <div class="content-text">
+                <p>
+                    This alternative layout uses CSS Flexbox for better responsive behavior 
+                    and more predictable positioning. The figures automatically adjust their 
+                    position based on available space.
+                </p>
+            </div>
+            
+            <div class="under-construction">
+                🚧 UNDER CONSTRUCTION 🚧<br>
+                <small style="font-weight: normal;">More content coming soon!</small>
+            </div>
+        </div>
         
-        <div style="display: flex; gap: 30px; align-items: flex-start; flex-wrap: wrap;">
-            <div style="flex: 1; min-width: 300px;">
-                <div class="content-text">
-                    <p>
-                        This alternative layout uses CSS Flexbox for better responsive behavior 
-                        and more predictable positioning. The figures automatically adjust their 
-                        position based on available space.
-                    </p>
-                </div>
-                
-                <div class="under-construction">
-                    🚧 UNDER CONSTRUCTION 🚧<br>
-                    <small style="font-weight: normal;">More content coming soon!</small>
+        <div style="display: flex; flex-direction: column; gap: 20px; flex-shrink: 0;">
+            <div class="figure-container">
+                {% include figure.html path="assets/img/proj_2_qutcc/hallucination_gif.gif" title="" class="img-fluid" style="width: 100%; height: auto;"%}
+                <div class="caption">
+                    Figure 1: Hallucination analysis visualization
                 </div>
             </div>
             
-            <div style="display: flex; flex-direction: column; gap: 20px; flex-shrink: 0;">
-                <div class="figure-container">
-                    {% include figure.html path="assets/img/proj_2_qutcc/hallucination_gif.gif" title="" class="img-fluid" style="width: 100%; height: auto;"%}
-                    <div class="caption">
-                        Figure 1: Hallucination analysis visualization
-                    </div>
-                </div>
-                
-                <div class="figure-container">
-                    {% include figure.html path="assets/img/proj_2_qutcc/fig_2_violin_plot.png" title="" class="img-fluid" style="width: 100%; height: auto;"%}
-                    <div class="caption">
-                        Figure 2: Violin plot statistical analysis
-                    </div>
+            <div class="figure-container">
+                {% include figure.html path="assets/img/proj_2_qutcc/fig_2_violin_plot.png" title="" class="img-fluid" style="width: 100%; height: auto;"%}
+                <div class="caption">
+                    Figure 2: Violin plot statistical analysis
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 
 
 <div class="row" style="margin-top: 20px;">

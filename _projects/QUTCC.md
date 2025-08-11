@@ -138,6 +138,84 @@ related_publications: ye2025qutcc
     text-align: justify;
 }
 
+/* New styles for the QUTCC method section */
+.method-container {
+    background-color: #f8f9fa;
+    padding: 30px;
+    border-radius: 12px;
+    margin: 20px 0;
+    border: 1px solid #e9ecef;
+}
+
+.method-image-container {
+    text-align: center;
+    margin: 20px 0;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.method-image {
+    max-width: 100%;
+    max-height: 350px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: opacity 0.3s ease;
+}
+
+.method-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+.method-btn {
+    padding: 12px 24px;
+    border: 2px solid #007bff;
+    background-color: #fff;
+    color: #007bff;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    min-width: 120px;
+}
+
+.method-btn:hover {
+    background-color: #e3f2fd;
+    transform: translateY(-2px);
+}
+
+.method-btn.active {
+    background-color: #007bff;
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(0,123,255,0.3);
+}
+
+.method-caption {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #555;
+    line-height: 1.6;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    padding: 0 20px;
+}
+
+.stage-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
 @media (max-width: 768px) {
     .pinball-content {
         flex-direction: column;
@@ -160,11 +238,20 @@ related_publications: ye2025qutcc
     .case-line {
         font-size: 16px;
     }
+
+    .method-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .method-btn {
+        width: 200px;
+    }
 }
 </style>
 
-<div class="section">
-    <b style="font-weight: bold; font-size: 24px;">Abstract</b>
+<div class="section" style="margin-top: 60px;">
+    <h2 style="font-weight: bold; font-size: 24px; margin-bottom: 20px;">Abstract</h2>
     
     <div class="row">
         <div class="col-md-12">
@@ -178,7 +265,7 @@ related_publications: ye2025qutcc
     
     <div class="text-content">
         <p>
-            Quantile regression is a general approach to estimate the conditional quantiles of a target distribution rather than the mean of a response variable. This is often accomplished by leveraging an asymmetric loss function, called pinball loss (Fig. 1), tailored to the specified quantile level.
+            Quantile regression is a general approach to estimate the conditional quantiles of a target distribution rather than the mean of a response variable. This is often accomplished by leveraging an asymmetric loss function, called pinball loss, tailored to the specified quantile level.
         </p>
     </div>
     
@@ -223,6 +310,24 @@ related_publications: ye2025qutcc
 
 <div class="section" style="margin-top: 60px;">
     <b style="font-size: 24px;">Our Method: QUTCC</b>
+    
+    <div class="method-container">
+        <div class="method-image-container">
+            <img id="method-image" class="method-image" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjhmOWZhIiBzdHJva2U9IiNkZGQiLz4KICA8dGV4dCB4PSI1MCUiIHk9IjQ1JSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzMzMyIgZm9udC1zaXplPSIxOHB4IiBmb250LXdlaWdodD0iYm9sZCI+VHJhaW5pbmcgUGhhc2U8L3RleHQ+CiAgPHRleHQgeD0iNTAlIiB5PSI2NSUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiM2NjYiIGZvbnQtc2l6ZT0iMTRweCI+TGVhcm5pbmcgUXVhbnRpbGUgRW1iZWRkaW5ncyBhbmQgUGluYmFsbCBMb3NzPC90ZXh0Pgo8L3N2Zz4K" alt="Training Phase">
+            
+            <div class="method-caption">
+                <div class="stage-title">Training Phase</div>
+                <div>During training, QUTCC uses a U-Net architecture with quantile embeddings to learn the full spectrum of quantiles simultaneously. The network is trained using the pinball loss function, which enables it to predict different quantile levels of the conditional distribution for each pixel in the image reconstruction task. This simultaneous quantile regression approach allows the model to capture the uncertainty inherent in the inverse problem.</div>
+            </div>
+        </div>
+
+        <div class="method-buttons">
+            <button class="method-btn active" data-stage="training">Training</button>
+            <button class="method-btn" data-stage="calibration">Calibration</button>
+            <button class="method-btn" data-stage="inference">Inference</button>
+        </div>
+    </div>
+    
     <div class="row">
         <div class="col-sm mt-3 mt-md-0" style="text-align: center;">
             {% include figure.html path="assets/img/proj_2_qutcc/fig_1_gif.gif" title="Fig. 1 Summary" class="img-fluid " width="700px" height="auto" %}        
@@ -268,84 +373,134 @@ document.addEventListener('DOMContentLoaded', function() {
     canvas.width = 400;
     canvas.height = 300;
     
-function drawPinballLoss(q) {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    function drawPinballLoss(q) {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    const margin = 40;
-    const width = canvas.width - 2 * margin;
-    const height = canvas.height - 2 * margin;
+        const margin = 40;
+        const width = canvas.width - 2 * margin;
+        const height = canvas.height - 2 * margin;
 
-    // Draw axes
-    ctx.strokeStyle = '#333';
-    ctx.lineWidth = 2;
-    ctx.beginPath();
-    ctx.moveTo(margin, canvas.height - margin); // X-axis
-    ctx.lineTo(canvas.width - margin, canvas.height - margin);
-    ctx.moveTo(margin, margin); // Y-axis
-    ctx.lineTo(margin, canvas.height - margin);
-    ctx.stroke();
+        // Draw axes
+        ctx.strokeStyle = '#333';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(margin, canvas.height - margin); // X-axis
+        ctx.lineTo(canvas.width - margin, canvas.height - margin);
+        ctx.moveTo(margin, margin); // Y-axis
+        ctx.lineTo(margin, canvas.height - margin);
+        ctx.stroke();
 
-    // Axis labels
-    ctx.fillStyle = '#333';
-    ctx.font = '12px Arial';
-    ctx.textAlign = 'center';
-    ctx.fillText('Ground Truth - Predicted', canvas.width / 2, canvas.height - 10);
-    ctx.save();
-    ctx.translate(15, canvas.height / 2);
-    ctx.rotate(-Math.PI / 2);
-    ctx.fillText('Pinball Loss', 0, 0);
-    ctx.restore();
+        // Axis labels
+        ctx.fillStyle = '#333';
+        ctx.font = '12px Arial';
+        ctx.textAlign = 'center';
+        ctx.fillText('Ground Truth - Predicted', canvas.width / 2, canvas.height - 10);
+        ctx.save();
+        ctx.translate(15, canvas.height / 2);
+        ctx.rotate(-Math.PI / 2);
+        ctx.fillText('Pinball Loss', 0, 0);
+        ctx.restore();
 
-    // Function scaling
-    const uMin = -5, uMax = 5;
-    const uToPx = (u) => margin + ((u - uMin) / (uMax - uMin)) * width;
-    const maxLoss = Math.max(q * Math.abs(uMax), (1 - q) * Math.abs(uMin));
-    const lossToPy = (loss) => (canvas.height - margin) - (loss / maxLoss) * (height * 0.9);
+        // Function scaling
+        const uMin = -5, uMax = 5;
+        const uToPx = (u) => margin + ((u - uMin) / (uMax - uMin)) * width;
+        const maxLoss = Math.max(q * Math.abs(uMax), (1 - q) * Math.abs(uMin));
+        const lossToPy = (loss) => (canvas.height - margin) - (loss / maxLoss) * (height * 0.9);
 
-    // Pinball loss function from formula
-    function pinballLoss(u, q) {
-        const absU = Math.abs(u);
-        if (u >= 0) {
-            return q * absU;
-        } else {
-            return (1 - q) * absU;
+        // Pinball loss function from formula
+        function pinballLoss(u, q) {
+            const absU = Math.abs(u);
+            if (u >= 0) {
+                return q * absU;
+            } else {
+                return (1 - q) * absU;
+            }
         }
+
+        // Plot curve
+        ctx.strokeStyle = '#007bff';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        const steps = 300;
+        for (let i = 0; i <= steps; i++) {
+            const u = uMin + i * (uMax - uMin) / steps;
+            const loss = pinballLoss(u, q);
+            const px = uToPx(u);
+            const py = lossToPy(loss);
+            
+            if (i === 0) {
+                ctx.moveTo(px, py);
+            } else {
+                ctx.lineTo(px, py);
+            }
+        }
+        ctx.stroke();
+
+        // Show q value
+        ctx.fillStyle = '#007bff';
+        ctx.font = 'bold 16px Arial';
+        ctx.textAlign = 'left';
+        ctx.fillText('q = ' + (1 - q).toFixed(2), margin + 10, margin + 20);
     }
 
-    // Plot curve
-    ctx.strokeStyle = '#007bff';
-    ctx.lineWidth = 2;
-    ctx.beginPath();
-    const steps = 300;
-    for (let i = 0; i <= steps; i++) {
-        const u = uMin + i * (uMax - uMin) / steps;
-        const loss = pinballLoss(u, q);
-        const px = uToPx(u);
-        const py = lossToPy(loss);
-        
-        if (i === 0) {
-            ctx.moveTo(px, py);
-        } else {
-            ctx.lineTo(px, py);
-        }
+    function updateVisualization() {
+        var q = parseFloat(slider.value);
+        display.textContent = (1-q).toFixed(2);
+        drawPinballLoss(q);
     }
-    ctx.stroke();
 
-    // Show q value
-    ctx.fillStyle = '#007bff';
-    ctx.font = 'bold 16px Arial';
-    ctx.textAlign = 'left';
-    ctx.fillText('q = ' + (1 - q).toFixed(2), margin + 10, margin + 20);
-}
+    updateVisualization();
+    slider.addEventListener('input', updateVisualization);
 
+    // Method stage switching functionality
+    const methodButtons = document.querySelectorAll('.method-btn');
+    const methodImage = document.getElementById('method-image');
+    const methodCaption = document.querySelector('.method-caption');
 
-function updateVisualization() {
-    var q = parseFloat(slider.value);
-    display.textContent = (1-q).toFixed(2);
-    drawPinballLoss(q);
-}
+    const stageData = {
+        training: {
+            image: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjhmOWZhIiBzdHJva2U9IiNkZGQiLz4KICA8dGV4dCB4PSI1MCUiIHk9IjQ1JSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzMzMyIgZm9udC1zaXplPSIxOHB4IiBmb250LXdlaWdodD0iYm9sZCI+VHJhaW5pbmcgUGhhc2U8L3RleHQ+CiAgPHRleHQgeD0iNTAlIiB5PSI2NSUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiM2NjYiIGZvbnQtc2l6ZT0iMTRweCI+TGVhcm5pbmcgUXVhbnRpbGUgRW1iZWRkaW5ncyBhbmQgUGluYmFsbCBMb3NzPC90ZXh0Pgo8L3N2Zz4K",
+            title: "Training Phase",
+            caption: "During training, QUTCC uses a U-Net architecture with quantile embeddings to learn the full spectrum of quantiles simultaneously. The network is trained using the pinball loss function, which enables it to predict different quantile levels of the conditional distribution for each pixel in the image reconstruction task. This simultaneous quantile regression approach allows the model to capture the uncertainty inherent in the inverse problem."
+        },
+        calibration: {
+            image: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZWZmN2ZmIiBzdHJva2U9IiNkZGQiLz4KICA8dGV4dCB4PSI1MCUiIHk9IjQ1JSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzMzMyIgZm9udC1zaXplPSIxOHB4IiBmb250LXdlaWdodD0iYm9sZCI+Q2FsaWJyYXRpb24gUGhhc2U8L3RleHQ+CiAgPHRleHQgeD0iNTAlIiB5PSI2NSUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiM2NjYiIGZvbnQtc2l6ZT0iMTRweCI+Q29uZm9ybWFsIFByZWRpY3Rpb24gYW5kIE5vbmxpbmVhciBTY2FsaW5nPC90ZXh0Pgo8L3N2Zz4K",
+            title: "Calibration Phase", 
+            caption: "During calibration, QUTCC employs conformal prediction techniques to provide statistical guarantees on the uncertainty bounds. Unlike previous methods that use constant scaling factors, QUTCC applies nonlinear, non-uniform scaling to the quantile predictions. This adaptive calibration process uses a validation set to determine optimal scaling parameters for different quantile levels, resulting in tighter and more informative uncertainty intervals while maintaining the desired coverage guarantees."
+        },
+        inference: {
+            image: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjBmOGZmIiBzdHJva2U9IiNkZGQiLz4KICA8dGV4dCB4PSI1MCUiIHk9IjQ1JSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzMzMyIgZm9udC1zaXplPSIxOHB4IiBmb250LXdlaWdodD0iYm9sZCI+SW5mZXJlbmNlIFBoYXNlPC90ZXh0PgogIDx0ZXh0IHg9IjUwJSIgeT0iNjUlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjNjY2IiBmb250LXNpemU9IjE0cHgiPkl0ZXJhdGl2ZSBRdWVyeWluZyAmIFVuY2VydGFpbnR5IEJvdW5kczwvdGV4dD4KPC9zdmc+Cg==",
+            title: "Inference Phase",
+            caption: "At inference time, QUTCC can query the trained network for any quantile level within the learned range. The method iteratively queries upper and lower quantiles to construct tight uncertainty bounds around the predicted image. This process progressively refines the uncertainty intervals by leveraging the full conditional quantile distribution learned during training. The result is pixel-wise uncertainty estimates that can effectively identify potential hallucinations and provide reliable confidence measures for the reconstruction."
+        }
+    };
 
-updateVisualization();
-slider.addEventListener('input', updateVisualization);
+    methodButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Remove active class from all buttons
+            methodButtons.forEach(btn => btn.classList.remove('active'));
+            
+            // Add active class to clicked button
+            this.classList.add('active');
+            
+            // Get stage data
+            const stage = this.dataset.stage;
+            const data = stageData[stage];
+            
+            // Update image and caption with fade effect
+            methodImage.style.opacity = '0.3';
+            setTimeout(() => {
+                methodImage.src = data.image;
+                methodImage.alt = data.title;
+                
+                methodCaption.innerHTML = `
+                    <div class="stage-title">${data.title}</div>
+                    <div>${data.caption}</div>
+                `;
+                
+                methodImage.style.opacity = '1';
+            }, 150);
+        });
+    });
 });
 </script>

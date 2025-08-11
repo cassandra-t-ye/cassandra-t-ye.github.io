@@ -150,7 +150,7 @@ related_publications: ye2025qutcc
 .method-image-container {
     text-align: center;
     margin: 20px 0;
-    min-height: 400px;
+    min-height: 200px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -247,6 +247,27 @@ related_publications: ye2025qutcc
     .method-btn {
         width: 200px;
     }
+
+    .under-construction {
+            background: linear-gradient(45deg, #fff3cd, #ffeaa7);
+            border: 2px dashed #e67e22;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            font-weight: bold;
+            color: #d35400;
+            margin: 20px 0;
+    }
+    .results-section {
+            margin-top: 60px;
+    }
+        
+    .results-title {
+        font-weight: bold;
+        font-size: 24px;
+        margin-bottom: 30px;
+        display: block;
+    }
 }
 </style>
 
@@ -340,19 +361,41 @@ related_publications: ye2025qutcc
 </div>
 
 
-<div class="section" style="margin-top: 60px;">
-    <b style="font-weight: bold; font-size: 24px; margin-bottom: 20px;">Results</b>
-    <div class="row">
-        <div style="float: right; margin: 0 0 20px 20px; max-width: 300px;">
-            {% include figure.html path="assets/img/proj_2_qutcc/hallucination_gif.gif" title="" class="img-fluid" style="width: 100%; height: auto;"%}
-            <div class="caption" style="text-align: left; font-size: 14px; margin-top: 8px;">
+<div class="container-fluid mt-5">
+    <div class="section results-section">
+        <b class="results-title">Results (Alternative Flexbox Layout)</b>
+        
+        <div style="display: flex; gap: 30px; align-items: flex-start; flex-wrap: wrap;">
+            <div style="flex: 1; min-width: 300px;">
+                <div class="content-text">
+                    <p>
+                        This alternative layout uses CSS Flexbox for better responsive behavior 
+                        and more predictable positioning. The figures automatically adjust their 
+                        position based on available space.
+                    </p>
+                </div>
                 
+                <div class="under-construction">
+                    🚧 UNDER CONSTRUCTION 🚧<br>
+                    <small style="font-weight: normal;">More content coming soon!</small>
+                </div>
             </div>
-        </div>
-        <div class="col-md-12">
-            <p>
-                UNDER CONSTRUCTION EEEK
-            </p>
+            
+            <div style="display: flex; flex-direction: column; gap: 20px; flex-shrink: 0;">
+                <div class="figure-container">
+                    {% include figure.html path="assets/img/proj_2_qutcc/hallucination_gif.gif" title="" class="img-fluid" style="width: 100%; height: auto;"%}
+                    <div class="caption">
+                        Figure 1: Hallucination analysis visualization
+                    </div>
+                </div>
+                
+                <div class="figure-container">
+                    {% include figure.html path="assets/img/proj_2_qutcc/fig_2_violin_plot.png" title="" class="img-fluid" style="width: 100%; height: auto;"%}
+                    <div class="caption">
+                        Figure 2: Violin plot statistical analysis
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

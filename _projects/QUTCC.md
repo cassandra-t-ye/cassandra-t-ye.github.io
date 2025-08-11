@@ -138,7 +138,7 @@ related_publications: ye2025qutcc
     text-align: justify;
 }
 
-/* New styles for the QUTCC method section */
+/* Method section styles */
 .method-container {
     background-color: #f8f9fa;
     max-height: 200px;
@@ -217,6 +217,56 @@ related_publications: ye2025qutcc
     margin-bottom: 10px;
 }
 
+/* Results section styles */
+.under-construction {
+    background: linear-gradient(45deg, #fff3cd, #ffeaa7);
+    border: 2px dashed #e67e22;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    font-weight: bold;
+    color: #d35400;
+    margin: 20px 0;
+}
+
+.results-section {
+    margin-top: 60px;
+}
+
+.results-title {
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: 30px;
+    display: block;
+}
+
+.content-text {
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 20px 0;
+}
+
+.figure-container {
+    max-width: 300px;
+    margin-bottom: 20px;
+}
+
+.figure-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.caption {
+    text-align: left;
+    font-size: 14px;
+    margin-top: 8px;
+    color: #666;
+    font-style: italic;
+}
+
+/* Mobile responsive styles */
 @media (max-width: 768px) {
     .pinball-content {
         flex-direction: column;
@@ -249,29 +299,12 @@ related_publications: ye2025qutcc
         width: 200px;
     }
 
-    .under-construction {
-            background: linear-gradient(45deg, #fff3cd, #ffeaa7);
-            border: 2px dashed #e67e22;
-            border-radius: 8px;
-            padding: 20px;
-            text-align: center;
-            font-weight: bold;
-            color: #d35400;
-            margin: 20px 0;
-    }
-    .results-section {
-            margin-top: 60px;
-    }
-        
-    .results-title {
-        font-weight: bold;
-        font-size: 24px;
-        margin-bottom: 30px;
-        display: block;
+    .figure-container {
+        max-width: 100%;
+        margin: 20px 0;
     }
 }
 </style>
-
 <div class="section" style="margin-top: 60px;">
     <h2 style="font-weight: bold; font-size: 24px; margin-bottom: 20px;">Abstract</h2>
     

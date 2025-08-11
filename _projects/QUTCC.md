@@ -455,17 +455,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const stageData = {
         training: {
-            image: "src:assets/img/proj_2_qutcc/fig_1_training_gif.gif",
+            image: "data:assets/img/proj_2_qutcc/fig_1_training_gif.gif",
             title: "Training Phase",
             caption: "During training, QUTCC uses a U-Net architecture with quantile embeddings to learn the full spectrum of quantiles simultaneously. The network is trained using the pinball loss function, which enables it to predict different quantile levels of the conditional distribution for each pixel in the image reconstruction task. This simultaneous quantile regression approach allows the model to capture the uncertainty inherent in the inverse problem."
         },
         calibration: {
-            image: "src:assets/img/proj_2_qutcc/fig_1_calibration_gif.gif",
+            image: "data:assets/img/proj_2_qutcc/fig_1_calibration_gif.gif",
             title: "Calibration Phase", 
             caption: "During calibration, QUTCC employs conformal prediction techniques to provide statistical guarantees on the uncertainty bounds. Unlike previous methods that use constant scaling factors, QUTCC applies nonlinear, non-uniform scaling to the quantile predictions. This adaptive calibration process uses a validation set to determine optimal scaling parameters for different quantile levels, resulting in tighter and more informative uncertainty intervals while maintaining the desired coverage guarantees."
         },
         inference: {
-            image: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjBmOGZmIiBzdHJva2U9IiNkZGQiLz4KICA8dGV4dCB4PSI1MCUiIHk9IjQ1JSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzMzMyIgZm9udC1zaXplPSIxOHB4IiBmb250LXdlaWdodD0iYm9sZCI+SW5mZXJlbmNlIFBoYXNlPC90ZXh0PgogIDx0ZXh0IHg9IjUwJSIgeT0iNjUlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjNjY2IiBmb250LXNpemU9IjE0cHgiPkl0ZXJhdGl2ZSBRdWVyeWluZyAmIFVuY2VydGFpbnR5IEJvdW5kczwvdGV4dD4KPC9zdmc+Cg==",
+            image: "data:assets/img/proj_2_qutcc/fig_1_inference_gif.gif",
             title: "Inference Phase",
             caption: "At inference time, QUTCC can query the trained network for any quantile level within the learned range. The method iteratively queries upper and lower quantiles to construct tight uncertainty bounds around the predicted image. This process progressively refines the uncertainty intervals by leveraging the full conditional quantile distribution learned during training. The result is pixel-wise uncertainty estimates that can effectively identify potential hallucinations and provide reliable confidence measures for the reconstruction."
         }

@@ -445,7 +445,7 @@ body {
         </div>   
     <div style="display: flex; flex-direction: column; gap: 20px; flex-shrink: 0;">
     <div class="figure-container">
-        <img src="https://raw.githubusercontent.com/cassandra-t-ye/cassandra-t-ye.github.io/master/assets/img/proj_2_qutcc/hallucination_gif.gif" 
+        {% include figure.html path="assets/img/proj_2_qutcc/hallucination_gif.mp4" title="" class="img-fluid" style="width: 100%; height: auto;" %} 
             alt="Hallucination analysis visualization" 
             class="img-fluid" 
             style="width: 100%; height: auto;" />

@@ -312,7 +312,7 @@ related_publications: ye2025qutcc
 </div>
 
 <div class="section" style="margin-top: 60px;">
-    <b style="font-weight: bold; font-size: 24px;">Our Method: QUTCC</b>
+    <b style="font-weight: bold; font-size: 24px; margin-bottom: 20px;">Our Method: QUTCC</b>
     <div class="row">
         <div class="col-md-12">
             <p>
@@ -341,8 +341,14 @@ related_publications: ye2025qutcc
 
 
 <div class="section" style="margin-top: 60px;">
-    <b style="font-weight: bold; font-size: 24px;">Results</b>
+    <b style="font-weight: bold; font-size: 24px; margin-bottom: 20px;">Results</b>
     <div class="row">
+        <div style="float: right; margin: 0 0 20px 20px; max-width: 300px;">
+            {% include figure.html path="assets/img/proj_2_qutcc/hallucination_gif.gif" title="" class="img-fluid" style="width: 100%; height: auto;"%}
+            <div class="caption" style="text-align: left; font-size: 14px; margin-top: 8px;">
+                
+            </div>
+        </div>
         <div class="col-md-12">
             <p>
                 UNDER CONSTRUCTION EEEK

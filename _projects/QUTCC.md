@@ -487,7 +487,9 @@ document.addEventListener('DOMContentLoaded', function() {
             setTimeout(() => {
                 methodImage.src = data.image;
                 methodImage.alt = data.title;
-                
+                methodImage.setAttribute('width', '600');
+                methodImage.setAttribute('height', '500');
+
                 methodCaption.innerHTML = `
                     <div class="stage-title">${data.title}</div>
                     <div>${data.caption}</div>

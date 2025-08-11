@@ -158,9 +158,9 @@ related_publications: ye2025qutcc
 }
 
 .method-image {
-    max-width: 200%;
+    max-width: 120%;
     max-height: 350px;
-    border-radius: 2px;
+    border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     transition: opacity 0.3s ease;
 }

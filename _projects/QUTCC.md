@@ -315,12 +315,6 @@ related_publications: ye2025qutcc
     <b style="font-size: 24px;">Our Method: QUTCC</b>
 
     <div class="row">
-        <div class="col-sm mt-3 mt-md-0" style="text-align: center;">
-            {% include figure.html path="assets/img/proj_2_qutcc/fig_1_gif.gif" title="Fig. 1 Summary" class="img-fluid " width="700px" height="auto" %}        
-            <div class="caption" style="text-align: left;">
-                <!-- Caption content here if needed -->
-            </div>
-        </div>
         <div class="col-md-12">
             <p>
                 We propose <strong>QUTCC</strong> (pronounced: CUTESY), short for <strong>Quantile Uncertainty Training and Conformal Calibration</strong>, a novel method for simultaneous quantile prediction and conformal calibration that enables efficient and accurate uncertainty quantification for imaging inverse problems. QUTCC uses a single neural network to estimate a distribution of quantiles. During the conformal calibration step, QUTCC applies a non-uniform, nonlinear scaling to the uncertainty bounds, compared to constant scaling used by prior methods. This results in smaller and potentially more informative uncertainty intervals. Additionally, because all quantiles are learned during training, QUTCC can query the full quantile range at inference time to construct a pixel-wise estimate of the underlying probability distribution.
@@ -462,12 +456,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const stageData = {
         training: {
-            image: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjhmOWZhIiBzdHJva2U9IiNkZGQiLz4KICA8dGV4dCB4PSI1MCUiIHk9IjQ1JSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzMzMyIgZm9udC1zaXplPSIxOHB4IiBmb250LXdlaWdodD0iYm9sZCI+VHJhaW5pbmcgUGhhc2U8L3RleHQ+CiAgPHRleHQgeD0iNTAlIiB5PSI2NSUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiM2NjYiIGZvbnQtc2l6ZT0iMTRweCI+TGVhcm5pbmcgUXVhbnRpbGUgRW1iZWRkaW5ncyBhbmQgUGluYmFsbCBMb3NzPC90ZXh0Pgo8L3N2Zz4K",
+            image: "assets/img/proj_2_qutcc/fig_1_training_gif.gif",
             title: "Training Phase",
             caption: "During training, QUTCC uses a U-Net architecture with quantile embeddings to learn the full spectrum of quantiles simultaneously. The network is trained using the pinball loss function, which enables it to predict different quantile levels of the conditional distribution for each pixel in the image reconstruction task. This simultaneous quantile regression approach allows the model to capture the uncertainty inherent in the inverse problem."
         },
         calibration: {
-            image: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZWZmN2ZmIiBzdHJva2U9IiNkZGQiLz4KICA8dGV4dCB4PSI1MCUiIHk9IjQ1JSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzMzMyIgZm9udC1zaXplPSIxOHB4IiBmb250LXdlaWdodD0iYm9sZCI+Q2FsaWJyYXRpb24gUGhhc2U8L3RleHQ+CiAgPHRleHQgeD0iNTAlIiB5PSI2NSUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiM2NjYiIGZvbnQtc2l6ZT0iMTRweCI+Q29uZm9ybWFsIFByZWRpY3Rpb24gYW5kIE5vbmxpbmVhciBTY2FsaW5nPC90ZXh0Pgo8L3N2Zz4K",
+            image: "assets/img/proj_2_qutcc/fig_1_calibration_gif.gif",
             title: "Calibration Phase", 
             caption: "During calibration, QUTCC employs conformal prediction techniques to provide statistical guarantees on the uncertainty bounds. Unlike previous methods that use constant scaling factors, QUTCC applies nonlinear, non-uniform scaling to the quantile predictions. This adaptive calibration process uses a validation set to determine optimal scaling parameters for different quantile levels, resulting in tighter and more informative uncertainty intervals while maintaining the desired coverage guarantees."
         },

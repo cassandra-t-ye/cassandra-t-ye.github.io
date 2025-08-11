@@ -191,7 +191,7 @@ related_publications: ye2025qutcc
                         <span class="piecewise-brace">{</span>
                         <div class="piecewise-cases">
                             <div class="case-line">q * |y - ŷ|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if y ≥ ŷ</div>
-                            <div class="case-line">(q - 1) * |y - ŷ|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if y < ŷ</div>
+                            <div class="case-line">(1 - q) * |y - ŷ|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if y < ŷ</div>
                         </div>
                     </div>
                 </div>
@@ -310,7 +310,7 @@ document.addEventListener('DOMContentLoaded', function() {
         ctx.beginPath();
         
         // Left side: (q-1)(y-ŷ) for y < ŷ (negative slope)
-        var leftSlope = (q - 1) * scale;
+        var leftSlope = (1-q) * scale;
         var leftStartY = centerY - leftSlope * (width / 2) / scale;
         ctx.moveTo(margin, leftStartY);
         ctx.lineTo(centerX, centerY);

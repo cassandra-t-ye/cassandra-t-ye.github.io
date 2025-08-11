@@ -19,35 +19,70 @@ related_publications: ye2025qutcc
 
 
 <style>
-.pinball-function {
-    background-color: #f8f9fa;
-    padding: 20px;
-    border-radius: 8px;
-    margin: 15px 0;
-    text-align: center;
-}
-.function-definition {
-    font-family: 'Times New Roman', serif;
-    font-size: 18px;
-    line-height: 1.8;
-}
-.piecewise-cases {
-    display: inline-block;
-    text-align: left;
-    margin-left: 20px;
-}
-.case-line {
-    margin: 8px 0;
-    white-space: nowrap;
-}
-.gif-container {
-    text-align: center;
-    margin-top: 20px;
-}
+        .figure-float {
+            float: right;
+            margin: 0 0 20px 30px;
+            max-width: 400px;
+            text-align: center;
+        }
+        .figure-float img {
+            width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        .caption {
+            font-size: 14px;
+            color: #666;
+            margin-top: 10px;
+            text-align: left;
+        }
+        .pinball-function {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: center;
+            clear: both;
+        }
+        .function-definition {
+            font-family: 'Times New Roman', serif;
+            font-size: 18px;
+            line-height: 2.0;
+        }
+        .piecewise-container {
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .piecewise-brace {
+            font-size: 60px;
+            line-height: 1;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+        .piecewise-cases {
+            display: inline-block;
+            text-align: left;
+            vertical-align: middle;
+        }
+        .case-line {
+            margin: 10px 0;
+            white-space: nowrap;
+        }
+        .text-content {
+            text-align: justify;
+        }
+        @media (max-width: 768px) {
+            .figure-float {
+                float: none;
+                margin: 20px auto;
+                display: block;
+            }
+        }
 </style>
 
 <div class="section">
-    <b style="font-size: 24px;">Abstract</b>
+    <b style="font-weight: bold; font-size: 24px;">Abstract</b>
     
     <div class="row">
         <div class="col-md-12"> <!-- This will make the text take up 6 columns (half the width) on medium-sized screens -->
@@ -56,49 +91,54 @@ related_publications: ye2025qutcc
     </div>
 </div>
 
+```html
 <div class="section">
     <h2 style="font-weight: bold; font-size: 24px; margin-bottom: 20px;">Quantile Regression: Pinball Loss</h2>
-    <div class="row">
-        <div class="col-md-6">
-            <p>
-                Quantile regression is a general approach to estimate the conditional quantiles of a target distribution
-                rather than the mean of a response variable. This is often accomplished by leveraging an asymmetric loss function, called pinball loss (Fig. 1), tailored to the specified quantile level.
-            </p>
-            
-            <p>The pinball loss function is defined as a piecewise linear function:</p>
-            
-            <div class="pinball-function">
-                <div class="function-definition">
-                    L<sub>q</sub>(y, ŷ) = 
-                    <span style="font-size: 24px;">{</span>
-                    <div class="piecewise-cases">
-                        <div class="case-line">q(y - ŷ)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if y ≥ ŷ</div>
-                        <div class="case-line">(q - 1)(y - ŷ)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if y < ŷ</div>
-                    </div>
-                </div>
-            </div>
-            
-            <p>
-                where q ∈ (0,1) is the desired quantile level, y is the true value, and ŷ is the predicted value. This asymmetric penalty ensures that overestimation and underestimation are weighted differently according to the target quantile. For example, if q = 0.1, then overestimates will be penalized heavier than underestimates.
-            </p>
-
-            <p>
-                Pinball loss has been used in the past 
-                <a href="https://arxiv.org/abs/2202.05265" target="_blank" style="color: #0066cc; text-decoration: none;">to predict a fixed set of upper and lower confidence bounds</a>. 
-                In contrast, our work investigates learning the full spectrum of quantiles, commonly referred to as <strong>Simultaneous Quantile Regression (SQR)</strong>, for inverse image tasks.
-            </p>
+    
+    <div class="figure-float">
+        {% include figure.html path="assets/img/proj_2_qutcc/pinball_loss_animation.gif" title="Pinball Loss Animation" class="img-fluid" style="width: 100%; height: auto; border-radius: 8px;" %}
+        <div class="caption">
+            <strong>Fig. 1:</strong> Pinball loss is an asymmetric loss function used to estimate conditional quantiles of distribution in data.
         </div>
+    </div>
+    
+    <div class="text-content">
+        <p>
+            Quantile regression is a general approach to estimate the conditional quantiles of a target distribution rather than the mean of a response variable. This is often accomplished by leveraging an asymmetric loss function, called pinball loss (Fig. 1), tailored to the specified quantile level.
+        </p>
         
-        <div class="col-md-6">
-            <div class="gif-container">
-                {% include figure.html path="assets/img/proj_2_qutcc/pinball_loss_animation.gif" title="Pinball Loss Animation" class="img-fluid" style="width: 400px; height: auto; border-radius: 8px;" %}
-                <div class="caption" style="text-align: left; margin-top: 15px; font-size: 14px; color: #666;">
-                    <strong>Fig. 1:</strong> Pinball loss is an asymmetric loss function used to estimate conditional quantiles of distribution in data.
+        <p>
+            The pinball loss function is defined as a piecewise linear function:
+        </p>
+    </div>
+    
+    <div class="pinball-function">
+        <div class="function-definition">
+            L<sub>q</sub>(y, ŷ) = 
+            <div class="piecewise-container">
+                <span class="piecewise-brace">{</span>
+                <div class="piecewise-cases">
+                    <div class="case-line">q(y - ŷ)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if y ≥ ŷ</div>
+                    <div class="case-line">(q - 1)(y - ŷ)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if y < ŷ</div>
                 </div>
             </div>
         </div>
     </div>
+    
+    <div class="text-content">
+        <p>
+            where q ∈ (0,1) is the desired quantile level, y is the true value, and ŷ is the predicted value. This asymmetric penalty ensures that overestimation and underestimation are weighted differently according to the target quantile. For example, if q = 0.1, then overestimates will be penalized heavier than underestimates.
+        </p>
+
+        <p>
+            Pinball loss has been used in the past 
+            <a href="https://arxiv.org/abs/2202.05265" target="_blank" style="color: #0066cc; text-decoration: none;">to predict a fixed set of upper and lower confidence bounds</a>. 
+            In contrast, our work investigates learning the full spectrum of quantiles, commonly referred to as <strong>Simultaneous Quantile Regression (SQR)</strong>, for inverse image tasks.
+        </p>
+    </div>
 </div>
+```
+
 
 <div class="section" style="margin-top: 20px;">
     <b style="font-size: 24px;">Our Method: QUTCC</b>

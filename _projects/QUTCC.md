@@ -141,6 +141,7 @@ related_publications: ye2025qutcc
 /* New styles for the QUTCC method section */
 .method-container {
     background-color: #f8f9fa;
+    max-height: 200px;
     padding: 30px;
     border-radius: 12px;
     margin: 20px 0;
@@ -518,7 +519,7 @@ document.addEventListener('DOMContentLoaded', function() {
         training: {
             image: "https://raw.githubusercontent.com/cassandra-t-ye/cassandra-t-ye.github.io/master/assets/img/proj_2_qutcc/fig_1_training_gif.gif",
             title: "Training",
-            caption: ": During training, a neural network with a quantile embedding predicts an image as a function of the measurement and quantile, q. The quantile embedding is randomly sampled (q ∈ (0, 1)) and the value of q determines the asymmetry of the pinball loss, enabling the model to learn a range of conditional quantiles."
+            caption: "During training, a neural network with a quantile embedding predicts an image as a function of the measurement and quantile, q. The quantile embedding is randomly sampled (q ∈ (0, 1)) and the value of q determines the asymmetry of the pinball loss, enabling the model to learn a range of conditional quantiles."
         },
         calibration: {
             image: "https://raw.githubusercontent.com/cassandra-t-ye/cassandra-t-ye.github.io/master/assets/img/proj_2_qutcc/fig_1_calibration_gif.gif",

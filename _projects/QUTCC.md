@@ -313,7 +313,6 @@ related_publications: ye2025qutcc
 
 <div class="section" style="margin-top: 60px;">
     <b style="font-size: 24px;">Our Method: QUTCC</b>
-
     <div class="row">
         <div class="col-md-12">
             <p>

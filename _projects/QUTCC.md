@@ -173,7 +173,7 @@ related_publications: ye2025qutcc
     </div>
 </div>
 
-<div class="section">
+<div class="section" style="margin-top: 60px;">
     <h2 style="font-weight: bold; font-size: 24px; margin-bottom: 20px;">Quantile Regression: Pinball Loss</h2>
     
     <div class="text-content">
@@ -222,7 +222,7 @@ related_publications: ye2025qutcc
     </div>
 </div>
 
-<div class="section" style="margin-top: 20px;">
+<div class="section" style="margin-top: 60px;">
     <b style="font-size: 24px;">Our Method: QUTCC</b>
     <div class="row">
         <div class="col-sm mt-3 mt-md-0" style="text-align: center;">

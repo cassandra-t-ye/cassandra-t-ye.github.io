@@ -323,10 +323,10 @@ related_publications: ye2025qutcc
     
     <div class="method-container">
         <div class="method-image-container">
-            <img id="method-image" class="method-image" src="assets/img/proj_2_qutcc/fig_1_training_gif.gif" alt="Training Phase">
+            <img id="method-image" class="method-image" src="assets/img/proj_2_qutcc/fig_1_training_gif.gif" alt="Training">
             
             <div class="method-caption">
-                <div class="stage-title">Training Phase</div>
+                <div class="stage-title">Training</div>
                 <div>During training, QUTCC uses a U-Net architecture with quantile embeddings to learn the full spectrum of quantiles simultaneously. The network is trained using the pinball loss function, which enables it to predict different quantile levels of the conditional distribution for each pixel in the image reconstruction task. This simultaneous quantile regression approach allows the model to capture the uncertainty inherent in the inverse problem.</div>
             </div>
         </div>
@@ -455,18 +455,18 @@ document.addEventListener('DOMContentLoaded', function() {
     const stageData = {
         training: {
             image: "https://raw.githubusercontent.com/cassandra-t-ye/cassandra-t-ye.github.io/master/assets/img/proj_2_qutcc/fig_1_training_gif.gif",
-            title: "Training Phase",
-            caption: "During training, QUTCC uses a U-Net architecture..."
+            title: "Training",
+            caption: ": During training, a neural network with a quantile embedding predicts an image as a function of the measurement and quantile, q. The quantile embedding is randomly sampled (q ∈ (0, 1)) and the value of q determines the asymmetry of the pinball loss, enabling the model to learn a range of conditional quantiles."
         },
         calibration: {
             image: "https://raw.githubusercontent.com/cassandra-t-ye/cassandra-t-ye.github.io/master/assets/img/proj_2_qutcc/fig_1_calibration_gif.gif",
-            title: "Calibration Phase", 
-            caption: "During calibration, QUTCC employs conformal prediction techniques..."
+            title: "Calibration", 
+            caption: "During calibration, the predictive bounds (q_lower, q_upper) are iteratively adjusted on a held-out dataset to satisfy the desired miscoverage level α."
         },
         inference: {
             image: "https://raw.githubusercontent.com/cassandra-t-ye/cassandra-t-ye.github.io/master/assets/img/proj_2_qutcc/fig_1_inference_gif.gif",
-            title: "Inference Phase",
-            caption: "At inference time, QUTCC can query the trained network..."
+            title: "Inference",
+            caption: "At test time, the model is queried with q_lower, q_0.5, and q_upper to produce the mean prediction and a corresponding pixel-wise uncertainty map. Querying the full range of quantile values enables the prediction of the pixel-wise distribution."
         }
     };
 

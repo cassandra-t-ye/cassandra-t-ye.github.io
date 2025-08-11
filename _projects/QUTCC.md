@@ -330,13 +330,13 @@ function drawPinballLoss(q) {
     ctx.fillStyle = '#007bff';
     ctx.font = 'bold 16px Arial';
     ctx.textAlign = 'left';
-    ctx.fillText('q = ' + q.toFixed(2), margin + 10, margin + 20);
+    ctx.fillText('q = ' + (1 - q).toFixed(2), margin + 10, margin + 20);
 }
 
 
 function updateVisualization() {
     var q = parseFloat(slider.value);
-    display.textContent = q.toFixed(2);
+    display.textContent = (1-q).toFixed(2);
     drawPinballLoss(q);
 }
 

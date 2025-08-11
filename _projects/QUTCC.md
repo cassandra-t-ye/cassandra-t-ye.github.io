@@ -186,7 +186,7 @@ related_publications: ye2025qutcc
         <div class="pinball-content">
             <div class="equation-side">
                 <div class="function-definition">
-                    L<sub>q</sub>(y, ŷ) = 
+                    L<sub>q</sub>(x, x̂) = 
                     <div class="piecewise-container">
                         <span class="piecewise-brace">{</span>
                         <div class="piecewise-cases">
@@ -275,53 +275,53 @@ function drawPinballLoss(q) {
     const width = canvas.width - 2 * margin;
     const height = canvas.height - 2 * margin;
 
-    // axes
+    // Draw axes
     ctx.strokeStyle = '#333';
     ctx.lineWidth = 2;
-    // x-axis
     ctx.beginPath();
-    ctx.moveTo(margin, margin + height);
+    ctx.moveTo(margin, margin + height); // X-axis
     ctx.lineTo(margin + width, margin + height);
     ctx.stroke();
-    // y-axis
+
     ctx.beginPath();
-    ctx.moveTo(margin, margin);
+    ctx.moveTo(margin, margin); // Y-axis
     ctx.lineTo(margin, margin + height);
     ctx.stroke();
 
-    // u range (you can change this)
-    const uMin = -5;
-    const uMax = 5;
-
+    // u = x - x_hat range
+    const uMin = -5, uMax = 5;
     const uToPx = (u) => margin + ((u - uMin) / (uMax - uMin)) * width;
-    // Loss according to your absolute-value formula:
-    const lossFor = (u) => u >= 0 ? q * u : (1 - q) * (-u);
 
-    // Vertical scaling: compute maximum possible loss in the plotted u range
-    const maxPosLoss = q * Math.max(0, uMax);
-    const maxNegLoss = (1 - q) * Math.max(0, -uMin);
-    const maxLoss = Math.max(maxPosLoss, maxNegLoss, 1e-6); // avoid div by zero
-    const scaleY = (height * 0.9) / maxLoss; // leave a little headroom
+    // Pinball loss from formula
+    function lossFor(u) {
+        const absU = Math.abs(u);
+        if (u >= 0) {
+            return q * absU;
+        } else {
+            return (1 - q) * absU;
+        }
+    }
 
-    const lossToPy = (loss) => (margin + height) - loss * scaleY;
+    // Find max loss for scaling
+    const maxLoss = Math.max(q * Math.abs(uMax), (1 - q) * Math.abs(uMin));
+    const lossToPy = (loss) => (margin + height) - (loss / maxLoss) * (height * 0.9);
 
-    // draw tick marks on x-axis for clarity
+    // Tick marks & labels on X-axis
     ctx.fillStyle = '#333';
     ctx.font = '12px Arial';
     ctx.textAlign = 'center';
-    const ticks = 5;
-    for (let i = 0; i <= ticks; i++) {
-        const u = uMin + (i / ticks) * (uMax - uMin);
+    for (let i = 0; i <= 10; i++) {
+        const u = uMin + i * (uMax - uMin) / 10;
         const px = uToPx(u);
         ctx.beginPath();
         ctx.moveTo(px, margin + height);
-        ctx.lineTo(px, margin + height + 6);
+        ctx.lineTo(px, margin + height + 5);
         ctx.stroke();
-        ctx.fillText(u.toFixed(1), px, margin + height + 20);
+        ctx.fillText(u.toFixed(1), px, margin + height + 18);
     }
-    // label axes
-    ctx.textAlign = 'center';
-    ctx.fillText('u = Ground Truth - Predicted', margin + width / 2, margin + height + 40);
+
+    // Axis labels
+    ctx.fillText('Ground Truth - Predicted', margin + width / 2, margin + height + 35);
     ctx.save();
     ctx.translate(15, margin + height / 2);
     ctx.rotate(-Math.PI / 2);
@@ -329,54 +329,35 @@ function drawPinballLoss(q) {
     ctx.fillText('Pinball Loss', 0, 0);
     ctx.restore();
 
-    // draw vertical u=0 line
-    ctx.setLineDash([6, 4]);
-    ctx.strokeStyle = '#888';
-    ctx.beginPath();
-    ctx.moveTo(uToPx(0), margin);
-    ctx.lineTo(uToPx(0), margin + height);
-    ctx.stroke();
-    ctx.setLineDash([]);
+    // // Vertical dashed line at u=0
+    // ctx.setLineDash([6, 4]);
+    // ctx.strokeStyle = '#888';
+    // ctx.beginPath();
+    // ctx.moveTo(uToPx(0), margin);
+    // ctx.lineTo(uToPx(0), margin + height);
+    // ctx.stroke();
+    // ctx.setLineDash([]);
 
-    // plot the loss curve
+    // Plot pinball loss curve
     ctx.strokeStyle = '#5C82D6';
     ctx.lineWidth = 2;
     ctx.beginPath();
-    const steps = Math.max(200, Math.floor(width)); // smooth curve
+    const steps = 300;
     for (let i = 0; i <= steps; i++) {
-        const u = uMin + (i / steps) * (uMax - uMin);
+        const u = uMin + i * (uMax - uMin) / steps;
         const px = uToPx(u);
-        const loss = lossFor(u);
-        const py = lossToPy(loss);
+        const py = lossToPy(lossFor(u));
         if (i === 0) ctx.moveTo(px, py);
         else ctx.lineTo(px, py);
     }
     ctx.stroke();
 
-    // OPTIONAL: draw the 1-q curve (debug overlay) to see the mirror
-    /*
-    ctx.strokeStyle = 'rgba(0,150,200,0.6)';
-    ctx.lineWidth = 2;
-    ctx.beginPath();
-    for (let i = 0; i <= steps; i++) {
-        const u = uMin + (i / steps) * (uMax - uMin);
-        const px = uToPx(u);
-        const loss = u >= 0 ? (1 - q) * u : q * (-u); // swapped
-        const py = lossToPy(loss);
-        if (i === 0) ctx.moveTo(px, py);
-        else ctx.lineTo(px, py);
-    }
-    ctx.stroke();
-    */
-
-    // show q value
+    // Show q value
     ctx.fillStyle = '#5C82D6';
     ctx.font = 'bold 16px Arial';
     ctx.textAlign = 'left';
     ctx.fillText('q = ' + q.toFixed(2), margin + 10, margin + 20);
 }
-
-
     
     function updateVisualization() {
         var q = parseFloat(slider.value);

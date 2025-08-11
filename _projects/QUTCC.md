@@ -333,14 +333,14 @@ function drawPinballLoss(q) {
     ctx.fillText('q = ' + q.toFixed(2), margin + 10, margin + 20);
 }
 
-    
-    function updateVisualization() {
-        var q = parseFloat(slider.value);
-        display.textContent = q.toFixed(2);
-        drawPinballLoss(q);
-    }
-    
-    updateVisualization();
-    slider.addEventListener('input', updateVisualization);
+
+function updateVisualization() {
+    var q = parseFloat(slider.value);
+    display.textContent = q.toFixed(2);
+    drawPinballLoss(q);
+}
+
+updateVisualization();
+slider.addEventListener('input', updateVisualization);
 });
 </script>

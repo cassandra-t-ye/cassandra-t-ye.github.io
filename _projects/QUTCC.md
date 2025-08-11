@@ -290,7 +290,7 @@ document.addEventListener('DOMContentLoaded', function() {
         ctx.fillStyle = '#333';
         ctx.font = '12px Arial';
         ctx.textAlign = 'center';
-        ctx.fillText('Ground Truth - Predicted', canvas.width - 60, canvas.height - 10);
+        ctx.fillText('Ground Truth - Predicted', canvas.width - 10, canvas.height - 10);
         
         ctx.save();
         ctx.translate(15, canvas.height / 2);

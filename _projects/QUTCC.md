@@ -190,13 +190,10 @@ related_publications: ye2025qutcc
                     <div class="piecewise-container">
                         <span class="piecewise-brace">{</span>
                         <div class="piecewise-cases">
-                            <div class="case-line">q(y - ŷ)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if y ≥ ŷ</div>
-                            <div class="case-line">(q - 1)(y - ŷ)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if y < ŷ</div>
+                            <div class="case-line">q * |y - ŷ|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if y ≥ ŷ</div>
+                            <div class="case-line">(q - 1) * |y - ŷ|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if y < ŷ</div>
                         </div>
                     </div>
-                </div>
-                <div class="equation-label">
-                    Piecewise Linear Loss Function
                 </div>
             </div>
             
@@ -204,7 +201,7 @@ related_publications: ye2025qutcc
                 <div class="simple-slider">
                     <div class="quantile-value">q = <span id="quantile-display">0.35</span></div>
                     <input type="range" id="quantile-slider" class="quantile-slider" 
-                           min="0.01" max="0.99" value="0.35" step="0.01">
+                           min="0.01" max="0.99" value="0.5" step="0.01">
                 </div>
                 
                 <canvas id="pinball-chart" class="chart-container" width="400" height="300"></canvas>

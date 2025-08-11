@@ -303,7 +303,7 @@ function drawPinballLoss(q) {
     const lossToPy = (loss) => (canvas.height - margin) - (loss / maxLoss) * (height * 0.9);
 
     // Pinball loss function from formula
-    function pinballLoss(u) {
+    function pinballLoss(u, q) {
         const absU = Math.abs(u);
         if (u >= 0) {
             return q * absU;
@@ -319,10 +319,15 @@ function drawPinballLoss(q) {
     const steps = 300;
     for (let i = 0; i <= steps; i++) {
         const u = uMin + i * (uMax - uMin) / steps;
+        const loss = pinballLoss(u, q);
         const px = uToPx(u);
-        const py = lossToPy(pinballLoss(u));
-        if (i === 0) ctx.moveTo(px, py);
-        else ctx.lineTo(px, py);
+        const py = lossToPy(loss);
+        
+        if (i === 0) {
+            ctx.moveTo(px, py);
+        } else {
+            ctx.lineTo(px, py);
+        }
     }
     ctx.stroke();
 

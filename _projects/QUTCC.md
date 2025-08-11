@@ -452,22 +452,21 @@ document.addEventListener('DOMContentLoaded', function() {
     const methodButtons = document.querySelectorAll('.method-btn');
     const methodImage = document.getElementById('method-image');
     const methodCaption = document.querySelector('.method-caption');
-
     const stageData = {
         training: {
-            image: "assets/img/proj_2_qutcc/fig_1_training_gif.gif",
+            image: "https://raw.githubusercontent.com/cassandra-t-ye/cassandra-t-ye.github.io/master/assets/img/proj_2_qutcc/fig_1_training_gif.gif",
             title: "Training Phase",
-            caption: "During training, QUTCC uses a U-Net architecture with quantile embeddings to learn the full spectrum of quantiles simultaneously. The network is trained using the pinball loss function, which enables it to predict different quantile levels of the conditional distribution for each pixel in the image reconstruction task. This simultaneous quantile regression approach allows the model to capture the uncertainty inherent in the inverse problem."
+            caption: "During training, QUTCC uses a U-Net architecture..."
         },
         calibration: {
-            image: "assets/img/proj_2_qutcc/fig_1_calibration_gif.gif",
+            image: "https://raw.githubusercontent.com/cassandra-t-ye/cassandra-t-ye.github.io/master/assets/img/proj_2_qutcc/fig_1_calibration_gif.gif",
             title: "Calibration Phase", 
-            caption: "During calibration, QUTCC employs conformal prediction techniques to provide statistical guarantees on the uncertainty bounds. Unlike previous methods that use constant scaling factors, QUTCC applies nonlinear, non-uniform scaling to the quantile predictions. This adaptive calibration process uses a validation set to determine optimal scaling parameters for different quantile levels, resulting in tighter and more informative uncertainty intervals while maintaining the desired coverage guarantees."
+            caption: "During calibration, QUTCC employs conformal prediction techniques..."
         },
         inference: {
-            image: "assets/img/proj_2_qutcc/fig_1_inference_gif.gif",
+            image: "https://raw.githubusercontent.com/cassandra-t-ye/cassandra-t-ye.github.io/master/assets/img/proj_2_qutcc/fig_1_inference_gif.gif",
             title: "Inference Phase",
-            caption: "At inference time, QUTCC can query the trained network for any quantile level within the learned range. The method iteratively queries upper and lower quantiles to construct tight uncertainty bounds around the predicted image. This process progressively refines the uncertainty intervals by leveraging the full conditional quantile distribution learned during training. The result is pixel-wise uncertainty estimates that can effectively identify potential hallucinations and provide reliable confidence measures for the reconstruction."
+            caption: "At inference time, QUTCC can query the trained network..."
         }
     };
 

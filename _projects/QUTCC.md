@@ -255,7 +255,7 @@ related_publications: ye2025qutcc
     
     <div class="row">
         <div class="col-md-12">
-            Deep learning models often hallucinate, producing realistic artifacts that are not truly present in the sample. This can have dire consequences for scientific and medical inverse problems, such as MRI and microscopy denoising, where accuracy is more important than perceptual quality. Uncertainty quantification techniques, such as conformal prediction, can pinpoint outliers and provide guarantees for image regression tasks, improving reliability. However, existing methods utilize a linear constant scaling factor to calibrate uncertainty bounds, resulting in larger, less informative bounds. We propose QUTCC, a quantile uncertainty training and calibration technique that enables nonlinear, non-uniform scaling of quantile predictions to enable tighter uncertainty estimates. Using a U-Net architecture with a quantile embedding, QUTCC enables the prediction of the full conditional distribution of quantiles for the imaging task. During calibration, QUTCC generates uncertainty bounds by iteratively querying the network for upper and lower quantiles, progressively refining the bounds to obtain a tighter interval that captures the desired coverage. We evaluate our method on several denoising tasks as well as compressive MRI reconstruction. Our method successfully pinpoints hallucinations in image estimates and consistently achieves tighter uncertainty intervals than prior methods while maintaining the same statistical coverage. 
+            Deep learning models often hallucinate, producing realistic artifacts that are not truly present in the sample. This can have dire consequences for scientific and medical inverse problems, such as MRI and microscopy denoising, where accuracy is more important than perceptual quality. Uncertainty quantification techniques, such as conformal prediction, can pinpoint outliers and provide guarantees for image regression tasks, improving reliability. However, existing methods utilize a linear constant scaling factor to calibrate uncertainty bounds, resulting in larger, less informative bounds. We propose <strong>QUTCC</strong>, a quantile uncertainty training and calibration technique that enables nonlinear, non-uniform scaling of quantile predictions to enable tighter uncertainty estimates. Using a U-Net architecture with a quantile embedding, QUTCC enables the prediction of the full conditional distribution of quantiles for the imaging task. During calibration, QUTCC generates uncertainty bounds by iteratively querying the network for upper and lower quantiles, progressively refining the bounds to obtain a tighter interval that captures the desired coverage. We evaluate our method on several denoising tasks as well as compressive MRI reconstruction. <strong>Our method successfully pinpoints hallucinations in image estimates and consistently achieves tighter uncertainty intervals than prior methods while maintaining the same statistical coverage</strong>. 
         </div>
     </div>
 </div>
@@ -303,13 +303,30 @@ related_publications: ye2025qutcc
         <p>
             Pinball loss has been used in the past 
             <a href="https://arxiv.org/abs/2202.05265" target="_blank" style="color: #0066cc; text-decoration: none;">to predict a fixed set of upper and lower confidence bounds</a> (Im2Im-UQ). 
-            In contrast, our work investigates learning the full spectrum of quantiles, commonly referred to as <a href='https://library.seg.org/doi/10.1190/tle44020133.1#:~:text=The%20simultaneous%20quantile%20regression%20method,method%20on%20synthetic%20Kimberlina%20data.', target="_blank", style ="color: #0066cc; text-decoration: none;"><strong>Simultaneous Quantile Regression (SQR)</strong></a>, for inverse image tasks.
+            In contrast, our work investigates learning the full spectrum of quantiles, commonly referred to as 
+            <a href="https://library.seg.org/doi/10.1190/tle44020133.1#:~:text=The%20simultaneous%20quantile%20regression%20method,method%20on%20synthetic%20Kimberlina%20data." target="_blank" style="color: #0066cc; text-decoration: none;">
+                <strong>Simultaneous Quantile Regression (SQR)</strong>
+            </a>, for inverse image tasks.
         </p>
     </div>
 </div>
 
 <div class="section" style="margin-top: 60px;">
     <b style="font-size: 24px;">Our Method: QUTCC</b>
+    
+    <div class="row">
+        <div class="col-sm mt-3 mt-md-0" style="text-align: center;">
+            {% include figure.html path="assets/img/proj_2_qutcc/fig_1_gif.gif" title="Fig. 1 Summary" class="img-fluid " width="700px" height="auto" %}        
+            <div class="caption" style="text-align: left;">
+                <!-- Caption content here if needed -->
+            </div>
+        </div>
+        <div class="col-md-12">
+            <p>
+                We propose <strong>QUTCC</strong> (pronounced: CUTESY), short for <strong>Quantile Uncertainty Training and Conformal Calibration</strong>, a novel method for simultaneous quantile prediction and conformal calibration that enables efficient and accurate uncertainty quantification for imaging inverse problems. QUTCC uses a single neural network to estimate a distribution of quantiles. During the conformal calibration step, QUTCC applies a non-uniform, nonlinear scaling to the uncertainty bounds, compared to constant scaling used by prior methods. This results in smaller and potentially more informative uncertainty intervals. Additionally, because all quantiles are learned during training, QUTCC can query the full quantile range at inference time to construct a pixel-wise estimate of the underlying probability distribution.
+            </p>
+        </div>
+    </div>
     
     <div class="method-container">
         <div class="method-image-container">
@@ -325,20 +342,6 @@ related_publications: ye2025qutcc
             <button class="method-btn active" data-stage="training">Training</button>
             <button class="method-btn" data-stage="calibration">Calibration</button>
             <button class="method-btn" data-stage="inference">Inference</button>
-        </div>
-    </div>
-    
-    <div class="row">
-        <div class="col-sm mt-3 mt-md-0" style="text-align: center;">
-            {% include figure.html path="assets/img/proj_2_qutcc/fig_1_gif.gif" title="Fig. 1 Summary" class="img-fluid " width="700px" height="auto" %}        
-            <div class="caption" style="text-align: left;">
-                <!-- Caption content here if needed -->
-            </div>
-        </div>
-        <div class="col-md-12">
-            <p>
-                We propose <strong>QUTCC</strong> (pronounced: CUTESY), short for <strong>Quantile Uncertainty Training and Conformal Calibration</strong>, a novel method for simultaneous quantile prediction and conformal calibration that enables efficient and accurate uncertainty quantification for imaging inverse problems. QUTCC uses a single neural network to estimate a distribution of quantiles. During the conformal calibration step, QUTCC applies a non-uniform, nonlinear scaling to the uncertainty bounds, compared to constant scaling used by prior methods. This results in smaller and potentially more informative uncertainty intervals. Additionally, because all quantiles are learned during training, QUTCC can query the full quantile range at inference time to construct a pixel-wise estimate of the underlying probability distribution.
-            </p>
         </div>
     </div>
 </div>

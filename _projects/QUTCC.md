@@ -6,6 +6,7 @@ img:
 importance: 1
 related_publications: ye2025qutcc
 ---
+
 [Cassandra Tong Ye](https://https://cassandra-t-ye.github.io/), [Shamus Li](https://shamus.li/), [Tyler King](https://tylertking.com/), [Kristina Monakhova](http://kristinamonakhova.com/)
 
 <div style="text-align: center; margin: 20px 0;">
@@ -18,170 +19,170 @@ related_publications: ye2025qutcc
 </div>
 
 <style>
-        .pinball-container {
-            background-color: #f8f9fa;
-            padding: 30px;
-            border-radius: 12px;
-            margin: 20px 0;
-            border: 1px solid #e9ecef;
-        }
-        
-        .pinball-content {
-            display: flex;
-            align-items: center;
-            gap: 40px;
-            flex-wrap: wrap;
-        }
-        
-        .equation-side {
-            flex: 1;
-            min-width: 300px;
-            text-align: center;
-        }
-        
-        .interactive-side {
-            flex: 1;
-            min-width: 350px;
-            text-align: center;
-        }
-        
-        .function-definition {
-            font-family: 'Times New Roman', serif;
-            font-size: 20px;
-            line-height: 2.2;
-            margin-bottom: 20px;
-        }
-        
-        .piecewise-container {
-            display: inline-block;
-            vertical-align: middle;
-        }
-        
-        .piecewise-brace {
-            font-size: 70px;
-            line-height: 1;
-            vertical-align: middle;
-            margin-right: 15px;
-        }
-        
-        .piecewise-cases {
-            display: inline-block;
-            text-align: left;
-            vertical-align: middle;
-        }
-        
-        .case-line {
-            margin: 12px 0;
-            white-space: nowrap;
-            font-size: 18px;
-        }
-        
-        .slider-container {
-            margin: 20px 0;
-            padding: 20px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        
-        .quantile-slider {
-            width: 100%;
-            margin: 15px 0;
-            -webkit-appearance: none;
-            appearance: none;
-            height: 8px;
-            border-radius: 5px;
-            background: #ddd;
-            outline: none;
-            opacity: 0.7;
-            transition: opacity 0.2s;
-        }
-        
-        .quantile-slider:hover {
-            opacity: 1;
-        }
-        
-        .quantile-slider::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background: #007bff;
-            cursor: pointer;
-        }
-        
-        .quantile-slider::-moz-range-thumb {
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background: #007bff;
-            cursor: pointer;
-            border: none;
-        }
-        
-        .quantile-value {
-            font-size: 18px;
-            font-weight: bold;
-            color: #007bff;
-            margin: 10px 0;
-        }
-        
-        .chart-container {
-            position: relative;
-            width: 100%;
-            height: 300px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            background-color: #fff;
-            margin: 20px 0;
-        }
-        
-        .gif-caption {
-            font-size: 14px;
-            color: #666;
-            margin-top: 15px;
-            text-align: left;
-            padding: 10px;
-            background-color: white;
-            border-radius: 6px;
-            border-left: 4px solid #007bff;
-        }
-        
-        .equation-label {
-            font-size: 16px;
-            color: #555;
-            margin-top: 15px;
-            font-style: italic;
-        }
-        
-        .text-content {
-            text-align: justify;
-        }
-        
-        @media (max-width: 768px) {
-            .pinball-content {
-                flex-direction: column;
-                gap: 30px;
-            }
-            
-            .equation-side,
-            .interactive-side {
-                min-width: 100%;
-            }
-            
-            .piecewise-brace {
-                font-size: 50px;
-            }
-            
-            .function-definition {
-                font-size: 18px;
-            }
-            
-            .case-line {
-                font-size: 16px;
-            }
-        }
+.pinball-container {
+    background-color: #f8f9fa;
+    padding: 30px;
+    border-radius: 12px;
+    margin: 20px 0;
+    border: 1px solid #e9ecef;
+}
+
+.pinball-content {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.equation-side {
+    flex: 1;
+    min-width: 300px;
+    text-align: center;
+}
+
+.interactive-side {
+    flex: 1;
+    min-width: 350px;
+    text-align: center;
+}
+
+.function-definition {
+    font-family: 'Times New Roman', serif;
+    font-size: 20px;
+    line-height: 2.2;
+    margin-bottom: 20px;
+}
+
+.piecewise-container {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.piecewise-brace {
+    font-size: 70px;
+    line-height: 1;
+    vertical-align: middle;
+    margin-right: 15px;
+}
+
+.piecewise-cases {
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.case-line {
+    margin: 12px 0;
+    white-space: nowrap;
+    font-size: 18px;
+}
+
+.slider-container {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.quantile-slider {
+    width: 100%;
+    margin: 15px 0;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 8px;
+    border-radius: 5px;
+    background: #ddd;
+    outline: none;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+
+.quantile-slider:hover {
+    opacity: 1;
+}
+
+.quantile-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #007bff;
+    cursor: pointer;
+}
+
+.quantile-slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #007bff;
+    cursor: pointer;
+    border: none;
+}
+
+.quantile-value {
+    font-size: 18px;
+    font-weight: bold;
+    color: #007bff;
+    margin: 10px 0;
+}
+
+.chart-container {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    margin: 20px 0;
+}
+
+.gif-caption {
+    font-size: 14px;
+    color: #666;
+    margin-top: 15px;
+    text-align: left;
+    padding: 10px;
+    background-color: white;
+    border-radius: 6px;
+    border-left: 4px solid #007bff;
+}
+
+.equation-label {
+    font-size: 16px;
+    color: #555;
+    margin-top: 15px;
+    font-style: italic;
+}
+
+.text-content {
+    text-align: justify;
+}
+
+@media (max-width: 768px) {
+    .pinball-content {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .equation-side,
+    .interactive-side {
+        min-width: 100%;
+    }
+    
+    .piecewise-brace {
+        font-size: 50px;
+    }
+    
+    .function-definition {
+        font-size: 18px;
+    }
+    
+    .case-line {
+        font-size: 16px;
+    }
+}
 </style>
 
 <div class="section">
@@ -287,12 +288,18 @@ related_publications: ye2025qutcc
     </div>
 </div>
 
-<script>
+<script type="text/javascript">
 document.addEventListener('DOMContentLoaded', function() {
-    const slider = document.getElementById('quantile-slider');
-    const display = document.getElementById('quantile-display');
-    const canvas = document.getElementById('pinball-chart');
-    const ctx = canvas.getContext('2d');
+    // Check if canvas is supported
+    var canvas = document.getElementById('pinball-chart');
+    if (!canvas || !canvas.getContext) {
+        console.log('Canvas not supported');
+        return;
+    }
+    
+    var slider = document.getElementById('quantile-slider');
+    var display = document.getElementById('quantile-display');
+    var ctx = canvas.getContext('2d');
     
     // Set canvas size
     canvas.width = 400;
@@ -303,9 +310,29 @@ document.addEventListener('DOMContentLoaded', function() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         
         // Set up coordinate system
-        const margin = 40;
-        const width = canvas.width - 2 * margin;
-        const height = canvas.height - 2 * margin;
+        var margin = 40;
+        var width = canvas.width - 2 * margin;
+        var height = canvas.height - 2 * margin;
+        
+        // Draw grid lines first
+        ctx.strokeStyle = '#e0e0e0';
+        ctx.lineWidth = 1;
+        for (var i = 1; i < 5; i++) {
+            var x = margin + (width * i) / 5;
+            var y = margin + (height * i) / 5;
+            
+            // Vertical grid lines
+            ctx.beginPath();
+            ctx.moveTo(x, margin);
+            ctx.lineTo(x, canvas.height - margin);
+            ctx.stroke();
+            
+            // Horizontal grid lines
+            ctx.beginPath();
+            ctx.moveTo(margin, y);
+            ctx.lineTo(canvas.width - margin, y);
+            ctx.stroke();
+        }
         
         // Draw axes
         ctx.strokeStyle = '#333';
@@ -332,20 +359,20 @@ document.addEventListener('DOMContentLoaded', function() {
         ctx.restore();
         
         // Draw pinball loss function
-        const centerX = margin + width / 2;
-        const centerY = canvas.height - margin;
+        var centerX = margin + width / 2;
+        var centerY = canvas.height - margin;
         
         ctx.strokeStyle = '#ffd700';
         ctx.lineWidth = 4;
         ctx.beginPath();
         
         // Left side: (q-1)(y-ŷ) for y < ŷ
-        const leftSlope = q - 1; // negative slope
+        var leftSlope = q - 1; // negative slope
         ctx.moveTo(margin, centerY + leftSlope * (-width/2));
         ctx.lineTo(centerX, centerY);
         
         // Right side: q(y-ŷ) for y ≥ ŷ
-        const rightSlope = q; // positive slope
+        var rightSlope = q; // positive slope
         ctx.lineTo(canvas.width - margin, centerY + rightSlope * (width/2));
         
         ctx.stroke();
@@ -354,32 +381,12 @@ document.addEventListener('DOMContentLoaded', function() {
         ctx.fillStyle = '#007bff';
         ctx.font = 'bold 16px Arial';
         ctx.textAlign = 'left';
-        ctx.fillText(`q = ${q.toFixed(2)}`, margin + 10, margin + 20);
-        
-        // Add grid lines
-        ctx.strokeStyle = '#e0e0e0';
-        ctx.lineWidth = 1;
-        for (let i = 1; i < 5; i++) {
-            const x = margin + (width * i) / 5;
-            const y = margin + (height * i) / 5;
-            
-            // Vertical grid lines
-            ctx.beginPath();
-            ctx.moveTo(x, margin);
-            ctx.lineTo(x, canvas.height - margin);
-            ctx.stroke();
-            
-            // Horizontal grid lines
-            ctx.beginPath();
-            ctx.moveTo(margin, y);
-            ctx.lineTo(canvas.width - margin, y);
-            ctx.stroke();
-        }
+        ctx.fillText('q = ' + q.toFixed(2), margin + 10, margin + 20);
     }
     
     // Update display and chart when slider changes
     function updateVisualization() {
-        const q = parseFloat(slider.value);
+        var q = parseFloat(slider.value);
         display.textContent = q.toFixed(2);
         drawPinballLoss(q);
     }

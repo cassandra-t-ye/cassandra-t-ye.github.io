@@ -312,7 +312,7 @@ related_publications: ye2025qutcc
 </div>
 
 <div class="section" style="margin-top: 60px;">
-    <b style="font-size: 24px;">Our Method: QUTCC</b>
+    <b style="font-weight: bold; font-size: 24px;">Our Method: QUTCC</b>
     <div class="row">
         <div class="col-md-12">
             <p>
@@ -338,6 +338,19 @@ related_publications: ye2025qutcc
         </div>
     </div>
 </div>
+
+
+<div class="section" style="margin-top: 60px;">
+    <b style="font-weight: bold; font-size: 24px;">Results</b>
+    <div class="row">
+        <div class="col-md-12">
+            <p>
+                UNDER CONSTRUCTION EEEK
+            </p>
+        </div>
+    </div>
+</div>
+
 
 <div class="row" style="margin-top: 20px;">
     <div class="col-md-12">

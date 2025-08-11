@@ -158,9 +158,9 @@ related_publications: ye2025qutcc
 }
 
 .method-image {
-    max-width: 100%;
+    max-width: 200%;
     max-height: 350px;
-    border-radius: 8px;
+    border-radius: 2px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     transition: opacity 0.3s ease;
 }
@@ -487,8 +487,7 @@ document.addEventListener('DOMContentLoaded', function() {
             setTimeout(() => {
                 methodImage.src = data.image;
                 methodImage.alt = data.title;
-                methodImage.setAttribute('width', '600');
-                methodImage.setAttribute('height', '500');
+
 
                 methodCaption.innerHTML = `
                     <div class="stage-title">${data.title}</div>

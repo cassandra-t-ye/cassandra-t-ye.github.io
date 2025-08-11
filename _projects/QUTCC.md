@@ -34,7 +34,7 @@ body {
 
 /* Clear section separation */
 .section {
-    margin-bottom: 80px;
+    margin-bottom: 30px;
     padding: 40px 0;
     border-bottom: 2px solid #e9ecef;
     clear: both;
@@ -442,23 +442,25 @@ body {
                 🚧 UNDER CONSTRUCTION 🚧<br>
                 <small style="font-weight: normal;">More content coming soon!</small>
             </div>
+        </div>   
+    <div style="display: flex; flex-direction: column; gap: 20px; flex-shrink: 0;">
+    <div class="figure-container">
+        <img src="https://raw.githubusercontent.com/cassandra-t-ye/cassandra-t-ye.github.io/master/assets/img/proj_2_qutcc/hallucination_gif.gif" 
+            alt="Hallucination analysis visualization" 
+            class="img-fluid" 
+            style="width: 100%; height: auto;" />
+        <div class="caption">
+            Figure 1: Hallucination analysis visualization
         </div>
-        
-        <div style="display: flex; flex-direction: column; gap: 20px; flex-shrink: 0;">
-            <div class="figure-container">
-                {% include figure.html path="assets/img/proj_2_qutcc/hallucination_gif.gif" title="" class="img-fluid" style="width: 100%; height: auto;"%}
-                <div class="caption">
-                    Figure 1: Hallucination analysis visualization
-                </div>
-            </div>
-            
-            <div class="figure-container">
-                {% include figure.html path="assets/img/proj_2_qutcc/fig_2_violin_plot.png" title="" class="img-fluid" style="width: 100%; height: auto;"%}
-                <div class="caption">
-                    Figure 2: Violin plot statistical analysis
-                </div>
-            </div>
+    </div>
+    
+    <div class="figure-container">
+        {% include figure.html path="assets/img/proj_2_qutcc/fig_2_violin_plot.png" title="" class="img-fluid" style="width: 100%; height: auto;" %}
+        <div class="caption">
+            Figure 2: Violin plot statistical analysis
         </div>
+    </div>
+</div>
     </div>
 </div>
 

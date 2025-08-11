@@ -465,6 +465,15 @@ body {
     </div>
 </div>
 
+<div class="section" style="margin-top: 60px;">
+    <h2 style="font-weight: bold; font-size: 24px; margin-bottom: 20px;">Conclusion</h2>
+    
+    <div class="row">
+        <div class="col-md-12">
+            IN CONCLUSION....WRITE SOME STUFF
+        </div>
+    </div>
+</div>
 
 
 <div class="row" style="margin-top: 20px;">

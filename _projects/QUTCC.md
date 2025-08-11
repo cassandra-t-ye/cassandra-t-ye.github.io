@@ -313,7 +313,7 @@ related_publications: ye2025qutcc
 
 <div class="section" style="margin-top: 60px;">
     <b style="font-size: 24px;">Our Method: QUTCC</b>
-    
+
     <div class="row">
         <div class="col-sm mt-3 mt-md-0" style="text-align: center;">
             {% include figure.html path="assets/img/proj_2_qutcc/fig_1_gif.gif" title="Fig. 1 Summary" class="img-fluid " width="700px" height="auto" %}        
@@ -330,7 +330,7 @@ related_publications: ye2025qutcc
     
     <div class="method-container">
         <div class="method-image-container">
-            <img id="method-image" class="method-image" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjhmOWZhIiBzdHJva2U9IiNkZGQiLz4KICA8dGV4dCB4PSI1MCUiIHk9IjQ1JSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzMzMyIgZm9udC1zaXplPSIxOHB4IiBmb250LXdlaWdodD0iYm9sZCI+VHJhaW5pbmcgUGhhc2U8L3RleHQ+CiAgPHRleHQgeD0iNTAlIiB5PSI2NSUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiM2NjYiIGZvbnQtc2l6ZT0iMTRweCI+TGVhcm5pbmcgUXVhbnRpbGUgRW1iZWRkaW5ncyBhbmQgUGluYmFsbCBMb3NzPC90ZXh0Pgo8L3N2Zz4K" alt="Training Phase">
+            <img id="method-image" class="method-image" src="assets/img/proj_2_qutcc/fig_1_training_gif.gif" alt="Training Phase">
             
             <div class="method-caption">
                 <div class="stage-title">Training Phase</div>

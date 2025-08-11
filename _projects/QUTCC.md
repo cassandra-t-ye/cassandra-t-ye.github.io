@@ -34,12 +34,28 @@ related_publications: ye2025qutcc
     <b style="font-size: 24px;">Quantile Regression: Pinball Loss</b>
     <div class="row">
         <div class="col-md-6">
-            Quantile regression is a statistical technique that estimates conditional quantiles of a response variable distribution. Unlike traditional regression which estimates the mean, quantile regression provides a more complete picture of the relationship between variables by estimating different quantiles (e.g., 10th, 50th, 90th percentiles).
+            Quantile regression is a general approach to estimate the conditional quantiles of a target distribution
+            rather than the mean of a response variable. This is often accomplished by leveraging an asymmetric loss function, called pinball loss (Fig. 1), tailored to the specified quantile level.
+            
+            <br><br>
+            
+            The pinball loss function is defined as a piecewise linear function:
+            <br><br>
+            <div style="text-align: center; font-family: 'Times New Roman', serif; font-size: 16px;">
+                L<sub>τ</sub>(y, ŷ) = {
+                <div style="margin-left: 40px; text-align: left;">
+                    τ(y - ŷ)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if y ≥ ŷ<br>
+                    (τ - 1)(y - ŷ)&nbsp;&nbsp;&nbsp;if y < ŷ
+                </div>
+                }
+            </div>
+            <br>
+            where τ ∈ (0,1) is the desired quantile level, y is the true value, and ŷ is the predicted value. This asymmetric penalty ensures that overestimation and underestimation are weighted differently according to the target quantile.
         </div>
         <div class="col-md-6">
             {% include figure.html path="assets/img/proj_2_qutcc/pinball_loss_animation.gif" title="Pinball Loss" class="img-fluid" style="width: 250px; height: auto;"%}
             <div class="caption" style="text-align: left;">
-                Pinball loss is an asymmetric loss function used to estimate conditional quantiles of distribution in data. 
+                Fig. 1: Pinball loss is an asymmetric loss function used to estimate conditional quantiles of distribution in data. 
             </div>
         </div>
     </div>

@@ -17,66 +17,169 @@ related_publications: ye2025qutcc
   </a>
 </div>
 
-
 <style>
-        .figure-float {
-            float: right;
-            margin: 0 0 20px 30px;
-            max-width: 400px;
-            text-align: center;
-        }
-        .figure-float img {
-            width: 100%;
-            height: auto;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-        }
-        .caption {
-            font-size: 14px;
-            color: #666;
-            margin-top: 10px;
-            text-align: left;
-        }
-        .pinball-function {
+        .pinball-container {
             background-color: #f8f9fa;
-            padding: 20px;
-            border-radius: 8px;
+            padding: 30px;
+            border-radius: 12px;
             margin: 20px 0;
-            text-align: center;
-            clear: both;
+            border: 1px solid #e9ecef;
         }
+        
+        .pinball-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .equation-side {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+        
+        .interactive-side {
+            flex: 1;
+            min-width: 350px;
+            text-align: center;
+        }
+        
         .function-definition {
             font-family: 'Times New Roman', serif;
-            font-size: 18px;
-            line-height: 2.0;
+            font-size: 20px;
+            line-height: 2.2;
+            margin-bottom: 20px;
         }
+        
         .piecewise-container {
             display: inline-block;
             vertical-align: middle;
         }
+        
         .piecewise-brace {
-            font-size: 60px;
+            font-size: 70px;
             line-height: 1;
             vertical-align: middle;
-            margin-right: 10px;
+            margin-right: 15px;
         }
+        
         .piecewise-cases {
             display: inline-block;
             text-align: left;
             vertical-align: middle;
         }
+        
         .case-line {
-            margin: 10px 0;
+            margin: 12px 0;
             white-space: nowrap;
+            font-size: 18px;
         }
+        
+        .slider-container {
+            margin: 20px 0;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .quantile-slider {
+            width: 100%;
+            margin: 15px 0;
+            -webkit-appearance: none;
+            appearance: none;
+            height: 8px;
+            border-radius: 5px;
+            background: #ddd;
+            outline: none;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+        
+        .quantile-slider:hover {
+            opacity: 1;
+        }
+        
+        .quantile-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #007bff;
+            cursor: pointer;
+        }
+        
+        .quantile-slider::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #007bff;
+            cursor: pointer;
+            border: none;
+        }
+        
+        .quantile-value {
+            font-size: 18px;
+            font-weight: bold;
+            color: #007bff;
+            margin: 10px 0;
+        }
+        
+        .chart-container {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #fff;
+            margin: 20px 0;
+        }
+        
+        .gif-caption {
+            font-size: 14px;
+            color: #666;
+            margin-top: 15px;
+            text-align: left;
+            padding: 10px;
+            background-color: white;
+            border-radius: 6px;
+            border-left: 4px solid #007bff;
+        }
+        
+        .equation-label {
+            font-size: 16px;
+            color: #555;
+            margin-top: 15px;
+            font-style: italic;
+        }
+        
         .text-content {
             text-align: justify;
         }
+        
         @media (max-width: 768px) {
-            .figure-float {
-                float: none;
-                margin: 20px auto;
-                display: block;
+            .pinball-content {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .equation-side,
+            .interactive-side {
+                min-width: 100%;
+            }
+            
+            .piecewise-brace {
+                font-size: 50px;
+            }
+            
+            .function-definition {
+                font-size: 18px;
+            }
+            
+            .case-line {
+                font-size: 16px;
             }
         }
 </style>
@@ -85,7 +188,7 @@ related_publications: ye2025qutcc
     <b style="font-weight: bold; font-size: 24px;">Abstract</b>
     
     <div class="row">
-        <div class="col-md-12"> <!-- This will make the text take up 6 columns (half the width) on medium-sized screens -->
+        <div class="col-md-12">
             Deep learning models often hallucinate, producing realistic artifacts that are not truly present in the sample. This can have dire consequences for scientific and medical inverse problems, such as MRI and microscopy denoising, where accuracy is more important than perceptual quality. Uncertainty quantification techniques, such as conformal prediction, can pinpoint outliers and provide guarantees for image regression tasks, improving reliability. However, existing methods utilize a linear constant scaling factor to calibrate uncertainty bounds, resulting in larger, less informative bounds. We propose QUTCC, a quantile uncertainty training and calibration technique that enables nonlinear, non-uniform scaling of quantile predictions to enable tighter uncertainty estimates. Using a U-Net architecture with a quantile embedding, QUTCC enables the prediction of the full conditional distribution of quantiles for the imaging task. During calibration, QUTCC generates uncertainty bounds by iteratively querying the network for upper and lower quantiles, progressively refining the bounds to obtain a tighter interval that captures the desired coverage. We evaluate our method on several denoising tasks as well as compressive MRI reconstruction. Our method successfully pinpoints hallucinations in image estimates and consistently achieves tighter uncertainty intervals than prior methods while maintaining the same statistical coverage. 
         </div>
     </div>
@@ -94,31 +197,45 @@ related_publications: ye2025qutcc
 <div class="section">
     <h2 style="font-weight: bold; font-size: 24px; margin-bottom: 20px;">Quantile Regression: Pinball Loss</h2>
     
-    <div class="figure-float">
-        {% include figure.html path="assets/img/proj_2_qutcc/pinball_loss_animation.gif" title="Pinball Loss Animation" class="img-fluid" style="width: 100%; height: auto; border-radius: 8px;" %}
-        <div class="caption">
-            <strong>Fig. 1:</strong> Pinball loss is an asymmetric loss function used to estimate conditional quantiles of distribution in data.
-        </div>
-    </div>
-    
     <div class="text-content">
         <p>
             Quantile regression is a general approach to estimate the conditional quantiles of a target distribution rather than the mean of a response variable. This is often accomplished by leveraging an asymmetric loss function, called pinball loss (Fig. 1), tailored to the specified quantile level.
         </p>
-        
-        <p>
-            The pinball loss function is defined as a piecewise linear function:
-        </p>
     </div>
     
-    <div class="pinball-function">
-        <div class="function-definition">
-            L<sub>q</sub>(y, ŷ) = 
-            <div class="piecewise-container">
-                <span class="piecewise-brace">{</span>
-                <div class="piecewise-cases">
-                    <div class="case-line">q(y - ŷ)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if y ≥ ŷ</div>
-                    <div class="case-line">(q - 1)(y - ŷ)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if y < ŷ</div>
+    <div class="pinball-container">
+        <div class="pinball-content">
+            <div class="equation-side">
+                <div class="function-definition">
+                    L<sub>q</sub>(y, ŷ) = 
+                    <div class="piecewise-container">
+                        <span class="piecewise-brace">{</span>
+                        <div class="piecewise-cases">
+                            <div class="case-line">q(y - ŷ)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if y ≥ ŷ</div>
+                            <div class="case-line">(q - 1)(y - ŷ)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if y < ŷ</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="equation-label">
+                    Piecewise Linear Loss Function
+                </div>
+            </div>
+            
+            <div class="interactive-side">
+                <div class="slider-container">
+                    <div class="quantile-value">q = <span id="quantile-display">0.50</span></div>
+                    <input type="range" id="quantile-slider" class="quantile-slider" 
+                           min="0.01" max="0.99" value="0.50" step="0.01">
+                    <div style="display: flex; justify-content: space-between; font-size: 12px; color: #666;">
+                        <span>0.01</span>
+                        <span>0.99</span>
+                    </div>
+                </div>
+                
+                <canvas id="pinball-chart" class="chart-container" width="400" height="300"></canvas>
+                
+                <div class="gif-caption">
+                    <strong>Fig. 1:</strong> Interactive visualization of pinball loss as an asymmetric loss function. Adjust the slider to see how different quantile values (q) affect the loss function shape.
                 </div>
             </div>
         </div>
@@ -142,31 +259,17 @@ related_publications: ye2025qutcc
     <div class="row">
         <div class="col-sm mt-3 mt-md-0" style="text-align: center;">
             {% include figure.html path="assets/img/proj_2_qutcc/fig_1_gif.gif" title="Fig. 1 Summary" class="img-fluid " width="700px" height="auto" %}        
-        <div class="caption" style="text-align: left;">
-            <!-- <b>Uncertainty-based Adaptive Imaging</b>: A noisy measurement is acquired with a scanning microscopye and passed into a deep learning model that predicts a denoised image and its associated pixel-wise uncertainty. Subsequently, the top N uncertain pixels are selected for a rescan, obtaining more measurements at only the uncertain regions. As more adaptive measurements are taken, the deep learning model predicts a denoised image with lower uncertainty. Scan duration and power are minimized, limiting sample damage while maintaining high confidence in the model prediction. -->
+            <div class="caption" style="text-align: left;">
+                <!-- Caption content here if needed -->
+            </div>
         </div>
-    </div>
-
         <div class="col-md-12">
-            We propose <strong>QUTCC</strong> (pronounced: CUTESY), short for <strong>Quantile Uncertainty Training and Conformal Calibration</strong>, a novel method for simultaneous quantile prediction and conformal calibration that enables efficient and accurate uncertainty quantification for imaging inverse problems.  QUTCC uses a single neural network to estimate a distribution of quantiles. During the conformal calibration step, QUTCC applies a non-uniform, nonlinear scaling to the uncertainty bounds, compared to constant scaling used by prior methods. This results in smaller and potentially more informative uncertainty intervals. Additionally, because all quantiles are learned during training, QUTCC can query the full quantile range at inference time to construct a pixel-wise estimate of the underlying probability distribution.
+            <p>
+                We propose <strong>QUTCC</strong> (pronounced: CUTESY), short for <strong>Quantile Uncertainty Training and Conformal Calibration</strong>, a novel method for simultaneous quantile prediction and conformal calibration that enables efficient and accurate uncertainty quantification for imaging inverse problems. QUTCC uses a single neural network to estimate a distribution of quantiles. During the conformal calibration step, QUTCC applies a non-uniform, nonlinear scaling to the uncertainty bounds, compared to constant scaling used by prior methods. This results in smaller and potentially more informative uncertainty intervals. Additionally, because all quantiles are learned during training, QUTCC can query the full quantile range at inference time to construct a pixel-wise estimate of the underlying probability distribution.
+            </p>
         </div>
     </div>
 </div>
-
-
-<!-- <div class="section" style="margin-top: 20px;">
-    <b style="font-size: 24px;">Conclusion</b>
-    <p>
-        We presented a method to utilize learned, distribution-free uncertainty quantification for multi-image denoising and proposed an adaptive acquisition technique based on the learned uncertainty. In this paper, we demonstrate that our method of uncertainty-driven adaptive acquisition works on experimental confocal, two-photon, and multiphoton microscopy systems, showing a potential 1-16 times decrease in total scanning time and light dose while successfully recovering fine structures. Our method can be adapted for different forms of scanning microscopy without explicit retraining or fine-tuning. Our network trained on FMD data can be used on different data after performing the conformal calibration step using a small calibration dataset. This is one of the advantages of conformal calibration - uncertainty predictions will still hold after calibrating for a different dataset without explicit retraining. All of the statistical guarantees will still hold; however, the size of the uncertainty bounds may increase since the network is not optimized for the data or imaging modality. We discuss this further in our supplement. 
-
-        These speed and total light dose improvements are significant and demonstrate an important step towards faster and gentler scanning microscopy, which will enable the imaging of a new class of interesting samples and lead to new scientific insights and advances.  
-
-    </p>
-    <p>
-       Furthermore, we demonstrate how deep learning methods for microscopy can be designed to be trustworthy by building in uncertainty quantification to provide error bars for each prediction. Our method successfully identified model hallucinations, which were reduced by taking more measurements or adaptively rescanning the most uncertain regions of the sample. Our method of quantifying uncertainty provides guarantees for the reliability of the prediction. Uncertainty quantification should become standard practice when using deep-learning techniques for scientific and medical imaging to reduce hallucinations and build confidence in image predictions. We believe that the distribution-free learned uncertainty quantification presented here is an attractive path toward this due to its ease of use, fast computational time, and statistical guarantees. 
-    </p>
-</div> --> -->
-
 
 <div class="row" style="margin-top: 20px;">
     <div class="col-md-12">
@@ -184,7 +287,107 @@ related_publications: ye2025qutcc
     </div>
 </div>
 
-
-
-
-
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const slider = document.getElementById('quantile-slider');
+    const display = document.getElementById('quantile-display');
+    const canvas = document.getElementById('pinball-chart');
+    const ctx = canvas.getContext('2d');
+    
+    // Set canvas size
+    canvas.width = 400;
+    canvas.height = 300;
+    
+    function drawPinballLoss(q) {
+        // Clear canvas
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        // Set up coordinate system
+        const margin = 40;
+        const width = canvas.width - 2 * margin;
+        const height = canvas.height - 2 * margin;
+        
+        // Draw axes
+        ctx.strokeStyle = '#333';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        // X-axis
+        ctx.moveTo(margin, canvas.height - margin);
+        ctx.lineTo(canvas.width - margin, canvas.height - margin);
+        // Y-axis
+        ctx.moveTo(margin, margin);
+        ctx.lineTo(margin, canvas.height - margin);
+        ctx.stroke();
+        
+        // Draw axis labels
+        ctx.fillStyle = '#333';
+        ctx.font = '12px Arial';
+        ctx.textAlign = 'center';
+        ctx.fillText('Ground Truth - Predicted', canvas.width - 60, canvas.height - 10);
+        
+        ctx.save();
+        ctx.translate(15, canvas.height / 2);
+        ctx.rotate(-Math.PI / 2);
+        ctx.fillText('Pinball Loss', 0, 0);
+        ctx.restore();
+        
+        // Draw pinball loss function
+        const centerX = margin + width / 2;
+        const centerY = canvas.height - margin;
+        
+        ctx.strokeStyle = '#ffd700';
+        ctx.lineWidth = 4;
+        ctx.beginPath();
+        
+        // Left side: (q-1)(y-ŷ) for y < ŷ
+        const leftSlope = q - 1; // negative slope
+        ctx.moveTo(margin, centerY + leftSlope * (-width/2));
+        ctx.lineTo(centerX, centerY);
+        
+        // Right side: q(y-ŷ) for y ≥ ŷ
+        const rightSlope = q; // positive slope
+        ctx.lineTo(canvas.width - margin, centerY + rightSlope * (width/2));
+        
+        ctx.stroke();
+        
+        // Add quantile value display on chart
+        ctx.fillStyle = '#007bff';
+        ctx.font = 'bold 16px Arial';
+        ctx.textAlign = 'left';
+        ctx.fillText(`q = ${q.toFixed(2)}`, margin + 10, margin + 20);
+        
+        // Add grid lines
+        ctx.strokeStyle = '#e0e0e0';
+        ctx.lineWidth = 1;
+        for (let i = 1; i < 5; i++) {
+            const x = margin + (width * i) / 5;
+            const y = margin + (height * i) / 5;
+            
+            // Vertical grid lines
+            ctx.beginPath();
+            ctx.moveTo(x, margin);
+            ctx.lineTo(x, canvas.height - margin);
+            ctx.stroke();
+            
+            // Horizontal grid lines
+            ctx.beginPath();
+            ctx.moveTo(margin, y);
+            ctx.lineTo(canvas.width - margin, y);
+            ctx.stroke();
+        }
+    }
+    
+    // Update display and chart when slider changes
+    function updateVisualization() {
+        const q = parseFloat(slider.value);
+        display.textContent = q.toFixed(2);
+        drawPinballLoss(q);
+    }
+    
+    // Initialize
+    updateVisualization();
+    
+    // Add event listener
+    slider.addEventListener('input', updateVisualization);
+});
+</script>

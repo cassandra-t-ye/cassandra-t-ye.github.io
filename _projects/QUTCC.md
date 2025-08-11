@@ -91,7 +91,6 @@ related_publications: ye2025qutcc
     </div>
 </div>
 
-```html
 <div class="section">
     <h2 style="font-weight: bold; font-size: 24px; margin-bottom: 20px;">Quantile Regression: Pinball Loss</h2>
     
@@ -137,8 +136,6 @@ related_publications: ye2025qutcc
         </p>
     </div>
 </div>
-```
-
 
 <div class="section" style="margin-top: 20px;">
     <b style="font-size: 24px;">Our Method: QUTCC</b>
@@ -151,7 +148,7 @@ related_publications: ye2025qutcc
     </div>
 
         <div class="col-md-12">
-            We propose <strong>QUTCC</strong> (pronounced: CUTESY), short for <strong>Quantile Uncertainty Training and Conformal Calibration</strong>, a novel method for simultaneous quantile prediction and conformal calibration that enablesefficient and accurate uncertainty quantification for imaging inverse problems.  QUTCC uses a single neural network to estimate a distribution of quantiles. During the conformal calibration step, QUTCC applies a non-uniform, nonlinear scaling to the uncertainty bounds, compared to constant scaling used by prior methods. This results in smaller and potentially more informative uncertainty intervals. Additionally, because all quantiles are learned during training, QUTCC can query the full quantile range at inference time to construct a pixel-wise estimate of the underlying probability distribution.
+            We propose <strong>QUTCC</strong> (pronounced: CUTESY), short for <strong>Quantile Uncertainty Training and Conformal Calibration</strong>, a novel method for simultaneous quantile prediction and conformal calibration that enables efficient and accurate uncertainty quantification for imaging inverse problems.  QUTCC uses a single neural network to estimate a distribution of quantiles. During the conformal calibration step, QUTCC applies a non-uniform, nonlinear scaling to the uncertainty bounds, compared to constant scaling used by prior methods. This results in smaller and potentially more informative uncertainty intervals. Additionally, because all quantiles are learned during training, QUTCC can query the full quantile range at inference time to construct a pixel-wise estimate of the underlying probability distribution.
         </div>
     </div>
 </div>

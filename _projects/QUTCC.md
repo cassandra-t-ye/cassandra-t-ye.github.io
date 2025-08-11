@@ -77,44 +77,34 @@ related_publications: ye2025qutcc
     font-size: 18px;
 }
 
-.slider-container {
-    margin: 20px 0;
-    padding: 20px;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+.simple-slider {
+    margin: 10px 0 20px 0;
 }
 
 .quantile-slider {
-    width: 100%;
-    margin: 15px 0;
+    width: 80%;
+    margin: 10px 0;
     -webkit-appearance: none;
     appearance: none;
-    height: 8px;
-    border-radius: 5px;
+    height: 6px;
+    border-radius: 3px;
     background: #ddd;
     outline: none;
-    opacity: 0.7;
-    transition: opacity 0.2s;
-}
-
-.quantile-slider:hover {
-    opacity: 1;
 }
 
 .quantile-slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 20px;
-    height: 20px;
+    width: 16px;
+    height: 16px;
     border-radius: 50%;
     background: #007bff;
     cursor: pointer;
 }
 
 .quantile-slider::-moz-range-thumb {
-    width: 20px;
-    height: 20px;
+    width: 16px;
+    height: 16px;
     border-radius: 50%;
     background: #007bff;
     cursor: pointer;
@@ -122,31 +112,19 @@ related_publications: ye2025qutcc
 }
 
 .quantile-value {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
     color: #007bff;
-    margin: 10px 0;
+    margin: 5px 0;
 }
 
 .chart-container {
-    position: relative;
     width: 100%;
     height: 300px;
     border: 1px solid #ddd;
     border-radius: 8px;
     background-color: #fff;
-    margin: 20px 0;
-}
-
-.gif-caption {
-    font-size: 14px;
-    color: #666;
-    margin-top: 15px;
-    text-align: left;
-    padding: 10px;
-    background-color: white;
-    border-radius: 6px;
-    border-left: 4px solid #007bff;
+    margin: 10px 0;
 }
 
 .equation-label {
@@ -223,21 +201,13 @@ related_publications: ye2025qutcc
             </div>
             
             <div class="interactive-side">
-                <div class="slider-container">
-                    <div class="quantile-value">q = <span id="quantile-display">0.50</span></div>
+                <div class="simple-slider">
+                    <div class="quantile-value">q = <span id="quantile-display">0.35</span></div>
                     <input type="range" id="quantile-slider" class="quantile-slider" 
-                           min="0.01" max="0.99" value="0.50" step="0.01">
-                    <div style="display: flex; justify-content: space-between; font-size: 12px; color: #666;">
-                        <span>0.01</span>
-                        <span>0.99</span>
-                    </div>
+                           min="0.01" max="0.99" value="0.35" step="0.01">
                 </div>
                 
                 <canvas id="pinball-chart" class="chart-container" width="400" height="300"></canvas>
-                
-                <div class="gif-caption">
-                    <strong>Fig. 1:</strong> Interactive visualization of pinball loss as an asymmetric loss function. Adjust the slider to see how different quantile values (q) affect the loss function shape.
-                </div>
             </div>
         </div>
     </div>
@@ -290,10 +260,8 @@ related_publications: ye2025qutcc
 
 <script type="text/javascript">
 document.addEventListener('DOMContentLoaded', function() {
-    // Check if canvas is supported
     var canvas = document.getElementById('pinball-chart');
     if (!canvas || !canvas.getContext) {
-        console.log('Canvas not supported');
         return;
     }
     
@@ -301,47 +269,22 @@ document.addEventListener('DOMContentLoaded', function() {
     var display = document.getElementById('quantile-display');
     var ctx = canvas.getContext('2d');
     
-    // Set canvas size
     canvas.width = 400;
     canvas.height = 300;
     
     function drawPinballLoss(q) {
-        // Clear canvas
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         
-        // Set up coordinate system
         var margin = 40;
         var width = canvas.width - 2 * margin;
         var height = canvas.height - 2 * margin;
-        
-        // Draw grid lines first
-        ctx.strokeStyle = '#e0e0e0';
-        ctx.lineWidth = 1;
-        for (var i = 1; i < 5; i++) {
-            var x = margin + (width * i) / 5;
-            var y = margin + (height * i) / 5;
-            
-            // Vertical grid lines
-            ctx.beginPath();
-            ctx.moveTo(x, margin);
-            ctx.lineTo(x, canvas.height - margin);
-            ctx.stroke();
-            
-            // Horizontal grid lines
-            ctx.beginPath();
-            ctx.moveTo(margin, y);
-            ctx.lineTo(canvas.width - margin, y);
-            ctx.stroke();
-        }
         
         // Draw axes
         ctx.strokeStyle = '#333';
         ctx.lineWidth = 2;
         ctx.beginPath();
-        // X-axis
         ctx.moveTo(margin, canvas.height - margin);
         ctx.lineTo(canvas.width - margin, canvas.height - margin);
-        // Y-axis
         ctx.moveTo(margin, margin);
         ctx.lineTo(margin, canvas.height - margin);
         ctx.stroke();
@@ -358,22 +301,27 @@ document.addEventListener('DOMContentLoaded', function() {
         ctx.fillText('Pinball Loss', 0, 0);
         ctx.restore();
         
-        // Draw pinball loss function
+        // Calculate the pinball loss function
         var centerX = margin + width / 2;
-        var centerY = canvas.height - margin;
+        var centerY = canvas.height - margin - height / 4; // Move up from bottom
+        
+        // Scale the function to fit nicely in the chart
+        var scale = height / 6;
         
         ctx.strokeStyle = '#ffd700';
         ctx.lineWidth = 4;
         ctx.beginPath();
         
-        // Left side: (q-1)(y-ŷ) for y < ŷ
-        var leftSlope = q - 1; // negative slope
-        ctx.moveTo(margin, centerY + leftSlope * (-width/2));
+        // Left side: (q-1)(y-ŷ) for y < ŷ (negative slope)
+        var leftSlope = (q - 1) * scale;
+        var leftStartY = centerY - leftSlope * (width / 2) / scale;
+        ctx.moveTo(margin, leftStartY);
         ctx.lineTo(centerX, centerY);
         
-        // Right side: q(y-ŷ) for y ≥ ŷ
-        var rightSlope = q; // positive slope
-        ctx.lineTo(canvas.width - margin, centerY + rightSlope * (width/2));
+        // Right side: q(y-ŷ) for y ≥ ŷ (positive slope)  
+        var rightSlope = q * scale;
+        var rightEndY = centerY + rightSlope * (width / 2) / scale;
+        ctx.lineTo(canvas.width - margin, rightEndY);
         
         ctx.stroke();
         
@@ -384,17 +332,13 @@ document.addEventListener('DOMContentLoaded', function() {
         ctx.fillText('q = ' + q.toFixed(2), margin + 10, margin + 20);
     }
     
-    // Update display and chart when slider changes
     function updateVisualization() {
         var q = parseFloat(slider.value);
         display.textContent = q.toFixed(2);
         drawPinballLoss(q);
     }
     
-    // Initialize
     updateVisualization();
-    
-    // Add event listener
     slider.addEventListener('input', updateVisualization);
 });
 </script>

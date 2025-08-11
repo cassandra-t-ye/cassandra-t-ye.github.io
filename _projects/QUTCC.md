@@ -271,63 +271,59 @@ document.addEventListener('DOMContentLoaded', function() {
     
     function drawPinballLoss(q) {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        
+
         var margin = 40;
         var width = canvas.width - 2 * margin;
         var height = canvas.height - 2 * margin;
-        
+
         // Draw axes
         ctx.strokeStyle = '#333';
         ctx.lineWidth = 2;
         ctx.beginPath();
         ctx.moveTo(margin, canvas.height - margin);
-        ctx.lineTo(canvas.width - margin, canvas.height - margin);
+        ctx.lineTo(canvas.width - margin, canvas.height - margin); // X-axis
         ctx.moveTo(margin, margin);
-        ctx.lineTo(margin, canvas.height - margin);
+        ctx.lineTo(margin, canvas.height - margin); // Y-axis
         ctx.stroke();
-        
-        // Draw axis labels
+
+        // Labels
         ctx.fillStyle = '#333';
         ctx.font = '12px Arial';
         ctx.textAlign = 'center';
-        ctx.fillText('Ground Truth - Predicted', canvas.width - 10, canvas.height - 10);
-        
+        ctx.fillText('u = Ground Truth - Predicted', canvas.width / 2, canvas.height - 10);
         ctx.save();
         ctx.translate(15, canvas.height / 2);
         ctx.rotate(-Math.PI / 2);
         ctx.fillText('Pinball Loss', 0, 0);
         ctx.restore();
-        
-        // Calculate the pinball loss function
-        var centerX = margin + width / 2;
-        var centerY = canvas.height - margin - height / 4; // Move up from bottom
-        
-        // Scale the function to fit nicely in the chart
-        var scale = height / 6;
-        
+
+        // Plot pinball loss according to formula
         ctx.strokeStyle = '#ffd700';
-        ctx.lineWidth = 4;
+        ctx.lineWidth = 2;
         ctx.beginPath();
-        
-        // Left side: (q-1)(y-ŷ) for y < ŷ (negative slope)
-        var leftSlope = (1-q) * scale;
-        var leftStartY = centerY - leftSlope * (width / 2) / scale;
-        ctx.moveTo(margin, leftStartY);
-        ctx.lineTo(centerX, centerY);
-        
-        // Right side: q(y-ŷ) for y ≥ ŷ (positive slope)  
-        var rightSlope = q * scale;
-        var rightEndY = centerY + rightSlope * (width / 2) / scale;
-        ctx.lineTo(canvas.width - margin, rightEndY);
-        
+
+        var centerX = margin + width / 2;
+        var scaleX = width / 10;  // map u from -5 to 5
+        var scaleY = height / 5;  // visual scaling of loss
+
+        for (var px = margin; px <= canvas.width - margin; px++) {
+            var u = (px - centerX) / scaleX; // difference x - x_hat
+            var absU = Math.abs(u);
+            var loss = (u >= 0) ? q * absU : (1 - q) * absU;
+            var py = (canvas.height - margin) - loss * scaleY;
+
+            if (px === margin) ctx.moveTo(px, py);
+            else ctx.lineTo(px, py);
+        }
         ctx.stroke();
-        
-        // Add quantile value display on chart
+
+        // Show q value
         ctx.fillStyle = '#007bff';
         ctx.font = 'bold 16px Arial';
         ctx.textAlign = 'left';
         ctx.fillText('q = ' + q.toFixed(2), margin + 10, margin + 20);
     }
+
     
     function updateVisualization() {
         var q = parseFloat(slider.value);

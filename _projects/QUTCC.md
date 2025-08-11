@@ -174,7 +174,6 @@ body {
 /* Method section styles */
 .method-container {
     background-color: #f8f9fa;
-    max-height: 300px;
     padding: 30px;
     border-radius: 12px;
     margin: 20px 0;
@@ -429,15 +428,13 @@ body {
 
 
 <div class="section results-section">
-    <b class="results-title">Results (Alternative Flexbox Layout)</b>
+    <b class="results-title">Results</b>
     
     <div style="display: flex; gap: 30px; align-items: flex-start; flex-wrap: wrap;">
         <div style="flex: 1; min-width: 300px;">
             <div class="content-text">
                 <p>
-                    This alternative layout uses CSS Flexbox for better responsive behavior 
-                    and more predictable positioning. The figures automatically adjust their 
-                    position based on available space.
+                    PUT SOME STUFF HERE ABOUT ESULTS
                 </p>
             </div>
             

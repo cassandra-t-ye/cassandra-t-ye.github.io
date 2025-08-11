@@ -198,13 +198,12 @@ related_publications: ye2025qutcc
             </div>
             
             <div class="interactive-side">
+                <canvas id="pinball-chart" class="chart-container" width="400" height="300"></canvas>
                 <div class="simple-slider">
                     <div class="quantile-value">q = <span id="quantile-display">0.35</span></div>
                     <input type="range" id="quantile-slider" class="quantile-slider" 
                            min="0.01" max="0.99" value="0.5" step="0.01">
                 </div>
-                
-                <canvas id="pinball-chart" class="chart-container" width="400" height="300"></canvas>
             </div>
         </div>
     </div>
@@ -269,60 +268,114 @@ document.addEventListener('DOMContentLoaded', function() {
     canvas.width = 400;
     canvas.height = 300;
     
-    function drawPinballLoss(q) {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
+function drawPinballLoss(q) {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        var margin = 40;
-        var width = canvas.width - 2 * margin;
-        var height = canvas.height - 2 * margin;
+    const margin = 40;
+    const width = canvas.width - 2 * margin;
+    const height = canvas.height - 2 * margin;
 
-        // Draw axes
-        ctx.strokeStyle = '#333';
-        ctx.lineWidth = 2;
+    // axes
+    ctx.strokeStyle = '#333';
+    ctx.lineWidth = 2;
+    // x-axis
+    ctx.beginPath();
+    ctx.moveTo(margin, margin + height);
+    ctx.lineTo(margin + width, margin + height);
+    ctx.stroke();
+    // y-axis
+    ctx.beginPath();
+    ctx.moveTo(margin, margin);
+    ctx.lineTo(margin, margin + height);
+    ctx.stroke();
+
+    // u range (you can change this)
+    const uMin = -5;
+    const uMax = 5;
+
+    const uToPx = (u) => margin + ((u - uMin) / (uMax - uMin)) * width;
+    // Loss according to your absolute-value formula:
+    const lossFor = (u) => u >= 0 ? q * u : (1 - q) * (-u);
+
+    // Vertical scaling: compute maximum possible loss in the plotted u range
+    const maxPosLoss = q * Math.max(0, uMax);
+    const maxNegLoss = (1 - q) * Math.max(0, -uMin);
+    const maxLoss = Math.max(maxPosLoss, maxNegLoss, 1e-6); // avoid div by zero
+    const scaleY = (height * 0.9) / maxLoss; // leave a little headroom
+
+    const lossToPy = (loss) => (margin + height) - loss * scaleY;
+
+    // draw tick marks on x-axis for clarity
+    ctx.fillStyle = '#333';
+    ctx.font = '12px Arial';
+    ctx.textAlign = 'center';
+    const ticks = 5;
+    for (let i = 0; i <= ticks; i++) {
+        const u = uMin + (i / ticks) * (uMax - uMin);
+        const px = uToPx(u);
         ctx.beginPath();
-        ctx.moveTo(margin, canvas.height - margin);
-        ctx.lineTo(canvas.width - margin, canvas.height - margin); // X-axis
-        ctx.moveTo(margin, margin);
-        ctx.lineTo(margin, canvas.height - margin); // Y-axis
+        ctx.moveTo(px, margin + height);
+        ctx.lineTo(px, margin + height + 6);
         ctx.stroke();
-
-        // Labels
-        ctx.fillStyle = '#333';
-        ctx.font = '12px Arial';
-        ctx.textAlign = 'center';
-        ctx.fillText('u = Ground Truth - Predicted', canvas.width / 2, canvas.height - 10);
-        ctx.save();
-        ctx.translate(15, canvas.height / 2);
-        ctx.rotate(-Math.PI / 2);
-        ctx.fillText('Pinball Loss', 0, 0);
-        ctx.restore();
-
-        // Plot pinball loss according to formula
-        ctx.strokeStyle = '#ffd700';
-        ctx.lineWidth = 2;
-        ctx.beginPath();
-
-        var centerX = margin + width / 2;
-        var scaleX = width / 10;  // map u from -5 to 5
-        var scaleY = height / 5;  // visual scaling of loss
-
-        for (var px = margin; px <= canvas.width - margin; px++) {
-            var u = (px - centerX) / scaleX; // difference x - x_hat
-            var absU = Math.abs(u);
-            var loss = (u >= 0) ? q * absU : (1 - q) * absU;
-            var py = (canvas.height - margin) - loss * scaleY;
-
-            if (px === margin) ctx.moveTo(px, py);
-            else ctx.lineTo(px, py);
-        }
-        ctx.stroke();
-
-        // Show q value
-        ctx.fillStyle = '#007bff';
-        ctx.font = 'bold 16px Arial';
-        ctx.textAlign = 'left';
-        ctx.fillText('q = ' + q.toFixed(2), margin + 10, margin + 20);
+        ctx.fillText(u.toFixed(1), px, margin + height + 20);
     }
+    // label axes
+    ctx.textAlign = 'center';
+    ctx.fillText('u = Ground Truth - Predicted', margin + width / 2, margin + height + 40);
+    ctx.save();
+    ctx.translate(15, margin + height / 2);
+    ctx.rotate(-Math.PI / 2);
+    ctx.textAlign = 'center';
+    ctx.fillText('Pinball Loss', 0, 0);
+    ctx.restore();
+
+    // draw vertical u=0 line
+    ctx.setLineDash([6, 4]);
+    ctx.strokeStyle = '#888';
+    ctx.beginPath();
+    ctx.moveTo(uToPx(0), margin);
+    ctx.lineTo(uToPx(0), margin + height);
+    ctx.stroke();
+    ctx.setLineDash([]);
+
+    // plot the loss curve
+    ctx.strokeStyle = '#5C82D6';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    const steps = Math.max(200, Math.floor(width)); // smooth curve
+    for (let i = 0; i <= steps; i++) {
+        const u = uMin + (i / steps) * (uMax - uMin);
+        const px = uToPx(u);
+        const loss = lossFor(u);
+        const py = lossToPy(loss);
+        if (i === 0) ctx.moveTo(px, py);
+        else ctx.lineTo(px, py);
+    }
+    ctx.stroke();
+
+    // OPTIONAL: draw the 1-q curve (debug overlay) to see the mirror
+    /*
+    ctx.strokeStyle = 'rgba(0,150,200,0.6)';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    for (let i = 0; i <= steps; i++) {
+        const u = uMin + (i / steps) * (uMax - uMin);
+        const px = uToPx(u);
+        const loss = u >= 0 ? (1 - q) * u : q * (-u); // swapped
+        const py = lossToPy(loss);
+        if (i === 0) ctx.moveTo(px, py);
+        else ctx.lineTo(px, py);
+    }
+    ctx.stroke();
+    */
+
+    // show q value
+    ctx.fillStyle = '#5C82D6';
+    ctx.font = 'bold 16px Arial';
+    ctx.textAlign = 'left';
+    ctx.fillText('q = ' + q.toFixed(2), margin + 10, margin + 20);
+}
+
 
     
     function updateVisualization() {

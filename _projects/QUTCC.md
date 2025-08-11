@@ -191,7 +191,7 @@ related_publications: ye2025qutcc
                         <span class="piecewise-brace">{</span>
                         <div class="piecewise-cases">
                             <div class="case-line">q * |x - x̂|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if x - x̂ ≥ 0 </div>
-                            <div class="case-line">(1 - q) * |x - x̂|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if y < ŷ</div>
+                            <div class="case-line">(1 - q) * |x - x̂|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </div>
                     </div>
                 </div>
@@ -279,21 +279,31 @@ function drawPinballLoss(q) {
     ctx.strokeStyle = '#333';
     ctx.lineWidth = 2;
     ctx.beginPath();
-    ctx.moveTo(margin, margin + height); // X-axis
-    ctx.lineTo(margin + width, margin + height);
-    ctx.stroke();
-
-    ctx.beginPath();
+    ctx.moveTo(margin, canvas.height - margin); // X-axis
+    ctx.lineTo(canvas.width - margin, canvas.height - margin);
     ctx.moveTo(margin, margin); // Y-axis
-    ctx.lineTo(margin, margin + height);
+    ctx.lineTo(margin, canvas.height - margin);
     ctx.stroke();
 
-    // u = x - x_hat range
+    // Axis labels
+    ctx.fillStyle = '#333';
+    ctx.font = '12px Arial';
+    ctx.textAlign = 'center';
+    ctx.fillText('Ground Truth - Predicted', canvas.width / 2, canvas.height - 10);
+    ctx.save();
+    ctx.translate(15, canvas.height / 2);
+    ctx.rotate(-Math.PI / 2);
+    ctx.fillText('Pinball Loss', 0, 0);
+    ctx.restore();
+
+    // Function scaling
     const uMin = -5, uMax = 5;
     const uToPx = (u) => margin + ((u - uMin) / (uMax - uMin)) * width;
+    const maxLoss = Math.max(q * Math.abs(uMax), (1 - q) * Math.abs(uMin));
+    const lossToPy = (loss) => (canvas.height - margin) - (loss / maxLoss) * (height * 0.9);
 
-    // Pinball loss from formula
-    function lossFor(u) {
+    // Pinball loss function from formula
+    function pinballLoss(u) {
         const absU = Math.abs(u);
         if (u >= 0) {
             return q * absU;
@@ -302,62 +312,27 @@ function drawPinballLoss(q) {
         }
     }
 
-    // Find max loss for scaling
-    const maxLoss = Math.max(q * Math.abs(uMax), (1 - q) * Math.abs(uMin));
-    const lossToPy = (loss) => (margin + height) - (loss / maxLoss) * (height * 0.9);
-
-    // Tick marks & labels on X-axis
-    ctx.fillStyle = '#333';
-    ctx.font = '12px Arial';
-    ctx.textAlign = 'center';
-    for (let i = 0; i <= 10; i++) {
-        const u = uMin + i * (uMax - uMin) / 10;
-        const px = uToPx(u);
-        ctx.beginPath();
-        ctx.moveTo(px, margin + height);
-        ctx.lineTo(px, margin + height + 5);
-        ctx.stroke();
-        ctx.fillText(u.toFixed(1), px, margin + height + 18);
-    }
-
-    // Axis labels
-    ctx.fillText('Ground Truth - Predicted', margin + width / 2, margin + height + 35);
-    ctx.save();
-    ctx.translate(15, margin + height / 2);
-    ctx.rotate(-Math.PI / 2);
-    ctx.textAlign = 'center';
-    ctx.fillText('Pinball Loss', 0, 0);
-    ctx.restore();
-
-    // // Vertical dashed line at u=0
-    // ctx.setLineDash([6, 4]);
-    // ctx.strokeStyle = '#888';
-    // ctx.beginPath();
-    // ctx.moveTo(uToPx(0), margin);
-    // ctx.lineTo(uToPx(0), margin + height);
-    // ctx.stroke();
-    // ctx.setLineDash([]);
-
-    // Plot pinball loss curve
-    ctx.strokeStyle = '#5C82D6';
+    // Plot curve
+    ctx.strokeStyle = '#007bff';
     ctx.lineWidth = 2;
     ctx.beginPath();
     const steps = 300;
     for (let i = 0; i <= steps; i++) {
         const u = uMin + i * (uMax - uMin) / steps;
         const px = uToPx(u);
-        const py = lossToPy(lossFor(u));
+        const py = lossToPy(pinballLoss(u));
         if (i === 0) ctx.moveTo(px, py);
         else ctx.lineTo(px, py);
     }
     ctx.stroke();
 
     // Show q value
-    ctx.fillStyle = '#5C82D6';
+    ctx.fillStyle = '#007bff';
     ctx.font = 'bold 16px Arial';
     ctx.textAlign = 'left';
     ctx.fillText('q = ' + q.toFixed(2), margin + 10, margin + 20);
 }
+
     
     function updateVisualization() {
         var q = parseFloat(slider.value);

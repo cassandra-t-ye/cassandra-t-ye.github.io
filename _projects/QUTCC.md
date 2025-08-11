@@ -190,8 +190,8 @@ related_publications: ye2025qutcc
                     <div class="piecewise-container">
                         <span class="piecewise-brace">{</span>
                         <div class="piecewise-cases">
-                            <div class="case-line">q * |y - ŷ|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if y ≥ ŷ</div>
-                            <div class="case-line">(1 - q) * |y - ŷ|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if y < ŷ</div>
+                            <div class="case-line">q * |x - x̂|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if x - x̂ ≥ 0 </div>
+                            <div class="case-line">(1 - q) * |x - x̂|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if y < ŷ</div>
                         </div>
                     </div>
                 </div>
@@ -210,7 +210,7 @@ related_publications: ye2025qutcc
     
     <div class="text-content">
         <p>
-            where q ∈ (0,1) is the desired quantile level, y is the true value, and ŷ is the predicted value. This asymmetric penalty ensures that overestimation and underestimation are weighted differently according to the target quantile. For example, if q = 0.1, then overestimates will be penalized heavier than underestimates.
+            where q ∈ (0,1) is the desired quantile level, x is the true value, and x̂ is the predicted value. This asymmetric penalty ensures that overestimation and underestimation are weighted differently according to the target quantile. For example, if q = 0.1, then overestimates will be penalized heavier than underestimates.
         </p>
 
         <p>

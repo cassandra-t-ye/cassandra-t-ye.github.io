@@ -410,7 +410,7 @@ body {
     
     <div class="method-container">
         <div class="method-image-container">
-            <img id="method-image" class="method-image" src="assets/img/proj_2_qutcc/fig_1_training_gif.gif" alt="Training">
+            <img id="method-image" class="method-image" src=""https://raw.githubusercontent.com/cassandra-t-ye/cassandra-t-ye.github.io/master/assets/img/proj_2_qutcc/fig_1_training_gif.gif"" alt="Training">
             
             <div class="method-caption">
                 <div class="stage-title">Training</div>

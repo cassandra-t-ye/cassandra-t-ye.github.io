@@ -232,7 +232,7 @@ body {
 
 .method-caption {
     margin-top: 15px;
-    font-size: 14px;
+    font-size: 16px;
     color: #555;
     line-height: 1.6;
     max-width: 800px;

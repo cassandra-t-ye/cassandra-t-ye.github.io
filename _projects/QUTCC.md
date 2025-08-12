@@ -486,7 +486,7 @@ body {
                 <div class="image-container" style="position: relative; display: inline-block; margin-bottom: 20px;">
                     {% include figure.html path="assets/img/proj_2_qutcc/pdf_microscope.png" class="img-fluid" style="width: 600px; height: 150px; object-fit: cover;" %} 
                     <div class="clickable-spot spot-blue" onclick="showDistribution('right-skewed')" 
-                        style="position: absolute; top: 30%; left: 52%; width: 30px; height: 30px; border: 3px solid #4A90E2; border-radius: 50%; cursor: pointer; background: rgba(74, 144, 226, 0.4); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; transition: all 0.3s ease; z-index: 10;"
+                        style="position: absolute; top: 20%; left: 47%; width: 20px; height: 20px; border: 3px solid #4A90E2; border-radius: 50%; cursor: pointer; background: rgba(74, 144, 226, 0.4); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; transition: all 0.3s ease; z-index: 10;"
                         title="Click to view right-skewed distribution">
                         1
                     </div>

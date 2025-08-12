@@ -443,7 +443,7 @@ body {
 <!-- <div class="section results-section">
     <b class="results-title">Results</b> -->
 <div class="section results-section" style="margin-top: 20px;">
-    <b class="results-title">Results</b>
+    <b class="results-title">QUTCC produces smaller uncertainty intervals</b>
     <div class="row">
         <div class="col-md-12 mt-3">
             <div style="text-align: left; padding: 20px; background-color: #f8f9fa; border-radius: 8px;">

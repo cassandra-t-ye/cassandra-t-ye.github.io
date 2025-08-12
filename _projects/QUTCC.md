@@ -478,39 +478,41 @@ body {
             <div style="text-align: left; padding: 20px; background-color: #f8f9fa; border-radius: 8px;">
                 One of the key advantages of QUTCC is its ability to predict the full spectrum of quantiles, enabling the reconstruction of pixel-wise probability density functions. By querying the trained network across the entire quantile range q ∈ (0, 1), we can estimate the underlying conditional distribution for each pixel in the reconstructed image. This provides rich uncertainty information that goes beyond simple confidence intervals, revealing the shape and characteristics of the predictive distribution at each spatial location.
             </div>
-        </div>
+        </div> 
         
         <!-- Interactive Visualization Container -->
         <div class="col-12 mt-3" style="text-align: center;">
-            <div class="pdf-visualization-container" style="background-color: #fff; border: 1px solid #ddd; border-radius: 12px; padding: 20px; margin: 20px 0;">
+            <div class="pdf-visualization-container" style="background-color: #fff; border: 1px solid #ddd; border-radius: 12px; padding: 20px; margin: 20px 0;">  
                 
-                <!-- Simulated noisy image with clickable spots -->
+                <!-- Microscope image with clickable spots -->
                 <div class="image-container" style="position: relative; display: inline-block; margin-bottom: 20px;">
-                    <img src="assets/img/proj_2_qutcc/pdf_microscope.png" style="width: 600px; height: 150px; object-fit: cover; border-radius: 8px; position: relative">
-                        
-                        <!-- Clickable spots -->
-                        <div class="clickable-spot spot-blue" onclick="showDistribution('right-skewed')" 
-                             style="position: absolute; top: 15%; left: 35%; width: 30px; height: 30px; border: 3px solid #4A90E2; border-radius: 50%; cursor: pointer; background: rgba(74, 144, 226, 0.4); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; transition: all 0.3s ease;"
-                             title="Click to view right-skewed distribution">
-                            1
-                        </div>
-                        
-                        <div class="clickable-spot spot-green" onclick="showDistribution('normal')" 
-                             style="position: absolute; top: 50%; left: 15%; width: 30px; height: 30px; border: 3px solid #7ED321; border-radius: 50%; cursor: pointer; background: rgba(126, 211, 33, 0.4); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; transition: all 0.3s ease;"
-                             title="Click to view normal distribution">
-                            2
-                        </div>
-                        
-                        <div class="clickable-spot spot-red" onclick="showDistribution('left-skewed')" 
-                             style="position: absolute; top: 70%; left: 60%; width: 30px; height: 30px; border: 3px solid #D0021B; border-radius: 50%; cursor: pointer; background: rgba(208, 2, 27, 0.4); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; transition: all 0.3s ease;"
-                             title="Click to view left-skewed distribution">
-                            3
-                        </div>
-                        
-                        <!-- Sigma indicator -->
-                        <div style="position: absolute; top: 10px; right: 15px; color: white; font-weight: bold; font-size: 14px;">
-                            σ = 0.1
-                        </div>
+                    <img src="assets/img/proj_2_qutcc/pdf_microscope.png" 
+                         style="width: 600px; height: 150px; object-fit: cover; border-radius: 8px;" 
+                         alt="Microscope image"
+                         onerror="console.log('Image failed to load:', this.src);">
+                    
+                    <!-- Clickable spots -->
+                    <div class="clickable-spot spot-blue" onclick="showDistribution('right-skewed')" 
+                         style="position: absolute; top: 15%; left: 35%; width: 30px; height: 30px; border: 3px solid #4A90E2; border-radius: 50%; cursor: pointer; background: rgba(74, 144, 226, 0.4); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; transition: all 0.3s ease;"
+                         title="Click to view right-skewed distribution">
+                        1
+                    </div>
+                    
+                    <div class="clickable-spot spot-green" onclick="showDistribution('normal')" 
+                         style="position: absolute; top: 50%; left: 15%; width: 30px; height: 30px; border: 3px solid #7ED321; border-radius: 50%; cursor: pointer; background: rgba(126, 211, 33, 0.4); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; transition: all 0.3s ease;"
+                         title="Click to view normal distribution">
+                        2
+                    </div>
+                    
+                    <div class="clickable-spot spot-red" onclick="showDistribution('left-skewed')" 
+                         style="position: absolute; top: 70%; left: 60%; width: 30px; height: 30px; border: 3px solid #D0021B; border-radius: 50%; cursor: pointer; background: rgba(208, 2, 27, 0.4); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; transition: all 0.3s ease;"
+                         title="Click to view left-skewed distribution">
+                        3
+                    </div>
+                    
+                    <!-- Sigma indicator -->
+                    <div style="position: absolute; top: 10px; right: 15px; color: white; font-weight: bold; font-size: 14px;">
+                        σ = 0.1
                     </div>
                 </div>
                 
@@ -525,9 +527,9 @@ body {
                         <h4 id="dist-title" style="color: #333; margin-bottom: 15px;"></h4>
                         <div id="dist-description" style="font-size: 16px; line-height: 1.6; color: #555; max-width: 600px; margin: 0 auto;"></div>
                         
-                        <!-- Simulated distribution visualization -->
-                        <div id="dist-visualization" style="margin: 20px 0; height: 120px; background: #f8f9fa; border-radius: 8px; display: flex; align-items: center; justify-content: center; border: 2px dashed #ccc;">
-                            <span style="color: #888; font-size: 14px;">[Distribution curve would be displayed here]</span>
+                        <!-- Distribution visualization -->
+                        <div id="dist-visualization" style="margin: 20px 0; height: 150px; display: flex; align-items: center; justify-content: center; border-radius: 8px;">
+                            <!-- Images will be loaded here by JavaScript -->
                         </div>
                         
                         <div id="dist-stats" style="margin-top: 15px; font-size: 14px; color: #777;"></div>

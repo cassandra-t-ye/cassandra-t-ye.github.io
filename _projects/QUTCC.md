@@ -491,12 +491,12 @@ body {
                         1
                     </div>
                     <div class="clickable-spot spot-green" onclick="showDistribution('normal')" 
-                        style="position: absolute; top: 70%; left: 25%; width: 30px; height: 30px; border: 3px solid #7ED321; border-radius: 50%; cursor: pointer; background: rgba(126, 211, 33, 0.4); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; transition: all 0.3s ease; z-index: 10;"
+                        style="position: absolute; top: 30%; left: 15%; width: 20px; height: 20px; border: 3px solid #7ED321; border-radius: 50%; cursor: pointer; background: rgba(126, 211, 33, 0.4); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; transition: all 0.3s ease; z-index: 10;"
                         title="Click to view normal distribution">
                         2
                     </div>
                     <div class="clickable-spot spot-red" onclick="showDistribution('left-skewed')" 
-                        style="position: absolute; top: 85%; left: 75%; width: 30px; height: 30px; border: 3px solid #D0021B; border-radius: 50%; cursor: pointer; background: rgba(208, 2, 27, 0.4); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; transition: all 0.3s ease; z-index: 10;"
+                        style="position: absolute; top: 40%; left: 40%; width: 20px; height: 20px; border: 3px solid #D0021B; border-radius: 50%; cursor: pointer; background: rgba(208, 2, 27, 0.4); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; transition: all 0.3s ease; z-index: 10;"
                         title="Click to view left-skewed distribution">
                         3
                     </div>

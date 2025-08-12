@@ -486,7 +486,7 @@ body {
                 
                 <!-- Microscope image with clickable spots -->
                 <div class="image-container" style="position: relative; display: inline-block; margin-bottom: 20px;">
-                    <img src="assets/img/proj_2_qutcc/pdf_microscope.png" 
+                    {% include figure.html path="assets/img/proj_2_qutcc/pdf_microscope.png" class="img-fluid" style="width: 600px; height: 150px; object-fit: cover;" %} 
                          style="width: 600px; height: 150px; object-fit: cover; border-radius: 8px;" 
                          alt="Microscope image"
                          onerror="console.log('Image failed to load:', this.src);">

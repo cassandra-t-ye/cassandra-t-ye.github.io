@@ -430,23 +430,29 @@ body {
 <!-- <div class="section results-section">
     <b class="results-title">Results</b> -->
 <div class="section results-section" style="margin-top: 20px;">
-    <b style="results-title">Results</b>
+    <b class="results-title">Results</b>
     <div class="row">
         <div class="col-sm mt-3 mt-md-0" style="text-align: center;">
-            {% include figure.html path="assets/img/proj_2_qutcc/hallucination_gif.mp4" title="" class="img-fluid " width="700px" height="auto" %}        
-        <div class="caption" style="text-align: left;">
-            <b>FIG CAPTION</b>
-        </div>
-    </div>
-
-        <div class="col-md-12">
-            <b> UNDER CONSTRUCTION </b>    
+            <video width="700" height="auto" controls autoplay muted loop>
+                <source src="assets/img/proj_2_qutcc/hallucination_gif.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="caption" style="text-align: left;">
+                <b>FIG CAPTION</b>
+            </div>
         </div>
 
         <div class="col-sm mt-3 mt-md-0" style="text-align: center;">
-            {% include figure.html path="assets/img/proj_2_qutcc/fig_2_violin_plot.png" title="" class="img-fluid " width="700px" height="auto" %}        
-        <div class="caption" style="text-align: left;">
-            <b>FIG CAPTION</b>
+            {% include figure.html path="assets/img/proj_2_qutcc/fig_2_violin_plot.png" title="" class="img-fluid" width="700px" height="auto" %}        
+            <div class="caption" style="text-align: left;">
+                <b>FIG CAPTION</b>
+            </div>
+        </div>
+        
+        <div class="col-md-12 mt-3">
+            <div style="text-align: center; padding: 20px; background-color: #f8f9fa; border-radius: 8px;">
+                <b>🚧 UNDER CONSTRUCTION 🚧</b>
+            </div>
         </div>
     </div>
 </div>

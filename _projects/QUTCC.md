@@ -491,12 +491,12 @@ body {
                         1
                     </div>
                     <div class="clickable-spot spot-green" onclick="showDistribution('normal')" 
-                        style="position: absolute; top: 36%; left: 28%; width: 20px; height: 20px; border: 3px solid #7ED321; border-radius: 50%; cursor: pointer; background: rgba(126, 211, 33, 0.4); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; transition: all 0.3s ease; z-index: 10;"
+                        style="position: absolute; top: 36%; left: 23%; width: 20px; height: 20px; border: 3px solid #7ED321; border-radius: 50%; cursor: pointer; background: rgba(126, 211, 33, 0.4); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; transition: all 0.3s ease; z-index: 10;"
                         title="Click to view normal distribution">
                         2
                     </div>
                     <div class="clickable-spot spot-red" onclick="showDistribution('left-skewed')" 
-                        style="position: absolute; top: 43%; left: 41%; width: 20px; height: 20px; border: 3px solid #D0021B; border-radius: 50%; cursor: pointer; background: rgba(208, 2, 27, 0.4); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; transition: all 0.3s ease; z-index: 10;"
+                        style="position: absolute; top: 42.5%; left: 40.5%; width: 20px; height: 20px; border: 3px solid #D0021B; border-radius: 50%; cursor: pointer; background: rgba(208, 2, 27, 0.4); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; transition: all 0.3s ease; z-index: 10;"
                         title="Click to view left-skewed distribution">
                         3
                     </div>
@@ -562,17 +562,20 @@ function showDistribution(type) {
         'right-skewed': {
             title: 'Right-Skewed Distribution (Pixel 1)',
             description: 'This pixel exhibits a right-skewed probability distribution, indicating higher confidence in lower intensity values with a tail extending toward higher intensities. This pattern often occurs in regions where the model is certain about the baseline but uncertain about potential bright artifacts or noise.',
-            stats: 'Mean: 0.24 | Median: 0.19 | Skewness: +1.2'
+            stats: 'Mean: 0.24 | Median: 0.19 | Skewness: +1.2',
+            image: 'assets/img/proj_2_qutcc/right_skewed_pdf.png'
         },
         'normal': {
             title: 'Normal Distribution (Pixel 2)', 
             description: 'This pixel shows a symmetric, normal distribution centered around the predicted intensity value. This indicates well-calibrated uncertainty with equal probability of over- and under-estimation, typical of regions with good signal-to-noise ratio.',
-            stats: 'Mean: 0.51 | Median: 0.51 | Skewness: 0.0'
+            stats: 'Mean: 0.51 | Median: 0.51 | Skewness: 0.0',
+            image:'assets/img/proj_2_qutcc/normal_pdf.png'
         },
         'left-skewed': {
             title: 'Left-Skewed Distribution (Pixel 3)',
             description: 'This pixel demonstrates a left-skewed distribution, suggesting the model expects higher intensity values but has some uncertainty about potential underestimation. This pattern may indicate regions where the reconstruction tends to be conservative.',
-            stats: 'Mean: 0.68 | Median: 0.72 | Skewness: -0.8'
+            stats: 'Mean: 0.68 | Median: 0.72 | Skewness: -0.8',
+            image: 'assets/img/proj_2_qutcc/left_skewed_pdf.png'
         }
     };
     

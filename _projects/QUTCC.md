@@ -466,7 +466,7 @@ body {
     
     <div class="row">
         <div class="col-md-12">
-            IN CONCLUSION....WRITE SOME STUFF
+            We propose QUTCC, a <b>new uncertainty quantification method for imaging inverse problems</b> that can achieve <b>tighter uncertainty estimates</b> than previous methods while maintaining the same statistical coverage.  QUTCC accomplishes this by training a U-Net with a quantile embedding simultaneously on q ∈ (0, 1) quantiles and then dynamically adjusting its quantile bound predictions during calibration until the desired risk is satisfied. Our method exhibited tighter uncertainty intervals, on average, while still pinpointing model hallucinations and regions of high error. This can be attributed to our model applying a nonlinear and asymmetrical scaling to its pixel-wise uncertainty predictions. While quantifying model uncertainty remains a significant open challenge in the field of deep learning, we believe that QUTCC offers a simple, yet robust method of uncertainty quantification for imaging inverse problems and image-to-image regression tasks.
         </div>
     </div>
 </div>

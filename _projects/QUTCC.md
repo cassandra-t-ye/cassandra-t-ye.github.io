@@ -281,7 +281,7 @@ body {
 .results-title {
     font-weight: bold;
     font-size: 24px;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
     display: block;
 }
 
@@ -443,7 +443,7 @@ body {
 <!-- <div class="section results-section">
     <b class="results-title">Results</b> -->
 <div class="section results-section" style="margin-top: 20px;">
-    <b class="results-title">QUTCC produces smaller uncertainty intervals</b>
+    <b class="results-title">QUTCC Produces Smaller Uncertainty Intervals</b>
     <div class="row">
         <div class="col-md-12 mt-3">
              <div class="col-md-12">
@@ -470,7 +470,7 @@ body {
     <div class="row">
         <div class="col-md-12 mt-3">
             <div style="text-align: left; padding: 20px; background-color: #f8f9fa; border-radius: 8px;">
-                Previous uncertainty quantification methods for image-to-image regression tasks aim to approximate the underlying probability density function (PDF) of pixel-wise predictions, with varying degrees of success. Im2Im-Deep is limited in this regard, as it only predicts discrete upper and lower bounds. We demonstrate that querying multiple quantiles from QUTCC enables construction of a conformalized, pixel-wise PDF. To provide statistical coverage guarantees, we calibrate the model across a range of miscoverage levels α. By systematically varying α (e.g., from 0.1 to 0.9) and recording the corresponding quantile bounds, we obtain a collection of confidence intervals that, when aggregated, approximate the full cumulative distribution function (CDF). Differentiating this CDF yields a conformalized pixel-wise PDF with formal coverage guarantees at each risk level.
+                Previous uncertainty quantification methods for image-to-image regression tasks aim to approximate the underlying probability density function (PDF) of pixel-wise predictions, with varying degrees of success. Im2Im-Deep is limited in this regard, as it only predicts discrete upper and lower bounds. We demonstrate that querying multiple quantiles from QUTCC enables construction of a conformalized, pixel-wise PDF. To provide statistical coverage guarantees, we calibrate the model across a range of miscoverage levels α. By systematically varying α (e.g., from 0.1 to 0.9) and recording the corresponding quantile bounds, we obtain a collection of confidence intervals that, when aggregated, approximate the full cumulative distribution function (CDF). Differentiating this CDF yields a conformalized pixel-wise PDF with formal coverage guarantees at each risk level. In the measurement below, we take a noisy Gaussian image (σ = 0.1) and compare the PDFs at different pixel regions.
             </div>
         </div> 
         <!-- Interactive Visualization Container -->

@@ -452,9 +452,9 @@ body {
         </div>
         <div class="col-12 mt-3 mt-md-0" style="text-align: center;">
             {% include figure.html path="assets/img/proj_2_qutcc/hallucination_gif.gif" title="" class="img-fluid" width="700px" height="auto" %}        
-            <div class="caption" style="text-align: left;">
+            <!-- <div class="caption" style="text-align: left;">
                 <b>FIG CAPTION</b>
-            </div>
+            </div> -->
         </div>
         <div class="col-md-12 mt-3">
             <div style="text-align: left; padding: 20px; background-color: #f8f9fa; border-radius: 8px;">
@@ -463,9 +463,9 @@ body {
         </div>
         <div class="col-12 mt-3 mt-md-0" style="text-align: center;">
             {% include figure.html path="assets/img/proj_2_qutcc/fig_2_violin_plot.png" title="" class="img-fluid" width="700px" height="auto" %}        
-            <div class="caption" style="text-align: left;">
+            <!-- <div class="caption" style="text-align: left;">
                 <b>FIG CAPTION</b>
-            </div>
+            </div> -->
         </div>
         
     </div>
@@ -476,7 +476,7 @@ body {
     <div class="row">
         <div class="col-md-12 mt-3">
             <div style="text-align: left; padding: 20px; background-color: #f8f9fa; border-radius: 8px;">
-                One of the key advantages of QUTCC is its ability to predict the full spectrum of quantiles, enabling the reconstruction of pixel-wise probability density functions. By querying the trained network across the entire quantile range q ∈ (0, 1), we can estimate the underlying conditional distribution for each pixel in the reconstructed image. This provides rich uncertainty information that goes beyond simple confidence intervals, revealing the shape and characteristics of the predictive distribution at each spatial location.
+                Previous uncertainty quantification methods for image-to-image regression tasks aim to approximate the underlying probability density function (PDF) of pixel-wise predictions, with varying degrees of success. Im2Im-Deep is limited in this regard, as it only predicts discrete upper and lower bounds. We demonstrate that querying multiple quantiles from QUTCC enables construction of a conformalized, pixel-wise PDF. To provide statistical coverage guarantees, we calibrate the model across a range of miscoverage levels α. By systematically varying α (e.g., from 0.1 to 0.9) and recording the corresponding quantile bounds, we obtain a collection of confidence intervals that, when aggregated, approximate the full cumulative distribution function (CDF). Differentiating this CDF yields a conformalized pixel-wise PDF with formal coverage guarantees at each risk level.
             </div>
         </div> 
         <!-- Interactive Visualization Container -->
@@ -521,11 +521,11 @@ body {
                 </div>
             </div>
         </div>
-        <div class="col-md-12 mt-3">
+        <!-- <div class="col-md-12 mt-3">
             <div style="text-align: left; padding: 20px; background-color: #f8f9fa; border-radius: 8px;">
                 The ability to visualize these pixel-wise distributions provides valuable insights into the reconstruction process. <strong>Right-skewed distributions</strong> often indicate regions where the model is more confident about lower intensity values but uncertain about potential high-intensity artifacts. <strong>Normal distributions</strong> suggest well-behaved, symmetric uncertainty around the predicted value. <strong>Left-skewed distributions</strong> may indicate areas where the model expects higher intensities but has some uncertainty about potential underestimation. This granular uncertainty information enables practitioners to identify not just <em>where</em> the model is uncertain, but <em>how</em> it is uncertain, facilitating more informed decision-making in critical applications.
             </div>
-        </div>
+        </div> -->
     </div>
 </div>
 
@@ -560,19 +560,19 @@ function showDistribution(type) {
     const distributions = {
         'right-skewed': {
             title: 'Right-Skewed Distribution',
-            description: 'This pixel exhibits a right-skewed probability distribution, indicating higher confidence in lower intensity values with a tail extending toward higher intensities. This pattern often occurs in regions where the model is certain about the baseline but uncertain about potential bright artifacts or noise.',
+            description: 'A right-skewed probability distribution indicates higher confidence in lower intensity values with a tail extending toward higher intensities',
             // stats: 'Mean: 0.24 | Median: 0.19 | Skewness: +1.2',
             image: 'https://raw.githubusercontent.com/cassandra-t-ye/cassandra-t-ye.github.io/master/assets/img/proj_2_qutcc/right_skewed_pdf.png'
         },
         'normal': {
             title: 'Normal Distribution', 
-            description: 'This pixel shows a symmetric, normal distribution centered around the predicted intensity value. This indicates well-calibrated uncertainty with equal probability of over- and under-estimation, typical of regions with good signal-to-noise ratio.',
+            description: 'A symmetric, normal distribution centered around the predicted intensity value indicates well-calibrated uncertainty with equal probability of over- and under-estimation.',
             // stats: 'Mean: 0.51 | Median: 0.51 | Skewness: 0.0',
             image: 'https://raw.githubusercontent.com/cassandra-t-ye/cassandra-t-ye.github.io/master/assets/img/proj_2_qutcc/normal_pdf.png'
         },
         'left-skewed': {
             title: 'Left-Skewed Distribution',
-            description: 'This pixel demonstrates a left-skewed distribution, suggesting the model expects higher intensity values but has some uncertainty about potential underestimation. This pattern may indicate regions where the reconstruction tends to be conservative.',
+            description: 'A left-skewed distribution indicates the model expects higher intensity values but has some uncertainty about potential underestimation. This pattern may indicate regions where the reconstruction tends to be conservative.',
             // stats: 'Mean: 0.68 | Median: 0.72 | Skewness: -0.8',
             image: 'https://raw.githubusercontent.com/cassandra-t-ye/cassandra-t-ye.github.io/master/assets/img/proj_2_qutcc/left_skewed_pdf.png'
         }

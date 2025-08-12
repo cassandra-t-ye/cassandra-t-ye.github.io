@@ -446,8 +446,8 @@ body {
     <b class="results-title">QUTCC produces smaller uncertainty intervals</b>
     <div class="row">
         <div class="col-md-12 mt-3">
-            <div style="text-align: left; padding: 20px; background-color: #f8f9fa; border-radius: 8px;">
-                SOMETHING ABOUT HALLUCINATIONS
+             <div class="col-md-12">
+                Add in something about hallucinations RIGHT HERE. 
             </div>
         </div>
         <div class="col-12 mt-3 mt-md-0" style="text-align: center;">

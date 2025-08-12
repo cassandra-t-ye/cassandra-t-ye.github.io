@@ -507,7 +507,7 @@ body {
                 </div>
                 <!-- Distribution display area -->
                 <div class="distribution-display" style="margin-top: 30px; min-height: 200px;">
-                    <div id="distribution-info" style="display: none; text-align: center; padding: 20px;">
+                    <div id="distribution-info" style="display: none; text-align: left; padding: 20px;">
                         <h4 id="dist-title" style="color: #333; margin-bottom: 15px;"></h4>
                         <div id="dist-description" style="font-size: 14px; line-height: 1.6; color: #555; max-width: 700px; margin: 0 auto; align-items: left;"></div>
                         <!-- Distribution visualization -->
@@ -597,7 +597,7 @@ function showDistribution(type) {
         const img = document.createElement('img');
         img.src = distInfo.image;
         img.alt = distInfo.title;
-        img.style.cssText = 'max-width: 100%; max-height: 150px; border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);';
+        img.style.cssText = 'width: 600px; max-height: 150px; border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);';
         
         img.onerror = function() {
             console.error(`Failed to load image: ${distInfo.image}`);

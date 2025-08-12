@@ -491,7 +491,7 @@ body {
                         1
                     </div>
                     <div class="clickable-spot spot-green" onclick="showDistribution('normal')" 
-                        style="position: absolute; top: 36%; left: 23%; width: 20px; height: 20px; border: 3px solid #7ED321; border-radius: 50%; cursor: pointer; background: rgba(126, 211, 33, 0.4); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; transition: all 0.3s ease; z-index: 10;"
+                        style="position: absolute; top: 36%; left: 21%; width: 20px; height: 20px; border: 3px solid #7ED321; border-radius: 50%; cursor: pointer; background: rgba(126, 211, 33, 0.4); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; transition: all 0.3s ease; z-index: 10;"
                         title="Click to view normal distribution">
                         2
                     </div>

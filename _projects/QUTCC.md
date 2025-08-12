@@ -412,7 +412,7 @@ body {
 </div>
 
 <div class="section" style="margin-top: 20px;">
-    <b style="font-weight: bold; font-size: 24px; margin-bottom: 20px;">Our Method: QUTCC</b>
+    <h2 style="font-weight: bold; font-size: 24px; margin-bottom: 20px;">Our Method: QUTCC</h2>
     <div class="row">
         <div class="col-md-12">
             <p>
@@ -443,7 +443,7 @@ body {
 <!-- <div class="section results-section">
     <b class="results-title">Results</b> -->
 <div class="section results-section" style="margin-top: 20px;">
-    <b class="results-title">QUTCC Produces Smaller Uncertainty Intervals</b>
+    <h2 style="font-weight: bold; font-size: 24px; margin-bottom: 20px;">QUTCC Produces Smaller Uncertainty Intervals</h2>
     <div class="row">
         <div class="col-md-12 mt-3">
              <div class="col-md-12">
@@ -466,7 +466,7 @@ body {
 </div>
 
 <div class="section results-section" style="margin-top: 20px;">
-    <b class="results-title">Pixel-wise Probability Density Functions</b>
+    <h2 style="font-weight: bold; font-size: 24px; margin-bottom: 20px;">Pixel-wise Probability Density Functions</h2>
     <div class="row">
         <div class="col-md-12 mt-3">
             <div style="text-align: left; padding: 20px; background-color: #f8f9fa; border-radius: 8px;">

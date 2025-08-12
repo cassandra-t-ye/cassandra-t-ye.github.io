@@ -479,40 +479,29 @@ body {
                 One of the key advantages of QUTCC is its ability to predict the full spectrum of quantiles, enabling the reconstruction of pixel-wise probability density functions. By querying the trained network across the entire quantile range q ∈ (0, 1), we can estimate the underlying conditional distribution for each pixel in the reconstructed image. This provides rich uncertainty information that goes beyond simple confidence intervals, revealing the shape and characteristics of the predictive distribution at each spatial location.
             </div>
         </div> 
-        
         <!-- Interactive Visualization Container -->
         <div class="col-12 mt-3" style="text-align: center;">
             <div class="pdf-visualization-container" style="background-color: #fff; border: 1px solid #ddd; border-radius: 12px; padding: 20px; margin: 20px 0;">  
-                
                 <!-- Microscope image with clickable spots -->
                 <div class="image-container" style="position: relative; display: inline-block; margin-bottom: 20px;">
                     {% include figure.html path="assets/img/proj_2_qutcc/pdf_microscope.png" class="img-fluid" style="width: 600px; height: 150px; object-fit: cover;" %} 
                          style="width: 600px; height: 150px; object-fit: cover; border-radius: 8px;" 
                          alt="Microscope image"
                          onerror="console.log('Image failed to load:', this.src);">
-                    
-                    <!-- Clickable spots -->
-                    <div class="clickable-spot spot-blue" onclick="showDistribution('right-skewed')" 
-                         style="position: absolute; top: 15%; left: 35%; width: 30px; height: 30px; border: 3px solid #4A90E2; border-radius: 50%; cursor: pointer; background: rgba(74, 144, 226, 0.4); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; transition: all 0.3s ease;"
-                         title="Click to view right-skewed distribution">
+                   <div class="clickable-spot spot-blue" onclick="showDistribution('right-skewed')" 
+                        style="position: absolute; top: 25%; left: 46%; width: 30px; height: 30px; border: 3px solid #4A90E2; border-radius: 50%; cursor: pointer; background: rgba(74, 144, 226, 0.4); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; transition: all 0.3s ease; z-index: 10;"
+                        title="Click to view right-skewed distribution">
                         1
                     </div>
-                    
                     <div class="clickable-spot spot-green" onclick="showDistribution('normal')" 
-                         style="position: absolute; top: 50%; left: 15%; width: 30px; height: 30px; border: 3px solid #7ED321; border-radius: 50%; cursor: pointer; background: rgba(126, 211, 33, 0.4); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; transition: all 0.3s ease;"
-                         title="Click to view normal distribution">
+                        style="position: absolute; top: 55%; left: 18%; width: 30px; height: 30px; border: 3px solid #7ED321; border-radius: 50%; cursor: pointer; background: rgba(126, 211, 33, 0.4); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; transition: all 0.3s ease; z-index: 10;"
+                        title="Click to view normal distribution">
                         2
                     </div>
-                    
                     <div class="clickable-spot spot-red" onclick="showDistribution('left-skewed')" 
-                         style="position: absolute; top: 70%; left: 60%; width: 30px; height: 30px; border: 3px solid #D0021B; border-radius: 50%; cursor: pointer; background: rgba(208, 2, 27, 0.4); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; transition: all 0.3s ease;"
-                         title="Click to view left-skewed distribution">
+                        style="position: absolute; top: 82%; left: 68%; width: 30px; height: 30px; border: 3px solid #D0021B; border-radius: 50%; cursor: pointer; background: rgba(208, 2, 27, 0.4); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; transition: all 0.3s ease; z-index: 10;"
+                        title="Click to view left-skewed distribution">
                         3
-                    </div>
-                    
-                    <!-- Sigma indicator -->
-                    <div style="position: absolute; top: 10px; right: 15px; color: white; font-weight: bold; font-size: 14px;">
-                        σ = 0.1
                     </div>
                 </div>
                 
@@ -535,9 +524,9 @@ body {
                         <div id="dist-stats" style="margin-top: 15px; font-size: 14px; color: #777;"></div>
                     </div>
                     
-                    <div id="default-message" style="text-align: center; padding: 40px; color: #888;">
+                    <!-- <div id="default-message" style="text-align: center; padding: 40px; color: #888;">
                         Click on a numbered circle above to view the corresponding pixel-wise probability distribution
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>

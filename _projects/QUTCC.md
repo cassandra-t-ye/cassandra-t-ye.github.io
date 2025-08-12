@@ -433,10 +433,7 @@ body {
     <b class="results-title">Results</b>
     <div class="row">
         <div class="col-sm mt-3 mt-md-0" style="text-align: center;">
-            <video width="700" height="auto" controls autoplay muted loop>
-                <source src="assets/img/proj_2_qutcc/hallucination_gif.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
+            {% include figure.html path="assets/img/proj_2_qutcc/hallucination_gif.gif" title="" class="img-fluid" width="700px" height="auto" %}        
             <div class="caption" style="text-align: left;">
                 <b>FIG CAPTION</b>
             </div>

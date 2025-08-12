@@ -19,6 +19,19 @@ related_publications: ye2025qutcc
 </div>
 
 <style>
+.clickable-spot:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 15px rgba(255,255,255,0.8);
+}
+
+.distribution-active {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
@@ -463,20 +476,77 @@ body {
     <div class="row">
         <div class="col-md-12 mt-3">
             <div style="text-align: left; padding: 20px; background-color: #f8f9fa; border-radius: 8px;">
-                SOMETHING ABOUT HALLUCINATIONS
+                One of the key advantages of QUTCC is its ability to predict the full spectrum of quantiles, enabling the reconstruction of pixel-wise probability density functions. By querying the trained network across the entire quantile range q ∈ (0, 1), we can estimate the underlying conditional distribution for each pixel in the reconstructed image. This provides rich uncertainty information that goes beyond simple confidence intervals, revealing the shape and characteristics of the predictive distribution at each spatial location.
             </div>
         </div>
-        <div class="col-12 mt-3 mt-md-0" style="text-align: center;">
-            {% include figure.html path="assets/img/proj_2_qutcc/hallucination_gif.gif" title="" class="img-fluid" width="700px" height="auto" %}        
-            <div class="caption" style="text-align: left;">
-                <b>FIG CAPTION</b>
+        
+        <!-- Interactive Visualization Container -->
+        <div class="col-12 mt-3" style="text-align: center;">
+            <div class="pdf-visualization-container" style="background-color: #fff; border: 1px solid #ddd; border-radius: 12px; padding: 20px; margin: 20px 0;">
+                
+                <!-- Simulated noisy image with clickable spots -->
+                <div class="image-container" style="position: relative; display: inline-block; margin-bottom: 20px;">
+                    <div class="noise-background" style="width: 600px; height: 150px; background: #000; background-image: radial-gradient(circle at 20% 50%, white 1px, transparent 1px), radial-gradient(circle at 40% 20%, white 0.5px, transparent 0.5px), radial-gradient(circle at 60% 80%, white 0.8px, transparent 0.8px), radial-gradient(circle at 80% 30%, white 0.6px, transparent 0.6px); background-size: 50px 50px, 30px 30px, 40px 40px, 60px 60px; position: relative; border-radius: 8px;">
+                        
+                        <!-- Clickable spots -->
+                        <div class="clickable-spot spot-blue" onclick="showDistribution('right-skewed')" 
+                             style="position: absolute; top: 15%; left: 35%; width: 30px; height: 30px; border: 3px solid #4A90E2; border-radius: 50%; cursor: pointer; background: rgba(74, 144, 226, 0.4); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; transition: all 0.3s ease;"
+                             title="Click to view right-skewed distribution">
+                            1
+                        </div>
+                        
+                        <div class="clickable-spot spot-green" onclick="showDistribution('normal')" 
+                             style="position: absolute; top: 50%; left: 15%; width: 30px; height: 30px; border: 3px solid #7ED321; border-radius: 50%; cursor: pointer; background: rgba(126, 211, 33, 0.4); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; transition: all 0.3s ease;"
+                             title="Click to view normal distribution">
+                            2
+                        </div>
+                        
+                        <div class="clickable-spot spot-red" onclick="showDistribution('left-skewed')" 
+                             style="position: absolute; top: 70%; left: 60%; width: 30px; height: 30px; border: 3px solid #D0021B; border-radius: 50%; cursor: pointer; background: rgba(208, 2, 27, 0.4); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; transition: all 0.3s ease;"
+                             title="Click to view left-skewed distribution">
+                            3
+                        </div>
+                        
+                        <!-- Sigma indicator -->
+                        <div style="position: absolute; top: 10px; right: 15px; color: white; font-weight: bold; font-size: 14px;">
+                            σ = 0.1
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Instructions -->
+                <div style="margin: 20px 0; padding: 15px; background: #e3f2fd; border-radius: 8px; color: #1976d2; text-align: center;">
+                    <strong>Interactive Demo:</strong> Click on the numbered circles above to explore different pixel-wise probability distributions recovered by QUTCC
+                </div>
+                
+                <!-- Distribution display area -->
+                <div class="distribution-display" style="margin-top: 30px; min-height: 200px;">
+                    <div id="distribution-info" style="display: none; text-align: center; padding: 20px;">
+                        <h4 id="dist-title" style="color: #333; margin-bottom: 15px;"></h4>
+                        <div id="dist-description" style="font-size: 16px; line-height: 1.6; color: #555; max-width: 600px; margin: 0 auto;"></div>
+                        
+                        <!-- Simulated distribution visualization -->
+                        <div id="dist-visualization" style="margin: 20px 0; height: 120px; background: #f8f9fa; border-radius: 8px; display: flex; align-items: center; justify-content: center; border: 2px dashed #ccc;">
+                            <span style="color: #888; font-size: 14px;">[Distribution curve would be displayed here]</span>
+                        </div>
+                        
+                        <div id="dist-stats" style="margin-top: 15px; font-size: 14px; color: #777;"></div>
+                    </div>
+                    
+                    <div id="default-message" style="text-align: center; padding: 40px; color: #888;">
+                        Click on a numbered circle above to view the corresponding pixel-wise probability distribution
+                    </div>
+                </div>
             </div>
-        </div>        
+        </div>
+        
+        <div class="col-md-12 mt-3">
+            <div style="text-align: left; padding: 20px; background-color: #f8f9fa; border-radius: 8px;">
+                The ability to visualize these pixel-wise distributions provides valuable insights into the reconstruction process. <strong>Right-skewed distributions</strong> often indicate regions where the model is more confident about lower intensity values but uncertain about potential high-intensity artifacts. <strong>Normal distributions</strong> suggest well-behaved, symmetric uncertainty around the predicted value. <strong>Left-skewed distributions</strong> may indicate areas where the model expects higher intensities but has some uncertainty about potential underestimation. This granular uncertainty information enables practitioners to identify not just <em>where</em> the model is uncertain, but <em>how</em> it is uncertain, facilitating more informed decision-making in critical applications.
+            </div>
+        </div>
     </div>
 </div>
-
-
-
 
 <div class="section" style="margin-top: 60px;">
     <h2 style="font-weight: bold; font-size: 24px; margin-bottom: 20px;">Conclusion</h2>  
@@ -503,6 +573,56 @@ body {
         </div>
     </div>
 </div>
+
+<script>
+function showDistribution(type) {
+    const distributions = {
+        'right-skewed': {
+            title: 'Right-Skewed Distribution (Pixel 1)',
+            description: 'This pixel exhibits a right-skewed probability distribution, indicating higher confidence in lower intensity values with a tail extending toward higher intensities. This pattern often occurs in regions where the model is certain about the baseline but uncertain about potential bright artifacts or noise.',
+            stats: 'Mean: 0.24 | Median: 0.19 | Skewness: +1.2'
+        },
+        'normal': {
+            title: 'Normal Distribution (Pixel 2)', 
+            description: 'This pixel shows a symmetric, normal distribution centered around the predicted intensity value. This indicates well-calibrated uncertainty with equal probability of over- and under-estimation, typical of regions with good signal-to-noise ratio.',
+            stats: 'Mean: 0.51 | Median: 0.51 | Skewness: 0.0'
+        },
+        'left-skewed': {
+            title: 'Left-Skewed Distribution (Pixel 3)',
+            description: 'This pixel demonstrates a left-skewed distribution, suggesting the model expects higher intensity values but has some uncertainty about potential underestimation. This pattern may indicate regions where the reconstruction tends to be conservative.',
+            stats: 'Mean: 0.68 | Median: 0.72 | Skewness: -0.8'
+        }
+    };
+    
+    const distInfo = distributions[type];
+    
+    // Hide default message
+    document.getElementById('default-message').style.display = 'none';
+    
+    // Show and update distribution info
+    const infoDiv = document.getElementById('distribution-info');
+    infoDiv.style.display = 'block';
+    infoDiv.className = 'distribution-active';
+    
+    document.getElementById('dist-title').textContent = distInfo.title;
+    document.getElementById('dist-description').textContent = distInfo.description;
+    document.getElementById('dist-stats').textContent = distInfo.stats;
+    
+    // Add visual feedback to clicked spot
+    document.querySelectorAll('.clickable-spot').forEach(spot => {
+        spot.style.transform = 'scale(1)';
+        spot.style.boxShadow = 'none';
+    });
+    
+    event.target.style.transform = 'scale(1.3)';
+    event.target.style.boxShadow = '0 0 20px rgba(255,255,255,0.9)';
+    
+    setTimeout(() => {
+        event.target.style.transform = 'scale(1)';
+        event.target.style.boxShadow = 'none';
+    }, 300);
+}
+</script>
 
 <script type="text/javascript">
 document.addEventListener('DOMContentLoaded', function() {

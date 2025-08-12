@@ -427,42 +427,32 @@ body {
 </div>
 
 
-<div class="section results-section">
-    <b class="results-title">Results</b>
-    
-    <div style="display: flex; gap: 30px; align-items: flex-start; flex-wrap: wrap;">
-        <div style="flex: 1; min-width: 300px;">
-            <div class="content-text">
-                <p>
-                    PUT SOME STUFF HERE ABOUT ESULTS
-                </p>
-            </div>
-            
-            <div class="under-construction">
-                🚧 UNDER CONSTRUCTION 🚧<br>
-                <small style="font-weight: normal;">More content coming soon!</small>
-            </div>
-        </div>   
-    <div style="display: flex; flex-direction: column; gap: 20px; flex-shrink: 0;">
-    <div class="figure-container">
-        {% include figure.html path="assets/img/proj_2_qutcc/hallucination_gif.mp4" title="" class="img-fluid" style="width: 100%; height: auto;" %} 
-            alt="Hallucination analysis visualization" 
-            class="img-fluid" 
-            style="width: 100%; height: auto;" />
-        <div class="caption">
-            Figure 1: Hallucination analysis visualization
+<!-- <div class="section results-section">
+    <b class="results-title">Results</b> -->
+<div class="section results-section" style="margin-top: 20px;">
+    <b style="results-title">Results</b>
+    <div class="row">
+        <div class="col-sm mt-3 mt-md-0" style="text-align: center;">
+            {% include figure.html path="assets/img/proj_2_qutcc/hallucination_gif.mp4" title="" class="img-fluid " width="700px" height="auto" %}        
+        <div class="caption" style="text-align: left;">
+            <b>FIG CAPTION</b>
         </div>
     </div>
-    
-    <div class="figure-container">
-        {% include figure.html path="assets/img/proj_2_qutcc/fig_2_violin_plot.png" title="" class="img-fluid" style="width: 100%; height: auto;" %}
-        <div class="caption">
-            Figure 2: Violin plot statistical analysis
+
+        <div class="col-md-12">
+            <b> UNDER CONSTRUCTION </b>    
+        </div>
+
+        <div class="col-sm mt-3 mt-md-0" style="text-align: center;">
+            {% include figure.html path="assets/img/proj_2_qutcc/fig_2_violin_plot.png" title="" class="img-fluid " width="700px" height="auto" %}        
+        <div class="caption" style="text-align: left;">
+            <b>FIG CAPTION</b>
         </div>
     </div>
 </div>
-    </div>
-</div>
+
+
+
 
 <div class="section" style="margin-top: 60px;">
     <h2 style="font-weight: bold; font-size: 24px; margin-bottom: 20px;">Conclusion</h2>

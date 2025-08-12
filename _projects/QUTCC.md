@@ -485,9 +485,6 @@ body {
                 <!-- Microscope image with clickable spots -->
                 <div class="image-container" style="position: relative; display: inline-block; margin-bottom: 20px;">
                     {% include figure.html path="assets/img/proj_2_qutcc/pdf_microscope.png" class="img-fluid" style="width: 600px; height: 150px; object-fit: cover;" %} 
-                         style="width: 600px; height: 150px; object-fit: cover; border-radius: 8px;" 
-                         alt="Microscope image"
-                         onerror="console.log('Image failed to load:', this.src);">
                    <div class="clickable-spot spot-blue" onclick="showDistribution('right-skewed')" 
                         style="position: absolute; top: 25%; left: 46%; width: 30px; height: 30px; border: 3px solid #4A90E2; border-radius: 50%; cursor: pointer; background: rgba(74, 144, 226, 0.4); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; transition: all 0.3s ease; z-index: 10;"
                         title="Click to view right-skewed distribution">
@@ -504,33 +501,27 @@ body {
                         3
                     </div>
                 </div>
-                
                 <!-- Instructions -->
-                <div style="margin: 20px 0; padding: 15px; background: #e3f2fd; border-radius: 8px; color: #1976d2; text-align: center;">
-                    <strong>Interactive Demo:</strong> Click on the numbered circles above to explore different pixel-wise probability distributions recovered by QUTCC
+                <div style="margin: 20px 0; padding: 15px; background: #e3f2fd; border-radius: 8px; color: #1976d2; text-align: left;">
+                    <strong>Interactive Demo:</strong> Click on the regions above to see different QUTCC pixel-wise PDFs predictions
                 </div>
-                
                 <!-- Distribution display area -->
                 <div class="distribution-display" style="margin-top: 30px; min-height: 200px;">
                     <div id="distribution-info" style="display: none; text-align: center; padding: 20px;">
                         <h4 id="dist-title" style="color: #333; margin-bottom: 15px;"></h4>
                         <div id="dist-description" style="font-size: 16px; line-height: 1.6; color: #555; max-width: 600px; margin: 0 auto;"></div>
-                        
                         <!-- Distribution visualization -->
                         <div id="dist-visualization" style="margin: 20px 0; height: 150px; display: flex; align-items: center; justify-content: center; border-radius: 8px;">
                             <!-- Images will be loaded here by JavaScript -->
                         </div>
-                        
                         <div id="dist-stats" style="margin-top: 15px; font-size: 14px; color: #777;"></div>
                     </div>
-                    
                     <!-- <div id="default-message" style="text-align: center; padding: 40px; color: #888;">
                         Click on a numbered circle above to view the corresponding pixel-wise probability distribution
                     </div> -->
                 </div>
             </div>
         </div>
-        
         <div class="col-md-12 mt-3">
             <div style="text-align: left; padding: 20px; background-color: #f8f9fa; border-radius: 8px;">
                 The ability to visualize these pixel-wise distributions provides valuable insights into the reconstruction process. <strong>Right-skewed distributions</strong> often indicate regions where the model is more confident about lower intensity values but uncertain about potential high-intensity artifacts. <strong>Normal distributions</strong> suggest well-behaved, symmetric uncertainty around the predicted value. <strong>Left-skewed distributions</strong> may indicate areas where the model expects higher intensities but has some uncertainty about potential underestimation. This granular uncertainty information enables practitioners to identify not just <em>where</em> the model is uncertain, but <em>how</em> it is uncertain, facilitating more informed decision-making in critical applications.

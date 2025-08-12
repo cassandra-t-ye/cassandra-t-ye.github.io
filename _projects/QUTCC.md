@@ -432,25 +432,26 @@ body {
 <div class="section results-section" style="margin-top: 20px;">
     <b class="results-title">Results</b>
     <div class="row">
-        <div class="col-sm mt-3 mt-md-0" style="text-align: center;">
+        <div class="col-12 mt-3 mt-md-0" style="text-align: center;">
             {% include figure.html path="assets/img/proj_2_qutcc/hallucination_gif.gif" title="" class="img-fluid" width="700px" height="auto" %}        
             <div class="caption" style="text-align: left;">
                 <b>FIG CAPTION</b>
             </div>
         </div>
 
-        <div class="col-sm mt-3 mt-md-0" style="text-align: center;">
+        <div class="col-md-12 mt-3">
+            <div style="text-align: center; padding: 20px; background-color: #f8f9fa; border-radius: 8px;">
+                To evaluate QUTCC, we test our approach against Im2Im-UQ in four separate imaging tasks- <b>MRI</b>, <b>Gaussian</b>, <b>Poisson</b>, and <b>Real denoising</b>. We compare the predictive interval sizes of Im2Im-Deep and QUTCC across all four inverse tasks. QUTCC consistently produces narrower uncertainty intervals.  By achieving smaller interval lengths while exhibiting comparable risk, QUTCC demonstrates that its uncertainty quantification is both more precise and well-calibrated, effectively capturing predictive confidence without sacrificing coverage.
+            </div>
+        </div>
+
+        <div class="col-12 mt-3 mt-md-0" style="text-align: center;">
             {% include figure.html path="assets/img/proj_2_qutcc/fig_2_violin_plot.png" title="" class="img-fluid" width="700px" height="auto" %}        
             <div class="caption" style="text-align: left;">
                 <b>FIG CAPTION</b>
             </div>
         </div>
         
-        <div class="col-md-12 mt-3">
-            <div style="text-align: center; padding: 20px; background-color: #f8f9fa; border-radius: 8px;">
-                <b>🚧 UNDER CONSTRUCTION 🚧</b>
-            </div>
-        </div>
     </div>
 </div>
 

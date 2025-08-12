@@ -275,7 +275,7 @@ body {
 }
 
 .results-section {
-    margin-top: 60px;
+    margin-top: 20px;
 }
 
 .results-title {
@@ -411,7 +411,7 @@ body {
     </div>
 </div>
 
-<div class="section" style="margin-top: 60px;">
+<div class="section" style="margin-top: 20px;">
     <b style="font-weight: bold; font-size: 24px; margin-bottom: 20px;">Our Method: QUTCC</b>
     <div class="row">
         <div class="col-md-12">
@@ -548,7 +548,7 @@ body {
     </div>
 </div>
 
-<div class="section" style="margin-top: 60px;">
+<div class="section" style="margin-top: 20px;">
     <h2 style="font-weight: bold; font-size: 24px; margin-bottom: 20px;">Conclusion</h2>  
     <div class="row">
         <div class="col-md-12">

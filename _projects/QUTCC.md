@@ -447,7 +447,7 @@ body {
     <div class="row">
         <div class="col-md-12 mt-3">
              <div class="col-md-12">
-                Add in something about hallucinations RIGHT HERE. 
+                We show the predictions from both QUTCC and Im2Im-UQ of an undersampled MRI task. In the example below, both models highlight regions of high uncertainty that correspond to regions of high error. The circled region point to a hallucination that appears in the Im2Im-Deep and QUTCC model predictions that is not present in the ground truth. QUTCC produces tighter uncertainty intervals that can better pinpoint uncertainty and hallucinations compared to Im2Im-UQ, which highlights a larger region. 
             </div>
         </div>
         <div class="col-12 mt-3 mt-md-0" style="text-align: center;">
@@ -597,8 +597,8 @@ function showDistribution(type) {
         const img = document.createElement('img');
         img.src = distInfo.image;
         img.alt = distInfo.title;
-        img.style.cssText = 'width: 600px; height: auto; border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); display: block; margin: 0 auto;';
-                
+        img.style.cssText = 'width: 600px; min-height: 200px; object-fit: contain; border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); display: block; margin: 0 auto;';
+                                
         img.onerror = function() {
             console.error(`Failed to load image: ${distInfo.image}`);
             vizDiv.innerHTML = `<div style="padding: 20px; color: #d32f2f; border: 1px dashed #d32f2f; border-radius: 4px;">Image not found: ${distInfo.image}</div>`;

@@ -486,7 +486,7 @@ body {
                 
                 <!-- Simulated noisy image with clickable spots -->
                 <div class="image-container" style="position: relative; display: inline-block; margin-bottom: 20px;">
-                    <div class="noise-background" style="width: 600px; height: 150px; background: #000; background-image: radial-gradient(circle at 20% 50%, white 1px, transparent 1px), radial-gradient(circle at 40% 20%, white 0.5px, transparent 0.5px), radial-gradient(circle at 60% 80%, white 0.8px, transparent 0.8px), radial-gradient(circle at 80% 30%, white 0.6px, transparent 0.6px); background-size: 50px 50px, 30px 30px, 40px 40px, 60px 60px; position: relative; border-radius: 8px;">
+                    <img src="assets/img/proj_2_qutcc/pdf_microscope.png" style="width: 600px; height: 150px; object-fit: cover; border-radius: 8px; position: relative">
                         
                         <!-- Clickable spots -->
                         <div class="clickable-spot spot-blue" onclick="showDistribution('right-skewed')" 

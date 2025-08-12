@@ -597,8 +597,8 @@ function showDistribution(type) {
         const img = document.createElement('img');
         img.src = distInfo.image;
         img.alt = distInfo.title;
-        img.style.cssText = 'width: 600px; max-height: 150px; border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);';
-        
+        img.style.cssText = 'max-width: 600px; height: auto; border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); display: block; margin: 0 auto;';
+                
         img.onerror = function() {
             console.error(`Failed to load image: ${distInfo.image}`);
             vizDiv.innerHTML = `<div style="padding: 20px; color: #d32f2f; border: 1px dashed #d32f2f; border-radius: 4px;">Image not found: ${distInfo.image}</div>`;

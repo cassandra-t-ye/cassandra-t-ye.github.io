@@ -484,7 +484,7 @@ body {
             <div class="pdf-visualization-container" style="background-color: #fff; border: 1px solid #ddd; border-radius: 12px; padding: 20px; margin: 20px 0;">  
                 <!-- Microscope image with clickable spots -->
                 <div class="image-container" style="position: relative; display: inline-block; margin-bottom: 20px;">
-                    {% include figure.html path="assets/img/proj_2_qutcc/pdf_microscope.png" class="img-fluid" style="width: 600px; height: 150px; object-fit: cover;" %} 
+                    <img src="assets/img/proj_2_qutcc/pdf_microscope.png" class="microscope-image" alt="Microscope Image">
                     <div class="clickable-spot spot-blue" onclick="showDistribution('right-skewed')" 
                         style="position: absolute; top: 21.5%; left: 41%; width: 20px; height: 20px; border: 3px solid #4A90E2; border-radius: 50%; cursor: pointer; background: rgba(74, 144, 226, 0.4); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; transition: all 0.3s ease; z-index: 10;"
                         title="Click to view right-skewed distribution">
@@ -516,9 +516,9 @@ body {
                         </div>
                         <div id="dist-stats" style="margin-top: 15px; font-size: 14px; color: #777;"></div>
                     </div>
-                    <!-- <div id="default-message" style="text-align: center; padding: 40px; color: #888;">
+                    <div id="default-message" style="text-align: center; padding: 40px; color: #888;">
                         Click on a numbered circle above to view the corresponding pixel-wise probability distribution
-                    </div> -->
+                    </div>
                 </div>
             </div>
         </div>

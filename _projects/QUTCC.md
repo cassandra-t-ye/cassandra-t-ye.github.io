@@ -509,7 +509,7 @@ body {
                 <div class="distribution-display" style="margin-top: 30px; min-height: 200px;">
                     <div id="distribution-info" style="display: none; text-align: center; padding: 20px;">
                         <h4 id="dist-title" style="color: #333; margin-bottom: 15px;"></h4>
-                        <div id="dist-description" style="font-size: 14px; line-height: 1.6; color: #555; max-width: 600px; margin: 0 auto;"></div>
+                        <div id="dist-description" style="font-size: 14px; line-height: 1.6; color: #555; max-width: 600px; margin: 0 auto; align-items: left;"></div>
                         <!-- Distribution visualization -->
                         <div id="dist-visualization" style="margin: 20px 0; height: 150px; display: flex; align-items: left; justify-content: left; border-radius: 3px;">
                             <!-- Images will be loaded here by JavaScript -->

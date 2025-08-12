@@ -591,6 +591,26 @@ function showDistribution(type) {
     document.getElementById('dist-title').textContent = distInfo.title;
     document.getElementById('dist-description').textContent = distInfo.description;
     document.getElementById('dist-stats').textContent = distInfo.stats;
+
+    const vizDiv = document.getElementById('dist-visualization');
+    if (distInfo.image) {
+        const img = document.createElement('img');
+        img.src = distInfo.image;
+        img.alt = distInfo.title;
+        img.style.cssText = 'max-width: 100%; max-height: 150px; border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);';
+        
+        img.onerror = function() {
+            console.error(`Failed to load image: ${distInfo.image}`);
+            vizDiv.innerHTML = `<div style="padding: 20px; color: #d32f2f; border: 1px dashed #d32f2f; border-radius: 4px;">Image not found: ${distInfo.image}</div>`;
+        };
+        
+        img.onload = function() {
+            console.log(`Image loaded successfully: ${distInfo.image}`);
+        };
+        
+        vizDiv.innerHTML = '';
+        vizDiv.appendChild(img);
+    }
     
     // Add visual feedback to clicked spot
     document.querySelectorAll('.clickable-spot').forEach(spot => {

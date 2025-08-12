@@ -517,7 +517,6 @@ body {
                         <div id="dist-stats" style="margin-top: 15px; font-size: 14px; color: #777;"></div>
                     </div>
                     <div id="default-message" style="text-align: center; padding: 40px; color: #888;">
-                        Click on a numbered circle above to view the corresponding pixel-wise probability distribution
                     </div>
                 </div>
             </div>

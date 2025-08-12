@@ -509,9 +509,9 @@ body {
                 <div class="distribution-display" style="margin-top: 30px; min-height: 200px;">
                     <div id="distribution-info" style="display: none; text-align: center; padding: 20px;">
                         <h4 id="dist-title" style="color: #333; margin-bottom: 15px;"></h4>
-                        <div id="dist-description" style="font-size: 16px; line-height: 1.6; color: #555; max-width: 600px; margin: 0 auto;"></div>
+                        <div id="dist-description" style="font-size: 14px; line-height: 1.6; color: #555; max-width: 600px; margin: 0 auto;"></div>
                         <!-- Distribution visualization -->
-                        <div id="dist-visualization" style="margin: 20px 0; height: 150px; display: flex; align-items: center; justify-content: center; border-radius: 8px;">
+                        <div id="dist-visualization" style="margin: 20px 0; height: 150px; display: flex; align-items: left; justify-content: left; border-radius: 3px;">
                             <!-- Images will be loaded here by JavaScript -->
                         </div>
                         <div id="dist-stats" style="margin-top: 15px; font-size: 14px; color: #777;"></div>
@@ -560,21 +560,21 @@ body {
 function showDistribution(type) {
     const distributions = {
         'right-skewed': {
-            title: 'Right-Skewed Distribution (Pixel 1)',
+            title: 'Right-Skewed Distribution',
             description: 'This pixel exhibits a right-skewed probability distribution, indicating higher confidence in lower intensity values with a tail extending toward higher intensities. This pattern often occurs in regions where the model is certain about the baseline but uncertain about potential bright artifacts or noise.',
-            stats: 'Mean: 0.24 | Median: 0.19 | Skewness: +1.2',
+            // stats: 'Mean: 0.24 | Median: 0.19 | Skewness: +1.2',
             image: 'assets/img/proj_2_qutcc/right_skewed_pdf.png'
         },
         'normal': {
-            title: 'Normal Distribution (Pixel 2)', 
+            title: 'Normal Distribution', 
             description: 'This pixel shows a symmetric, normal distribution centered around the predicted intensity value. This indicates well-calibrated uncertainty with equal probability of over- and under-estimation, typical of regions with good signal-to-noise ratio.',
-            stats: 'Mean: 0.51 | Median: 0.51 | Skewness: 0.0',
+            // stats: 'Mean: 0.51 | Median: 0.51 | Skewness: 0.0',
             image:'assets/img/proj_2_qutcc/normal_pdf.png'
         },
         'left-skewed': {
-            title: 'Left-Skewed Distribution (Pixel 3)',
+            title: 'Left-Skewed Distribution',
             description: 'This pixel demonstrates a left-skewed distribution, suggesting the model expects higher intensity values but has some uncertainty about potential underestimation. This pattern may indicate regions where the reconstruction tends to be conservative.',
-            stats: 'Mean: 0.68 | Median: 0.72 | Skewness: -0.8',
+            // stats: 'Mean: 0.68 | Median: 0.72 | Skewness: -0.8',
             image: 'assets/img/proj_2_qutcc/left_skewed_pdf.png'
         }
     };

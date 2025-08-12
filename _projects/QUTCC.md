@@ -562,19 +562,19 @@ function showDistribution(type) {
             title: 'Right-Skewed Distribution',
             description: 'This pixel exhibits a right-skewed probability distribution, indicating higher confidence in lower intensity values with a tail extending toward higher intensities. This pattern often occurs in regions where the model is certain about the baseline but uncertain about potential bright artifacts or noise.',
             // stats: 'Mean: 0.24 | Median: 0.19 | Skewness: +1.2',
-            image: '/assets/img/proj_2_qutcc/right_skewed_pdf.png'
+            image: 'https://raw.githubusercontent.com/cassandra-t-ye/cassandra-t-ye.github.io/master/assets/img/proj_2_qutcc/right_skewed_pdf.png'
         },
         'normal': {
             title: 'Normal Distribution', 
             description: 'This pixel shows a symmetric, normal distribution centered around the predicted intensity value. This indicates well-calibrated uncertainty with equal probability of over- and under-estimation, typical of regions with good signal-to-noise ratio.',
             // stats: 'Mean: 0.51 | Median: 0.51 | Skewness: 0.0',
-            image:'/assets/img/proj_2_qutcc/normal_pdf.png'
+            image: 'https://raw.githubusercontent.com/cassandra-t-ye/cassandra-t-ye.github.io/master/assets/img/proj_2_qutcc/normal_pdf.png'
         },
         'left-skewed': {
             title: 'Left-Skewed Distribution',
             description: 'This pixel demonstrates a left-skewed distribution, suggesting the model expects higher intensity values but has some uncertainty about potential underestimation. This pattern may indicate regions where the reconstruction tends to be conservative.',
             // stats: 'Mean: 0.68 | Median: 0.72 | Skewness: -0.8',
-            image: '/assets/img/proj_2_qutcc/left_skewed_pdf.png'
+            image: 'https://raw.githubusercontent.com/cassandra-t-ye/cassandra-t-ye.github.io/master/assets/img/proj_2_qutcc/left_skewed_pdf.png'
         }
     };
     

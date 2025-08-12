@@ -486,24 +486,24 @@ body {
                 <div class="image-container" style="position: relative; display: inline-block; margin-bottom: 20px;">
                     {% include figure.html path="assets/img/proj_2_qutcc/pdf_microscope.png" class="img-fluid" style="width: 600px; height: 150px; object-fit: cover;" %} 
                     <div class="clickable-spot spot-blue" onclick="showDistribution('right-skewed')" 
-                        style="position: absolute; top: 21%; left: 42%; width: 20px; height: 20px; border: 3px solid #4A90E2; border-radius: 50%; cursor: pointer; background: rgba(74, 144, 226, 0.4); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; transition: all 0.3s ease; z-index: 10;"
+                        style="position: absolute; top: 21.5%; left: 41%; width: 20px; height: 20px; border: 3px solid #4A90E2; border-radius: 50%; cursor: pointer; background: rgba(74, 144, 226, 0.4); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; transition: all 0.3s ease; z-index: 10;"
                         title="Click to view right-skewed distribution">
                         1
                     </div>
                     <div class="clickable-spot spot-green" onclick="showDistribution('normal')" 
-                        style="position: absolute; top: 38%; left: 25%; width: 20px; height: 20px; border: 3px solid #7ED321; border-radius: 50%; cursor: pointer; background: rgba(126, 211, 33, 0.4); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; transition: all 0.3s ease; z-index: 10;"
+                        style="position: absolute; top: 36%; left: 28%; width: 20px; height: 20px; border: 3px solid #7ED321; border-radius: 50%; cursor: pointer; background: rgba(126, 211, 33, 0.4); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; transition: all 0.3s ease; z-index: 10;"
                         title="Click to view normal distribution">
                         2
                     </div>
                     <div class="clickable-spot spot-red" onclick="showDistribution('left-skewed')" 
-                        style="position: absolute; top: 45%; left: 45%; width: 20px; height: 20px; border: 3px solid #D0021B; border-radius: 50%; cursor: pointer; background: rgba(208, 2, 27, 0.4); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; transition: all 0.3s ease; z-index: 10;"
+                        style="position: absolute; top: 43%; left: 41%; width: 20px; height: 20px; border: 3px solid #D0021B; border-radius: 50%; cursor: pointer; background: rgba(208, 2, 27, 0.4); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; transition: all 0.3s ease; z-index: 10;"
                         title="Click to view left-skewed distribution">
                         3
                     </div>
                 </div>
                 <!-- Instructions -->
                 <div style="margin: 20px 0; padding: 15px; background: #e3f2fd; border-radius: 8px; color: #1976d2; text-align: left;">
-                    <strong>Interactive Demo:</strong> Click on the regions above to see different QUTCC pixel-wise PDFs predictions
+                    <strong>Interactive Demo:</strong> Click on the different colored regions to see different QUTCC pixel-wise PDFs predictions
                 </div>
                 <!-- Distribution display area -->
                 <div class="distribution-display" style="margin-top: 30px; min-height: 200px;">

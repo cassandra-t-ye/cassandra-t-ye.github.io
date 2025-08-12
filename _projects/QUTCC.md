@@ -597,7 +597,7 @@ function showDistribution(type) {
         const img = document.createElement('img');
         img.src = distInfo.image;
         img.alt = distInfo.title;
-        img.style.cssText = 'width: 600px; min-height: 200px; object-fit: contain; border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); display: block; margin: 0 auto;';
+        img.style.cssText = 'width: 600px; min-height: 200px; object-fit: contain; display: block; margin: 0 auto;';
                                 
         img.onerror = function() {
             console.error(`Failed to load image: ${distInfo.image}`);

@@ -372,9 +372,9 @@ body {
             <div class="equation-side">
                <div class="function-definition">
                     <div style="display: flex; align-items: center; justify-content: center; font-family: 'Times New Roman', serif; font-size: 20px; line-height: 1.8;">
-                        <span style="margin-right: 15px;">L<sub>q</sub>(x, x̂) =</span>
+                        <span style="margin-right: 13px;">L<sub>q</sub>(x, x̂) =</span>
                         <div class="piecewise-container" style="display: flex; align-items: center;">
-                            <span class="piecewise-brace" style="font-size: 80px; line-height: 1; margin-right: 15px;">{</span>
+                            <span class="piecewise-brace" style="font-size: 50px; line-height: 1; margin-right: 15px;">{</span>
                             <div class="piecewise-cases" style="display: flex; flex-direction: column; justify-content: center;">
                                 <div class="case-line" style="margin: 8px 0; font-size: 18px;">q · |x - x̂|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if x - x̂ ≥ 0</div>
                                 <div class="case-line" style="margin: 8px 0; font-size: 18px;">(1 - q) · |x - x̂|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;otherwise.</div>

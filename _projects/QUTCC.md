@@ -362,23 +362,23 @@ body {
 
 <div class="section" style="margin-top: 60px;">
     <h2 style="font-weight: bold; font-size: 24px; margin-bottom: 20px;">Quantile Regression: Pinball Loss</h2>
-    
     <div class="text-content">
         <p>
             Quantile regression is a general approach to estimate the conditional quantiles of a target distribution rather than the mean of a response variable. This is often accomplished by leveraging an asymmetric loss function, called pinball loss, tailored to the specified quantile level.
         </p>
     </div>
-    
     <div class="pinball-container">
         <div class="pinball-content">
             <div class="equation-side">
                 <div class="function-definition">
-                    L<sub>q</sub>(x, x̂) = 
-                    <div class="piecewise-container">
-                        <span class="piecewise-brace">{</span>
-                        <div class="piecewise-cases">
-                            <div class="case-line">q * |x - x̂|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if x - x̂ ≥ 0 </div>
-                            <div class="case-line">(1 - q) * |x - x̂|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                    <div style="display: flex; align-items: center; justify-content: center; font-family: 'Times New Roman', serif; font-size: 20px; line-height: 2.2;">
+                        <span style="margin-right: 15px;">L<sub>q</sub>(x, x̂) =</span>
+                        <div class="piecewise-container">
+                            <span class="piecewise-brace">{</span>
+                            <div class="piecewise-cases">
+                                <div class="case-line">q * |x - x̂|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if x - x̂ ≥ 0 </div>
+                                <div class="case-line">(1 - q) * |x - x̂|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                            </div>
                         </div>
                     </div>
                 </div>

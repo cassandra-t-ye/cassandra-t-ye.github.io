@@ -385,7 +385,7 @@ body {
             </div>
             
             <div class="interactive-side">
-                <canvas id="pinball-chart" class="chart-container" width="400" height="300"></canvas>
+                <canvas id="pinball-chart" class="chart-container" width="300" height="300"></canvas>
                 <div class="simple-slider">
                     <div class="quantile-value">q = <span id="quantile-display">0.35</span></div>
                     <input type="range" id="quantile-slider" class="quantile-slider" 

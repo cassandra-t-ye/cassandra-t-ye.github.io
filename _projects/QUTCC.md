@@ -376,8 +376,8 @@ body {
                         <div class="piecewise-container">
                             <span class="piecewise-brace">{</span>
                             <div class="piecewise-cases">
-                                <div class="case-line">q * |x - x̂|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if x - x̂ ≥ 0 </div>
-                                <div class="case-line">(1 - q) * |x - x̂|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                                <div class="case-line">q * |x - x̂|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if x - x̂ ≥ 0</div>
+                                <div class="case-line">(1 - q) * |x - x̂|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if x - x̂ < 0</div>
                             </div>
                         </div>
                     </div>

@@ -370,14 +370,14 @@ body {
     <div class="pinball-container">
         <div class="pinball-content">
             <div class="equation-side">
-                <div class="function-definition">
-                    <div style="display: flex; align-items: left; justify-content: left; font-family: 'Times New Roman', serif; font-size: 14px; line-height: 2.2;">
-                        <span style="margin-right: 5px;">L<sub>q</sub>(x, x̂) =</span>
-                        <div class="piecewise-container">
-                            <span class="piecewise-brace">{</span>
-                            <div class="piecewise-cases">
-                                <div class="case-line">q * |x - x̂|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if x - x̂ ≥ 0</div>
-                                <div class="case-line">(1 - q) * |x - x̂|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if x - x̂ < 0</div>
+               <div class="function-definition">
+                    <div style="display: flex; align-items: center; justify-content: center; font-family: 'Times New Roman', serif; font-size: 20px; line-height: 1.8;">
+                        <span style="margin-right: 15px;">L<sub>q</sub>(x, x̂) =</span>
+                        <div class="piecewise-container" style="display: flex; align-items: center;">
+                            <span class="piecewise-brace" style="font-size: 80px; line-height: 1; margin-right: 15px;">{</span>
+                            <div class="piecewise-cases" style="display: flex; flex-direction: column; justify-content: center;">
+                                <div class="case-line" style="margin: 8px 0; font-size: 18px;">q · |x - x̂|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if x - x̂ ≥ 0</div>
+                                <div class="case-line" style="margin: 8px 0; font-size: 18px;">(1 - q) · |x - x̂|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;otherwise.</div>
                             </div>
                         </div>
                     </div>

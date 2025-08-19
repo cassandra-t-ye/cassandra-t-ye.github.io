@@ -1,4 +1,4 @@
-<!-- ---
+---
 layout: default
 permalink: /blog/
 title: blog
@@ -188,9 +188,10 @@ pagination:
     {% endfor %}
 
   </ul>
-<!-- 
+{% comment %}
 {% if page.pagination.enabled %}
 {% include pagination.liquid %}
-{% endif %} -->
+{% endif %}
+{% endcomment %}
 
-</div> -->
+</div>

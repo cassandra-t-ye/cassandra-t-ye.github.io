@@ -1,8 +1,8 @@
 ---
 layout: post
-date: 2024-03-20 07:59:00-0400
+date: 2023-10-12 07:59:00-0400
 inline: true
 related_posts: false
 ---
 
-We recieved the best paper award at Photonics West :star2: :partying_face:
+My project was accepted for a talk at [SPIE 2024](https://spie.org/PW24B/conferencedetails/computational-optical-imaging-and-artificial-intelligence-biomedical?enableBackToBrowse=true&SSO=1)

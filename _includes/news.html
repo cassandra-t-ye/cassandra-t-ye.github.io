@@ -1,32 +1,3 @@
-          ; <div class="news">
-          ;   {% if site.news != blank -%}
-          ;   {%- assign news_size = site.news | size -%}
-          ;   <div class="table-responsive" {% if include.limit and site.announcements.scrollable and news_size > 3 %}style="max-height: 60vw"{% endif %}>
-          ;     <table class="table table-sm table-borderless">
-          ;     {%- assign news = site.news | reverse -%}
-          ;     {% if include.limit and site.announcements.limit %}
-          ;     {% assign news_limit = site.announcements.limit %}
-          ;     {% else %}
-          ;     {% assign news_limit = news_size %}
-          ;     {% endif %}
-          ;     {% for item in news limit: news_limit %}
-          ;       <tr>
-          ;         <th scope="row" style="width: 20%">{{ item.date | date: "%b %-d, %Y" }}</th>
-          ;         <td>
-          ;           {% if item.inline -%}
-          ;             {{ item.content | remove: '<p>' | remove: '</p>' | emojify }}
-          ;           {%- else -%}
-          ;             <a class="news-title" href="{{ item.url | relative_url }}">{{ item.title }}</a>
-          ;           {%- endif %}
-          ;         </td>
-          ;       </tr>
-          ;     {%- endfor %}
-          ;     </table>
-          ;   </div>
-          ; {%- else -%}
-          ;   <p>No news so far...</p>
-          ; {%- endif %}
-          ; </div>
 <div class="news">
   {% if site.news != blank -%}
   {%- assign news_size = site.news | size -%}
@@ -56,9 +27,10 @@
     </tbody>
     
     <!-- Hidden news items (initially hidden) -->
-    {% if news_size > 3 %}
+    {% if news_limit > 3 %}
     <tbody id="hidden-news" style="display: none;">
-    {% for item in news offset: 3 %}
+    {%- assign remaining_limit = news_limit | minus: 3 -%}
+    {% for item in news offset: 3 limit: remaining_limit %}
       <tr>
         <th scope="row" style="width: 20%">{{ item.date | date: "%b %-d, %Y" }}</th>
         <td>
@@ -76,7 +48,7 @@
   </div>
   
   <!-- See More / See Less button -->
-  {% if news_size > 3 %}
+  {% if news_limit > 3 %}
   <div class="text-center mt-3">
     <button id="toggle-news" class="btn btn-link p-0" style="text-decoration: none; color: #007bff; border: none; background: none; cursor: pointer;">
       <span id="toggle-text">See More</span>

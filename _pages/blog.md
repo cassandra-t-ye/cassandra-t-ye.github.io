@@ -188,9 +188,9 @@ pagination:
     {% endfor %}
 
   </ul>
-
+<!-- 
 {% if page.pagination.enabled %}
 {% include pagination.liquid %}
-{% endif %}
+{% endif %} -->
 
 </div>

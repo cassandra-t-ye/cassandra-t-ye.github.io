@@ -636,82 +636,97 @@ document.addEventListener('DOMContentLoaded', function() {
     canvas.width = 400;
     canvas.height = 300;
     
-    function drawPinballLoss(q) {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-        const margin = 40;
-        const width = canvas.width - 2 * margin;
-        const height = canvas.height - 2 * margin;
-
-        // Draw axes
-        ctx.strokeStyle = '#333';
-        ctx.lineWidth = 2;
-        ctx.beginPath();
-        ctx.moveTo(margin, canvas.height - margin); // X-axis
-        ctx.lineTo(canvas.width - margin, canvas.height - margin);
-        ctx.moveTo(margin, margin); // Y-axis
-        ctx.lineTo(margin, canvas.height - margin);
-        ctx.stroke();
-
-        // Axis labels
-        ctx.fillStyle = '#333';
-        ctx.font = '12px Arial';
-        ctx.textAlign = 'center';
-        ctx.fillText('Ground Truth - Predicted', canvas.width / 2, canvas.height - 10);
-        ctx.save();
-        ctx.translate(15, canvas.height / 2);
-        ctx.rotate(-Math.PI / 2);
-        ctx.fillText('Pinball Loss', 0, 0);
-        ctx.restore();
-
-        // Function scaling
-        const uMin = -5, uMax = 5;
-        const uToPx = (u) => margin + ((u - uMin) / (uMax - uMin)) * width;
-        const maxLoss = Math.max(q * Math.abs(uMax), (1 - q) * Math.abs(uMin));
-        const lossToPy = (loss) => (canvas.height - margin) - (loss / maxLoss) * (height * 0.9);
-
-        // Pinball loss function from formula
-        function pinballLoss(u, q) {
-            const absU = Math.abs(u);
-            if (u >= 0) {
-                return q * absU;
-            } else {
-                return (1 - q) * absU;
-            }
-        }
-
-        // Plot curve
-        ctx.strokeStyle = '#007bff';
-        ctx.lineWidth = 2;
-        ctx.beginPath();
-        const steps = 300;
-        for (let i = 0; i <= steps; i++) {
-            const u = uMin + i * (uMax - uMin) / steps;
-            const loss = pinballLoss(u, q);
-            const px = uToPx(u);
-            const py = lossToPy(loss);
-            
-            if (i === 0) {
-                ctx.moveTo(px, py);
-            } else {
-                ctx.lineTo(px, py);
-            }
-        }
-        ctx.stroke();
-
-        // Show q value
-        ctx.fillStyle = '#007bff';
-        ctx.font = 'bold 16px Arial';
-        ctx.textAlign = 'left';
-        ctx.fillText('q = ' + (1 - q).toFixed(2), margin + 10, margin + 20);
+function drawPinballLoss(q) {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    const margin = 40;
+    const width = canvas.width - 2 * margin;
+    const height = canvas.height - 2 * margin;
+    
+    // Draw axes
+    ctx.strokeStyle = '#333';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(margin, canvas.height - margin); // X-axis
+    ctx.lineTo(canvas.width - margin, canvas.height - margin);
+    ctx.moveTo(margin, margin); // Y-axis
+    ctx.lineTo(margin, canvas.height - margin);
+    ctx.stroke();
+    
+    // Axis labels
+    ctx.fillStyle = '#333';
+    ctx.font = '12px Arial';
+    ctx.textAlign = 'center';
+    ctx.fillText('Ground Truth - Predicted', canvas.width / 2, canvas.height - 10);
+    ctx.save();
+    ctx.translate(15, canvas.height / 2);
+    ctx.rotate(-Math.PI / 2);
+    ctx.fillText('Pinball Loss', 0, 0);
+    ctx.restore();
+    
+    // Function scaling - match Python code ranges
+    const errorMin = -0.5, errorMax = 0.5;  // Match Python xlim
+    const errorToPx = (error) => margin + ((error - errorMin) / (errorMax - errorMin)) * width;
+    const maxLoss = 0.5;  // Match Python ylim
+    const lossToPy = (loss) => (canvas.height - margin) - (loss / maxLoss) * height;
+    
+    // Corrected Pinball loss function - following Python exactly
+    function pinballLoss(error, quantile) {
+        // Python: np.maximum(quantile * error, (quantile - 1) * error)
+        return Math.max(quantile * error, (quantile - 1) * error);
     }
-
-    function updateVisualization() {
-        var q = parseFloat(slider.value);
-        display.textContent = (1-q).toFixed(2);
-        drawPinballLoss(q);
+    
+    // Draw horizontal line at y=0
+    ctx.strokeStyle = 'rgba(0, 0, 0, 0.3)';
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.moveTo(margin, lossToPy(0));
+    ctx.lineTo(canvas.width - margin, lossToPy(0));
+    ctx.stroke();
+    
+    // Draw vertical line at x=0 (error=0)
+    ctx.beginPath();
+    ctx.moveTo(errorToPx(0), margin);
+    ctx.lineTo(errorToPx(0), canvas.height - margin);
+    ctx.stroke();
+    
+    // Plot curve
+    ctx.strokeStyle = '#007bff';
+    ctx.lineWidth = 5;
+    ctx.beginPath();
+    const steps = 1000;  // Match Python resolution
+    for (let i = 0; i <= steps; i++) {
+        const error = errorMin + i * (errorMax - errorMin) / steps;
+        const loss = pinballLoss(error, q);
+        const px = errorToPx(error);
+        const py = lossToPy(loss);
+        
+        if (i === 0) {
+            ctx.moveTo(px, py);
+        } else {
+            ctx.lineTo(px, py);
+        }
     }
+    ctx.stroke();
+    
+    // Show q value - match Python display logic
+    ctx.fillStyle = '#007bff';
+    ctx.font = 'bold 16px Arial';
+    ctx.textAlign = 'left';
+    let displayText;
+    if (Math.abs(q - 0.5) < 0.01) {  // Close to 0.5
+        displayText = 'q = 0.5';
+    } else {
+        displayText = `q = ${(1 - q).toFixed(2)}`;
+    }
+    ctx.fillText(displayText, margin + 10, margin + 20);
+}
 
+function updateVisualization() {
+    var q = parseFloat(slider.value);
+    display.textContent = (1-q).toFixed(2);
+    drawPinballLoss(q);
+}
     updateVisualization();
     slider.addEventListener('input', updateVisualization);
 

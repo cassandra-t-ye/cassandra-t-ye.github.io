@@ -411,7 +411,7 @@ body {
             In contrast, our work investigates learning the full spectrum of quantiles, commonly referred to as 
             <a href="https://library.seg.org/doi/10.1190/tle44020133.1#:~:text=The%20simultaneous%20quantile%20regression%20method,method%20on%20synthetic%20Kimberlina%20data." target="_blank" style="color: #0066cc; text-decoration: none;">
                 <strong>Simultaneous Quantile Regression (SQR)</strong>
-            </a>, for inverse image tasks.
+            </a>, for imaging inverse problems.
         </p>
     </div>
 </div>

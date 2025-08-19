@@ -23,8 +23,4 @@ Hi, I'm Cassandra, and I'm currently a 2nd year Computer Science Ph.D student at
 
 In a past life, I was an undergraduate at MIT studying Computer Science and Engineering. During my time there, I worked at the [Computational Biophotonics Lab](https://yougroup.mit.edu/) headed by [Sixian You](https://sixianyou.mit.edu/), working on optimizing computational algorithms for microscopy image reconstruction :test_tube::dna::microscope:
 
-If you're interested in collaborating or have any questions about my work at all, please don't hesitate to reach out at **cassye@cs.cornell.edu**!
-
-<!-- Put your address / P.O. box / other info right below your picture. You can also disable any of these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
-
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](http://fortawesome.github.io/Font-Awesome/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them. -->
+You can find my <a href="https://cassandra-t-ye.github.io/assets/pdf/CV.pdf" download="Cassandra_Ye_CV.pdf">cv here</a> and if you're interested in collaborating or have any questions about my work at all, please don't hesitate to reach out at **cassye@cs.cornell.edu**!

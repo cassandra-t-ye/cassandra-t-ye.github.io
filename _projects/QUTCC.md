@@ -144,7 +144,7 @@ body {
     width: 16px;
     height: 16px;
     border-radius: 50%;
-    background: #007bff;
+    background: var(--q-color, #007bff);
     cursor: pointer;
 }
 
@@ -152,15 +152,15 @@ body {
     width: 16px;
     height: 16px;
     border-radius: 50%;
-    background: #007bff;
+    background: var(--q-color, #007bff);
     cursor: pointer;
     border: none;
 }
 
 .quantile-value {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: bold;
-    color: #007bff;
+    color: var(--q-color, #007bff);
     margin: 5px 0;
 }
 
@@ -174,7 +174,7 @@ body {
 }
 
 .equation-label {
-    font-size: 16px;
+    font-size: 18px;
     color: #555;
     margin-top: 15px;
     font-style: italic;
@@ -245,7 +245,7 @@ body {
 
 .method-caption {
     margin-top: 15px;
-    font-size: 16px;
+    font-size: 18px;
     color: #555;
     line-height: 1.6;
     max-width: 800px;
@@ -256,7 +256,7 @@ body {
 }
 
 .stage-title {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: bold;
     color: #007bff;
     margin-bottom: 10px;
@@ -280,13 +280,13 @@ body {
 
 .results-title {
     font-weight: bold;
-    font-size: 24px;
+    font-size: 28px;
     margin-bottom: 15px;
     display: block;
 }
 
 .content-text {
-    font-size: 16px;
+    font-size: 18px;
     line-height: 1.6;
     margin: 20px 0;
 }
@@ -305,7 +305,7 @@ body {
 
 .caption {
     text-align: left;
-    font-size: 14px;
+    font-size: 16px;
     margin-top: 8px;
     color: #666;
     font-style: italic;
@@ -349,90 +349,182 @@ body {
         margin: 20px 0;
     }
 }
+/* Method figure: fixed-size area, all GIFs same width, caption as wide as the GIF */
+.method-stage-area { margin: 10px 0; }
+.method-stack { display: grid; }
+.method-stack > * { grid-area: 1 / 1; visibility: hidden; opacity: 0; transition: opacity 0.25s ease; }
+.method-stack > .active { visibility: visible; opacity: 1; }
+.method-image-stack { align-items: start; justify-items: start; }
+.method-stack .method-image { width: 100%; height: auto; max-height: none; display: block; }
+.method-stack .method-caption { max-width: none; margin: 15px 0 0; padding: 0; }
+
+/* Table 1 viewer */
+.t1-buttons { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin-bottom: 14px; }
+.t1-btn { padding: 8px 18px; border: 2px solid #007bff; background: #fff; color: #007bff; border-radius: 8px;
+    cursor: pointer; font-size: 16px; font-weight: bold; transition: all 0.2s ease; }
+.t1-btn:hover { background: #e3f2fd; }
+.t1-btn.active { background: #007bff; color: #fff; }
+.t1-caption { text-align: center; color: #52514e; font-size: 1rem; margin-bottom: 6px; }
+.t1-legend { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 18px; font-size: 14px; color: #52514e; margin-bottom: 4px; }
+.t1-legend-item { display: inline-flex; align-items: center; gap: 6px; cursor: default; }
+.t1-legend-item.is-qutcc { color: #0b0b0b; font-weight: bold; }
+.t1-legend-group { color: #8a8984; font-size: 13px; }
+.t1-chart { position: relative; }
+.t1-chart svg { width: 100%; height: auto; display: block; overflow: visible; }
+.t1-tip { position: absolute; pointer-events: none; background: #fff; border: 1px solid #ddd; border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12); padding: 8px 10px; font-size: 13px; color: #0b0b0b; white-space: nowrap; z-index: 5; }
+.t1-tip .t1-tip-head { font-weight: bold; margin-bottom: 4px; }
+.t1-tip .t1-tip-row { display: flex; justify-content: space-between; gap: 14px; color: #52514e; }
+.t1-tip .t1-tip-row.is-qutcc { color: #1f3be8; font-weight: bold; }
+.t1-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; }
+.t1-groups { display: flex; justify-content: center; gap: 8px; margin-bottom: 12px; }
+.t1-group-btn { padding: 4px 14px; border: 1.5px solid #000; background: #fff; color: #000; border-radius: 999px;
+    cursor: pointer; font-size: 14px; transition: all 0.2s ease; }
+.t1-group-btn:hover { background: #f0f0f0; }
+.t1-group-btn.active { background: #000; border-color: #000; color: #fff; }
+.t1-legend-item.is-off { opacity: 0.35; }
+.t1-note { text-align: center; font-size: 0.85rem; color: #6b6a66; margin-top: 8px; }
+
+/* Wider layout for this project page only */
+.container { max-width: 1200px; }
+
+/* Larger base text for the whole project page */
+.post article { font-size: 1.15rem; }
+.post article strong, .post article b { font-weight: 700; }
+
+/* Quantile regression section */
+.qr-lead { font-size: 1.2rem; line-height: 1.7; margin-bottom: 0.75rem; }
+.qr-points { padding-left: 1.3rem; margin: 0.5rem 0 0; }
+.qr-points li { margin-bottom: 0.55rem; line-height: 1.6; }
+.qr-points a { color: #0066cc; }
+.qr-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin: 20px 0; }
+.qr-card { background: #f8f9fa; border: 1px solid #e9ecef; border-radius: 12px; padding: 20px 24px; }
+.qr-card h3 { font-size: 1.2rem; font-weight: bold; color: #333; margin: 0 0 0.6rem; }
+.qr-contrast { border-left: 4px solid #007bff; }
+.slider-hint { font-size: 15px; color: #777; font-style: italic; }
+.qr-compact { padding: 18px 20px; }
+.qr-equation { display: flex; align-items: center; justify-content: center;
+    font-family: 'Times New Roman', serif; font-size: 20px; align-self: center; margin-bottom: 26px; }
+.qr-brace { font-size: 44px; line-height: 1; margin-right: 10px; }
+.qr-cases div { white-space: nowrap; margin: 2px 0; }
+.qr-cond { margin-left: 18px; font-size: 17px; }
+.qr-viz { display: grid; grid-template-columns: auto minmax(0, 320px) minmax(0, 320px); gap: 32px;
+    align-items: start; justify-content: center; }
+@media (max-width: 991px) {
+    .qr-viz { grid-template-columns: minmax(0, 320px); }
+    .qr-equation { margin-bottom: 0; }
+}
+.qr-panel { text-align: center; }
+.qr-panel .chart-container { width: 100%; height: auto; aspect-ratio: 1 / 1; margin: 0; display: block; }
+.q-image-slot { aspect-ratio: 1 / 1; border-radius: 8px; background: #000;
+    border: 3px solid var(--q-color, #c13ce0); box-sizing: border-box; transition: border-color 0.1s;
+    display: flex; align-items: center; justify-content: center; overflow: hidden; color: #999; font-size: 15px; }
+.q-image-slot img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.qr-panel-label { font-size: 15px; color: #555; margin-top: 6px; }
+.qr-compact .simple-slider { margin: 12px 0 0; text-align: center; }
+.qr-compact .quantile-slider { width: 60%;
+    background: linear-gradient(to right, #1f1bff, #7b2bf9, #c13ce0, #f05aa6, #f98c5c, #f6c24a); }
 </style>
 <div class="section" style="margin-top: 60px;">
-    <h2 style="font-weight: bold; font-size: 24px; margin-bottom: 20px;">Abstract</h2>
+    <h2 style="font-weight: bold; font-size: 28px; margin-bottom: 20px;">Abstract</h2>
     
     <div class="row">
         <div class="col-md-12">
-            Deep learning models often hallucinate, producing realistic artifacts that are not truly present in the sample. This can have dire consequences for scientific and medical inverse problems, such as MRI and microscopy denoising, where accuracy is more important than perceptual quality. Uncertainty quantification techniques, such as conformal prediction, can pinpoint outliers and provide guarantees for image regression tasks, improving reliability. However, existing methods utilize a linear constant scaling factor to calibrate uncertainty bounds, resulting in larger, less informative bounds. We propose <strong>QUTCC</strong>, a quantile uncertainty training and calibration technique that enables nonlinear, non-uniform scaling of quantile predictions to enable tighter uncertainty estimates. Using a U-Net architecture with a quantile embedding, QUTCC enables the prediction of the full conditional distribution of quantiles for the imaging task. During calibration, QUTCC generates uncertainty bounds by iteratively querying the network for upper and lower quantiles, progressively refining the bounds to obtain a tighter interval that captures the desired coverage. We evaluate our method on several denoising tasks as well as compressive MRI reconstruction. <strong>Our method successfully pinpoints hallucinations in image estimates and consistently achieves tighter uncertainty intervals than prior methods while maintaining the same statistical coverage</strong>. 
+            While deep learning offers tremendous promise for scientific and medical imaging, any failures and hallucinations (predictions that do not coincide with reality) are hard to pinpoint and can have serious downstream consequences. Uncertainty estimation techniques, such as conformal prediction, can help by predicting statistically valid error bars for a model's prediction. However, popular conformal prediction methods were not designed for high-dimensional image-valued problems and do not take into account spatial correlations within an image during conformal calibration, resulting in larger-than-necessary uncertainty intervals. We propose a practical simultaneous quantile regression method that enables non-linear, spatially-adaptive scaling during conformal calibration. Our method, <strong>QUTCC</strong> uses a U-Net architecture with a quantile embedding to learn a full conditional quantile distribution during training, and then leverages this non-linear, learned function for spatially-adaptive conformal calibration. At test time, our method can efficiently estimate uncertainty intervals with pixel-marginal coverage guarantees. In addition, QUTCC can also predict pixel-wise conditional probability density estimates without any built-in distributional assumptions. We evaluate our method on several denoising problems, accelerated magnetic resonance imaging, and quantitative phase microscopy. <strong>Our method consistently produces tighter uncertainty intervals than prior conformal methods at the same coverage level</strong>, can predict plausible conditional distributions for different tasks, and in some cases, high-uncertainty regions can help us locate hallucinations in a model's prediction.
         </div>
     </div>
 </div>
 
 <div class="section" style="margin-top: 60px;">
-    <h2 style="font-weight: bold; font-size: 24px; margin-bottom: 20px;">Quantile Regression: Pinball Loss</h2>
-    <div class="text-content">
-        <p>
-            Quantile regression is a general approach to estimate the conditional quantiles of a target distribution rather than the mean of a response variable. This is often accomplished by leveraging an asymmetric loss function, called pinball loss, tailored to the specified quantile level.
-        </p>
+    <h2 style="font-weight: bold; font-size: 28px; margin-bottom: 20px;">Quantile Regression: Pinball Loss</h2>
+    <div class="qr-card qr-contrast" style="margin-bottom: 20px;">
+        <ul class="qr-points">
+            <li><strong>Prior work (Im2Im-UQ)</strong> uses pinball loss
+                <a href="https://arxiv.org/abs/2202.05265" target="_blank">to predict a fixed pair of upper and lower bounds</a>.</li>
+            <li><strong>QUTCC</strong> learns the <em>full spectrum</em> of quantiles with a single network, known as
+                <a href="https://library.seg.org/doi/10.1190/tle44020133.1#:~:text=The%20simultaneous%20quantile%20regression%20method,method%20on%20synthetic%20Kimberlina%20data." target="_blank"><strong>Simultaneous Quantile Regression (SQR)</strong></a>, applied to imaging inverse problems.</li>
+        </ul>
     </div>
-    <div class="pinball-container">
-    <div class="pinball-content">
-        <div class="equation-side">
-           <div class="function-definition">
-                <div style="display: flex; align-items: center; justify-content: center; font-family: 'Times New Roman', serif; font-size: 20px; line-height: 1.2;">
-                    <span style="margin-right: 13px; white-space: nowrap;">L<sub>q</sub>(x, x̂) =</span>
-                    <div class="piecewise-container" style="display: flex; align-items: center;">
-                        <span class="piecewise-brace" style="font-size: 50px; line-height: 1; margin-right: 15px;">{</span>
-                        <div class="piecewise-cases" style="display: flex; align-items: center; flex-wrap: wrap;">
-                            <div class="case-line" style="margin-right: 30px; font-size: 18px; white-space: nowrap;">
-                                <span>q · |x - x̂|</span>
-                                <span style="margin-left: 20px; font-size: 16px;">if x - x̂ ≥ 0</span>
-                            </div>
-                            <div class="case-line" style="font-size: 18px; white-space: nowrap;">
-                                <span>(1 - q) · |x - x̂|</span>
-                                <span style="margin-left: 20px; font-size: 16px;">otherwise.</span>
-                            </div>
-                        </div>
-                    </div>
+    <p class="qr-lead">
+        Instead of predicting a single "best guess," <strong>quantile regression</strong> predicts a chosen quantile of the target distribution, for example a value the true answer falls below 10% or 90% of the time.
+    </p>
+    <ul class="qr-points">
+        <li><em>q</em> ∈ (0, 1) is the target quantile level</li>
+        <li><em>x</em> is the true value, <em>x̂</em> is the prediction</li>
+        <li>Over- and under-estimates are <strong>penalized unequally</strong>, depending on <em>q</em></li>
+    </ul>
+    <div class="pinball-container qr-compact">
+        <div class="qr-viz">
+        <div class="qr-equation">
+            <span style="margin-right: 12px; white-space: nowrap;">L<sub>q</sub>(x, x̂) =</span>
+            <span class="qr-brace">{</span>
+            <div class="qr-cases">
+                <div><span>q · |x − x̂|</span><span class="qr-cond">if x − x̂ ≥ 0</span></div>
+                <div><span>(1 − q) · |x − x̂|</span><span class="qr-cond">otherwise</span></div>
+            </div>
+        </div>
+            <div class="qr-panel">
+                <canvas id="pinball-chart" class="chart-container" width="320" height="320"></canvas>
+                <div class="qr-panel-label">Pinball loss</div>
+            </div>
+            <div class="qr-panel">
+                <!-- Image for the current q. Frames are listed in qImageFrames in the script below. -->
+                <div id="q-image-slot" class="q-image-slot">
+                    <img id="q-image" alt="QUTCC prediction at the selected quantile" hidden>
+                    <span id="q-image-placeholder">Image at each q goes here</span>
                 </div>
+                <div class="qr-panel-label">QUTCC prediction of an MRI sample at q = <span id="q-image-label">0.50</span></div>
             </div>
         </div>
-        <div class="interactive-side">
-            <canvas id="pinball-chart" class="chart-container" width="300" height="300"></canvas>
-            <div class="simple-slider">
-                <div class="quantile-value">q = <span id="quantile-display">0.35</span></div>
-                <input type="range" id="quantile-slider" class="quantile-slider" 
-                       min="0.01" max="0.99" value="0.5" step="0.01">
-            </div>
+        <div class="simple-slider">
+            <div class="quantile-value">q = <span id="quantile-display">0.50</span></div>
+            <input type="range" id="quantile-slider" class="quantile-slider"
+                   min="0.01" max="0.99" value="0.5" step="0.01">
+            <div class="slider-hint">Drag the slider to change q</div>
         </div>
     </div>
-</div>
-    
-    <div class="text-content">
-        <p>
-            where q ∈ (0,1) is the desired quantile level, x is the true value, and x̂ is the predicted value. This asymmetric penalty ensures that overestimation and underestimation are weighted differently according to the target quantile. For example, if q = 0.1, then overestimates will be penalized heavier than underestimates.
-        </p>
 
-        <p>
-            Pinball loss has been used in the past 
-            <a href="https://arxiv.org/abs/2202.05265" target="_blank" style="color: #0066cc; text-decoration: none;">to predict a fixed set of upper and lower confidence bounds</a> (Im2Im-UQ). 
-            In contrast, our work investigates learning the full spectrum of quantiles, commonly referred to as 
-            <a href="https://library.seg.org/doi/10.1190/tle44020133.1#:~:text=The%20simultaneous%20quantile%20regression%20method,method%20on%20synthetic%20Kimberlina%20data." target="_blank" style="color: #0066cc; text-decoration: none;">
-                <strong>Simultaneous Quantile Regression (SQR)</strong>
-            </a>, for imaging inverse problems.
-        </p>
-    </div>
 </div>
 
 <div class="section" style="margin-top: 20px;">
-    <h2 style="font-weight: bold; font-size: 24px; margin-bottom: 20px;">Our Method: QUTCC</h2>
+    <h2 style="font-weight: bold; font-size: 28px; margin-bottom: 20px;">Our Method: QUTCC</h2>
     <div class="row">
         <div class="col-md-12">
-            <p>
-                We propose <strong>QUTCC</strong> (pronounced: CUTESY🤗), short for <strong>Quantile Uncertainty Training and Conformal Calibration</strong>, a novel method for simultaneous quantile prediction and conformal calibration that enables efficient and accurate uncertainty quantification for imaging inverse problems. QUTCC uses a single neural network to estimate a distribution of quantiles. During the conformal calibration step, QUTCC applies a non-uniform, nonlinear scaling to the uncertainty bounds, compared to constant scaling used by prior methods. This results in smaller and potentially more informative uncertainty intervals. Additionally, because all quantiles are learned during training, QUTCC can query the full quantile range at inference time to construct a pixel-wise estimate of the underlying probability distribution.
+            <p class="qr-lead">
+                We propose <strong>Quantile Uncertainty Training and Conformal Calibration</strong> (<strong>QUTCC🤗</strong>), an uncertainty quantification method for imaging inverse problems.
             </p>
+            <ul class="qr-points">
+                <li><strong>One learned network:</strong> a single network learns the full range of quantiles, instead of just a fixed upper and lower bound.</li>
+                <li><strong>Spatially Adaptive Calibration:</strong> bounds are scaled <em>non-uniformly and nonlinearly</em> during conformal calibration, instead of by one constant factor like prior methods.</li>
+                <li><strong>QUTCC predicts smaller UQ intervals:</strong> our method predicts tighter, more informative uncertainty intervals.</li>
+                <li><strong>QUTCC can predict the full conditional distribution:</strong> since every quantile is learned, QUTCC can query them all at inference time to estimate each pixel's probability distribution.</li>
+                <li><strong>Tested on 5 inverse problems:</strong> Gaussian noise, Poisson noise, real noise, MRI, and quantitative phase imaging (QPI).</li>
+            </ul>
         </div>
     </div>
     
     <div class="method-container">
-        <div class="method-image-container">
-            <img id="method-image" class="method-image" src="https://raw.githubusercontent.com/cassandra-t-ye/cassandra-t-ye.github.io/master/assets/img/proj_2_qutcc/fig_1_training_gif.gif" alt="Training">
-            
-            <div class="method-caption">
-                <div class="stage-title">Training</div>
-                <div>During training, QUTCC uses a U-Net architecture with quantile embeddings to learn the full spectrum of quantiles simultaneously. The network is trained using the pinball loss function, which enables it to predict different quantile levels of the conditional distribution for each pixel in the image reconstruction task. This simultaneous quantile regression approach allows the model to capture the uncertainty inherent in the inverse problem.</div>
+        <!-- All three stages sit in the same spot; only the active one is shown,
+             so the box keeps the size of the largest stage. -->
+        <div class="method-stage-area">
+            <div class="method-stack method-image-stack">
+                <img class="method-image active" data-stage="training" src="{{ '/assets/img/proj_2_qutcc/' | relative_url }}fig_1_training_gif.gif" alt="Training">
+                <img class="method-image" data-stage="calibration" src="{{ '/assets/img/proj_2_qutcc/' | relative_url }}fig_1_calibration_gif.gif" alt="Calibration">
+                <img class="method-image" data-stage="inference" src="{{ '/assets/img/proj_2_qutcc/' | relative_url }}fig_1_inference_gif.gif" alt="Inference">
+            </div>
+            <div class="method-stack method-caption-stack">
+                <div class="method-caption active" data-stage="training">
+                    <div class="stage-title">Training</div>
+                    <div>During training, a neural network with a quantile embedding predicts an image as a function of the measurement and quantile, q. The quantile embedding is randomly sampled (q ∈ (0, 1)) and the value of q determines the asymmetry of the pinball loss, enabling the model to learn a range of conditional quantiles.</div>
+                </div>
+                <div class="method-caption" data-stage="calibration">
+                    <div class="stage-title">Calibration</div>
+                    <div>During calibration, the predictive bounds (q_lower, q_upper) are iteratively adjusted on a held-out dataset to satisfy the desired miscoverage level α.</div>
+                </div>
+                <div class="method-caption" data-stage="inference">
+                    <div class="stage-title">Inference</div>
+                    <div>At test time, the model is queried with q_lower, q_0.5, and q_upper to produce the mean prediction and a corresponding pixel-wise uncertainty map. Querying the full range of quantile values enables the prediction of the pixel-wise distribution.</div>
+                </div>
             </div>
         </div>
 
@@ -448,7 +540,7 @@ body {
 <!-- <div class="section results-section">
     <b class="results-title">Results</b> -->
 <div class="section results-section" style="margin-top: 20px;">
-    <h2 style="font-weight: bold; font-size: 24px; margin-bottom: 20px;">QUTCC Produces Smaller Uncertainty Intervals</h2>
+    <h2 style="font-weight: bold; font-size: 28px; margin-bottom: 20px;">QUTCC Produces Smaller Uncertainty Intervals</h2>
     <div class="row">
         <div class="col-md-12 mt-3">
              <div class="col-md-12">
@@ -461,17 +553,33 @@ body {
                 <b>FIG CAPTION</b>
             </div> -->
         </div>
-        <div class="col-md-12 mt-3">
-            <div style="text-align: left; padding: 20px; background-color: #f8f9fa; border-radius: 8px;">
-                To evaluate QUTCC, we test our approach against Im2Im-UQ in four separate imaging tasks- <b>MRI</b>, <b>Gaussian</b>, <b>Poisson</b>, and <b>Real denoising</b>. We compare the predictive interval sizes of Im2Im-Deep and QUTCC across all four inverse tasks. QUTCC consistently produces narrower uncertainty intervals.  By achieving smaller interval lengths while exhibiting comparable risk, QUTCC demonstrates that its uncertainty quantification is both more precise and well-calibrated, effectively capturing predictive confidence without sacrificing coverage.
-                {% include figure.html path="assets/img/proj_2_qutcc/fig_2_violin_plot.png" title="" class="img-fluid" width="700px" height="auto" %}        
+        <div class="col-md-12 mt-4">
+            <!-- Table 1 of the paper: interval length by pixel intensity, one task at a time -->
+            <div class="t1" id="table1">
+                <div class="t1-buttons" role="tablist" aria-label="Task">
+                    <button class="t1-btn active" data-task="0">Poisson</button>
+                    <button class="t1-btn" data-task="1">Gaussian</button>
+                    <button class="t1-btn" data-task="2">Real-Noise</button>
+                    <button class="t1-btn" data-task="3">MRI</button>
+                    <button class="t1-btn" data-task="4">QPI</button>
+                </div>
+                <div class="t1-groups" role="radiogroup" aria-label="Method type">
+                    <button class="t1-group-btn" data-group="Posterior-based" role="radio" aria-checked="false">Posterior-based</button>
+                    <button class="t1-group-btn active" data-group="Quantile-based" role="radio" aria-checked="true">Quantile-based</button>
+                </div>
+                <div class="t1-legend" id="t1-legend"></div>
+                <div class="t1-chart" id="t1-chart">
+                    <svg id="t1-svg" viewBox="0 0 760 330" role="img" aria-label="Line chart of uncertainty interval length by pixel intensity for each method"></svg>
+                    <div class="t1-tip" id="t1-tip" hidden></div>
+                </div>
+                <p class="t1-note">Hover over the chart for mean ± std at each intensity. Data from Table 1 of the paper.</p>
             </div>
         </div>
     </div>
 </div>
 
 <div class="section results-section" style="margin-top: 20px;">
-    <h2 style="font-weight: bold; font-size: 24px; margin-bottom: 20px;">Pixel-wise Probability Density Functions</h2>
+    <h2 style="font-weight: bold; font-size: 28px; margin-bottom: 20px;">Pixel-wise Probability Density Functions</h2>
     <div class="row">
         <div class="col-md-12 mt-3">
             <div style="text-align: left; padding: 20px; background-color: #f8f9fa; border-radius: 8px;">
@@ -508,12 +616,12 @@ body {
                 <div class="distribution-display" style="margin-top: 30px; min-height: 200px;">
                     <div id="distribution-info" style="display: none; text-align: left; padding: 20px;">
                         <h4 id="dist-title" style="color: #333; margin-bottom: 15px;"></h4>
-                        <div id="dist-description" style="font-size: 14px; line-height: 1.6; color: #555; max-width: 700px; margin: 0 auto; align-items: left;"></div>
+                        <div id="dist-description" style="font-size: 17px; line-height: 1.6; color: #555; max-width: 700px; margin: 0 auto; align-items: left;"></div>
                         <!-- Distribution visualization -->
                         <div id="dist-visualization" style="margin: 20px 0; height: 150px; display: flex; align-items: left; justify-content: left; border-radius: 3px;">
                             <!-- Images will be loaded here by JavaScript -->
                         </div>
-                        <div id="dist-stats" style="margin-top: 15px; font-size: 14px; color: #777;"></div>
+                        <div id="dist-stats" style="margin-top: 15px; font-size: 16px; color: #777;"></div>
                     </div>
                     <div id="default-message" style="text-align: center; padding: 40px; color: #888;">
                     </div>
@@ -529,7 +637,7 @@ body {
 </div>
 
 <div class="section" style="margin-top: 20px;">
-    <h2 style="font-weight: bold; font-size: 24px; margin-bottom: 20px;">Conclusion</h2>  
+    <h2 style="font-weight: bold; font-size: 28px; margin-bottom: 20px;">Conclusion</h2>  
     <div class="row">
         <div class="col-md-12">
             We propose QUTCC, a <b>new uncertainty quantification method for imaging inverse problems</b> that can achieve <b>tighter uncertainty estimates</b> than previous methods while maintaining the same statistical coverage.  QUTCC accomplishes this by training a U-Net with a quantile embedding simultaneously on q ∈ (0, 1) quantiles and then dynamically adjusting its quantile bound predictions during calibration until the desired risk is satisfied. Our method exhibited tighter uncertainty intervals, on average, while still pinpointing model hallucinations and regions of high error. This can be attributed to our model applying a nonlinear and asymmetrical scaling to its pixel-wise uncertainty predictions. While quantifying model uncertainty remains a significant open challenge in the field of deep learning, we believe that QUTCC offers a simple, yet robust method of uncertainty quantification for imaging inverse problems and image-to-image regression tasks.
@@ -540,7 +648,7 @@ body {
 
 <div class="row" style="margin-top: 20px;">
     <div class="col-md-12">
-        <b style="font-size: 24px;">Bibtex Citation</b>
+        <b style="font-size: 28px;">Bibtex Citation</b>
         <div class="form-group col-md-12">
             <textarea id="bibtex" class="form-control" readonly>
             @article{ye2025qutcc,
@@ -638,9 +746,31 @@ document.addEventListener('DOMContentLoaded', function() {
     var display = document.getElementById('quantile-display');
     var ctx = canvas.getContext('2d');
     
-    canvas.width = 400;
-    canvas.height = 300;
+    canvas.width = 320;
+    canvas.height = 320;
     
+// Color for a quantile q, from blue (low q) through purple and pink to orange (high q),
+// matching the quantile-embedding colors in the paper's Fig. 1.
+var qColorStops = [
+    [0.00, [31, 27, 255]],
+    [0.20, [123, 43, 249]],
+    [0.40, [193, 60, 224]],
+    [0.60, [240, 90, 166]],
+    [0.80, [249, 140, 92]],
+    [1.00, [246, 194, 74]]
+];
+function qColor(q) {
+    for (var i = 1; i < qColorStops.length; i++) {
+        if (q <= qColorStops[i][0]) {
+            var a = qColorStops[i - 1], b = qColorStops[i];
+            var t = (q - a[0]) / (b[0] - a[0]);
+            var c = a[1].map(function (v, k) { return Math.round(v + t * (b[1][k] - v)); });
+            return 'rgb(' + c.join(',') + ')';
+        }
+    }
+    return 'rgb(' + qColorStops[qColorStops.length - 1][1].join(',') + ')';
+}
+
 function drawPinballLoss(q) {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     
@@ -696,7 +826,7 @@ function drawPinballLoss(q) {
     ctx.stroke();
     
     // Plot curve
-    ctx.strokeStyle = '#007bff';
+    ctx.strokeStyle = qColor(q);
     ctx.lineWidth = 5;
     ctx.beginPath();
     const steps = 1000;  // Match Python resolution
@@ -715,75 +845,266 @@ function drawPinballLoss(q) {
     ctx.stroke();
     
     // Show q value - match Python display logic
-    ctx.fillStyle = '#007bff';
+    ctx.fillStyle = qColor(q);
     ctx.font = 'bold 16px Arial';
     ctx.textAlign = 'left';
     let displayText;
     if (Math.abs(q - 0.5) < 0.01) {  // Close to 0.5
         displayText = 'q = 0.5';
     } else {
-        displayText = `q = ${(1 - q).toFixed(2)}`;
+        displayText = `q = ${q.toFixed(2)}`;
     }
     ctx.fillText(displayText, margin + 10, margin + 20);
 }
 
+// Images of the QUTCC prediction at different q, listed in quantiles/manifest.json
+// (made by the export script in the qutcc repo). Shows a placeholder until it exists.
+var qImageFrames = [];
+var qFramesDir = "{{ '/assets/img/proj_2_qutcc/quantiles/' | relative_url }}";
+fetch(qFramesDir + 'manifest.json')
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (m) {
+        if (!m || !m.frames || !m.frames.length) return;
+        qImageFrames = m.frames.map(function (f) {
+            var img = new Image();
+            img.src = qFramesDir + f.file; // preload so the slider swaps instantly
+            return { q: f.q, src: img.src };
+        });
+        updateQImage(parseFloat(slider.value));
+    })
+    .catch(function () {});
+var qImage = document.getElementById('q-image');
+var qImagePlaceholder = document.getElementById('q-image-placeholder');
+var qImageLabel = document.getElementById('q-image-label');
+
+function updateQImage(q) {
+    qImageLabel.textContent = q.toFixed(2);
+    if (!qImageFrames.length) return;
+    var best = qImageFrames.reduce(function (a, b) {
+        return Math.abs(b.q - q) < Math.abs(a.q - q) ? b : a;
+    });
+    if (qImage.getAttribute('src') !== best.src) qImage.src = best.src;
+    qImage.hidden = false;
+    qImagePlaceholder.hidden = true;
+}
+
 function updateVisualization() {
     var q = parseFloat(slider.value);
-    display.textContent = (1-q).toFixed(2);
+    display.textContent = q.toFixed(2);
+    document.querySelector('.qr-compact').style.setProperty('--q-color', qColor(q));
     drawPinballLoss(q);
+    updateQImage(q);
 }
     updateVisualization();
     slider.addEventListener('input', updateVisualization);
 
-    // Method stage switching functionality
+    // Method stage switching: show the chosen stage's GIF and caption
     const methodButtons = document.querySelectorAll('.method-btn');
-    const methodImage = document.getElementById('method-image');
-    const methodCaption = document.querySelector('.method-caption');
-    const stageData = {
-        training: {
-            image: "https://raw.githubusercontent.com/cassandra-t-ye/cassandra-t-ye.github.io/master/assets/img/proj_2_qutcc/fig_1_training_gif.gif",
-            title: "Training",
-            caption: "During training, a neural network with a quantile embedding predicts an image as a function of the measurement and quantile, q. The quantile embedding is randomly sampled (q ∈ (0, 1)) and the value of q determines the asymmetry of the pinball loss, enabling the model to learn a range of conditional quantiles."
-        },
-        calibration: {
-            image: "https://raw.githubusercontent.com/cassandra-t-ye/cassandra-t-ye.github.io/master/assets/img/proj_2_qutcc/fig_1_calibration_gif.gif",
-            title: "Calibration", 
-            caption: "During calibration, the predictive bounds (q_lower, q_upper) are iteratively adjusted on a held-out dataset to satisfy the desired miscoverage level α."
-        },
-        inference: {
-            image: "https://raw.githubusercontent.com/cassandra-t-ye/cassandra-t-ye.github.io/master/assets/img/proj_2_qutcc/fig_1_inference_gif.gif",
-            title: "Inference",
-            caption: "At test time, the model is queried with q_lower, q_0.5, and q_upper to produce the mean prediction and a corresponding pixel-wise uncertainty map. Querying the full range of quantile values enables the prediction of the pixel-wise distribution."
-        }
-    };
-
     methodButtons.forEach(button => {
         button.addEventListener('click', function() {
-            // Remove active class from all buttons
-            methodButtons.forEach(btn => btn.classList.remove('active'));
-            
-            // Add active class to clicked button
-            this.classList.add('active');
-            
-            // Get stage data
             const stage = this.dataset.stage;
-            const data = stageData[stage];
-            
-            // Update image and caption with fade effect
-            methodImage.style.opacity = '0.3';
-            setTimeout(() => {
-                methodImage.src = data.image;
-                methodImage.alt = data.title;
-
-
-                methodCaption.innerHTML = `
-                    <div class="stage-title">${data.title}</div>
-                    <div>${data.caption}</div>
-                `;
-                
-                methodImage.style.opacity = '1';
-            }, 150);
+            methodButtons.forEach(btn => btn.classList.toggle('active', btn === this));
+            document.querySelectorAll('.method-image, .method-caption').forEach(el => {
+                const on = el.dataset.stage === stage;
+                if (on && el.tagName === 'IMG' && !el.classList.contains('active')) {
+                    el.src = el.src; // restart the GIF from the beginning
+                }
+                el.classList.toggle('active', on);
+            });
         });
     });
 });
+</script>
+
+<script>
+// Table 1 viewer: chart + table for one task at a time
+(function () {
+    var DATA = [{"task": "Poisson", "rows": [{"bin": "0.00–0.20", "vals": [[0.123, 0.107, ""], [0.037, 0.036, "second"], [0.04, 0.013, ""], [0.039, 0.013, ""], [0.041, 0.011, ""], [0.035, 0.011, "best"]]}, {"bin": "0.20–0.40", "vals": [[0.371, 0.148, ""], [0.104, 0.097, ""], [0.112, 0.018, ""], [0.109, 0.018, ""], [0.1, 0.015, "second"], [0.09, 0.015, "best"]]}, {"bin": "0.40–0.60", "vals": [[0.643, 0.213, ""], [0.24, 0.309, ""], [0.211, 0.026, ""], [0.206, 0.026, ""], [0.181, 0.021, "second"], [0.16, 0.022, "best"]]}, {"bin": "0.60–0.80", "vals": [[0.663, 0.215, ""], [0.306, 0.438, ""], [0.244, 0.03, ""], [0.238, 0.03, ""], [0.207, 0.024, "second"], [0.158, 0.028, "best"]]}, {"bin": "0.80–1.00", "vals": [[0.771, 0.25, ""], [0.653, 0.933, ""], [0.302, 0.042, ""], [0.294, 0.042, ""], [0.225, 0.028, "second"], [0.187, 0.034, "best"]]}]}, {"task": "Gaussian", "rows": [{"bin": "0.00–0.20", "vals": [[0.073, 0.07, ""], [0.05, 0.019, "best"], [0.056, 0.02, ""], [0.055, 0.02, ""], [0.054, 0.019, "second"], [0.057, 0.022, ""]]}, {"bin": "0.20–0.40", "vals": [[0.198, 0.121, ""], [0.121, 0.027, "best"], [0.135, 0.027, ""], [0.132, 0.026, ""], [0.126, 0.025, "second"], [0.131, 0.03, ""]]}, {"bin": "0.40–0.60", "vals": [[0.318, 0.169, ""], [0.216, 0.043, ""], [0.227, 0.041, ""], [0.222, 0.04, ""], [0.211, 0.037, "second"], [0.206, 0.046, "best"]]}, {"bin": "0.60–0.80", "vals": [[0.318, 0.129, ""], [0.198, 0.05, "second"], [0.239, 0.04, ""], [0.234, 0.039, ""], [0.222, 0.036, ""], [0.19, 0.048, "best"]]}, {"bin": "0.80–1.00", "vals": [[0.355, 0.126, ""], [0.23, 0.061, "second"], [0.276, 0.045, ""], [0.27, 0.044, ""], [0.246, 0.038, ""], [0.205, 0.051, "best"]]}]}, {"task": "Real-Noise", "rows": [{"bin": "0.00–0.20", "vals": [[0.025, 0.015, "second"], [0.021, 0.006, "best"], [0.03, 0.013, ""], [0.03, 0.013, ""], [0.031, 0.012, ""], [0.033, 0.012, ""]]}, {"bin": "0.20–0.40", "vals": [[0.104, 0.035, "second"], [0.088, 0.013, "best"], [0.166, 0.017, ""], [0.165, 0.017, ""], [0.151, 0.015, ""], [0.14, 0.016, ""]]}, {"bin": "0.40–0.60", "vals": [[0.189, 0.047, "second"], [0.152, 0.021, "best"], [0.232, 0.018, ""], [0.23, 0.018, ""], [0.208, 0.016, ""], [0.202, 0.018, ""]]}, {"bin": "0.60–0.80", "vals": [[0.273, 0.058, ""], [0.233, 0.037, "best"], [0.266, 0.017, ""], [0.263, 0.017, ""], [0.236, 0.015, "second"], [0.248, 0.021, ""]]}, {"bin": "0.80–1.00", "vals": [[0.342, 0.055, ""], [0.318, 0.063, ""], [0.278, 0.014, ""], [0.274, 0.014, "second"], [0.197, 0.014, "best"], [0.286, 0.025, ""]]}]}, {"task": "MRI", "rows": [{"bin": "0.00–0.20", "vals": [[0.132, 0.051, ""], [0.088, 0.026, "best"], [0.092, 0.025, "second"], [0.092, 0.025, ""], [0.091, 0.025, ""], [0.092, 0.026, ""]]}, {"bin": "0.20–0.40", "vals": [[0.206, 0.073, ""], [0.127, 0.031, "best"], [0.132, 0.029, ""], [0.132, 0.029, ""], [0.13, 0.028, ""], [0.13, 0.031, "second"]]}, {"bin": "0.40–0.60", "vals": [[0.304, 0.093, ""], [0.132, 0.029, "second"], [0.135, 0.028, ""], [0.135, 0.028, ""], [0.133, 0.027, ""], [0.13, 0.03, "best"]]}, {"bin": "0.60–0.80", "vals": [[0.454, 0.131, ""], [0.138, 0.026, "second"], [0.141, 0.024, ""], [0.14, 0.024, ""], [0.139, 0.024, ""], [0.133, 0.027, "best"]]}, {"bin": "0.80–1.00", "vals": [[0.68, 0.223, ""], [0.14, 0.02, "second"], [0.14, 0.019, ""], [0.14, 0.019, ""], [0.138, 0.018, ""], [0.136, 0.022, "best"]]}]}, {"task": "QPI", "rows": [{"bin": "0.00–0.20", "vals": [[0.055, 0.012, ""], [0.037, 0.005, "best"], [0.059, 0.005, ""], [0.058, 0.004, ""], [0.061, 0.005, ""], [0.057, 0.005, "second"]]}, {"bin": "0.20–0.40", "vals": [[0.059, 0.144, ""], [0.042, 0.006, "best"], [0.067, 0.005, ""], [0.066, 0.005, ""], [0.067, 0.006, ""], [0.063, 0.006, "second"]]}, {"bin": "0.40–0.60", "vals": [[0.088, 0.018, ""], [0.054, 0.006, "best"], [0.085, 0.006, ""], [0.083, 0.006, ""], [0.088, 0.006, ""], [0.081, 0.006, "second"]]}, {"bin": "0.60–0.80", "vals": [[0.105, 0.017, ""], [0.059, 0.006, "best"], [0.093, 0.006, ""], [0.091, 0.006, ""], [0.096, 0.006, ""], [0.09, 0.006, "second"]]}, {"bin": "0.80–1.00", "vals": [[0.116, 0.016, ""], [0.054, 0.006, "best"], [0.087, 0.007, ""], [0.085, 0.007, "second"], [0.091, 0.006, ""], [0.087, 0.007, ""]]}]}];
+    var METHODS = [
+        // QUTCC blue and Im2Im red follow the paper (Fig. 4); the others use matplotlib colors
+        { name: 'MC-Dropout',     short: 'MC-Drop.',    group: 'Posterior-based', dash: '6 4', shape: 'circle',   color: '#2ca02c' },
+        { name: 'Deep Ensemble',  short: 'Deep Ens.',   group: 'Posterior-based', dash: '6 4', shape: 'square',   color: '#8c564b' },
+        { name: 'Im2Im',          short: 'Im2Im',       group: 'Quantile-based',  dash: '',    shape: 'triangle', color: '#e8202a' },
+        { name: 'Im2Im-Asym.',    short: 'Im2Im-Asym.', group: 'Quantile-based',  dash: '',    shape: 'diamond',  color: '#f28e2b' },
+        { name: 'K-RCPS',         short: 'K-RCPS',      group: 'Quantile-based',  dash: '',    shape: 'tri-down', color: '#9b4dca' },
+        { name: 'QUTCC',          short: 'QUTCC',       group: 'Quantile-based',  dash: '',    shape: 'dot',      color: '#1f3be8', focus: true }
+    ];
+    var BIN_COLORS = ['rgb(49,54,149)', 'rgb(116,173,209)', 'rgb(255,255,191)', 'rgb(253,174,97)', 'rgb(215,48,39)'];
+    var BLUE = '#1f3be8';
+    var W = 760, H = 330, M = { l: 58, r: 24, t: 14, b: 50 };
+    var NS = 'http://www.w3.org/2000/svg';
+    var svg = document.getElementById('t1-svg');
+    var tip = document.getElementById('t1-tip');
+    var chartBox = document.getElementById('t1-chart');
+    var current = 0, highlight = null;
+    // Show one method type at a time; QUTCC always stays in for comparison
+    var mode = 'Quantile-based';
+    function visible(i) { return METHODS[i].focus || METHODS[i].group === mode; }
+
+    function el(tag, attrs, parent) {
+        var e = document.createElementNS(NS, tag);
+        for (var k in attrs) e.setAttribute(k, attrs[k]);
+        if (parent) parent.appendChild(e);
+        return e;
+    }
+    function marker(shape, x, y, color, parent, focus) {
+        var r = focus ? 5 : 4.5, fill = focus ? color : '#fff', sw = focus ? 2 : 1.8;
+        var common = { fill: fill, stroke: color, 'stroke-width': sw };
+        if (focus) { common.stroke = '#fff'; common['stroke-width'] = 2; } // surface ring
+        var a;
+        if (shape === 'circle' || shape === 'dot') { a = Object.assign({ cx: x, cy: y, r: r }, common); return el('circle', a, parent); }
+        if (shape === 'square') { a = Object.assign({ x: x - r, y: y - r, width: 2 * r, height: 2 * r, rx: 1 }, common); return el('rect', a, parent); }
+        var pts;
+        if (shape === 'triangle') pts = [[x, y - r - 1], [x + r + 0.5, y + r - 0.5], [x - r - 0.5, y + r - 0.5]];
+        if (shape === 'tri-down') pts = [[x, y + r + 1], [x + r + 0.5, y - r + 0.5], [x - r - 0.5, y - r + 0.5]];
+        if (shape === 'diamond') pts = [[x, y - r - 1], [x + r + 1, y], [x, y + r + 1], [x - r - 1, y]];
+        a = Object.assign({ points: pts.map(function (p) { return p.join(','); }).join(' ') }, common);
+        return el('polygon', a, parent);
+    }
+    function niceMax(v) {
+        var step = Math.pow(10, Math.floor(Math.log10(v))) / 2;
+        var steps = [1, 2, 2.5, 5, 10].map(function (m) { return m * step; });
+        for (var i = 0; i < steps.length; i++) if (v / steps[i] <= 6) return { max: Math.ceil(v / steps[i]) * steps[i], step: steps[i] };
+        return { max: v, step: v / 5 };
+    }
+    function colorFor(i) { return METHODS[i].color; }
+    // When a legend item is hovered, fade the other lines
+    function opacityFor(i) { return highlight === null || highlight === i ? 1 : 0.2; }
+
+    // Legend (built once)
+    var legend = document.getElementById('t1-legend');
+    ['Posterior-based', 'Quantile-based'].forEach(function (g) {
+        var label = document.createElement('span');
+        label.className = 't1-legend-group';
+        label.textContent = g + ':';
+        legend.appendChild(label);
+        METHODS.forEach(function (m, i) {
+            if (m.group !== g) return;
+            var item = document.createElement('span');
+            item.className = 't1-legend-item' + (m.focus ? ' is-qutcc' : '');
+            item.dataset.group = m.group;
+            var sw = document.createElementNS(NS, 'svg');
+            sw.setAttribute('width', 30); sw.setAttribute('height', 14);
+            el('line', { x1: 1, y1: 7, x2: 29, y2: 7, stroke: m.color, 'stroke-width': m.focus ? 3 : 2, 'stroke-dasharray': m.dash }, sw);
+            marker(m.shape, 15, 7, m.color, sw, m.focus);
+            item.appendChild(sw);
+            item.appendChild(document.createTextNode(m.short));
+            item.addEventListener('mouseenter', function () { if (visible(i)) { highlight = i; draw(); } });
+            item.addEventListener('mouseleave', function () { highlight = null; draw(); });
+            legend.appendChild(item);
+        });
+    });
+
+    function draw() {
+        var task = DATA[current];
+        while (svg.firstChild) svg.removeChild(svg.firstChild);
+        var maxV = 0;
+        task.rows.forEach(function (r) { r.vals.forEach(function (v, i) { if (visible(i)) maxV = Math.max(maxV, v[0] + v[1]); }); });
+        var ny = niceMax(maxV * 1.05);
+        var pw = W - M.l - M.r, ph = H - M.t - M.b;
+        var x = function (j) { return M.l + pw * (j + 0.5) / task.rows.length; };
+        var shown = METHODS.map(function (m, i) { return i; }).filter(visible);
+        var xo = function (j, i) { return x(j) + (shown.indexOf(i) - (shown.length - 1) / 2) * 7; };
+        var y = function (v) { return M.t + ph * (1 - v / ny.max); };
+
+        // Grid + y axis
+        for (var t = 0; t <= ny.max + 1e-9; t += ny.step) {
+            el('line', { x1: M.l, x2: W - M.r, y1: y(t), y2: y(t), stroke: t === 0 ? '#bdbcb7' : '#ececea', 'stroke-width': 1 }, svg);
+            var lab = el('text', { x: M.l - 8, y: y(t) + 4, 'text-anchor': 'end', 'font-size': 12, fill: '#52514e' }, svg);
+            lab.textContent = (+t.toFixed(3)).toString();
+        }
+        var yl = el('text', { x: 14, y: M.t + ph / 2, 'text-anchor': 'middle', 'font-size': 13, fill: '#52514e', transform: 'rotate(-90 14 ' + (M.t + ph / 2) + ')' }, svg);
+        yl.textContent = 'Interval length';
+        // X axis labels
+        task.rows.forEach(function (r, j) {
+            var tx = el('text', { x: x(j), y: H - M.b + 20, 'text-anchor': 'middle', 'font-size': 12, fill: '#52514e' }, svg);
+            tx.textContent = r.bin;
+        });
+        var xl = el('text', { x: M.l + pw / 2, y: H - 6, 'text-anchor': 'middle', 'font-size': 13, fill: '#52514e' }, svg);
+        xl.textContent = 'Ground-truth pixel intensity';
+
+        // Crosshair (behind lines)
+        var cross = el('line', { y1: M.t, y2: M.t + ph, stroke: '#bdbcb7', 'stroke-width': 1, visibility: 'hidden' }, svg);
+
+        // Lines: context first, focus (QUTCC) last so it sits on top
+        var order = METHODS.map(function (m, i) { return i; }).filter(visible)
+            .sort(function (a, b) { return (METHODS[a].focus ? 2 : a === highlight ? 1 : 0) - (METHODS[b].focus ? 2 : b === highlight ? 1 : 0); });
+        order.forEach(function (i) {
+            var m = METHODS[i], c = colorFor(i);
+            var g = el('g', { opacity: opacityFor(i) }, svg);
+            // Std bars (mean ± std, clipped at 0) with small caps
+            task.rows.forEach(function (r, j) {
+                var mu = r.vals[i][0], sd = r.vals[i][1], cx = xo(j, i);
+                var y1 = y(Math.max(0, mu - sd)), y2 = y(mu + sd);
+                el('line', { x1: cx, x2: cx, y1: y1, y2: y2, stroke: c, 'stroke-width': 1.5, opacity: 0.6 }, g);
+                el('line', { x1: cx - 3, x2: cx + 3, y1: y2, y2: y2, stroke: c, 'stroke-width': 1.5, opacity: 0.6 }, g);
+                if (mu - sd > 0) el('line', { x1: cx - 3, x2: cx + 3, y1: y1, y2: y1, stroke: c, 'stroke-width': 1.5, opacity: 0.6 }, g);
+            });
+            var d = task.rows.map(function (r, j) { return (j ? 'L' : 'M') + xo(j, i) + ' ' + y(r.vals[i][0]); }).join(' ');
+            el('path', { d: d, fill: 'none', stroke: c, 'stroke-width': m.focus ? 3 : 2, 'stroke-dasharray': m.dash, 'stroke-linejoin': 'round', 'stroke-linecap': 'round' }, g);
+            task.rows.forEach(function (r, j) { marker(m.shape, xo(j, i), y(r.vals[i][0]), c, g, m.focus); });
+        });
+        // Direct label for QUTCC at the right end
+        var last = task.rows.length - 1;
+        if (visible(5)) { var ql = el('text', { x: xo(last, 5) + 10, y: y(task.rows[last].vals[5][0]) + 4, 'font-size': 13, 'font-weight': 'bold', fill: BLUE }, svg);
+        ql.textContent = 'QUTCC'; }
+
+        // Hover targets: one column per intensity bin
+        task.rows.forEach(function (r, j) {
+            var colW = pw / task.rows.length;
+            var hit = el('rect', { x: M.l + colW * j, y: M.t, width: colW, height: ph, fill: 'transparent' }, svg);
+            hit.addEventListener('mousemove', function (ev) { showTip(j, ev); cross.setAttribute('x1', x(j)); cross.setAttribute('x2', x(j)); cross.setAttribute('visibility', 'visible'); });
+            hit.addEventListener('mouseleave', function () { tip.hidden = true; cross.setAttribute('visibility', 'hidden'); });
+        });
+    }
+
+    function showTip(j, ev) {
+        var r = DATA[current].rows[j];
+        var rows = METHODS.map(function (m, i) { return { m: m, v: r.vals[i], i: i }; })
+            .filter(function (o) { return visible(o.i); })
+            .sort(function (a, b) { return a.v[0] - b.v[0]; });
+        tip.innerHTML = '<div class="t1-tip-head">Intensity ' + r.bin + '</div>' + rows.map(function (o) {
+            return '<div class="t1-tip-row' + (o.m.focus ? ' is-qutcc' : '') + '"><span><span class="t1-dot" style="background:' + o.m.color + '"></span>' + o.m.short + '</span><span>' +
+                o.v[0].toFixed(3) + ' ± ' + o.v[1].toFixed(3) + '</span></div>';
+        }).join('');
+        tip.hidden = false;
+        var box = chartBox.getBoundingClientRect();
+        var left = ev.clientX - box.left + 14, top = ev.clientY - box.top + 10;
+        if (left + tip.offsetWidth > box.width) left = ev.clientX - box.left - tip.offsetWidth - 14;
+        tip.style.left = Math.max(0, left) + 'px';
+        tip.style.top = Math.max(0, Math.min(top, box.height - tip.offsetHeight)) + 'px';
+    }
+
+    var buttons = document.querySelectorAll('.t1-btn');
+    buttons.forEach(function (b) {
+        b.addEventListener('click', function () {
+            current = +b.dataset.task;
+            buttons.forEach(function (o) { o.classList.toggle('active', o === b); });
+            tip.hidden = true;
+            draw();
+        });
+    });
+    // Posterior-based / Quantile-based: pick one
+    function applyMode() {
+        document.querySelectorAll('.t1-group-btn').forEach(function (o) {
+            var on = o.dataset.group === mode;
+            o.classList.toggle('active', on);
+            o.setAttribute('aria-checked', on);
+        });
+        document.querySelectorAll('.t1-legend-item').forEach(function (it, k) {
+            it.classList.toggle('is-off', !visible(k));
+        });
+    }
+    document.querySelectorAll('.t1-group-btn').forEach(function (b) {
+        b.addEventListener('click', function () {
+            mode = b.dataset.group;
+            highlight = null;
+            tip.hidden = true;
+            applyMode();
+            draw();
+        });
+    });
+    applyMode();
+    draw();
+})();
 </script>

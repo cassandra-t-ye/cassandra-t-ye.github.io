@@ -32,7 +32,16 @@
         <!-- Entry bib key -->
         <div id="{{entry.key}}" class="{% if site.enable_publication_thumbnails %}col-sm-8{% else %}col-sm-10{% endif %}">
         <!-- Title -->
+        {%- if entry.website -%}
+          {%- if entry.website contains '://' -%}
+            {%- assign project_url = entry.website -%}
+          {%- else -%}
+            {%- assign project_url = entry.website | relative_url -%}
+          {%- endif -%}
+        <div class="title"><a href="{{ project_url }}" class="pub-title-link">{{entry.title}}</a></div>
+        {%- else -%}
         <div class="title">{{entry.title}}</div>
+        {%- endif -%}
         <!-- Author -->
         <div class="author">
         {% assign author_array_size = entry.author_array | size %}
@@ -192,7 +201,7 @@
             {%- endif %}
           {%- endif %}
           {%- if entry.website %}
-            <a href="{{ entry.website }}" class="btn btn-sm z-depth-0" role="button">Website</a>
+            <a href="{{ project_url }}" class="btn btn-sm z-depth-0" role="button">Project Page</a>
           {%- endif %}
           </div>
           {% if site.enable_publication_badges %}

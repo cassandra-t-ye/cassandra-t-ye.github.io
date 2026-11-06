@@ -1,0 +1,91 @@
+{
+  "task": "MRI",
+  "dataset": "FastMRI knee singlecoil (RAW_singlecoil_train/validation)",
+  "index": 553,
+  "checkpoint": "epoch40.pth",
+  "display_window": {
+    "lo": 0.06573348645120859,
+    "hi": 0.6492986482381841,
+    "from": "q=0.50, 0.5-99.5 percentile"
+  },
+  "frames": [
+    {
+      "q": 0.05,
+      "file": "q_0.05.png"
+    },
+    {
+      "q": 0.1,
+      "file": "q_0.10.png"
+    },
+    {
+      "q": 0.15,
+      "file": "q_0.15.png"
+    },
+    {
+      "q": 0.2,
+      "file": "q_0.20.png"
+    },
+    {
+      "q": 0.25,
+      "file": "q_0.25.png"
+    },
+    {
+      "q": 0.3,
+      "file": "q_0.30.png"
+    },
+    {
+      "q": 0.35,
+      "file": "q_0.35.png"
+    },
+    {
+      "q": 0.4,
+      "file": "q_0.40.png"
+    },
+    {
+      "q": 0.45,
+      "file": "q_0.45.png"
+    },
+    {
+      "q": 0.5,
+      "file": "q_0.50.png"
+    },
+    {
+      "q": 0.55,
+      "file": "q_0.55.png"
+    },
+    {
+      "q": 0.6,
+      "file": "q_0.60.png"
+    },
+    {
+      "q": 0.65,
+      "file": "q_0.65.png"
+    },
+    {
+      "q": 0.7,
+      "file": "q_0.70.png"
+    },
+    {
+      "q": 0.75,
+      "file": "q_0.75.png"
+    },
+    {
+      "q": 0.8,
+      "file": "q_0.80.png"
+    },
+    {
+      "q": 0.85,
+      "file": "q_0.85.png"
+    },
+    {
+      "q": 0.9,
+      "file": "q_0.90.png"
+    },
+    {
+      "q": 0.95,
+      "file": "q_0.95.png"
+    }
+  ],
+  "ground_truth": "ground_truth.png",
+  "measurement": "measurement.png"
+}

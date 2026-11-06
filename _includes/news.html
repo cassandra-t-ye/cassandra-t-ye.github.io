@@ -6,27 +6,106 @@
   {%- else -%}
     {%- assign news_limit = news_size -%}
   {%- endif -%}
-  <!-- Shows about 4 items; scroll inside the box to see the rest -->
-  <div class="table-responsive news-scroll" {% if include.limit and site.announcements.scrollable and news_size > 3 %}style="max-height: 13rem; overflow-y: auto;"{% endif %}>
-    <table class="table table-sm table-borderless">
-    {%- assign news = site.news | reverse -%}
-    <tbody>
-    {% for item in news limit: news_limit %}
-      <tr>
-        <th scope="row" style="width: 20%">{{ item.date | date: "%b %-d, %Y" }}</th>
-        <td>
-          {% if item.inline -%}
-            {{ item.content | remove: '<p>' | remove: '</p>' | emojify }}
-          {%- else -%}
-            <a class="news-title" href="{{ item.url | relative_url }}">{{ item.title }}</a>
-          {%- endif %}
-        </td>
-      </tr>
-    {%- endfor %}
-    </tbody>
-    </table>
+  {%- if include.limit and site.announcements.scrollable and news_size > 3 -%}
+    {%- assign news_scroll = true -%}
+  {%- endif -%}
+  <div class="news-scroll-wrap{% if news_scroll %} is-scrollable{% endif %}">
+    <!-- Shows about 4 items; scroll inside the box to see the rest -->
+    <div class="table-responsive news-scroll">
+      <table class="table table-sm table-borderless">
+      {%- assign news = site.news | reverse -%}
+      <tbody>
+      {% for item in news limit: news_limit %}
+        <tr>
+          <th scope="row" class="news-date">{{ item.date | date: "%b %-d, %Y" }}</th>
+          <td>
+            {% if item.inline -%}
+              {{ item.content | remove: '<p>' | remove: '</p>' | emojify }}
+            {%- else -%}
+              <a class="news-title" href="{{ item.url | relative_url }}">{{ item.title }}</a>
+            {%- endif %}
+          </td>
+        </tr>
+      {%- endfor %}
+      </tbody>
+      </table>
+    </div>
   </div>
+  {% if news_scroll %}
+  <p class="news-scroll-hint"><i class="fas fa-angle-down"></i> scroll for more news</p>
+  {% endif %}
   {%- else -%}
     <p>No news so far...</p>
   {%- endif %}
 </div>
+
+<style>
+.news .news-date {
+  width: 20%;
+}
+.news-scroll-wrap {
+  position: relative;
+}
+.news-scroll-wrap.is-scrollable .news-scroll {
+  max-height: 13rem;
+  overflow-y: auto;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+/* Always-visible scrollbar (macOS hides it by default) */
+.news-scroll-wrap.is-scrollable .news-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+.news-scroll-wrap.is-scrollable .news-scroll::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+}
+.news-scroll-wrap.is-scrollable .news-scroll::-webkit-scrollbar-thumb {
+  background: var(--global-theme-color);
+  border-radius: 4px;
+}
+.news-scroll-wrap.is-scrollable .news-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: var(--global-theme-color) rgba(0, 0, 0, 0.05);
+}
+/* Fade at the bottom to show more items are below */
+.news-scroll-wrap.is-scrollable::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 10px;
+  bottom: 0;
+  height: 3rem;
+  pointer-events: none;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), var(--global-bg-color));
+  transition: opacity 0.2s;
+}
+.news-scroll-wrap.at-end::after {
+  opacity: 0;
+}
+.news-scroll-hint {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--global-text-color-light);
+  margin-top: 0.4rem;
+  transition: opacity 0.2s;
+}
+.news-scroll-hint.at-end {
+  opacity: 0;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const wrap = document.querySelector('.news-scroll-wrap.is-scrollable');
+  if (!wrap) return;
+  const box = wrap.querySelector('.news-scroll');
+  const hint = document.querySelector('.news-scroll-hint');
+  function update() {
+    const atEnd = box.scrollTop + box.clientHeight >= box.scrollHeight - 4;
+    wrap.classList.toggle('at-end', atEnd);
+    if (hint) hint.classList.toggle('at-end', atEnd);
+  }
+  box.addEventListener('scroll', update);
+  update();
+});
+</script>

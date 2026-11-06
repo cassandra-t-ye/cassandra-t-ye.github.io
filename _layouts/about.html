@@ -11,7 +11,7 @@ layout: default
           <p class="desc">{{ page.subtitle }}</p>
         </header>
 
-        <article>
+        <article class="about-text">
           {% if page.profile -%}
           <div class="profile float-{%- if page.profile.align == 'left' -%}left{%- else -%}right{%- endif -%}">
             {%- if page.profile.image %}
@@ -43,14 +43,14 @@ layout: default
 
           <!-- News -->
           {% if page.news and site.announcements.enabled -%}
-            <h2><a href="{{ '/news/' | relative_url }}" style="color: inherit;">news</a></h2>
+            <h2><a href="{{ '/news/' | relative_url }}" style="color: inherit;">News</a></h2>
             {%- include news.html limit=true %}
           {%- endif %}
 
           <!-- Publications -->
           {% if page.publications -%}
             <div style="margin-top: 3rem;">
-              <h2>publications</h2>
+              <h2>Publications</h2>
               <div class="publications">
                 {% bibliography -f {{ site.scholar.bibliography }} --group_by none %}
               </div>
@@ -62,12 +62,6 @@ layout: default
             <h2><a href="{{ '/blog/' | relative_url }}" style="color: inherit;">latest posts</a></h2>
             {%- include latest_posts.html %}
           {%- endif %} -->
-
-          ; <!-- Selected papers -->
-          ; <!-- {% if page.selected_papers -%}
-          ;   <h2><a href="{{ '/publications/' | relative_url }}" style="color: inherit;">selected publications</a></h2>
-          ;   {%- include selected_papers.html %}
-          ; {%- endif %} -->
 
           <!-- Social -->
           {%- if page.social %}

@@ -1058,3 +1058,13 @@ nav[data-toggle="toc"] {
     padding-top: 0.5rem;
   }
 }
+
+// About page: larger body text (headings keep their own sizes)
+.about-text {
+  font-size: 1.125rem;
+
+  .news table th,
+  .news table td {
+    font-size: inherit;
+  }
+}

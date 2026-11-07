@@ -4,7 +4,7 @@ title: "QUTCC🤗: Quantile Uncertainty Training and Conformal Calibration for I
 description: 
 img: 
 importance: 1
-related_publications: ye2025qutcc
+related_publications: ye2026qutcc
 ---
 
 [Cassandra Tong Ye](https://https://cassandra-t-ye.github.io/), [Shamus Li](https://shamus.li/), [Tyler King](https://tylertking.com/), [Kristina Monakhova](http://kristinamonakhova.com/)
@@ -23,6 +23,24 @@ related_publications: ye2025qutcc
     transform: scale(1.2);
     box-shadow: 0 0 15px rgba(255,255,255,0.8);
 }
+
+.fig5 { text-align: center; }
+.fig5-img { width: 100%; max-width: 1000px; display: block; margin: 12px auto 0; }
+.pdf-demo { margin-top: 0; }
+.pdf-demo-grid { display: grid; grid-template-columns: minmax(0, 400px) minmax(0, 1fr); gap: 32px; align-items: start; }
+.pdf-demo-left { text-align: center; }
+.pdf-crop { position: relative; width: 100%; aspect-ratio: 1 / 1; }
+.pdf-crop img { width: 100%; height: 100%; display: block; border-radius: 4px; }
+/* Each spot is centered on its drawn circle and sized to match it (54 px of 640) */
+.pdf-crop .clickable-spot { position: absolute; width: 8.5%; aspect-ratio: 1 / 1; transform: translate(-50%, -50%);
+    border: 3px solid var(--spot); border-radius: 50%; background: transparent; padding: 0; cursor: pointer;
+    color: transparent; font-size: 0; transition: box-shadow 0.2s ease; }
+.pdf-crop .clickable-spot:hover { transform: translate(-50%, -50%) scale(1.25); }
+.pdf-crop .clickable-spot.selected { box-shadow: 0 0 0 3px #fff, 0 0 12px 4px var(--spot); }
+.pdf-demo-right #dist-title { color: #333; margin: 0 0 8px; text-align: center; font-size: 1.2rem; font-weight: bold; }
+.pdf-demo-right .pdf-chart { width: 100%; height: auto; display: block; }
+.pdf-demo-right #dist-description { font-size: 16px; line-height: 1.6; color: #555; margin-top: 8px; text-align: center; min-height: 4.8em; }
+@media (max-width: 767px) { .pdf-demo-grid { grid-template-columns: 1fr; } .pdf-crop { max-width: 400px; margin: 0 auto; } }
 
 .distribution-active {
     animation: fadeIn 0.5s ease-in;
@@ -543,17 +561,15 @@ body {
     <h2 style="font-weight: bold; font-size: 28px; margin-bottom: 20px;">QUTCC Produces Smaller Uncertainty Intervals</h2>
     <div class="row">
         <div class="col-md-12 mt-3">
-             <div class="col-md-12">
-                We show the predictions from both QUTCC and Im2Im-UQ of an undersampled MRI task. In the example below, both models highlight regions of high uncertainty that correspond to regions of high error. The circled region point to a hallucination that appears in the Im2Im-Deep and QUTCC model predictions that is not present in the ground truth. QUTCC produces tighter uncertainty intervals that can better pinpoint uncertainty and hallucinations compared to Im2Im-UQ, which highlights a larger region. 
-            </div>
-        </div>
-        <div class="col-12 mt-3 mt-md-0" style="text-align: center;">
-            {% include figure.html path="assets/img/proj_2_qutcc/hallucination_gif.gif" title="" class="img-fluid" width="700px" height="auto" %}        
-            <!-- <div class="caption" style="text-align: left;">
-                <b>FIG CAPTION</b>
-            </div> -->
-        </div>
-        <div class="col-md-12 mt-4">
+            <!-- Gray box around the bullets and chart -->
+            <div class="method-container" style="margin-top: 0;">
+            <!-- Bullets above the chart: edit the text below -->
+            <ul class="qr-points" style="margin-bottom: 1.5rem;">
+                <li>For evaluation, we compare MC-Dropout, Deep Ensembles, Im2Im, Im2Im-Asym., K-RCPS, and our method QUTCC on five imaging inverse problems: accelerated MRI, quantitative phase imaging (QPI), and denoising under real noise, synthetic Poisson noise, and Gaussian noise.</li>
+                <li>We compare predicted uncertainty interval lengths stratified by pixel intensity for each task, and QUTCC achieves either the smallest or second-smallest interval lengths across the tasks.</li>
+                <li>When QUTCC ranks second, it is usually behind MC-Dropout or Deep Ensembles, which are far more costly: 28×–47× slower inference and ~10× longer training, respectively.</li>
+                <li>QUTCC achieves the smallest mean interval length on every task among conformal methods, and remains competitive with the posterior-sampling baselines despite using a single model and only two forward passes to construct each bound.</li>
+            </ul>
             <!-- Table 1 of the paper: interval length by pixel intensity, one task at a time -->
             <div class="t1" id="table1">
                 <div class="t1-buttons" role="tablist" aria-label="Task">
@@ -574,6 +590,23 @@ body {
                 </div>
                 <p class="t1-note">Hover over the chart for mean ± std at each intensity. Data from Table 1 of the paper.</p>
             </div>
+            </div>
+        </div>
+        <div class="col-md-12 mt-5">
+             <div class="col-md-12">
+                <!-- MRI bullets: edit the text below -->
+                <ul class="qr-points">
+                    <li>QUTCC's smaller uncertainty interval lengths mean it can be more precise about pinpointing areas of error and hallucination.</li>
+                    <li>Below, we show predictions from QUTCC and Im2Im-UQ on an undersampled MRI task.</li>
+                    <li>Both models highlight regions of high uncertainty that correspond to regions of high error, but QUTCC predicts precise regions.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-12 mt-3 mt-md-0" style="text-align: center;">
+            {% include figure.html path="assets/img/proj_2_qutcc/hallucination_gif.gif" title="" class="img-fluid" width="700px" height="auto" %}        
+            <!-- <div class="caption" style="text-align: left;">
+                <b>FIG CAPTION</b>
+            </div> -->
         </div>
     </div>
 </div>
@@ -582,50 +615,61 @@ body {
     <h2 style="font-weight: bold; font-size: 28px; margin-bottom: 20px;">Pixel-wise Probability Density Functions</h2>
     <div class="row">
         <div class="col-md-12 mt-3">
-            <div style="text-align: left; padding: 20px; background-color: #f8f9fa; border-radius: 8px;">
-                Previous uncertainty quantification methods for image-to-image regression tasks aim to approximate the underlying probability density function (PDF) of pixel-wise predictions, with varying degrees of success. Im2Im-Deep is limited in this regard, as it only predicts discrete upper and lower bounds. We demonstrate that querying multiple quantiles from QUTCC enables construction of a conformalized, pixel-wise PDF. To provide statistical coverage guarantees, we calibrate the model across a range of miscoverage levels α. By systematically varying α (e.g., from 0.1 to 0.9) and recording the corresponding quantile bounds, we obtain a collection of confidence intervals that, when aggregated, approximate the full cumulative distribution function (CDF). Differentiating this CDF yields a conformalized pixel-wise PDF with formal coverage guarantees at each risk level. In the measurement below, we take a noisy Gaussian image (σ = 0.1) and compare the PDFs at different pixel regions.
-            </div>
-        </div> 
-        <!-- Interactive Visualization Container -->
-        <div class="col-12 mt-3" style="text-align: center;">
-            <div class="pdf-visualization-container" style="background-color: #fff; border: 1px solid #ddd; border-radius: 12px; padding: 20px; margin: 20px 0;">  
-                <!-- Microscope image with clickable spots -->
-                <div class="image-container" style="position: relative; display: inline-block; margin-bottom: 20px;">
-                    {% include figure.html path="assets/img/proj_2_qutcc/pdf_microscope.png" class="img-fluid" style="width: 600px; height: 150px; object-fit: cover;" %} 
-                    <div class="clickable-spot spot-blue" onclick="showDistribution('right-skewed')" 
-                        style="position: absolute; top: 21.5%; left: 41%; width: 20px; height: 20px; border: 3px solid #4A90E2; border-radius: 50%; cursor: pointer; background: rgba(74, 144, 226, 0.4); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; transition: all 0.3s ease; z-index: 10;"
-                        title="Click to view right-skewed distribution">
-                        1
-                    </div>
-                    <div class="clickable-spot spot-green" onclick="showDistribution('normal')" 
-                        style="position: absolute; top: 36%; left: 18%; width: 20px; height: 20px; border: 3px solid #7ED321; border-radius: 50%; cursor: pointer; background: rgba(126, 211, 33, 0.4); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; transition: all 0.3s ease; z-index: 10;"
-                        title="Click to view normal distribution">
-                        2
-                    </div>
-                    <div class="clickable-spot spot-red" onclick="showDistribution('left-skewed')" 
-                        style="position: absolute; top: 42.5%; left: 40.5%; width: 20px; height: 20px; border: 3px solid #D0021B; border-radius: 50%; cursor: pointer; background: rgba(208, 2, 27, 0.4); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; transition: all 0.3s ease; z-index: 10;"
-                        title="Click to view left-skewed distribution">
-                        3
-                    </div>
-                </div>
-                <!-- Instructions -->
-                <div style="margin: 20px 0; padding: 15px; background: #e3f2fd; border-radius: 8px; color: #1976d2; text-align: left;">
-                    <strong>Interactive Demo:</strong> Click on the different colored regions to see different QUTCC pixel-wise PDFs predictions
-                </div>
-                <!-- Distribution display area -->
-                <div class="distribution-display" style="margin-top: 30px; min-height: 200px;">
-                    <div id="distribution-info" style="display: none; text-align: left; padding: 20px;">
-                        <h4 id="dist-title" style="color: #333; margin-bottom: 15px;"></h4>
-                        <div id="dist-description" style="font-size: 17px; line-height: 1.6; color: #555; max-width: 700px; margin: 0 auto; align-items: left;"></div>
-                        <!-- Distribution visualization -->
-                        <div id="dist-visualization" style="margin: 20px 0; height: 150px; display: flex; align-items: left; justify-content: left; border-radius: 3px;">
-                            <!-- Images will be loaded here by JavaScript -->
+            <p class="qr-lead">
+                Because QUTCC learns every quantile, it can predict a full <strong>probability density function (PDF)</strong> at each pixel, not just an upper and lower bound.
+            </p>
+            <!-- PDF bullets: edit the text below -->
+            <ul class="qr-points">
+                <li>Prior quantile methods like Im2Im-UQ only predict discrete upper and lower bounds, so they can't describe the full distribution at a pixel.</li>
+                <li>QUTCC queries many quantiles from a single network and calibrates them across a range of miscoverage levels α (e.g., 0.1 to 0.9).</li>
+                <li>Together, these calibrated intervals approximate the cumulative distribution function (CDF) at each pixel. Differentiating it gives a <strong>conformalized pixel-wise PDF</strong> with coverage guarantees at each risk level.</li>
+                <li>Below, we take a noisy Gaussian image (σ = 0.1) and compare the predicted PDFs at three pixels.</li>
+            </ul>
+        </div>
+        <!-- Interactive demo: click a numbered spot to show that pixel's PDF on the right -->
+        <div class="col-12 mt-3">
+            <div class="method-container pdf-demo">
+                <div class="pdf-demo-grid">
+                    <div class="pdf-demo-left">
+                        <!-- Square crop of pdf_microscope.png. Spot positions are the circle centers in the crop (640x640 px). -->
+                        <div class="pdf-crop">
+                            <img src="{{ '/assets/img/proj_2_qutcc/pdf_microscope_crop.png' | relative_url }}" alt="Noisy Gaussian measurement with three marked pixels">
+                        <button class="clickable-spot spot-blue" onclick="showDistribution('right-skewed', this)" style="left: 84.53%; top: 27.03%; --spot: #0000ff;" title="Pixel 1: right-skewed">1</button>
+                        <button class="clickable-spot spot-green" onclick="showDistribution('normal', this)" style="left: 14.84%; top: 44.84%; --spot: #008000;" title="Pixel 2: normal">2</button>
+                        <button class="clickable-spot spot-red" onclick="showDistribution('left-skewed', this)" style="left: 84.53%; top: 52.50%; --spot: #ff0000;" title="Pixel 3: left-skewed">3</button>
                         </div>
-                        <div id="dist-stats" style="margin-top: 15px; font-size: 16px; color: #777;"></div>
+                        <div class="slider-hint">Gaussian noise, σ = 0.1. Click a circled pixel.</div>
                     </div>
-                    <div id="default-message" style="text-align: center; padding: 40px; color: #888;">
+                    <div class="pdf-demo-right">
+                        <div id="distribution-info">
+                            <h4 id="dist-title"></h4>
+                            <div id="dist-visualization"></div>
+                            <div id="dist-description"></div>
+                        </div>
                     </div>
                 </div>
+            </div>
+        </div>
+        <!-- Figure 5 viewer: pick a noise type and level to show that panel -->
+        <div class="col-12 mt-4">
+            <!-- Fig. 5 bullets: edit the text below -->
+            <ul class="qr-points" style="margin-bottom: 1.5rem;">
+                <li>We compare the predicted conditional PDFs of 10 representative pixels, recovered from a measurement with different levels of Gaussian and Poisson noise, across QUTCC, Ensemble, and MC-Dropout.</li>
+                <li>Consistent with a Gaussian distribution, as σ increases, the conditional PDF at each pixel becomes broader, reflecting the increased variance of the distribution.</li>
+                <li>In contrast, in the Poisson setting, increasing λ shifts the distribution upward, while the spread increases in proportion to the mean.</li>
+            </ul>
+            <div class="method-container fig5" style="margin-top: 0;">
+                <div class="t1-buttons" role="radiogroup" aria-label="Noise type">
+                    <button class="t1-btn fig5-noise active" data-noise="gaussian" role="radio" aria-checked="true">Gaussian Noise</button>
+                    <button class="t1-btn fig5-noise" data-noise="poisson" role="radio" aria-checked="false">Poisson Noise</button>
+                </div>
+                <div class="t1-groups" role="radiogroup" aria-label="Noise level">
+                    <button class="t1-group-btn fig5-level active" data-level="less" role="radio" aria-checked="true">Less noise</button>
+                    <button class="t1-group-btn fig5-level" data-level="more" role="radio" aria-checked="false">More noise</button>
+                </div>
+                <!-- Images are crops of Fig. 5 of the paper, in assets/img/proj_2_qutcc/fig5/ -->
+                <img id="fig5-img" class="fig5-img" src="{{ '/assets/img/proj_2_qutcc/fig5/gaussian_less.png' | relative_url }}" alt="Fig. 5: predicted pixel PDFs, Gaussian noise, less noise">
+                <p class="t1-note" id="fig5-note">Gaussian noise, σ = 0.1. Predicted PDFs at the 10 colored pixels for QUTCC, Deep Ensemble and MC-Dropout. From Fig. 5 of the paper.</p>
             </div>
         </div>
         <!-- <div class="col-md-12 mt-3">
@@ -640,7 +684,7 @@ body {
     <h2 style="font-weight: bold; font-size: 28px; margin-bottom: 20px;">Conclusion</h2>  
     <div class="row">
         <div class="col-md-12">
-            We propose QUTCC, a <b>new uncertainty quantification method for imaging inverse problems</b> that can achieve <b>tighter uncertainty estimates</b> than previous methods while maintaining the same statistical coverage.  QUTCC accomplishes this by training a U-Net with a quantile embedding simultaneously on q ∈ (0, 1) quantiles and then dynamically adjusting its quantile bound predictions during calibration until the desired risk is satisfied. Our method exhibited tighter uncertainty intervals, on average, while still pinpointing model hallucinations and regions of high error. This can be attributed to our model applying a nonlinear and asymmetrical scaling to its pixel-wise uncertainty predictions. While quantifying model uncertainty remains a significant open challenge in the field of deep learning, we believe that QUTCC offers a simple, yet robust method of uncertainty quantification for imaging inverse problems and image-to-image regression tasks.
+            We propose QUTCC, a <b>new uncertainty quantification method for imaging inverse problems</b> that uses a learned, <b>nonlinear, and spatially-adaptive conformal calibration</b>. QUTCC trains a single U-Net with a quantile embedding on q ∈ (0, 1) quantiles through simultaneous quantile regression, then adjusts its quantile bound predictions during calibration until the desired risk is satisfied. Across five imaging inverse problems, QUTCC achieves <b>smaller uncertainty intervals than prior conformal methods</b> and is competitive with MC-Dropout and Deep Ensembles at a fraction of their compute cost, all while maintaining the same statistical coverage. QUTCC can also estimate a <b>conformalized pixel-wise conditional PDF</b>, something previous conformal methods for image-to-image regression could not do, and its high-uncertainty regions often coincide with reconstruction errors and hallucinations. While QUTCC requires paired data for training and calibration and offers pixel-wise marginal coverage guarantees, we hope it helps practitioners identify harmful mistakes in scientific and medical imaging.
         </div>
     </div>
 </div>
@@ -651,11 +695,13 @@ body {
         <b style="font-size: 28px;">Bibtex Citation</b>
         <div class="form-group col-md-12">
             <textarea id="bibtex" class="form-control" readonly>
-            @article{ye2025qutcc,
+            @inproceedings{ye2026qutcc,
             title={QUTCC: Quantile Uncertainty Training and Conformal Calibration for Imaging Inverse Problems},
             author={Ye, Cassandra Tong and Li, Shamus and King, Tyler and Monakhova, Kristina},
-            journal={arXiv preprint arXiv:2507.14760},
-            year={2025}
+            booktitle={Advances in Neural Information Processing Systems (NeurIPS)},
+            year={2026},
+            eprint={2507.14760},
+            archivePrefix={arXiv}
             }
             </textarea>
         </div>
@@ -663,76 +709,169 @@ body {
 </div>
 
 <script>
-function showDistribution(type) {
+// Curves traced from right_skewed_pdf.png, normal_pdf.png and left_skewed_pdf.png
+var PDF_DATA = {"right_skewed":{"xDomain":[0.008,0.0409],"yMax":56.0,"xticks":[0.008,0.024,0.04],"yticks":[0,28,56],"curve":[[0.0098,37.31],[0.01007,37.37],[0.01033,37.38],[0.01059,37.37],[0.01086,37.28],[0.01112,37.15],[0.01138,37.07],[0.01165,36.93],[0.01191,36.81],[0.01218,36.68],[0.01244,36.56],[0.0127,36.53],[0.01297,36.53],[0.01323,36.59],[0.01349,36.75],[0.01376,36.96],[0.01402,37.24],[0.01429,37.56],[0.01455,37.93],[0.01481,38.35],[0.01508,38.8],[0.01534,39.3],[0.0156,39.83],[0.01587,40.39],[0.01613,40.97],[0.0164,41.56],[0.01666,42.18],[0.01692,42.79],[0.01719,43.41],[0.01745,44.05],[0.01771,44.69],[0.01798,45.33],[0.01824,45.97],[0.01851,46.58],[0.01877,47.17],[0.01903,47.74],[0.0193,48.29],[0.01956,48.8],[0.01982,49.32],[0.02009,49.78],[0.02035,50.21],[0.02062,50.59],[0.02088,50.91],[0.02114,51.2],[0.02193,51.68],[0.0222,51.72],[0.02246,51.65],[0.02273,51.53],[0.02299,51.31],[0.02325,50.98],[0.02352,50.53],[0.02378,50.02],[0.02404,49.36],[0.02431,48.57],[0.02457,47.62],[0.02484,46.58],[0.0251,45.33],[0.02536,43.97],[0.02563,42.51],[0.02589,40.84],[0.02615,39.22],[0.02642,37.57],[0.02668,35.86],[0.02695,34.25],[0.02721,32.65],[0.02747,31.08],[0.02774,29.64],[0.028,28.19],[0.02826,26.81],[0.02853,25.55],[0.02879,24.32],[0.02905,23.15],[0.02932,22.07],[0.02958,21.04],[0.02985,20.13],[0.03011,19.27],[0.03037,18.44],[0.03064,17.7],[0.0309,17.03],[0.03116,16.37],[0.03143,15.81],[0.03169,15.28],[0.03196,14.8],[0.03222,14.39],[0.03248,13.99],[0.03275,13.63],[0.03301,13.35],[0.03327,13.08],[0.03354,12.85],[0.0338,12.63],[0.03407,12.46],[0.03433,12.31],[0.03459,12.2],[0.03486,12.07],[0.03512,11.99],[0.03538,11.95],[0.03565,11.9],[0.03591,11.84],[0.03618,11.78],[0.03644,11.75],[0.0367,11.7],[0.03697,11.68],[0.03723,11.68],[0.03749,11.65],[0.03776,11.61],[0.03802,11.56],[0.03829,11.5],[0.03855,11.43],[0.03881,11.37],[0.03908,11.26],[0.03934,11.14],[0.03943,11.11]],"dot":[0.02143,51.249]},"normal":{"xDomain":[0.0059,0.0191],"yMax":108.79,"xticks":[0.008,0.013,0.018],"yticks":[0,50,100],"curve":[[0.00646,71.97],[0.00657,72.03],[0.00667,72.27],[0.00678,72.42],[0.00688,72.42],[0.00699,72.42],[0.00709,72.42],[0.0072,72.36],[0.00731,72.21],[0.00741,72.12],[0.00752,72.03],[0.00762,71.97],[0.00773,71.97],[0.00783,71.97],[0.00794,72.0],[0.00804,72.18],[0.00815,72.42],[0.00825,72.7],[0.00836,73.12],[0.00847,73.61],[0.00857,74.15],[0.00868,74.85],[0.00878,75.64],[0.00889,76.52],[0.00899,77.42],[0.0091,78.42],[0.0092,79.48],[0.00931,80.58],[0.00941,81.67],[0.00952,82.73],[0.00963,83.79],[0.00973,84.88],[0.00984,85.97],[0.00994,87.06],[0.01005,88.15],[0.01015,89.21],[0.01026,90.27],[0.01036,91.3],[0.01047,92.36],[0.01057,93.33],[0.01068,94.27],[0.01079,95.21],[0.01089,96.15],[0.011,97.0],[0.0111,97.85],[0.01121,98.64],[0.01131,99.36],[0.01142,100.09],[0.01152,100.79],[0.01163,101.42],[0.01173,101.94],[0.01184,102.42],[0.01195,102.82],[0.01205,103.21],[0.0124,103.76],[0.01251,104.06],[0.01261,104.06],[0.01272,103.97],[0.01282,103.85],[0.01293,103.58],[0.01304,103.3],[0.01314,102.88],[0.01325,102.39],[0.01335,101.82],[0.01346,101.12],[0.01356,100.3],[0.01367,99.48],[0.01377,98.52],[0.01388,97.45],[0.01398,96.24],[0.01409,95.0],[0.0142,93.64],[0.0143,92.18],[0.01441,90.64],[0.01451,89.0],[0.01462,87.27],[0.01472,85.45],[0.01483,83.64],[0.01493,81.7],[0.01504,79.73],[0.01514,77.79],[0.01525,75.82],[0.01536,73.85],[0.01546,71.94],[0.01557,70.0],[0.01567,68.06],[0.01578,66.15],[0.01588,64.36],[0.01599,62.67],[0.01609,61.0],[0.0162,59.39],[0.0163,57.94],[0.01641,56.45],[0.01651,55.03],[0.01662,53.79],[0.01673,52.55],[0.01683,51.33],[0.01694,50.24],[0.01704,49.24],[0.01715,48.36],[0.01725,47.58],[0.01736,46.85],[0.01746,46.21],[0.01757,45.7],[0.01767,45.21],[0.01778,44.88],[0.01789,44.67],[0.01799,44.45],[0.0181,44.39],[0.0182,44.55],[0.01831,44.82],[0.01841,45.04],[0.01845,45.1]],"dot":[0.01226,103.333]},"left_skewed":{"xDomain":[0.2,0.57],"yMax":6.0,"xticks":[0.2,0.385,0.57],"yticks":[0,3,6],"curve":[[0.22613,1.956],[0.22909,1.946],[0.23205,1.934],[0.235,1.923],[0.23796,1.917],[0.24092,1.913],[0.24388,1.911],[0.24684,1.907],[0.24979,1.909],[0.25275,1.911],[0.25571,1.913],[0.25867,1.917],[0.26163,1.921],[0.26458,1.928],[0.26754,1.939],[0.2705,1.948],[0.27346,1.958],[0.27642,1.971],[0.27937,1.981],[0.28233,1.994],[0.28529,2.008],[0.28825,2.021],[0.29121,2.036],[0.29416,2.048],[0.29712,2.065],[0.30008,2.08],[0.30304,2.095],[0.306,2.106],[0.30895,2.121],[0.31191,2.133],[0.31487,2.15],[0.31783,2.162],[0.32079,2.173],[0.32374,2.188],[0.3267,2.2],[0.32966,2.215],[0.33262,2.225],[0.33558,2.242],[0.33853,2.257],[0.34149,2.275],[0.34445,2.29],[0.34741,2.309],[0.35037,2.331],[0.35332,2.354],[0.35628,2.381],[0.35924,2.407],[0.3622,2.438],[0.36516,2.469],[0.36811,2.504],[0.37107,2.543],[0.37403,2.582],[0.37699,2.627],[0.37995,2.674],[0.3829,2.725],[0.38586,2.779],[0.38882,2.837],[0.39178,2.901],[0.39474,2.968],[0.39769,3.04],[0.40065,3.115],[0.40361,3.194],[0.40657,3.281],[0.40953,3.371],[0.41249,3.466],[0.41544,3.57],[0.4184,3.677],[0.42136,3.777],[0.42728,3.975],[0.43023,4.164],[0.43319,4.294],[0.43615,4.428],[0.43911,4.557],[0.44207,4.689],[0.44502,4.813],[0.44798,4.93],[0.45094,5.038],[0.4539,5.135],[0.45686,5.222],[0.45981,5.296],[0.46277,5.349],[0.46573,5.388],[0.46869,5.404],[0.47165,5.396],[0.4746,5.353],[0.47756,5.259],[0.48052,5.117],[0.48348,4.925],[0.48644,4.699],[0.48939,4.458],[0.49235,4.205],[0.49531,3.961],[0.49827,3.719],[0.50123,3.486],[0.50418,3.269],[0.50714,3.055],[0.5101,2.866],[0.51306,2.685],[0.51602,2.528],[0.51897,2.394],[0.52193,2.28],[0.52489,2.192],[0.52785,2.13],[0.53081,2.1],[0.53376,2.106],[0.53672,2.145],[0.53968,2.224],[0.54264,2.306],[0.54362,2.323]],"dot":[0.4258,3.909]}};
+
+function showDistribution(type, el) {
     const distributions = {
         'right-skewed': {
             title: 'Right-Skewed Distribution',
             description: 'A right-skewed probability distribution indicates higher confidence in lower intensity values with a tail extending toward higher intensities',
-            // stats: 'Mean: 0.24 | Median: 0.19 | Skewness: +1.2',
-            image: 'https://raw.githubusercontent.com/cassandra-t-ye/cassandra-t-ye.github.io/master/assets/img/proj_2_qutcc/right_skewed_pdf.png'
+            data: PDF_DATA.right_skewed, ticks: PDF_TICKS.right_skewed, color: '#0000ff'
         },
         'normal': {
             title: 'Normal Distribution', 
             description: 'A symmetric, normal distribution centered around the predicted intensity value indicates well-calibrated uncertainty with equal probability of over- and under-estimation.',
-            // stats: 'Mean: 0.51 | Median: 0.51 | Skewness: 0.0',
-            image: 'https://raw.githubusercontent.com/cassandra-t-ye/cassandra-t-ye.github.io/master/assets/img/proj_2_qutcc/normal_pdf.png'
+            data: PDF_DATA.normal, ticks: PDF_TICKS.normal, color: '#008000'
         },
         'left-skewed': {
             title: 'Left-Skewed Distribution',
             description: 'A left-skewed distribution indicates the model expects higher intensity values but has some uncertainty about potential underestimation. This pattern may indicate regions where the reconstruction tends to be conservative.',
-            // stats: 'Mean: 0.68 | Median: 0.72 | Skewness: -0.8',
-            image: 'https://raw.githubusercontent.com/cassandra-t-ye/cassandra-t-ye.github.io/master/assets/img/proj_2_qutcc/left_skewed_pdf.png'
+            data: PDF_DATA.left_skewed, ticks: PDF_TICKS.left_skewed, color: '#ff0000'
         }
     };
     
     const distInfo = distributions[type];
-    
-    // Hide default message
-    document.getElementById('default-message').style.display = 'none';
-    
-    // Show and update distribution info
-    const infoDiv = document.getElementById('distribution-info');
-    infoDiv.style.display = 'block';
-    infoDiv.className = 'distribution-active';
-    
+
     document.getElementById('dist-title').textContent = distInfo.title;
     document.getElementById('dist-description').textContent = distInfo.description;
-    document.getElementById('dist-stats').textContent = distInfo.stats;
 
-    const vizDiv = document.getElementById('dist-visualization');
-    if (distInfo.image) {
-        const img = document.createElement('img');
-        img.src = distInfo.image;
-        img.alt = distInfo.title;
-        img.style.cssText = 'width: 600px; min-height: 200px; object-fit: contain; display: block; margin: 0 auto;';
-                                
-        img.onerror = function() {
-            console.error(`Failed to load image: ${distInfo.image}`);
-            vizDiv.innerHTML = `<div style="padding: 20px; color: #d32f2f; border: 1px dashed #d32f2f; border-radius: 4px;">Image not found: ${distInfo.image}</div>`;
-        };
-        
-        img.onload = function() {
-            console.log(`Image loaded successfully: ${distInfo.image}`);
-        };
-        
-        vizDiv.innerHTML = '';
-        vizDiv.appendChild(img);
-    }
-    
-    // Add visual feedback to clicked spot
+    if (!pdfChart) pdfChart = buildPdfChart(document.getElementById('dist-visualization'));
+    pdfChart.update(distInfo.data, distInfo.ticks, distInfo.color);
+
+    // Outline the chosen spot
     document.querySelectorAll('.clickable-spot').forEach(spot => {
-        spot.style.transform = 'scale(1)';
-        spot.style.boxShadow = 'none';
+        spot.classList.toggle('selected', spot === el);
     });
-    
-    event.target.style.transform = 'scale(1.3)';
-    event.target.style.boxShadow = '0 0 20px rgba(255,255,255,0.9)';
-    
-    setTimeout(() => {
-        event.target.style.transform = 'scale(1)';
-        event.target.style.boxShadow = 'none';
-    }, 300);
 }
+
+// One PDF chart that is built once. Switching pixels only changes the axis
+// numbers and the curve; the frame, grid, ticks and labels stay put.
+// Every pixel uses 3 x-ticks and 3 y-ticks at the same positions:
+// x-ticks sit 1/10, 1/2 and 9/10 of the way across, y-ticks at 0, 45% and 91%.
+var PDF_TICKS = {
+    right_skewed: { x: [0.010, 0.025, 0.040], y: [0, 28, 56] },
+    normal:       { x: [0.006, 0.012, 0.018], y: [0, 50, 100] },
+    left_skewed:  { x: [0.220, 0.385, 0.550], y: [0, 3, 6] }
+};
+var pdfChart = null;
+
+function buildPdfChart(box) {
+    const NS = 'http://www.w3.org/2000/svg';
+    const W = 560, H = 300, M = { l: 62, r: 18, t: 14, b: 52 };
+    const pw = W - M.l - M.r, ph = H - M.t - M.b;
+    const el = (tag, attrs, parent) => {
+        const n = document.createElementNS(NS, tag);
+        for (const k in attrs) n.setAttribute(k, attrs[k]);
+        (parent || svg).appendChild(n);
+        return n;
+    };
+    box.innerHTML = '';
+    const svg = el('svg', { viewBox: '0 0 ' + W + ' ' + H, class: 'pdf-chart', role: 'img', 'aria-label': 'Predicted pixel PDF' }, box);
+    // fixed tick positions as fractions of the plot
+    const fx = [0.1, 0.5, 0.9], fy = [0, 0.5 / 1.1, 1 / 1.1];
+    const px = f => M.l + f * pw, py = f => M.t + ph - f * ph;
+    const yLabels = fy.map(f => {
+        el('line', { x1: M.l, x2: W - M.r, y1: py(f), y2: py(f), stroke: f === 0 ? '#999' : '#e6e6e6', 'stroke-width': 1 });
+        return el('text', { x: M.l - 8, y: py(f) + 4, 'text-anchor': 'end', 'font-size': 13, fill: '#52514e' });
+    });
+    const xLabels = fx.map(f => {
+        el('line', { x1: px(f), x2: px(f), y1: M.t + ph, y2: M.t + ph + 5, stroke: '#999' });
+        return el('text', { x: px(f), y: M.t + ph + 21, 'text-anchor': 'middle', 'font-size': 13, fill: '#52514e' });
+    });
+    el('text', { x: M.l + pw / 2, y: H - 8, 'text-anchor': 'middle', 'font-size': 14, fill: '#333' }).textContent = 'Pixel intensity';
+    el('text', { x: 16, y: M.t + ph / 2, 'text-anchor': 'middle', 'font-size': 14, fill: '#333', transform: 'rotate(-90 16 ' + (M.t + ph / 2) + ')' }).textContent = 'Density';
+    const fill = el('path', { 'fill-opacity': 0.18 });
+    const line = el('path', { fill: 'none', 'stroke-width': 2.5, 'stroke-linejoin': 'round' });
+    const dot = el('circle', { r: 5, fill: '#111', stroke: '#fff', 'stroke-width': 2 });
+    const guide = el('line', { y1: M.t, y2: M.t + ph, stroke: '#777', 'stroke-dasharray': '3 3', visibility: 'hidden' });
+    const mark = el('circle', { r: 4.5, stroke: '#fff', 'stroke-width': 2, visibility: 'hidden' });
+    const tip = el('text', { 'font-size': 13, fill: '#111', visibility: 'hidden' });
+    const hit = el('rect', { x: M.l, y: M.t, width: pw, height: ph, fill: 'transparent' });
+
+    const chart = { cur: null };
+    chart.update = function (d, ticks, color) {
+        const t = ticks.x, span = t[2] - t[0];
+        const x0 = t[0] - span / 8, x1 = t[2] + span / 8; // ticks land at 1/10 and 9/10
+        const yMax = ticks.y[2] * 1.1;
+        const x = v => M.l + (v - x0) / (x1 - x0) * pw;
+        const y = v => M.t + ph - v / yMax * ph;
+        chart.cur = { d, x, y, color, yMax };
+        ticks.y.forEach((v, i) => { yLabels[i].textContent = v; });
+        ticks.x.forEach((v, i) => { xLabels[i].textContent = v.toFixed(3); });
+        const c = d.curve;
+        const path = c.map((p, i) => (i ? 'L' : 'M') + x(p[0]).toFixed(1) + ' ' + y(p[1]).toFixed(1)).join(' ');
+        line.setAttribute('d', path);
+        line.setAttribute('stroke', color);
+        fill.setAttribute('d', path + ' L' + x(c[c.length - 1][0]).toFixed(1) + ' ' + y(0) + ' L' + x(c[0][0]).toFixed(1) + ' ' + y(0) + ' Z');
+        fill.setAttribute('fill', color);
+        dot.setAttribute('cx', x(d.dot[0])); dot.setAttribute('cy', y(d.dot[1]));
+        mark.setAttribute('fill', color);
+        [guide, mark, tip].forEach(n => n.setAttribute('visibility', 'hidden'));
+    };
+    hit.addEventListener('mousemove', ev => {
+        const k = chart.cur; if (!k) return;
+        const r = svg.getBoundingClientRect();
+        const mx = (ev.clientX - r.left) * W / r.width;
+        let best = k.d.curve[0];
+        k.d.curve.forEach(p => { if (Math.abs(k.x(p[0]) - mx) < Math.abs(k.x(best[0]) - mx)) best = p; });
+        const bx = k.x(best[0]), by = k.y(best[1]);
+        [guide, mark, tip].forEach(n => n.setAttribute('visibility', 'visible'));
+        guide.setAttribute('x1', bx); guide.setAttribute('x2', bx);
+        mark.setAttribute('cx', bx); mark.setAttribute('cy', by);
+        tip.textContent = 'intensity ' + best[0].toFixed(4) + ', density ' + best[1].toFixed(best[1] < 10 ? 2 : 1);
+        const right = bx > M.l + pw * 0.6;
+        tip.setAttribute('x', right ? bx - 8 : bx + 8);
+        tip.setAttribute('text-anchor', right ? 'end' : 'start');
+        tip.setAttribute('y', M.t + 14);
+    });
+    hit.addEventListener('mouseleave', () => [guide, mark, tip].forEach(n => n.setAttribute('visibility', 'hidden')));
+    return chart;
+}
+
+// Figure 5 viewer: one image per noise type and level
+(function () {
+    var dir = "{{ '/assets/img/proj_2_qutcc/fig5/' | relative_url }}";
+    var notes = {
+        gaussian_less: 'Gaussian noise, σ = 0.1',
+        gaussian_more: 'Gaussian noise, σ = 0.4',
+        poisson_less: 'Poisson noise, λ = 90',
+        poisson_more: 'Poisson noise, λ = 60'
+    };
+    var state = { noise: 'gaussian', level: 'less' };
+    // preload so switching is instant
+    Object.keys(notes).forEach(function (k) { new Image().src = dir + k + '.png'; });
+    function update() {
+        var key = state.noise + '_' + state.level;
+        var img = document.getElementById('fig5-img');
+        img.src = dir + key + '.png';
+        img.alt = 'Fig. 5: predicted pixel PDFs, ' + notes[key];
+        document.getElementById('fig5-note').textContent = notes[key] + '. Predicted PDFs at the 10 colored pixels for QUTCC, Deep Ensemble and MC-Dropout. From Fig. 5 of the paper.';
+    }
+    function wire(selector, attr, field) {
+        var btns = document.querySelectorAll(selector);
+        btns.forEach(function (b) {
+            b.addEventListener('click', function () {
+                state[field] = b.getAttribute(attr);
+                btns.forEach(function (o) {
+                    o.classList.toggle('active', o === b);
+                    o.setAttribute('aria-checked', o === b ? 'true' : 'false');
+                });
+                update();
+            });
+        });
+    }
+    document.addEventListener('DOMContentLoaded', function () {
+        if (!document.getElementById('fig5-img')) return;
+        wire('.fig5-noise', 'data-noise', 'noise');
+        wire('.fig5-level', 'data-level', 'level');
+    });
+})();
+
+// Show the first pixel's PDF when the page loads
+document.addEventListener('DOMContentLoaded', function () {
+    showDistribution('right-skewed', document.querySelector('.spot-blue'));
+});
 </script>
 
 <script type="text/javascript">
@@ -792,7 +931,7 @@ function drawPinballLoss(q) {
     ctx.fillStyle = '#333';
     ctx.font = '12px Arial';
     ctx.textAlign = 'center';
-    ctx.fillText('Ground Truth - Predicted', canvas.width / 2, canvas.height - 10);
+    ctx.fillText('Predicted − Ground Truth', canvas.width / 2, canvas.height - 10);
     ctx.save();
     ctx.translate(15, canvas.height / 2);
     ctx.rotate(-Math.PI / 2);
@@ -805,10 +944,10 @@ function drawPinballLoss(q) {
     const maxLoss = 0.5;  // Match Python ylim
     const lossToPy = (loss) => (canvas.height - margin) - (loss / maxLoss) * height;
     
-    // Corrected Pinball loss function - following Python exactly
+    // Pinball loss (paper Eq. 1), plotted against x̂ − x like Fig. 1a.
+    // Over-estimates (x̂ > x) cost (1 − q); under-estimates cost q.
     function pinballLoss(error, quantile) {
-        // Python: np.maximum(quantile * error, (quantile - 1) * error)
-        return Math.max(quantile * error, (quantile - 1) * error);
+        return Math.max((1 - quantile) * error, -quantile * error);
     }
     
     // Draw horizontal line at y=0
@@ -1075,7 +1214,7 @@ function updateVisualization() {
         tip.style.top = Math.max(0, Math.min(top, box.height - tip.offsetHeight)) + 'px';
     }
 
-    var buttons = document.querySelectorAll('.t1-btn');
+    var buttons = document.querySelectorAll('#table1 .t1-btn');
     buttons.forEach(function (b) {
         b.addEventListener('click', function () {
             current = +b.dataset.task;
@@ -1086,7 +1225,7 @@ function updateVisualization() {
     });
     // Posterior-based / Quantile-based: pick one
     function applyMode() {
-        document.querySelectorAll('.t1-group-btn').forEach(function (o) {
+        document.querySelectorAll('#table1 .t1-group-btn').forEach(function (o) {
             var on = o.dataset.group === mode;
             o.classList.toggle('active', on);
             o.setAttribute('aria-checked', on);
@@ -1095,7 +1234,7 @@ function updateVisualization() {
             it.classList.toggle('is-off', !visible(k));
         });
     }
-    document.querySelectorAll('.t1-group-btn').forEach(function (b) {
+    document.querySelectorAll('#table1 .t1-group-btn').forEach(function (b) {
         b.addEventListener('click', function () {
             mode = b.dataset.group;
             highlight = null;
